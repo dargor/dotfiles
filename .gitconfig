@@ -1,0 +1,9 @@
+[user]
+	name = Gabriel Linder
+	email = linder.gabriel@gmail.com
+[color]
+	ui = true
+[push]
+	default = current
+[alias]
+	graph = log --graph --oneline --decorate

@@ -1,0 +1,55 @@
+options=!autopickup
+options=!cmdassist
+options=!help
+options=!sparkle
+#
+options=autodig
+options=color
+options=decgraphics
+options=hilite_pet
+options=lit_corridor
+options=menucolors
+options=showbuc
+options=showrace
+options=time
+#
+options=boulder:0
+options=disclose:yi ya yv yg yc
+options=fruit:brain of mind flayer
+options=name:Dargor
+options=runmode:walk
+options=suppress_alert:0.0.7
+#
+menucolor="* blessed*"=green
+menucolor="* holy water*"=green
+#
+menucolor="* uncursed*"=blue
+#
+menucolor="* cursed*"=red
+menucolor="* unholy water*"=red
+#
+menucolor="* burnt*"=brown
+menucolor="* corroded*"=brown
+menucolor="* rotted*"=brown
+menucolor="* rusty*"=brown
+#
+menucolor="* very burnt*"=yellow
+menucolor="* very corroded*"=yellow
+menucolor="* very rotted*"=yellow
+menucolor="* very rusty*"=yellow
+#
+menucolor="* thoroughly burnt*"=orange
+menucolor="* thoroughly corroded*"=orange
+menucolor="* thoroughly rotted*"=orange
+menucolor="* thoroughly rusty*"=orange
+#
+menucolor="* cancellation*"=magenta
+menucolor="* holding*"=magenta
+menucolor="* tricks*"=magenta
+menucolor="* vanish*"=magenta
+#
+menucolor="* (*lit)*"=white
+#
+menucolor="* gray stone*"=black
+menucolor="* load stone*"=black
+menucolor="* loadstone*"=black

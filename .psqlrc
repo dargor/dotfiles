@@ -1,0 +1,6 @@
+\pset linestyle unicode
+\pset null NULL
+\pset pager off
+\set PROMPT1 '%n@%M(%>):%/%x%# '
+\timing on
+\x auto

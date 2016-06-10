@@ -1,0 +1,8 @@
+banner        = no
+color_patches = no
+diff_cmd      = diff
+plain         = none
+newtext       = darkgreen
+oldtext       = darkred
+diffstuff     = darkyellow
+cvsstuff      = darkmagenta

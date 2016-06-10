@@ -1,0 +1,135 @@
+# XXX copier dans ~/.i3/config
+
+# modifier
+set $mod Mod4
+
+# interface font
+font -xos4-terminus-medium-r-normal-*-12-120-72-72-c-60-iso10646-1
+
+# window borders
+new_float normal 1
+new_window normal 1
+
+# mouse drag key
+floating_modifier $mod
+
+# lock session
+bindsym $mod+Return exec --no-startup-id i3lock --ignore-empty-password
+
+# spawn terminal
+bindsym $mod+t exec --no-startup-id xterm
+
+# spawn unicode terminal
+bindsym $mod+u exec --no-startup-id uxterm
+
+# spawn nethack terminal :)
+bindsym $mod+n exec --no-startup-id xterm -fb '-xos4-terminus-bold-r-normal-*-32-320-72-72-c-160-iso8859-15' -fn '-xos4-terminus-medium-r-normal-*-32-320-72-72-c-160-iso8859-15'
+
+# kill focused window
+bindsym $mod+c kill
+
+# toggle focused window borders
+bindsym $mod+b border toggle
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+mode "resize" {
+	# resize parent container
+	bindsym x resize shrink width
+	bindsym j resize shrink height
+	bindsym h resize grow height
+	bindsym w resize grow width
+	# back to normal mode
+	bindsym Escape mode "default"
+}
+# enter resize mode
+bindsym $mod+a mode "resize"
+
+# horizontal split
+bindsym $mod+s split horizontal
+
+# vertical split
+bindsym $mod+v split vertical
+
+# toggle fullscreen mode
+bindsym $mod+f fullscreen
+
+# default layout
+workspace_layout tabbed
+
+# toggle split container layout
+bindsym $mod+e layout toggle split
+
+# stacked container layout
+bindsym $mod+r layout stacking
+
+# tabbed container layout
+bindsym $mod+z layout tabbed
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus parent container
+bindsym $mod+q focus parent
+
+# focus child container
+bindsym $mod+d focus child
+
+# always wrap focus
+force_focus_wrapping yes
+
+# focus always follows mouse
+focus_follows_mouse yes
+
+# switch back to original workspace
+workspace_auto_back_and_forth yes
+
+# switch workspaces
+bindsym $mod+F1 workspace 1
+bindsym $mod+F2 workspace 2
+bindsym $mod+F3 workspace 3
+bindsym $mod+F4 workspace 4
+bindsym $mod+F5 workspace 5
+bindsym $mod+F6 workspace 6
+bindsym $mod+F7 workspace 7
+bindsym $mod+F8 workspace 8
+bindsym $mod+F9 workspace 9
+bindsym $mod+F10 workspace 10
+bindsym $mod+F11 workspace 11
+bindsym $mod+F12 workspace 12
+
+# move focused container to workspace
+bindsym $mod+Shift+F1 move container to workspace 1
+bindsym $mod+Shift+F2 move container to workspace 2
+bindsym $mod+Shift+F3 move container to workspace 3
+bindsym $mod+Shift+F4 move container to workspace 4
+bindsym $mod+Shift+F5 move container to workspace 5
+bindsym $mod+Shift+F6 move container to workspace 6
+bindsym $mod+Shift+F7 move container to workspace 7
+bindsym $mod+Shift+F8 move container to workspace 8
+bindsym $mod+Shift+F9 move container to workspace 9
+bindsym $mod+Shift+F10 move container to workspace 10
+bindsym $mod+Shift+F11 move container to workspace 11
+bindsym $mod+Shift+F12 move container to workspace 12
+
+# reload configuration file
+bindsym $mod+Shift+c reload
+
+# restart inplace
+bindsym $mod+Shift+r restart
+
+# exit session
+bindsym $mod+Shift+q exit
