@@ -25,6 +25,9 @@ bindsym $mod+u exec --no-startup-id uxterm
 # spawn nethack terminal :)
 bindsym $mod+n exec --no-startup-id xterm -fb '-xos4-terminus-bold-r-normal-*-32-320-72-72-c-160-iso8859-15' -fn '-xos4-terminus-medium-r-normal-*-32-320-72-72-c-160-iso8859-15'
 
+# spawn dwarf fortress terminal :)
+bindsym $mod+m exec --no-startup-id uxterm -fb '-xos4-terminus-bold-r-normal-*-32-320-72-72-c-160-iso10646-1' -fn '-xos4-terminus-medium-r-normal-*-32-320-72-72-c-160-iso10646-1'
+
 # kill focused window
 bindsym $mod+c kill
 
