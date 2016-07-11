@@ -29,7 +29,7 @@ set wildmode=list:longest,full
 
 if !&diff
 	set cursorline
-	"set cursorcolumn
+	set cursorcolumn
 	"set colorcolumn=80
 endif
 
@@ -49,11 +49,11 @@ if &t_Co > 2
 	syntax on
 	set hlsearch
 	filetype plugin indent on
-	autocmd BufNewFile,BufRead *.sls set syntax=yaml
+	autocmd BufNewFile,BufRead *.sls set filetype=yaml
 	if !&diff
-		autocmd FileType python setlocal cursorcolumn|setlocal colorcolumn=80
-		autocmd FileType lisp,erlang setlocal expandtab|setlocal cursorcolumn|setlocal colorcolumn=80
-		autocmd FileType sql,php,twig,javascript setlocal expandtab|setlocal shiftwidth=4
+		autocmd FileType python setlocal colorcolumn=80
+		autocmd FileType lisp,erlang setlocal expandtab|setlocal colorcolumn=80
+		autocmd FileType sql,php,twig,javascript,yaml setlocal expandtab|setlocal shiftwidth=4
 		"autocmd Syntax * let w:m1=matchadd('ErrorMsg', '\%>80v.\+')
 		"autocmd Syntax * let w:m2=matchadd('ErrorMsg', '\t{')
 		autocmd Syntax * let w:m3=matchadd('ErrorMsg', '\(\t\|\s\+$\)')
