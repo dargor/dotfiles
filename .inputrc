@@ -4,6 +4,8 @@ set convert-meta off
 set input-meta on
 set output-meta on
 set meta-flag on
+set enable-keypad on
+set show-all-if-ambiguous on
 
 "\e[1~": beginning-of-line
 "\e[2~": quoted-insert
