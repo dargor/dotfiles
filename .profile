@@ -31,6 +31,11 @@ else
 fi
 export VISUAL="$EDITOR"
 
+if [ -x "/usr/bin/dircolors" ]
+then
+	eval "$(/usr/bin/dircolors)"
+fi
+
 if [ "$UID" -eq "0" ]
 then
 	umask 022

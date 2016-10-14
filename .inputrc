@@ -5,7 +5,11 @@ set input-meta on
 set output-meta on
 set meta-flag on
 set enable-keypad on
+
 set show-all-if-ambiguous on
+set colored-completion-prefix on
+set colored-stats on
+set visible-stats on
 
 "\e[1~": beginning-of-line
 "\e[2~": quoted-insert
