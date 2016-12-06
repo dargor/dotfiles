@@ -65,6 +65,7 @@ function rst
 
 alias j="jobs -l"
 alias h="history 20"
+alias ll="ls --color=auto -ailp"
 alias dir="ls --color=auto -ailp"
 alias grep="grep --color=auto"
 
