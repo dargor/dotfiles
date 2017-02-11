@@ -1,0 +1,16 @@
+[global]
+device = cpu
+floatX = float32
+warn_float64 = raise
+openmp = True
+int_division = raise
+mode = FAST_RUN
+optimizer = fast_run
+on_opt_error = warn
+on_shape_error = warn
+
+[blas]
+ldflags = -L/usr/lib/ -lblas -lgfortran
+
+[gcc]
+cxxflags = -pipe
