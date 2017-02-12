@@ -1,7 +1,7 @@
 [global]
 device = cpu
-floatX = float32
-warn_float64 = raise
+floatX = float64
+warn_float64 = ignore
 openmp = True
 int_division = raise
 mode = FAST_RUN
