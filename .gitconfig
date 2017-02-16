@@ -7,3 +7,6 @@
 	default = current
 [alias]
 	graph = log --graph --oneline --decorate
+[commit]
+	signoff = true
+	verbose = true
