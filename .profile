@@ -8,7 +8,6 @@ if [ "$TERM" != "xterm-256color" ]
 then
 	export TERM="xterm-color"
 fi
-eval "`tset -sQ $TERM`"
 
 export BLOCKSIZE="k"
 export HISTCONTROL="ignorespace:erasedups"
