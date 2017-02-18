@@ -15,6 +15,11 @@ export INPUTRC="~/.inputrc"
 export GDK_USE_XFT="1"
 export LC_COLLATE="C"
 
+if [ -z "${LANG:-}" ]
+then
+	export LANG="en_US.UTF-8"
+fi
+
 if [ -x "/usr/bin/most" ]
 then
 	export PAGER="/usr/bin/most"
@@ -69,6 +74,16 @@ alias dir="ls --color=auto -ailp"
 alias grep="grep --color=auto"
 
 # XXX ce qui suit doit rester en dernier
+
+cd ~/.profile.d/
+for f in *
+do
+	if [ "$f" != '*' ]
+	then
+		. ./"$f"
+	fi
+done
+cd
 
 LAST_COMMAND=""
 
