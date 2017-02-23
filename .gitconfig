@@ -10,3 +10,5 @@
 [commit]
 	signoff = true
 	verbose = true
+[pager]
+	stash = false
