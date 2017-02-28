@@ -4,7 +4,7 @@ set -o posix
 
 export PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/usr/games"
 
-if [ "$TERM" != "xterm-256color" ]
+if [ "$TERM" != "xterm-256color" ] && [ "$TERM" != "screen-256color" ]
 then
 	export TERM="xterm-color"
 fi
