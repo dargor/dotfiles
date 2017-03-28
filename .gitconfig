@@ -6,6 +6,7 @@
 [push]
 	default = current
 [alias]
+	eax = commit --amend --no-edit
 	graph = log --graph --oneline --decorate
 [commit]
 	signoff = true
