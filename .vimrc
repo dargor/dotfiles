@@ -49,6 +49,7 @@ if &t_Co > 2
 	syntax on
 	set hlsearch
 	filetype plugin indent on
+	autocmd BufNewFile,BufRead *.hy set filetype=lisp
 	autocmd BufNewFile,BufRead *.sls set filetype=yaml
 	autocmd BufNewFile,BufRead *.cnf,*.timer,*.service set filetype=dosini
 	if !&diff
