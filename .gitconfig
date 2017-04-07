@@ -8,6 +8,7 @@
 [alias]
 	eax = commit --amend --no-edit
 	graph = log --graph --oneline --decorate
+	wdiff = diff --word-diff
 [commit]
 	signoff = true
 	verbose = true
