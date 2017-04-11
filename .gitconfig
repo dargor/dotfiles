@@ -1,16 +1,21 @@
 [user]
-	name = Gabriel Linder
-	email = linder.gabriel@gmail.com
+name = Gabriel Linder
+email = linder.gabriel@gmail.com
+
 [color]
-	ui = true
+ui = true
+
 [push]
-	default = current
-[alias]
-	eax = commit --amend --no-edit
-	graph = log --graph --oneline --decorate
-	wdiff = diff --word-diff
-[commit]
-	signoff = true
-	verbose = true
+default = current
+
 [pager]
-	stash = false
+stash = false
+
+[alias]
+t = tag -n
+b = branch --verbose --all
+c = commit --verbose --signoff
+eax = commit --amend --no-edit
+graph = log --graph --oneline --decorate
+wdiff = diff --word-diff
+fpush = push --force
