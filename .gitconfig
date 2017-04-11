@@ -19,3 +19,4 @@ eax = commit --amend --no-edit
 graph = log --graph --oneline --decorate
 wdiff = diff --word-diff
 fpush = push --force
+pfetch = fetch origin --prune
