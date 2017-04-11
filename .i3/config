@@ -97,6 +97,9 @@ force_focus_wrapping yes
 # focus always follows mouse
 focus_follows_mouse yes
 
+# disable mouse warping
+mouse_warping none
+
 # switch back to original workspace
 workspace_auto_back_and_forth yes
 
@@ -127,6 +130,12 @@ bindsym $mod+Shift+F9 move container to workspace 9
 bindsym $mod+Shift+F10 move container to workspace 10
 bindsym $mod+Shift+F11 move container to workspace 11
 bindsym $mod+Shift+F12 move container to workspace 12
+
+# push to scratchpad
+bindsym $mod+Shift+asterisk move scratchpad
+
+# pop from scratchpad
+bindsym $mod+asterisk scratchpad show
 
 # reload configuration file
 bindsym $mod+Shift+c reload
