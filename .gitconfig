@@ -6,7 +6,8 @@ email = linder.gabriel@gmail.com
 ui = true
 
 [push]
-default = current
+default = simple
+followTags = true
 
 [pager]
 stash = false
@@ -19,4 +20,5 @@ eax = commit --amend --no-edit
 graph = log --graph --oneline --decorate
 wdiff = diff --word-diff
 fpush = push --force
+fuck = reset --hard ORIG_HEAD
 pfetch = fetch origin --prune
