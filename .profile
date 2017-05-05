@@ -72,6 +72,7 @@ alias h="history 20"
 alias ll="ls --color=auto -ailp"
 alias dir="ls --color=auto -ailp"
 alias grep="grep --color=auto"
+alias bip="echo "
 
 # XXX ce qui suit doit rester en dernier
 
