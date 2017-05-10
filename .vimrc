@@ -56,6 +56,7 @@ if &t_Co > 2
 		autocmd FileType python setlocal colorcolumn=80
 		autocmd FileType lisp,erlang setlocal expandtab|setlocal colorcolumn=80
 		autocmd FileType sql,php,twig,javascript,yaml setlocal expandtab|setlocal shiftwidth=4
+		autocmd FileType lua setlocal expandtab|setlocal shiftwidth=2
 		"autocmd Syntax * let w:m1=matchadd('ErrorMsg', '\%>80v.\+')
 		"autocmd Syntax * let w:m2=matchadd('ErrorMsg', '\t{')
 		autocmd Syntax * let w:m3=matchadd('ErrorMsg', '\(\t\|\s\+$\)')
