@@ -5,6 +5,12 @@ email = linder.gabriel@gmail.com
 [color]
 ui = true
 
+[core]
+editor = vim
+
+[pull]
+rebase = true
+
 [push]
 default = simple
 followTags = true
