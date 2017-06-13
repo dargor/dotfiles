@@ -50,7 +50,7 @@ if &t_Co > 2
 	set hlsearch
 	filetype plugin indent on
 	autocmd BufNewFile,BufRead *.hy set filetype=lisp
-	autocmd BufNewFile,BufRead *.sls set filetype=yaml
+	autocmd BufNewFile,BufRead master,roster,*.sls set filetype=yaml
 	autocmd BufNewFile,BufRead *.cnf,*.timer,*.service set filetype=dosini
 	if !&diff
 		autocmd FileType python setlocal colorcolumn=80
