@@ -8,6 +8,25 @@ ui = true
 [core]
 editor = vim
 
+[diff]
+tool = meld
+
+[difftool]
+prompt = false
+
+[difftool "meld"]
+cmd = meld "$LOCAL" "$REMOTE"
+
+[merge]
+tool = meld
+
+[mergetool]
+prompt = false
+
+[mergetool "meld"]
+cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+#cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+
 [pull]
 rebase = true
 
