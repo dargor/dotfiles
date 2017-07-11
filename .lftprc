@@ -1,0 +1,2 @@
+debug 5
+set ssl:verify-certificate false
