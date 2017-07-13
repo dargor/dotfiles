@@ -2,6 +2,9 @@
 name = Gabriel Linder
 email = linder.gabriel@gmail.com
 
+[help]
+autocorrect = -1
+
 [color]
 ui = true
 
