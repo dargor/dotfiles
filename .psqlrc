@@ -4,7 +4,7 @@
 \pset null NULL
 \pset pager off
 
-\set PROMPT1 '▓ [96m%n[0m@[95m%M[0m:[93m%>[0m [[92m%/[0m] [91m%x[0m\n▓ '
+\set PROMPT1 '▒ [96m%n[0m@[95m%M[0m:[93m%>[0m [[92m%/[0m] [91m%x[0m\n▒ '
 \set HISTCONTROL ignoredups
 \set VERBOSITY verbose
 
