@@ -73,7 +73,6 @@ alias ll="ls --color=auto -ailp"
 alias dir="ls --color=auto -ailp"
 alias grep="grep --color=auto"
 alias bip="echo "
-alias cal="ncal -3MC"
 
 # XXX ce qui suit doit rester en dernier
 
