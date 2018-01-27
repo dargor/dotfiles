@@ -29,7 +29,7 @@ set wildmode=list:longest,full
 
 if !&diff
 	set cursorline
-	set cursorcolumn
+	"set cursorcolumn
 	"set colorcolumn=80
 endif
 
@@ -63,8 +63,8 @@ if &t_Co > 2
 		autocmd Syntax * let w:m3=matchadd('ErrorMsg', '\(\t\|\s\+$\)')
 	endif
 	if &t_Co > 16
-		highlight CursorLine cterm=None ctermbg=234
-		highlight CursorColumn cterm=None ctermbg=234
+		highlight CursorLine cterm=None ctermbg=236
+		highlight CursorColumn cterm=None ctermbg=236
 		highlight ColorColumn cterm=None ctermbg=196
 		highlight Folded cterm=None ctermfg=243 ctermbg=None
 		highlight Visual cterm=None ctermbg=193
