@@ -55,6 +55,7 @@ if &t_Co > 2
 	autocmd BufNewFile,BufRead *.cnf,*.timer,*.service set filetype=dosini
 	if !&diff
 		autocmd FileType python setlocal colorcolumn=80
+		autocmd FileType c setlocal expandtab|setlocal shiftwidth=4
 		autocmd FileType lisp,erlang setlocal expandtab|setlocal colorcolumn=80
 		autocmd FileType sql,php,twig,javascript setlocal expandtab|setlocal shiftwidth=4
 		autocmd FileType lua,yaml setlocal expandtab|setlocal shiftwidth=2
@@ -63,8 +64,8 @@ if &t_Co > 2
 		autocmd Syntax * let w:m3=matchadd('ErrorMsg', '\(\t\|\s\+$\)')
 	endif
 	if &t_Co > 16
-		highlight CursorLine cterm=None ctermbg=236
-		highlight CursorColumn cterm=None ctermbg=236
+		highlight CursorLine cterm=None ctermbg=235
+		highlight CursorColumn cterm=None ctermbg=235
 		highlight ColorColumn cterm=None ctermbg=196
 		highlight Folded cterm=None ctermfg=243 ctermbg=None
 		highlight Visual cterm=None ctermbg=193
