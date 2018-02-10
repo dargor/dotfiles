@@ -1,4 +1,4 @@
-#!/bin/sh
+#! /usr/bin/env bash
 
 set -o posix
 
@@ -11,7 +11,7 @@ fi
 
 export BLOCKSIZE="k"
 export HISTCONTROL="ignorespace:erasedups"
-export INPUTRC="~/.inputrc"
+export INPUTRC=~/.inputrc
 export GDK_USE_XFT="1"
 export LC_COLLATE="C"
 
@@ -52,8 +52,8 @@ export PS1="\n$PS1"
 
 function clr
 {
-	rm -f .*~
-	rm -f *~
+	rm -f ./.*~
+	rm -f ./*~
 }
 
 function rst
@@ -69,6 +69,7 @@ function rst
 
 alias j="jobs -l"
 alias h="history 20"
+alias l="ls --color=auto -ap"
 alias ll="ls --color=auto -ailp"
 alias dir="ls --color=auto -ailp"
 alias grep="grep --color=auto"
@@ -90,7 +91,7 @@ LAST_COMMAND=""
 
 function reset_term_title
 {
-	if [ -z "`jobs -p`" ]
+	if [ -z "$(jobs -p)" ]
 	then
 		LAST_COMMAND=""
 	fi
