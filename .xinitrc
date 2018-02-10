@@ -2,6 +2,7 @@
 
 xsetroot -solid black -cursor_name left_ptr
 setxkbmap -option '' -option kpdl:dot -layout fr -model pc105
+feh --no-fehbg --bg-fill /home/dargor/git/Code.png
 
 xset b off
 xset s off
