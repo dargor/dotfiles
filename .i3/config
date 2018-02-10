@@ -137,6 +137,12 @@ bindsym $mod+Shift+asterisk move scratchpad
 # pop from scratchpad
 bindsym $mod+asterisk scratchpad show
 
+# status bar
+bar {
+	position top
+	status_command i3status -c ~/.i3/status
+}
+
 # reload configuration file
 bindsym $mod+Shift+c reload
 
