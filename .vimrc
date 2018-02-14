@@ -65,7 +65,7 @@ if &t_Co > 2
         highlight CursorLine cterm=None ctermbg=None
         highlight CursorColumn cterm=None ctermbg=None
     endif
-    highlight Todo cterm=Bold ctermfg=Red ctermbg=Yellow
+    highlight Todo cterm=Bold ctermfg=Red ctermbg=None
     highlight LineNr cterm=Bold ctermfg=Yellow ctermbg=Blue
     highlight CursorLineNr cterm=Bold ctermfg=Green ctermbg=DarkBlue
     highlight DiffAdd cterm=None ctermfg=Black ctermbg=Green
