@@ -2,6 +2,8 @@
 
 set -o posix
 
+head -n 7 /etc/issue
+
 export PATH="/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/usr/games"
 
 if [ "$TERM" != "xterm-256color" ] && [ "$TERM" != "screen-256color" ]
@@ -10,6 +12,7 @@ then
 fi
 
 export BLOCKSIZE="k"
+export QUOTING_STYLE="literal"
 export HISTCONTROL="ignorespace:erasedups"
 export INPUTRC=~/.inputrc
 export GDK_USE_XFT="1"
