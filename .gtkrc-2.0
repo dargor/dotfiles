@@ -1,6 +1,9 @@
+gtk-cursor-theme-name="default"
 gtk-font-name="Sans 8"
 
+gtk-xft-autohint=1
+gtk-xft-lcdfilter="lcddefault"
+gtk-xft-hintstyle="hintslight"
 gtk-xft-hinting=1
-gtk-xft-hintstyle="full"
 gtk-xft-antialias=1
 gtk-xft-rgba="rgb"
