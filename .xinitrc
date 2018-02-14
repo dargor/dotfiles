@@ -10,7 +10,16 @@ xset r rate 250 30
 xset dpms 600 1200 1800
 xset -dpms
 
-[ -x /usr/bin/xbindkeys ] && /usr/bin/xbindkeys
-[ -x /usr/bin/gpg-agent ] && eval "$(/usr/bin/gpg-agent --daemon)"
+xset fp default
+for f in /usr/share/fonts/*; do
+    case "$f" in
+    /usr/share/fonts/encodings|/usr/share/fonts/util)
+        ;;
+    *)
+        xset fp+ "$f"
+    esac
+done
 
-exec ssh-agent i3
+[ -x /usr/bin/xbindkeys ] && /usr/bin/xbindkeys
+
+exec gpg-agent --daemon ssh-agent i3
