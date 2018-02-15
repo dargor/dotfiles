@@ -15,6 +15,7 @@ floating_modifier $mod
 
 # lock session
 bindsym $mod+Return exec --no-startup-id xtrlock -b
+bindsym $mod+Shift+Return exec --no-startup-id xtrlock
 
 # spawn terminal
 bindsym $mod+t exec --no-startup-id xterm
