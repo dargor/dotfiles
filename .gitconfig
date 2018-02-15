@@ -38,7 +38,9 @@ default = simple
 followTags = true
 
 [pager]
+branch = false
 stash = false
+tag = false
 
 [alias]
 t = tag -n
