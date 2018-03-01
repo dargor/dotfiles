@@ -28,7 +28,6 @@ prompt = false
 
 [mergetool "meld"]
 cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
-#cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
 
 [pull]
 rebase = true
@@ -41,6 +40,9 @@ followTags = true
 branch = false
 stash = false
 tag = false
+
+[commit]
+gpgsign = true
 
 [alias]
 t = tag -n
