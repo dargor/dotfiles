@@ -50,6 +50,7 @@ b = branch --verbose --all
 c = commit --verbose --signoff
 eax = commit --amend --no-edit
 graph = log --graph --oneline --decorate
+elog = log --show-signature
 wdiff = diff --word-diff
 fpush = push --force
 fuck = reset --hard ORIG_HEAD
