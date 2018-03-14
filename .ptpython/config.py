@@ -23,7 +23,7 @@ def configure(repl):
     repl.vi_mode = False
     repl.paste_mode = False
     repl.prompt_style = 'classic'
-    repl.insert_blank_line_after_output = True
+    repl.insert_blank_line_after_output = False
     repl.enable_history_search = False
     repl.enable_auto_suggest = True
     repl.enable_open_in_editor = False
