@@ -45,6 +45,7 @@ tag = false
 gpgsign = true
 
 [alias]
+r = remote -v
 t = tag -n
 b = branch --verbose --all
 c = commit --verbose --signoff
