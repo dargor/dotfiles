@@ -41,6 +41,9 @@ set secure
 
 set encoding=utf8
 
+" disable bracketed paste brainfucked mode
+set t_BE=
+
 let g:rainbow_active = 1
 let g:netrw_dirhistmax = 0
 
