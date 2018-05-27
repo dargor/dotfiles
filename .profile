@@ -77,6 +77,8 @@ alias ll="ls --color=auto -ailp"
 alias dir="ls --color=auto -ailp"
 alias grep="grep --color=auto"
 alias bip="echo "
+alias ip="ip --color"
+alias ipb="ip --color --brief"
 
 # XXX ce qui suit doit rester en dernier
 
