@@ -19,6 +19,7 @@ for f in /usr/share/fonts/*; do
         xset fp+ "$f"
     esac
 done
+xset fp rehash
 
 [ -x /usr/bin/xbindkeys ] && /usr/bin/xbindkeys
 
