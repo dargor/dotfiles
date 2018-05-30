@@ -79,6 +79,7 @@ alias grep="grep --color=auto"
 alias bip="echo "
 alias ip="ip --color"
 alias ipb="ip --color --brief"
+alias maxima="rlwrap maxima"
 
 # XXX ce qui suit doit rester en dernier
 
