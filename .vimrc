@@ -44,6 +44,11 @@ set encoding=utf8
 " disable bracketed paste brainfucked mode
 set t_BE=
 
+" Makefiles are *very* picky with tabulations
+if &filetype == 'make'
+    set noexpandtab
+endif
+
 let g:rainbow_active = 1
 let g:netrw_dirhistmax = 0
 
