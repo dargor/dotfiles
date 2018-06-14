@@ -83,6 +83,7 @@ alias ip="ip --color"
 alias ipb="ip --color --brief"
 alias nls="jupyter-notebook list"
 alias notebook="jupyter-notebook --no-browser"
+alias ssh="TERM=xterm-256color ssh"
 alias maxima="rlwrap maxima"
 alias sbcl="rlwrap sbcl"
 
