@@ -22,5 +22,6 @@ done
 xset fp rehash
 
 [ -x /usr/bin/xbindkeys ] && /usr/bin/xbindkeys
+[ -x /usr/bin/urxvtd ] && /usr/bin/urxvtd -f -o
 
 exec gpg-agent --daemon ssh-agent i3

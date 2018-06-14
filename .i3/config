@@ -18,16 +18,16 @@ bindsym $mod+Return exec --no-startup-id xtrlock -b
 bindsym $mod+Shift+Return exec --no-startup-id xtrlock
 
 # spawn terminal
-bindsym $mod+t exec --no-startup-id xterm
+bindsym $mod+t exec --no-startup-id urxvtc
 
 # spawn unicode terminal
-bindsym $mod+u exec --no-startup-id uxterm
+bindsym $mod+u exec --no-startup-id urxvtc
 
 # spawn nethack terminal :)
-bindsym $mod+n exec --no-startup-id xterm -fb '-xos4-terminus-bold-r-normal-*-32-320-72-72-c-160-iso8859-15' -fn '-xos4-terminus-medium-r-normal-*-32-320-72-72-c-160-iso8859-15'
+bindsym $mod+n exec --no-startup-id urxvtc -fb '-xos4-terminus-bold-r-normal-*-32-320-72-72-c-160-iso8859-15' -fn '-xos4-terminus-medium-r-normal-*-32-320-72-72-c-160-iso8859-15'
 
 # spawn dwarf fortress terminal :)
-bindsym $mod+m exec --no-startup-id uxterm -fb '-xos4-terminus-bold-r-normal-*-32-320-72-72-c-160-iso10646-1' -fn '-xos4-terminus-medium-r-normal-*-32-320-72-72-c-160-iso10646-1'
+bindsym $mod+m exec --no-startup-id urxvtc -fb '-xos4-terminus-bold-r-normal-*-32-320-72-72-c-160-iso10646-1' -fn '-xos4-terminus-medium-r-normal-*-32-320-72-72-c-160-iso10646-1'
 
 # kill focused window
 bindsym $mod+c kill
