@@ -1,4 +1,4 @@
-#!/bin/sh
+#! /bin/sh
 
 xsetroot -solid black -cursor_name left_ptr
 setxkbmap -option '' -option kpdl:dot -layout fr -model pc105
@@ -13,15 +13,16 @@ xset -dpms
 xset fp default
 for f in /usr/share/fonts/*; do
     case "$f" in
-    /usr/share/fonts/encodings|/usr/share/fonts/util)
-        ;;
-    *)
-        xset fp+ "$f"
+        /usr/share/fonts/encodings|/usr/share/fonts/util)
+            ;;
+        *)
+            xset fp+ "$f"
     esac
 done
 xset fp rehash
 
 [ -x /usr/bin/xbindkeys ] && /usr/bin/xbindkeys
 [ -x /usr/bin/urxvtd ] && /usr/bin/urxvtd -f -o
+[ -x /usr/bin/redshift-gtk ] && redshift-gtk -l 48.8566:2.3522 &
 
 exec gpg-agent --daemon ssh-agent i3
