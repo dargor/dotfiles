@@ -3,10 +3,6 @@
 from __future__ import unicode_literals
 from ptpython.layout import CompletionVisualisation
 
-__all__ = (
-    'configure',
-)
-
 
 def configure(repl):
     repl.show_signature = True
@@ -30,6 +26,7 @@ def configure(repl):
     repl.enable_system_bindings = False
     repl.confirm_exit = False
     repl.enable_input_validation = True
-    repl.true_color = True
+    repl.true_color = False
+    repl.enable_syntax_highlighting = True
     repl.use_code_colorscheme('vim')
     repl.use_ui_colorscheme('blue')
