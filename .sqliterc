@@ -1,0 +1,5 @@
+-- see "SQLITE META-COMMANDS" in sqlite3(1)
+.headers on
+.mode column
+.nullvalue NULL
+-- .timer on
