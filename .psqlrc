@@ -1,5 +1,6 @@
 \set QUIET 1
 
+\pset border 2
 \pset linestyle unicode
 \pset null NULL
 \pset pager off
