@@ -35,7 +35,7 @@ if !&diff
     set colorcolumn=80
 endif
 
-set lazyredraw
+"set lazyredraw
 set nomodeline
 set secure
 
