@@ -58,6 +58,7 @@ if &t_Co > 2
     filetype plugin indent on
     autocmd BufNewFile,BufRead *.hy set filetype=lisp
     autocmd BufNewFile,BufRead *.pp set filetype=ruby
+    autocmd BufNewFile,BufRead *.tf set filetype=conf
     autocmd BufNewFile,BufRead Jenkinsfile set filetype=groovy
     autocmd BufNewFile,BufRead master,roster,*.sls set filetype=yaml
     autocmd BufNewFile,BufRead *.cnf,*.timer,*.service set filetype=dosini
