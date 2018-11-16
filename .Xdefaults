@@ -3,12 +3,13 @@ Xcursor.theme: default
 Xcursor.size: 16
 
 ! Xft
-Xft.autohint: true
+Xft.autohint: false
 Xft.lcdfilter: lcddefault
-Xft.hintstyle: hintslight
+Xft.hintstyle: hintfull
 Xft.hinting: true
 Xft.antialias: true
 Xft.rgba: rgb
+Xft.dpi: 96
 
 ! XClock
 XClock.Clock.update: 1
