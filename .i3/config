@@ -23,8 +23,11 @@ bindsym $mod+t exec --no-startup-id urxvtc
 # spawn unicode terminal
 bindsym $mod+u exec --no-startup-id urxvtc
 
-# spawn nethack terminal :)
-bindsym $mod+n exec --no-startup-id urxvtc -fb '-xos4-terminus-bold-r-normal-*-32-320-72-72-c-160-iso8859-15' -fn '-xos4-terminus-medium-r-normal-*-32-320-72-72-c-160-iso8859-15'
+# spawn notepad
+bindsym $mod+n exec --no-startup-id leafpad
+
+# spawn browser
+bindsym $mod+g exec --no-startup-id google-chrome-stable
 
 # spawn dwarf fortress terminal :)
 bindsym $mod+m exec --no-startup-id urxvtc -fb '-xos4-terminus-bold-r-normal-*-32-320-72-72-c-160-iso10646-1' -fn '-xos4-terminus-medium-r-normal-*-32-320-72-72-c-160-iso10646-1'
