@@ -49,6 +49,7 @@ r = remote -v
 t = tag -n
 b = branch --verbose --all
 c = commit --verbose --signoff
+lea = add --patch
 eax = commit --amend --no-edit
 graph = log --graph --oneline --decorate
 elog = log --show-signature
