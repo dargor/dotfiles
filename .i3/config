@@ -135,6 +135,12 @@ bindsym $mod+Shift+F10 move container to workspace 10
 bindsym $mod+Shift+F11 move container to workspace 11
 bindsym $mod+Shift+F12 move container to workspace 12
 
+# move whole workspace to left
+bindsym $mod+Shift+Left move workspace to output left
+
+# move whole workspace to right
+bindsym $mod+Shift+Right move workspace to output right
+
 # push to scratchpad
 bindsym $mod+Shift+asterisk move scratchpad
 
