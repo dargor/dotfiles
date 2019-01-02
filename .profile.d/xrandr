@@ -1,0 +1,4 @@
+#! /usr/bin/env bash
+
+alias scr_on='xrandr --output HDMI-2 --mode 1920x1080 --right-of eDP-1 && ~/reset'
+alias scr_off='xrandr --output HDMI-2 --off'
