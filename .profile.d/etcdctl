@@ -1,0 +1,4 @@
+#! /usr/bin/env bash
+
+# etcdctl talks to the etcd server with the v2 API, by default
+export ETCDCTL_API=3
