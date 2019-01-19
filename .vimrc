@@ -14,7 +14,6 @@ set incsearch
 set infercase
 set mouse=
 set nofsync
-set number
 set report=0
 set ruler
 set shiftround
@@ -30,6 +29,7 @@ set wildmenu
 set wildmode=list:longest,full
 
 if !&diff
+    set number
     set cursorline
     set cursorcolumn
     set colorcolumn=80
