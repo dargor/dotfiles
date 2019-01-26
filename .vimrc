@@ -29,7 +29,7 @@ set wildmenu
 set wildmode=list:longest,full
 
 if !&diff
-    set number
+    "set number
     set cursorline
     set cursorcolumn
     set colorcolumn=80
