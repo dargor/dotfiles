@@ -86,6 +86,7 @@ alias notebook="jupyter-notebook --no-browser"
 alias ssh="TERM=xterm-256color ssh"
 alias maxima="rlwrap maxima"
 alias sbcl="rlwrap sbcl"
+alias links="links -g"
 
 for f in ~/.profile.d/*; do
     . "$f"
