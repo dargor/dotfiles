@@ -63,6 +63,7 @@ if &t_Co > 2
     autocmd BufNewFile,BufRead master,roster,*.sls set filetype=yaml
     autocmd BufNewFile,BufRead *.cnf,*.timer,*.service set filetype=dosini
     autocmd FileType ruby,eruby,yaml,json,markdown set shiftwidth=2 softtabstop=2
+    autocmd BufNewFile,BufRead package.env set filetype=gentoo-package-use
     if !&diff
         autocmd Syntax * let w:m3=matchadd('ErrorMsg', '\(\t\|\s\+$\)')
     endif
