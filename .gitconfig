@@ -58,3 +58,5 @@ fpush = push --force
 fuck = reset --hard ORIG_HEAD
 pfetch = fetch origin --prune
 sdiff = stash show -p
+slist = stash list
+spop = stash pop
