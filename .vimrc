@@ -61,9 +61,9 @@ if &t_Co > 2
     autocmd BufNewFile,BufRead *.tf set filetype=conf
     autocmd BufNewFile,BufRead Jenkinsfile set filetype=groovy
     autocmd BufNewFile,BufRead master,roster,*.sls set filetype=yaml
-    autocmd BufNewFile,BufRead *.cnf,*.timer,*.service set filetype=dosini
-    autocmd FileType ruby,eruby,yaml,json,markdown set shiftwidth=2 softtabstop=2
+    autocmd BufNewFile,BufRead *.cnf,*.timer,*.service,*.toml set filetype=dosini
     autocmd BufNewFile,BufRead package.env set filetype=gentoo-package-use
+    autocmd FileType ruby,eruby,xml,yaml,json,markdown set shiftwidth=2 softtabstop=2
     if !&diff
         autocmd Syntax * let w:m3=matchadd('ErrorMsg', '\(\t\|\s\+$\)')
     endif
