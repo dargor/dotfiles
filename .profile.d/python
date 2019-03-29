@@ -1,4 +1,3 @@
 #! /usr/bin/env bash
 
-alias 36='. ~/python36/activate'
 alias 37='. ~/python37/activate'
