@@ -1,4 +1,0 @@
-#! /usr/bin/env bash
-
-# run $(gem environment) to find the correct value of "EXECUTABLE DIRECTORY"
-export PATH="/home/dargor/.gem/ruby/2.5.0/bin:${PATH}"
