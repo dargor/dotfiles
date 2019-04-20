@@ -30,8 +30,8 @@ set wildmode=list:longest,full
 
 if !&diff
     "set number
-    set cursorline
-    set cursorcolumn
+    "set cursorline
+    "set cursorcolumn
     set colorcolumn=80
 endif
 
@@ -50,6 +50,11 @@ if &filetype == 'make'
 endif
 
 let g:rainbow_active = 1
+
+let g:indentLine_char = '┆'
+let g:indentLine_color_term = 239
+let g:indentLine_faster = 1
+
 let g:netrw_dirhistmax = 0
 
 if &t_Co > 2
