@@ -29,6 +29,9 @@ bindsym $mod+n exec --no-startup-id leafpad
 # spawn browser
 bindsym $mod+g exec --no-startup-id google-chrome-stable
 
+# spawn office
+bindsym $mod+o exec --no-startup-id soffice
+
 # spawn dwarf fortress terminal :)
 bindsym $mod+m exec --no-startup-id urxvtc -fb '-xos4-terminus-bold-r-normal-*-32-320-72-72-c-160-iso10646-1' -fn '-xos4-terminus-medium-r-normal-*-32-320-72-72-c-160-iso10646-1'
 
