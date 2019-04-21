@@ -65,11 +65,13 @@ if &t_Co > 2
 
     autocmd FileType ruby,eruby,xml,yaml,json,markdown set shiftwidth=2 softtabstop=2
 
-    autocmd WinEnter * set cursorline cursorcolumn
-    autocmd WinLeave * set nocursorline nocursorcolumn
-
     if !&diff
+
+        autocmd WinEnter * set cursorline cursorcolumn
+        autocmd WinLeave * set nocursorline nocursorcolumn
+
         autocmd Syntax * let w:m3=matchadd('ErrorMsg', '\(\t\|\s\+$\)')
+
     endif
 
     if &t_Co > 16
