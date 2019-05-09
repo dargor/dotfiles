@@ -1,4 +1,28 @@
 #! /usr/bin/env bash
 
-alias dual='xrandr --output HDMI-2 --mode 1920x1080 --right-of eDP-1'
-alias mono='xrandr --output HDMI-2 --off'
+_primary() {
+    xrandr | grep -w primary | awk '{print $1}'
+}
+
+_secondary() {
+    xrandr | grep -w connected | tail -1 | awk '{print $1}'
+}
+
+_check() {
+    if [ "$(_secondary)" == "$(_primary)" ]; then
+        echo 1>&2 'No secondary screen found.'
+        return 1
+    fi
+}
+
+mono() {
+    _check || return
+    xrandr --output "$(_secondary)" --off
+    ~/reset
+}
+
+dual() {
+    _check || return
+    xrandr --output "$(_secondary)" --right-of "$(_primary)" --auto
+    ~/reset
+}
