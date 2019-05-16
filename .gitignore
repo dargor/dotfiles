@@ -1,0 +1,11 @@
+# Vim
+.*.sw*
+
+# C
+*.o
+*.so
+
+# Python
+*.py[co]
+__pycache__
+.ipynb_checkpoints
