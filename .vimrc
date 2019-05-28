@@ -30,8 +30,8 @@ set wildmode=list:longest,full
 
 if !&diff
     "set number
-    set cursorline
-    set cursorcolumn
+    "set cursorline
+    "set cursorcolumn
     set colorcolumn=80
 endif
 
@@ -67,8 +67,8 @@ if &t_Co > 2
 
     if !&diff
 
-        autocmd WinEnter * set cursorline cursorcolumn
-        autocmd WinLeave * set nocursorline nocursorcolumn
+        autocmd BufEnter,WinEnter * set cursorline cursorcolumn
+        autocmd BufLeave,WinLeave * set nocursorline nocursorcolumn
 
         autocmd Syntax * let w:m3=matchadd('ErrorMsg', '\(\t\|\s\+$\)')
 
