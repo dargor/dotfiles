@@ -48,7 +48,7 @@ gpgsign = true
 [alias]
 r = remote -v
 t = tag -n
-b = branch --verbose --all
+b = branch --verbose
 c = commit --verbose --signoff
 lea = add --patch
 eax = commit --amend --no-edit
