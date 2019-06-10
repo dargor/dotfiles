@@ -23,6 +23,7 @@ set smartcase
 set smarttab
 set swapsync=
 set tabpagemax=99
+set updatetime=100
 set viminfo=
 set virtualedit=block
 set wildmenu
@@ -47,6 +48,14 @@ endif
 
 let g:rainbow_active = 1
 let g:netrw_dirhistmax = 0
+let g:gitgutter_map_keys = 0
+let g:gitgutter_max_signs = 1024
+let g:gitgutter_override_sign_column_highlight = 0
+highlight SignColumn ctermbg=None
+highlight GitGutterAdd ctermfg=10
+highlight GitGutterChange ctermfg=11
+highlight GitGutterDelete ctermfg=9
+highlight GitGutterChangeDelete ctermfg=13
 
 if &t_Co > 2
 
