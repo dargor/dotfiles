@@ -22,8 +22,9 @@ for f in /usr/share/fonts/*; do
 done
 xset fp rehash
 
+[ -x /usr/bin/numlockx ] && /usr/bin/numlockx
 [ -x /usr/bin/xbindkeys ] && /usr/bin/xbindkeys
 [ -x /usr/bin/urxvtd ] && /usr/bin/urxvtd -f -o
-[ -x /usr/bin/redshift-gtk ] && redshift-gtk -l 48.8566:2.3522 &
+[ -x /usr/bin/redshift-gtk ] && /usr/bin/redshift-gtk -l 48.8566:2.3522 &
 
 exec ck-launch-session dbus-launch --sh-syntax --exit-with-session gpg-agent --daemon ssh-agent i3
