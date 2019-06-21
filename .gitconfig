@@ -1,64 +1,61 @@
 [user]
-name = Gabriel Linder
-email = linder.gabriel@gmail.com
+    name = Gabriel Linder
+    email = linder.gabriel@gmail.com
 
 [help]
-autocorrect = -1
+    autocorrect = -1
 
 [color]
-ui = true
+    ui = true
 
 [core]
-editor = vim
-excludesfile = ~/.gitignore
+    pager = cat
+    editor = vim
+    excludesfile = ~/.gitignore
 
 [diff]
-tool = meld
+    tool = meld
 
 [difftool]
-prompt = false
+    prompt = false
 
 [difftool "meld"]
-cmd = meld "$LOCAL" "$REMOTE"
+    cmd = meld "$LOCAL" "$REMOTE"
 
 [merge]
-tool = meld
+    tool = meld
 
 [mergetool]
-prompt = false
+    prompt = false
 
 [mergetool "meld"]
-cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 
 [pull]
-rebase = true
+    rebase = true
 
 [push]
-default = simple
-followTags = true
-
-[pager]
-branch = false
-stash = false
-tag = false
+    default = simple
+    followTags = true
 
 [commit]
-gpgsign = true
+    gpgsign = true
 
 [alias]
-r = remote -v
-t = tag -n
-b = branch --verbose
-c = commit --verbose --signoff
-lea = add --patch
-eax = commit --amend --no-edit
-graph = log --graph --oneline --decorate
-elog = log --show-signature
-wdiff = diff --word-diff
-fpush = push --force
-fuck = reset --hard ORIG_HEAD
-pfetch = fetch origin --prune
-sdiff = stash show -p
-slist = stash list
-spop = stash pop
-mdev = merge develop --ff-only
+    r = remote -v
+    t = tag -n
+    b = branch --verbose
+    c = commit --verbose --signoff
+    lea = add --patch
+    eax = commit --amend --no-edit
+    graph = log --graph --oneline --decorate
+    elog = log --show-signature
+    wdiff = diff --word-diff
+    fpush = push --force
+    oops = commit --amend
+    fuck = reset --hard ORIG_HEAD
+    pfetch = fetch origin --prune
+    sdiff = stash show -p
+    slist = stash list
+    spop = stash pop
+    mdev = merge develop --ff-only
