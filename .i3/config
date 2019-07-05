@@ -1,5 +1,3 @@
-# XXX copier dans ~/.i3/config
-
 # modifier
 set $mod Mod4
 
@@ -17,23 +15,21 @@ floating_modifier $mod
 bindsym $mod+Return exec --no-startup-id xtrlock -b
 bindsym $mod+Shift+Return exec --no-startup-id xtrlock
 
-# spawn terminal
-bindsym $mod+t exec --no-startup-id urxvtc
-
-# spawn unicode terminal
-bindsym $mod+u exec --no-startup-id urxvtc
+# spawn terminals
+bindsym $mod+t exec --no-startup-id uxterm
+bindsym $mod+u exec --no-startup-id uxterm
 
 # spawn notepad
 bindsym $mod+n exec --no-startup-id leafpad
 
-# spawn browser
+# spawn browsers
 bindsym $mod+p exec --no-startup-id firefox
 bindsym $mod+g exec --no-startup-id google-chrome-stable
 
 # spawn office
 bindsym $mod+o exec --no-startup-id soffice
 
-# spawn dwarf fortress terminal :)
+# spawn nethack / dwarf fortress terminal :)
 bindsym $mod+m exec --no-startup-id urxvtc -fb '-xos4-terminus-bold-r-normal-*-32-320-72-72-c-160-iso10646-1' -fn '-xos4-terminus-medium-r-normal-*-32-320-72-72-c-160-iso10646-1'
 
 # kill focused window
@@ -153,7 +149,7 @@ bindsym $mod+asterisk scratchpad show
 
 # status bar
 bar {
-	position top
+	position bottom
 	status_command i3status -c ~/.i3/status
 }
 
