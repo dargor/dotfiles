@@ -42,10 +42,6 @@ set secure
 set encoding=utf8
 set t_BE=
 
-if &filetype == 'make'
-    set noexpandtab
-endif
-
 let g:rainbow_active = 1
 let g:netrw_dirhistmax = 0
 let g:gitgutter_map_keys = 0
@@ -69,10 +65,12 @@ if &t_Co > 2
     autocmd BufNewFile,BufRead *.tf set filetype=conf
     autocmd BufNewFile,BufRead Jenkinsfile set filetype=groovy
     autocmd BufNewFile,BufRead master,roster,*.sls set filetype=yaml
-    autocmd BufNewFile,BufRead package.env set filetype=gentoo-package-use
+    autocmd BufNewFile,BufRead package.{env,provided} set filetype=gentoo-package-use
     autocmd BufNewFile,BufRead *.cnf,*.timer,*.service,*.toml set filetype=dosini
 
     autocmd FileType ruby,eruby,xml,yaml,json,markdown set shiftwidth=2 softtabstop=2
+    autocmd FileType make set noexpandtab shiftwidth=8
+    autocmd FileType gitcommit set nowrap
 
     if !&diff
 
