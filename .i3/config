@@ -16,8 +16,9 @@ bindsym $mod+Return exec --no-startup-id xtrlock -b
 bindsym $mod+Shift+Return exec --no-startup-id xtrlock
 
 # spawn terminals
-bindsym $mod+t exec --no-startup-id uxterm
 bindsym $mod+u exec --no-startup-id uxterm
+bindsym $mod+t exec --no-startup-id urxvtc
+bindsym $mod+m exec --no-startup-id alacritty
 
 # spawn notepad
 bindsym $mod+n exec --no-startup-id leafpad
@@ -28,9 +29,6 @@ bindsym $mod+g exec --no-startup-id google-chrome-stable
 
 # spawn office
 bindsym $mod+o exec --no-startup-id soffice
-
-# spawn nethack / dwarf fortress terminal :)
-bindsym $mod+m exec --no-startup-id urxvtc -fb '-xos4-terminus-bold-r-normal-*-32-320-72-72-c-160-iso10646-1' -fn '-xos4-terminus-medium-r-normal-*-32-320-72-72-c-160-iso10646-1'
 
 # kill focused window
 bindsym $mod+c kill
