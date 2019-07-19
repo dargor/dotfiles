@@ -23,6 +23,7 @@ set smartcase
 set smarttab
 set swapsync=
 set tabpagemax=99
+set title
 set updatetime=100
 set viminfo=
 set virtualedit=block
