@@ -3,6 +3,7 @@ set nocompatible
 set autoindent
 set background=light
 set backspace=indent,start,eol
+set diffopt=internal,filler,iwhiteall
 set display=lastline,uhex
 set errorbells
 set expandtab
@@ -89,7 +90,9 @@ if &t_Co > 2
 
         highlight ColorColumn cterm=None ctermbg=196
 
+        highlight FoldColumn cterm=None ctermfg=243 ctermbg=None
         highlight Folded cterm=None ctermfg=243 ctermbg=None
+
         highlight Visual cterm=None ctermbg=193
 
     else
