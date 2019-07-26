@@ -8,6 +8,14 @@
 [color]
     ui = true
 
+[color "diff"]
+    meta = magenta
+    frag = yellow
+    func = yellow
+    old = red
+    new = green
+    whitespace = reverse bold red
+
 [core]
     pager = cat
     editor = vim
