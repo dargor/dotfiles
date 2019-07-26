@@ -21,8 +21,16 @@ mono() {
     ~/reset
 }
 
-dual() {
+dual_right() {
     _check || return
     xrandr --output "$(_secondary)" --right-of "$(_primary)" --auto
     ~/reset
 }
+
+dual_left() {
+    _check || return
+    xrandr --output "$(_secondary)" --left-of "$(_primary)" --auto
+    ~/reset
+}
+
+alias dual="dual_right"
