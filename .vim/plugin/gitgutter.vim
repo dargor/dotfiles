@@ -22,10 +22,12 @@ function! s:set(var, default) abort
   endif
 endfunction
 
+call s:set('g:gitgutter_preview_win_location',     'bo')
 call s:set('g:gitgutter_enabled',                     1)
 call s:set('g:gitgutter_max_signs',                 500)
 call s:set('g:gitgutter_signs',                       1)
 call s:set('g:gitgutter_highlight_lines',             0)
+call s:set('g:gitgutter_highlight_linenrs',           0)
 call s:set('g:gitgutter_sign_column_always',          0)
 if g:gitgutter_sign_column_always && exists('&signcolumn')
   " Vim 7.4.2201.
@@ -109,6 +111,12 @@ command! -bar GitGutterLineHighlightsDisable call gitgutter#highlight#line_disab
 command! -bar GitGutterLineHighlightsEnable  call gitgutter#highlight#line_enable()
 command! -bar GitGutterLineHighlightsToggle  call gitgutter#highlight#line_toggle()
 
+" }}}
+
+" 'number' column highlights {{{
+command! -bar GitGutterLineNrHighlightsDisable call gitgutter#highlight#linenr_disable()
+command! -bar GitGutterLineNrHighlightsEnable  call gitgutter#highlight#linenr_enable()
+command! -bar GitGutterLineNrHighlightsToggle  call gitgutter#highlight#linenr_toggle()
 " }}}
 
 " Signs {{{
