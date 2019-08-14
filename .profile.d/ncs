@@ -1,0 +1,7 @@
+#! /usr/bin/env bash
+
+ncs() {
+    host="${1:-localhost}"
+    port="${2:-443}"
+    openssl s_client -connect "${host}:${port}"
+}
