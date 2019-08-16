@@ -126,7 +126,10 @@ function! gitgutter#setup_maps()
     nmap <buffer> ]c <Plug>GitGutterNextHunk
   endif
 
-  if !hasmapto('<Plug>GitGutterStageHunk') && maparg('<Leader>hs', 'n') ==# ''
+  if !hasmapto('<Plug>GitGutterStageHunk', 'v') && maparg('<Leader>hs', 'x') ==# ''
+    xmap <buffer> <Leader>hs <Plug>GitGutterStageHunk
+  endif
+  if !hasmapto('<Plug>GitGutterStageHunk', 'n') && maparg('<Leader>hs', 'n') ==# ''
     nmap <buffer> <Leader>hs <Plug>GitGutterStageHunk
   endif
   if !hasmapto('<Plug>GitGutterUndoHunk') && maparg('<Leader>hu', 'n') ==# ''
@@ -172,7 +175,6 @@ endfunction
 
 function! s:clear(bufnr)
   call gitgutter#sign#clear_signs(a:bufnr)
-  call gitgutter#sign#remove_dummy_sign(a:bufnr, 1)
   call gitgutter#hunk#reset(a:bufnr)
   call s:reset_tick(a:bufnr)
   call gitgutter#utility#setbufvar(a:bufnr, 'path', '')

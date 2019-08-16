@@ -28,14 +28,13 @@ call s:set('g:gitgutter_max_signs',                 500)
 call s:set('g:gitgutter_signs',                       1)
 call s:set('g:gitgutter_highlight_lines',             0)
 call s:set('g:gitgutter_highlight_linenrs',           0)
-call s:set('g:gitgutter_sign_allow_clobber',          0)
-call s:set('g:gitgutter_sign_column_always',          0)
-if g:gitgutter_sign_column_always && exists('&signcolumn')
-  " Vim 7.4.2201.
-  set signcolumn=yes
-  let g:gitgutter_sign_column_always = 0
-  call gitgutter#utility#warn('please replace "let g:gitgutter_sign_column_always=1" with "set signcolumn=yes"')
+call s:set('g:gitgutter_sign_priority',              10)
+" Nvim 0.4.0 has an expanding sign column
+" The sign_place() function supports sign priority.
+if (has('nvim-0.4.0') || exists('*sign_place')) && !exists('g:gitgutter_sign_allow_clobber')
+  let g:gitgutter_sign_allow_clobber = 1
 endif
+call s:set('g:gitgutter_sign_allow_clobber',          0)
 call s:set('g:gitgutter_override_sign_column_highlight', 1)
 call s:set('g:gitgutter_sign_added',                   '+')
 call s:set('g:gitgutter_sign_modified',                '~')
@@ -133,7 +132,7 @@ command! -bar GitGutterSignsToggle  call gitgutter#sign#toggle()
 command! -bar -count=1 GitGutterNextHunk call gitgutter#hunk#next_hunk(<count>)
 command! -bar -count=1 GitGutterPrevHunk call gitgutter#hunk#prev_hunk(<count>)
 
-command! -bar GitGutterStageHunk   call gitgutter#hunk#stage()
+command! -bar -range=% GitGutterStageHunk call gitgutter#hunk#stage(<line1>,<line2>)
 command! -bar GitGutterUndoHunk    call gitgutter#hunk#undo()
 command! -bar GitGutterPreviewHunk call gitgutter#hunk#preview()
 
@@ -188,6 +187,7 @@ command! -bar GitGutterDebug call gitgutter#debug#debug()
 nnoremap <silent> <expr> <Plug>GitGutterNextHunk &diff ? ']c' : ":\<C-U>execute v:count1 . 'GitGutterNextHunk'\<CR>"
 nnoremap <silent> <expr> <Plug>GitGutterPrevHunk &diff ? '[c' : ":\<C-U>execute v:count1 . 'GitGutterPrevHunk'\<CR>"
 
+xnoremap <silent> <Plug>GitGutterStageHunk   :GitGutterStageHunk<CR>
 nnoremap <silent> <Plug>GitGutterStageHunk   :GitGutterStageHunk<CR>
 nnoremap <silent> <Plug>GitGutterUndoHunk    :GitGutterUndoHunk<CR>
 nnoremap <silent> <Plug>GitGutterPreviewHunk :GitGutterPreviewHunk<CR>
@@ -224,6 +224,8 @@ augroup gitgutter
 
   autocmd ShellCmdPost * call gitgutter#all(1)
   autocmd BufLeave term://* call gitgutter#all(1)
+
+  autocmd BufWritePost fugitive://*//0/* call gitgutter#all(1)
 
   autocmd BufFilePre  * GitGutterBufferDisable
   autocmd BufFilePost * GitGutterBufferEnable

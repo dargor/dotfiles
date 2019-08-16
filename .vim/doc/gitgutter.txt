@@ -164,7 +164,13 @@ Commands for jumping between hunks:~
 Commands for operating on a hunk:~
 
                                                 *gitgutter-:GitGutterStageHunk*
-:GitGutterStageHunk     Stage the hunk the cursor is in.
+:GitGutterStageHunk     Stage the hunk the cursor is in.  Use a visual selection
+                        to stage part of an (additions-only) hunk; or use a
+                        range.
+
+                        To stage part of any hunk, first |GitGutterPreviewHunk|
+                        it, then move to the preview window, delete the lines
+                        you do not want to stage, and |GitGutterStageHunk|.
 
                                                  *gitgutter-:GitGutterUndoHunk*
 :GitGutterUndoHunk      Undo the hunk the cursor is in.
@@ -173,6 +179,10 @@ Commands for operating on a hunk:~
 :GitGutterPreviewHunk   Preview the hunk the cursor is in.
                         Use |:pclose| or |CTRL-W_CTRL-Z| to close the preview
                         window.
+
+                        To stage part of the hunk, move to the preview window,
+                        delete any lines you do not want to stage, and
+                        |GitGutterStageHunk|.
 
 Commands for folds:~
 
@@ -277,12 +287,13 @@ Signs:~
     |g:gitgutter_highlight_lines|
     |g:gitgutter_highlight_linenrs|
     |g:gitgutter_max_signs|
+    |g:gitgutter_sign_priority|
+    |g:gitgutter_sign_allow_clobber|
     |g:gitgutter_sign_added|
     |g:gitgutter_sign_modified|
     |g:gitgutter_sign_removed|
     |g:gitgutter_sign_removed_first_line|
     |g:gitgutter_sign_modified_removed|
-    |g:gitgutter_sign_column_always|
     |g:gitgutter_override_sign_column_highlight|
 
 Terminal:~
@@ -376,11 +387,17 @@ signs, so to avoid slowing down the GUI the number of signs is capped.  When
 the number of changed lines exceeds this value, the plugin removes all signs
 and displays a warning message.
 
-                                               *g:gitgutter_sign_allow_clobber*
-Default: 0
+                                                   *g:gitgutter_sign_priority*
+Default: 10
 
-Determines whether gitgutter preserves non-gitgutter signs (the default). When
-1, gitgutter will not preserve non-gitgutter signs.
+Sets the |sign-priority| gitgutter assigns to its signs.
+
+                                               *g:gitgutter_sign_allow_clobber*
+Default: 0 (Vim < 8.1.0614, Neovim < 0.4.0)
+         1 (otherwise)
+
+Determines whether gitgutter preserves non-gitgutter signs. When 1, gitgutter
+will not preserve non-gitgutter signs.
 
                                           *g:gitgutter_sign_added*
                                           *g:gitgutter_sign_modified*
@@ -397,17 +414,6 @@ Defaults:
 <
 You can use unicode characters but not images.  Signs must not take up more than
 2 columns.
-
-                                               *g:gitgutter_sign_column_always*
-Default: 0
-
-This legacy option controls whether the sign column should always be shown, even
-if there are no signs to display.
-
-From Vim 7.4.2201, use 'signcolumn' instead:
->
-    set signcolumn=yes
-<
 
                                    *g:gitgutter_override_sign_column_highlight*
 Default: 1
