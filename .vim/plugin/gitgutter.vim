@@ -23,6 +23,11 @@ function! s:set(var, default) abort
 endfunction
 
 call s:set('g:gitgutter_preview_win_location',     'bo')
+if exists('*nvim_open_win')
+  call s:set('g:gitgutter_preview_win_floating', 1)
+else
+  call s:set('g:gitgutter_preview_win_floating', 0)
+endif
 call s:set('g:gitgutter_enabled',                     1)
 call s:set('g:gitgutter_max_signs',                 500)
 call s:set('g:gitgutter_signs',                       1)
@@ -49,6 +54,7 @@ endif
 call s:set('g:gitgutter_sign_removed_above_and_below', '[')
 call s:set('g:gitgutter_sign_modified_removed',       '~_')
 call s:set('g:gitgutter_git_args',                      '')
+call s:set('g:gitgutter_diff_relative_to',         'index')
 call s:set('g:gitgutter_diff_args',                     '')
 call s:set('g:gitgutter_diff_base',                     '')
 call s:set('g:gitgutter_map_keys',                       1)
@@ -102,6 +108,8 @@ command! -bar GitGutterToggle  call gitgutter#toggle()
 command! -bar GitGutterBufferDisable call gitgutter#buffer_disable()
 command! -bar GitGutterBufferEnable  call gitgutter#buffer_enable()
 command! -bar GitGutterBufferToggle  call gitgutter#buffer_toggle()
+
+command! -bar GitGutterQuickFix call gitgutter#quickfix()
 
 " }}}
 
@@ -215,7 +223,11 @@ augroup gitgutter
   autocmd BufEnter * call s:on_bufenter()
 
   autocmd CursorHold,CursorHoldI * call gitgutter#process_buffer(bufnr(''), 0)
-  autocmd FileChangedShellPost   * call gitgutter#process_buffer(bufnr(''), 1)
+  if exists('*timer_start') && has('lambda')
+    autocmd FileChangedShellPost * call timer_start(1, {-> gitgutter#process_buffer(bufnr(''), 1)})
+  else
+    autocmd FileChangedShellPost * call gitgutter#process_buffer(bufnr(''), 1)
+  endif
 
   " Ensure that all buffers are processed when opening vim with multiple files, e.g.:
   "

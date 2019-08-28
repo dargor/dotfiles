@@ -3,7 +3,7 @@
  * Mongo-Hacker
  * MongoDB Shell Enhancements for Hackers
  *
- * Tyler J. Brock - 2013 - 2016
+ * Tyler J. Brock - 2013 - 2019
  *
  * http://tylerbrock.github.com/mongo-hacker
  *
@@ -17,10 +17,11 @@ mongo_hacker_config = {
   sort_keys:      false,            // sort the keys in documents when displayed
   uuid_type:      'default',        // 'java', 'c#', 'python' or 'default'
   banner_message: 'Mongo-Hacker ',  // banner message
-  version:        '0.0.16',         // current mongo-hacker version
+  version:        '0.1.0',          // current mongo-hacker version
   show_banner:     true,            // show mongo-hacker version banner on startup
-  windows_warning: true,            // show warning banner for windows
-  force_color:     false,           // force color highlighting for Windows users
+  use_color:       true,            // use color highlighting if possible
+  force_color:     false,           // force color even if Mongo Hacker thinks it won't work
+  windows_warning: true,            // show warning banner regarding color support for Windows
   count_deltas:    false,           // "count documents" shows deltas with previous counts
   column_separator:  '→',           // separator used when printing padded/aligned columns
   value_separator:   '/',           // separator used when merging padded/aligned values
@@ -64,13 +65,22 @@ if (_isWindows() && mongo_hacker_config['windows_warning']) {
 }
 
 if (typeof db !== 'undefined') {
-    var current_version = parseFloat(db.serverBuildInfo().version).toFixed(2)
+    var shell_version = parseFloat(version()).toFixed(1);
+    var server_version = parseFloat(db.serverBuildInfo().version).toFixed(1);
 
-    if (current_version < 2.4) {
-        print("Sorry! MongoDB Shell Enhancements for Hackers is only compatible with Mongo 2.4+\n");
+    if ((shell_version < 2.4) || (server_version < 2.4)) {
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        print("Sorry! MongoDB Shell Enhancements for Hackers is only compatible with MongoDB 2.4+");
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+    } else if ((shell_version < 3.4) || (server_version < 3.4)) {
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        print("WARNING: Your shell version (" + shell_version + ") " +
+              "or server version (" + server_version + ") of MongoDB is end of life\n");
+        print("You should consider upgrading to a supported version (currently 3.4 or newer):");
+        print("   https://docs.mongodb.com/manual/release-notes/");
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
     }
-}
-//----------------------------------------------------------------------------
+}//----------------------------------------------------------------------------
 // Color Functions
 //----------------------------------------------------------------------------
 __ansi = {
@@ -130,7 +140,17 @@ function colorizeAll( strings, color, nocolor ) {
     });
 };
 __indent = Array(mongo_hacker_config.indent + 1).join(' ');
-__colorize = (_isWindows() && !mongo_hacker_config['force_color']) ? false : true;
+__colorize = mongo_hacker_config['use_color'];
+
+// Disable color for terminals that aren't likely to support ANSI color codes
+if (__colorize && !mongo_hacker_config['force_color']) {
+    if (_isWindows()) {
+        __colorize = false;
+    } else if (typeof(isInteractive) === typeof(Function)) {
+        // Requires MongoDB 4.2+ shell
+        __colorize = isInteractive();
+    }
+}
 
 ObjectId.prototype.toString = function() {
     return this.str;
@@ -235,7 +255,7 @@ DBQuery.prototype.shellPrint = function(){
         if (typeof _verboseShell !== 'undefined' && _verboseShell) {
             var time = new Date().getTime() - start;
             var slowms = getSlowms();
-            var fetched = "Fetched " + n + " record(s) in ";
+            var fetched = "Fetched " + n + " document" + (n === 1 ? "" : "s") + " in ";
             if (time > slowms) {
                 fetched += colorize(time + "ms", { color: "red", bright: true });
             } else {
@@ -386,6 +406,17 @@ tojsonObject = function( x, indent, nolint, nocolor, sort_keys ) {
 tojson = function( x, indent , nolint, nocolor, sort_keys ) {
 
     var sortKeys = (null == sort_keys) ? mongo_hacker_config.sort_keys : sort_keys;
+
+    try {
+        if (tojson.caller === null) {
+            // Unknown caller context, so assume this is from C++ code
+            nocolor = true;
+        }
+    }
+    catch (err) {
+        // Access to caller function can be disabled in strict mode
+        no_color = true;
+    }
 
     if ( x === null )
         return colorize("null", mongo_hacker_config.colors['null'], nocolor);
@@ -965,8 +996,15 @@ function isMongos() {
 };
 
 function getSlowms(){
-    if(!isMongos()){
-        return db.getProfilingStatus().slowms;
+    if (!isMongos()){
+        var current_version = parseFloat(db.serverBuildInfo().version).toFixed(2);
+        if (current_version >= 4.0) {
+            // The `profile` command can block with pending transactions in 4.0+ (#193)
+            return 100;
+        }
+
+        var res = db._dbCommand({profile: -1});
+        return (res.ok ? res.slowms : 100);
     } else {
         return 100;
     }
@@ -980,10 +1018,10 @@ function maxLength(listOfNames) {
 
 function printPaddedColumns() {
     var columnWidths = Array.prototype.map.call(
-      arguments,
-      function(column) {
-        return maxLength(column);
-      }
+        arguments,
+        function(column) {
+            return maxLength(column);
+        }
     );
 
     for (i = 0; i < arguments[0].length; i++) {
@@ -1353,27 +1391,36 @@ setVerboseShell(mongo_hacker_config.verbose_shell);
 
 DBQuery.prototype._prettyShell = true
 
-DB.prototype._getExtraInfo = function(action) {
-    if ( typeof _verboseShell === 'undefined' || !_verboseShell ) {
+// Display verbose information about the operation
+DBCollection.prototype._printExtraInfo = function(action, startTime) {
+    if (typeof _verboseShell === 'undefined' || !_verboseShell) {
         __callLastError = true;
         return;
     }
 
-    // explicit w:1 so that replset getLastErrorDefaults aren't used here which would be bad.
-    var startTime = new Date().getTime();
-    var res = this.getLastErrorCmd(1);
+    var res;
+    try {
+        // getLastError isn't supported in transactions
+        res = this._db.getLastErrorCmd(1);
+    } catch (e) {
+        // printjson(e);
+    }
+
     if (res) {
-        if (res.err !== undefined && res.err !== null) {
-            // error occurred, display it
-            print(res.err);
+        if (res.err != undefined && res.err != null) {
+            if (res.errmsg && (res.errmsg !== "This command is not supported in transactions")) {
+                print(res.err);
+            }
             return;
         }
 
         var info = action + " ";
         // hack for inserted because res.n is 0
         info += action != "Inserted" ? res.n : 1;
-        if (res.n > 0 && res.updatedExisting !== undefined) info += " " + (res.updatedExisting ? "existing" : "new");
-        info += " record(s) in ";
+        if (res.n > 0 && res.updatedExisting != undefined) {
+            info += " " + (res.updatedExisting ? "existing" : "new");
+        }
+        info += " document(s) in ";
         var time = new Date().getTime() - startTime;
         var slowms = getSlowms();
         if (time > slowms) {
@@ -1383,8 +1430,7 @@ DB.prototype._getExtraInfo = function(action) {
         }
         print(info);
     }
-};
-//----------------------------------------------------------------------------
+};//----------------------------------------------------------------------------
 // Randomise API
 //----------------------------------------------------------------------------
 
@@ -1576,9 +1622,12 @@ DBQuery.prototype.upsert = function( upsert ){
     assert( upsert , "need an upsert object" );
 
     this._validate(upsert);
-    this._db._initExtraInfo();
+
+    var startTime =
+        (typeof(_verboseShell) === 'undefined' || !_verboseShell) ? 0 : new Date().getTime();
+
     this._mongo.update( this._ns , this._query , upsert , true , false );
-    this._db._getExtraInfo("Upserted");
+    this._db._printExtraInfo("Upserted", startTime);
 };
 
 // Updates are always multi and never an upsert
@@ -1587,9 +1636,12 @@ DBQuery.prototype.update = function( update ){
 
     this._checkMulti();
     this._validate(update);
-    this._db._initExtraInfo();
+
+    var startTime =
+        (typeof(_verboseShell) === 'undefined' || !_verboseShell) ? 0 : new Date().getTime();
+
     this._mongo.update( this._ns , this._query , update , false , true );
-    this._db._getExtraInfo("Updated");
+    this._db._printExtraInfo("Updated", startTime);
 };
 
 // Replace one document
@@ -1597,9 +1649,12 @@ DBQuery.prototype.replace = function( replacement ){
     assert( replacement , "need an update object" );
 
     this._validate(replacement);
-    this._db._initExtraInfo();
+
+    var startTime =
+        (typeof(_verboseShell) === 'undefined' || !_verboseShell) ? 0 : new Date().getTime();
+
     this._mongo.update( this._ns , this._query , replacement , false , false );
-    this._db._getExtraInfo("Replaced");
+    this._db._printExtraInfo("Replaced", startTime);
 };
 
 // Remove is always multi
@@ -1611,9 +1666,12 @@ DBQuery.prototype.remove = function(){
     }
 
     this._checkMulti();
-    this._db._initExtraInfo();
+
+    var startTime =
+        (typeof(_verboseShell) === 'undefined' || !_verboseShell) ? 0 : new Date().getTime();
+
     this._mongo.remove( this._ns , this._query , false );
-    this._db._getExtraInfo("Removed");
+    this._db._printExtraInfo("Removed", startTime);
 };
 
 //----------------------------------------------------------------------------
@@ -1631,194 +1689,6 @@ DBQuery.prototype.textSearch = function( search ) {
     var result = this._db.runCommand( text );
     return result.results;
 };
-sh.getRecentMigrations = function () {
-    var configDB = db.getSiblingDB("config");
-    var yesterday = new Date( new Date() - 24 * 60 * 60 * 1000 );
-    var result = [];
-    result = result.concat(configDB.changelog.aggregate( [
-        { $match : { time : { $gt : yesterday }, what : "moveChunk.from", "details.errmsg" : {
-            "$exists" : false } } },
-        { $group : { _id: { msg: "$details.errmsg" }, count : { "$sum":1 } } },
-        { $project : { _id : { $ifNull: [ "$_id.msg", "Success" ] }, count : "$count" } }
-    ] ).result);
-    result = result.concat(configDB.changelog.aggregate( [
-        { $match : { time : { $gt : yesterday }, what : "moveChunk.from", "details.errmsg" : {
-            "$exists" : true } } },
-        { $group : { _id: { msg: "$details.errmsg", from : "$details.from", to: "$details.to" },
-            count : { "$sum":1 } } },
-        { $project : { _id : "$_id.msg" , from : "$_id.from", to : "$_id.to" , count : "$count" } }
-    ] ).result);
-    return result;
-};
-
-printShardingStatus = function( configDB , verbose ){
-    if (configDB === undefined)
-        configDB = db.getSisterDB('config')
-
-    var version = configDB.getCollection( "version" ).findOne();
-    if ( version == null ){
-        print( "printShardingStatus: this db does not have sharding enabled. be sure you are",
-                "connecting to a mongos from the shell and not to a mongod." );
-        return;
-    }
-
-    var raw = "";
-    var output = function(s){
-        raw += s + "\n";
-    }
-    output( "--- Sharding Status --- " );
-    output( "  sharding version: " + tojson( configDB.getCollection( "version" ).findOne(), "  " ) );
-
-    output( "  shards:" );
-    configDB.shards.find().sort( { _id : 1 } ).forEach(
-        function(z){
-            output( "    " + tojsononeline( z ) );
-        }
-    );
-
-    // All of the balancer information functions below depend on a connection to a liveDB
-    // This isn't normally a problem, but can cause issues in testing and running with --nodb
-    if ( typeof db !== "undefined" ) {
-        output( "  balancer:" );
-
-        //Is the balancer currently enabled
-        output( "\tCurrently enabled:  " + ( sh.getBalancerState() ?
-            colorize("yes", {color: "cyan"}) :
-            colorize("no",  {color: "red"}) ) );
-
-        //Is the balancer currently active
-        output( "\tCurrently running:  " +
-            colorize(( sh.isBalancerRunning() ? "yes" : "no" ), {color: "gray"}) );
-
-        //Output details of the current balancer round
-        var balLock = sh.getBalancerLockDetails();
-        if ( balLock ) {
-            output( "\t\tBalancer lock taken at " +
-                colorize(balLock.when, {color: "gray"}) + " by " +
-                colorize(balLock.who,  {color: "cyan"}) );
-        }
-
-        //Output the balancer window
-        var balSettings = sh.getBalancerWindow();
-        if ( balSettings ) {
-            output( "\t\tBalancer active window is set between " +
-                colorize(balSettings.start, {color: "gray"}) + " and " +
-                colorize(balSettings.stop,  {color: "gray"}) + " server local time");
-        }
-
-        //Output the list of active migrations
-        var activeMigrations = sh.getActiveMigrations();
-        if (activeMigrations.length > 0 ){
-            output("\tCollections with active migrations: ");
-            activeMigrations.forEach( function(migration){
-                output("\t\t" + 
-                    colorize(migration._id,  {color: "cyan"})+ " started at " + 
-                    colorize(migration.when, {color: "gray"}) );
-            });
-        }
-
-        // Actionlog and version checking only works on 2.7 and greater
-        var versionHasActionlog = false;
-        var metaDataVersion = configDB.getCollection("version").findOne().currentVersion;
-        if ( metaDataVersion > 5 ) {
-            versionHasActionlog = true;
-        }
-        if ( metaDataVersion == 5 ) {
-            var verArray = db.serverBuildInfo().versionArray;
-            if (verArray[0] == 2 && verArray[1] > 6){
-                versionHasActionlog = true;
-            }
-        }
-
-        if ( versionHasActionlog ) {
-            //Review config.actionlog for errors
-            var actionReport = sh.getRecentFailedRounds();
-            //Always print the number of failed rounds
-            output( "\tFailed balancer rounds in last 5 attempts:  " + 
-                colorize(actionReport.count, {color: "red"}) );
-
-            //Only print the errors if there are any
-            if ( actionReport.count > 0 ){
-                output( "\tLast reported error:  "    + actionReport.lastErr );
-                output( "\tTime of Reported error:  " + actionReport.lastTime );
-            }
-
-            output("\tMigration Results for the last 24 hours: ");
-            var migrations = sh.getRecentMigrations();
-            if(migrations.length > 0) {
-                migrations.forEach( function(x) {
-                    if (x._id === "Success"){
-                        output( "\t\t" + colorize(x.count, {color: "gray"}) + 
-                            " : "+ colorize(x._id, {color: "cyan"}));
-                    } else {
-                        output( "\t\t" + colorize(x.count, {color: "gray"}) + 
-                            " : Failed with error '" + colorize(x._id, {color: "red"}) +
-                        "', from " + x.from + " to " + x.to );
-                    }
-                });
-            } else {
-                    output( "\t\tNo recent migrations");
-            }
-        }
-    }
-
-    output( "  databases:" );
-    configDB.databases.find().sort( { name : 1 } ).forEach(
-        function(db){
-            output( "    " + tojsononeline(db,"",true) );
-
-            if (db.partitioned){
-                configDB.collections.find( { _id : new RegExp( "^" +
-                    RegExp.escape(db._id) + "\\." ) } ).
-                    sort( { _id : 1 } ).forEach( function( coll ){
-                        if ( coll.dropped == false ){
-                            output( "    " + coll._id );
-                            output( "      shard key: " + tojson(coll.key, 0, true) );
-                            output( "      chunks:" );
-
-                            res = configDB.chunks.aggregate(
-                                { "$match": { ns: coll._id } },
-                                { "$group": { _id: "$shard", nChunks: { "$sum": 1 } } },
-                                { "$project" : { _id : 0 , shard : "$_id" , nChunks : "$nChunks" } },
-                                { "$sort" : { shard : 1 } }
-                            ).result
-
-                            var totalChunks = 0;
-                            res.forEach( function(z){
-                                totalChunks += z.nChunks;
-                                output( "        " + z.shard + ": " + z.nChunks );
-                            } )
-
-                            if ( totalChunks < 20 || verbose ){
-                                configDB.chunks.find( { "ns" : coll._id } ).sort( { min : 1 } ).forEach(
-                                    function(chunk){
-                                        output( "        " +
-                                            tojson( chunk.min, 0, true) + " -> " +
-                                            tojson( chunk.max, 0, true ) +
-                                            " on: " + colorize(chunk.shard, {color: 'cyan'}) + " " + tojson( chunk.lastmod ) + " " +
-                                            ( chunk.jumbo ? "jumbo " : "" )
-                                        );
-                                    }
-                                );
-                            }
-                            else {
-                                output( "\t\t\ttoo many chunks to print, use verbose if you want to force print" );
-                            }
-
-                            configDB.tags.find( { ns : coll._id } ).sort( { min : 1 } ).forEach(
-                                function( tag ) {
-                                    output( "        tag: " + tag.tag + "  " + tojson( tag.min ) + " -> " + tojson( tag.max ) );
-                                }
-                            )
-                        }
-                    }
-                )
-            }
-        }
-    );
-
-    print( raw );
-}
 // helper function to format delta counts
 function delta(currentCount, previousCount) {
     var delta = Number(currentCount - previousCount);
