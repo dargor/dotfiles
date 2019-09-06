@@ -9,6 +9,7 @@ order += "cpu_usage"
 order += "cpu_temperature 0"
 order += "load"
 order += "ethernet eth0"
+order += "ethernet eth1"
 order += "wireless wlan0"
 order += "battery 0"
 order += "battery 1"
@@ -35,6 +36,11 @@ load {
 }
 
 ethernet eth0 {
+    format_up = "E: %ip (%speed)"
+    format_down = "E: down"
+}
+
+ethernet eth1 {
     format_up = "E: %ip (%speed)"
     format_down = "E: down"
 }
