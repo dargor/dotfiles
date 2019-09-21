@@ -119,37 +119,37 @@ function! gitgutter#setup_maps()
     return
   endif
 
-  if !hasmapto('<Plug>GitGutterPrevHunk') && maparg('[c', 'n') ==# ''
-    nmap <buffer> [c <Plug>GitGutterPrevHunk
+  if !hasmapto('<Plug>(GitGutterPrevHunk)') && maparg('[c', 'n') ==# ''
+    nmap <buffer> [c <Plug>(GitGutterPrevHunk)
   endif
-  if !hasmapto('<Plug>GitGutterNextHunk') && maparg(']c', 'n') ==# ''
-    nmap <buffer> ]c <Plug>GitGutterNextHunk
-  endif
-
-  if !hasmapto('<Plug>GitGutterStageHunk', 'v') && maparg('<Leader>hs', 'x') ==# ''
-    xmap <buffer> <Leader>hs <Plug>GitGutterStageHunk
-  endif
-  if !hasmapto('<Plug>GitGutterStageHunk', 'n') && maparg('<Leader>hs', 'n') ==# ''
-    nmap <buffer> <Leader>hs <Plug>GitGutterStageHunk
-  endif
-  if !hasmapto('<Plug>GitGutterUndoHunk') && maparg('<Leader>hu', 'n') ==# ''
-    nmap <buffer> <Leader>hu <Plug>GitGutterUndoHunk
-  endif
-  if !hasmapto('<Plug>GitGutterPreviewHunk') && maparg('<Leader>hp', 'n') ==# ''
-    nmap <buffer> <Leader>hp <Plug>GitGutterPreviewHunk
+  if !hasmapto('<Plug>(GitGutterNextHunk)') && maparg(']c', 'n') ==# ''
+    nmap <buffer> ]c <Plug>(GitGutterNextHunk)
   endif
 
-  if !hasmapto('<Plug>GitGutterTextObjectInnerPending') && maparg('ic', 'o') ==# ''
-    omap <buffer> ic <Plug>GitGutterTextObjectInnerPending
+  if !hasmapto('<Plug>(GitGutterStageHunk)', 'v') && maparg('<Leader>hs', 'x') ==# ''
+    xmap <buffer> <Leader>hs <Plug>(GitGutterStageHunk)
   endif
-  if !hasmapto('<Plug>GitGutterTextObjectOuterPending') && maparg('ac', 'o') ==# ''
-    omap <buffer> ac <Plug>GitGutterTextObjectOuterPending
+  if !hasmapto('<Plug>(GitGutterStageHunk)', 'n') && maparg('<Leader>hs', 'n') ==# ''
+    nmap <buffer> <Leader>hs <Plug>(GitGutterStageHunk)
   endif
-  if !hasmapto('<Plug>GitGutterTextObjectInnerVisual') && maparg('ic', 'x') ==# ''
-    xmap <buffer> ic <Plug>GitGutterTextObjectInnerVisual
+  if !hasmapto('<Plug>(GitGutterUndoHunk)') && maparg('<Leader>hu', 'n') ==# ''
+    nmap <buffer> <Leader>hu <Plug>(GitGutterUndoHunk)
   endif
-  if !hasmapto('<Plug>GitGutterTextObjectOuterVisual') && maparg('ac', 'x') ==# ''
-    xmap <buffer> ac <Plug>GitGutterTextObjectOuterVisual
+  if !hasmapto('<Plug>(GitGutterPreviewHunk)') && maparg('<Leader>hp', 'n') ==# ''
+    nmap <buffer> <Leader>hp <Plug>(GitGutterPreviewHunk)
+  endif
+
+  if !hasmapto('<Plug>(GitGutterTextObjectInnerPending)') && maparg('ic', 'o') ==# ''
+    omap <buffer> ic <Plug>(GitGutterTextObjectInnerPending)
+  endif
+  if !hasmapto('<Plug>(GitGutterTextObjectOuterPending)') && maparg('ac', 'o') ==# ''
+    omap <buffer> ac <Plug>(GitGutterTextObjectOuterPending)
+  endif
+  if !hasmapto('<Plug>(GitGutterTextObjectInnerVisual)') && maparg('ic', 'x') ==# ''
+    xmap <buffer> ic <Plug>(GitGutterTextObjectInnerVisual)
+  endif
+  if !hasmapto('<Plug>(GitGutterTextObjectOuterVisual)') && maparg('ac', 'x') ==# ''
+    xmap <buffer> ac <Plug>(GitGutterTextObjectOuterVisual)
   endif
 
   call gitgutter#utility#setbufvar(bufnr, 'mapped', 1)
@@ -193,9 +193,13 @@ function! gitgutter#quickfix()
   let lnum = 0
   for line in diff
     if line =~ '^diff --git [^"]'
-      let fname = matchlist(line, '^diff --git [abciow12]/\(\S\+\) ')[1]
+      let paths = line[11:]
+      let mid = (len(paths) - 1) / 2
+      let [fnamel, fnamer] = [paths[:mid-1], paths[mid+1:]]
+      let fname = fnamel ==# fnamer ? fnamel : fnamel[2:]
     elseif line =~ '^diff --git "'
-      let fname = matchlist(line, '^diff --git "[abciow12]/\(.\+\)" ')[1]
+      let [_, fnamel, _, fnamer] = split(line, '"')
+      let fname = fnamel ==# fnamer ? fnamel : fnamel[2:]
     elseif line =~ '^@@'
       let lnum = matchlist(line, '+\(\d\+\)')[1]
     elseif lnum > 0
