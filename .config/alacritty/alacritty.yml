@@ -19,6 +19,7 @@ tabspaces: 8
 
 font:
   normal:
+    #family: Cascadia Code
     #family: Droid Sans Mono
     family: Liberation Mono
     #family: Noto Sans Mono
