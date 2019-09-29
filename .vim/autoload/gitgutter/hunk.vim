@@ -422,7 +422,6 @@ function! s:open_hunk_preview_window()
             \ })
 
       call setbufvar(winbufnr(s:winid), '&filetype', 'diff')
-      call win_execute(s:winid, 'syntax enable')
 
       return
     endif
@@ -471,7 +470,11 @@ function! s:populate_hunk_preview_window(header, body)
 
     if exists('*popup_create')
       call popup_settext(s:winid, a:body)
-      " TODO add intra line highlights
+
+      for region in gitgutter#diff_highlight#process(a:body)
+        let group = region[1] == '+' ? 'GitGutterAddIntraLine' : 'GitGutterDeleteIntraLine'
+        call win_execute(s:winid, "call matchaddpos('".group."', [[".region[0].", ".region[2].", ".(region[3]-region[2]+1)."]])")
+      endfor
     endif
 
   else
