@@ -3,3 +3,5 @@
 mssh() {
     xpanes -tc 'ssh {}' "$@"
 }
+
+complete -F _ssh mssh
