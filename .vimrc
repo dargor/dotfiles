@@ -1,4 +1,5 @@
 set nocompatible
+filetype off
 
 set autoindent
 set background=light
@@ -60,8 +61,6 @@ if &t_Co > 2
     syntax on
     set hlsearch
 
-    filetype plugin indent on
-
     autocmd BufNewFile,BufRead *.hy set filetype=lisp
     autocmd BufNewFile,BufRead *.pp set filetype=ruby
     autocmd BufNewFile,BufRead *.tf set filetype=conf
@@ -114,10 +113,6 @@ if &t_Co > 2
 
 endif
 
-nnoremap <C-W>o :call MaximizeToggle()<CR>
-nnoremap <C-W>O :call MaximizeToggle()<CR>
-nnoremap <C-W><C-O> :call MaximizeToggle()<CR>
-
 function! MaximizeToggle()
     if exists('s:maximize_session')
         exec 'source ' . s:maximize_session
@@ -133,3 +128,11 @@ function! MaximizeToggle()
         only
     endif
 endfunction
+
+nnoremap <space> za
+
+nnoremap <C-W>o :call MaximizeToggle()<CR>
+nnoremap <C-W>O :call MaximizeToggle()<CR>
+nnoremap <C-W><C-O> :call MaximizeToggle()<CR>
+
+filetype plugin indent on
