@@ -12,14 +12,10 @@ xset dpms 600 1200 1800
 xset -dpms
 
 xset fp default
-for f in /usr/share/fonts/*; do
-    case "$f" in
-        /usr/share/fonts/encodings|/usr/share/fonts/util)
-            ;;
-        *)
-            xset fp+ "$f"
-            ;;
-    esac
+find /usr/share/fonts/ -name fonts.dir | while read -r f; do
+    if ! xset fp+ "${f%fonts.dir}"; then
+        echo 1>&2 "Faulty path: $f"
+    fi
 done
 xset fp rehash
 
