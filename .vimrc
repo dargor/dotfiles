@@ -78,7 +78,11 @@ if &t_Co > 2
         autocmd BufEnter,WinEnter * set cursorline cursorcolumn
         autocmd BufLeave,WinLeave * set nocursorline nocursorcolumn
 
-        autocmd Syntax * let w:m3=matchadd('ErrorMsg', '\(\t\|\s\+$\)')
+        highlight WhiteSpaces cterm=None ctermfg=Black ctermbg=Red
+        autocmd Syntax * let w:m3=matchadd('WhiteSpaces', '\(\t\|\s\+$\)')
+
+        highlight DoNotUseLogging cterm=None ctermfg=Black ctermbg=Red
+        autocmd Syntax * let w:m4=matchadd('DoNotUseLogging', 'logging')
 
     endif
 
