@@ -24,4 +24,4 @@ xset fp rehash
 [ -x /usr/bin/urxvtd ] && /usr/bin/urxvtd -f -o
 [ -x /usr/bin/redshift-gtk ] && /usr/bin/redshift-gtk -l 48.8566:2.3522 &
 
-exec dbus-launch --sh-syntax --exit-with-session gpg-agent --daemon ssh-agent i3
+exec gpg-agent --daemon ssh-agent i3
