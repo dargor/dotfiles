@@ -45,8 +45,13 @@ set secure
 set encoding=utf8
 set t_BE=
 
-let g:rainbow_active = 1
 let g:netrw_dirhistmax = 0
+
+let g:rainbow_active = 1
+
+let g:python_highlight_all = 1
+let g:python_highlight_file_headers_as_comments = 1
+
 let g:gitgutter_map_keys = 0
 let g:gitgutter_max_signs = 1024
 let g:gitgutter_override_sign_column_highlight = 0
@@ -91,7 +96,7 @@ if &t_Co > 2
         highlight CursorLine cterm=None ctermbg=235
         highlight CursorColumn cterm=None ctermbg=235
 
-        highlight ColorColumn cterm=None ctermbg=196
+        highlight ColorColumn cterm=None ctermbg=Red
 
         highlight FoldColumn cterm=None ctermfg=243 ctermbg=None
         highlight Folded cterm=None ctermfg=243 ctermbg=None
