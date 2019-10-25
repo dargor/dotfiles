@@ -32,13 +32,6 @@ set virtualedit=block
 set wildmenu
 set wildmode=list:longest,full
 
-if !&diff
-    "set number
-    "set cursorline
-    "set cursorcolumn
-    set colorcolumn=80
-endif
-
 set nomodeline
 set secure
 
@@ -68,7 +61,6 @@ if &t_Co > 2
 
     autocmd BufNewFile,BufRead *.hy set filetype=lisp
     autocmd BufNewFile,BufRead *.pp set filetype=ruby
-    autocmd BufNewFile,BufRead *.tf set filetype=conf
     autocmd BufNewFile,BufRead Jenkinsfile set filetype=groovy
     autocmd BufNewFile,BufRead master,roster,*.sls set filetype=yaml
     autocmd BufNewFile,BufRead package.{env,provided} set filetype=gentoo-package-use
@@ -80,8 +72,10 @@ if &t_Co > 2
 
     if !&diff
 
-        autocmd BufEnter,WinEnter * set cursorline cursorcolumn
-        autocmd BufLeave,WinLeave * set nocursorline nocursorcolumn
+        if &t_Co >= 256
+            autocmd BufEnter,WinEnter * set cursorline cursorcolumn
+            autocmd BufLeave,WinLeave * set nocursorline nocursorcolumn
+        endif
 
         highlight WhiteSpaces cterm=None ctermfg=Black ctermbg=Red
         autocmd Syntax * let w:m3=matchadd('WhiteSpaces', '\(\t\|\s\+$\)')
@@ -89,24 +83,20 @@ if &t_Co > 2
         highlight DoNotUseLogging cterm=None ctermfg=Black ctermbg=Red
         autocmd Syntax * let w:m4=matchadd('DoNotUseLogging', 'logging')
 
+        set colorcolumn=80
+        highlight ColorColumn cterm=None ctermbg=Red
+
     endif
 
-    if &t_Co > 16
+    if &t_Co >= 256
 
         highlight CursorLine cterm=None ctermbg=235
         highlight CursorColumn cterm=None ctermbg=235
-
-        highlight ColorColumn cterm=None ctermbg=Red
 
         highlight FoldColumn cterm=None ctermfg=243 ctermbg=None
         highlight Folded cterm=None ctermfg=243 ctermbg=None
 
         highlight Visual cterm=None ctermbg=193
-
-    else
-
-        set nocursorline
-        set nocursorcolumn
 
     endif
 
