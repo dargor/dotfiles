@@ -21,6 +21,7 @@ font:
   normal:
     #family: Cascadia Code
     #family: Droid Sans Mono
+    #family: Fantasque Sans Mono
     family: Liberation Mono
     #family: Noto Sans Mono
   size: 14.0
