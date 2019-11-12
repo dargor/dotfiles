@@ -31,6 +31,9 @@ bindsym $mod+g exec --no-startup-id google-chrome-stable
 # spawn office
 bindsym $mod+o exec --no-startup-id soffice
 
+# a man has no pride
+bindsym $mod+y exec --no-startup-id pavucontrol
+
 # kill focused window
 bindsym $mod+c kill
 
