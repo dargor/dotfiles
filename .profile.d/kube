@@ -1,0 +1,12 @@
+#! /usr/bin/env bash
+
+klog() {
+    pod="$1"
+    shift
+    containers="$*"
+    if [ -z "${pod}" ] || [ -z "${containers}" ]; then
+        echo "Usage: klog pod container{1..3}"
+    else
+        xpanes -c "kubectl logs ${pod} --follow --tail 10 -c {}" ${containers}
+    fi
+}
