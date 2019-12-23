@@ -45,6 +45,7 @@ let g:rainbow_active = 1
 let g:python_highlight_all = 1
 let g:python_highlight_file_headers_as_comments = 1
 
+let g:gitgutter_diff_args = '-w'
 let g:gitgutter_map_keys = 0
 let g:gitgutter_max_signs = 1024
 let g:gitgutter_override_sign_column_highlight = 0
