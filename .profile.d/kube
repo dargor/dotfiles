@@ -10,3 +10,16 @@ klog() {
         xpanes -c "kubectl logs ${pod} --follow --tail 10 -c {}" ${containers}
     fi
 }
+
+ktop() {
+    pod="$1"
+    watch -n 1 kubectl top pod --containers ${pod}
+}
+
+kpods() {
+    if [ -z "${1:-}" ]; then
+        kubectl get pods
+    else
+        watch -n 1 kubectl get pods
+    fi
+}
