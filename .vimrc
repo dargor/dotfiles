@@ -78,14 +78,21 @@ if &t_Co > 2
             autocmd BufLeave,WinLeave * set nocursorline nocursorcolumn
         endif
 
+        function! SetupBuffer()
+            if !exists('w:WhiteSpaces')
+                let w:WhiteSpaces=matchadd('WhiteSpaces', '\(\t\|\s\+$\)')
+            endif
+            if !exists('w:DoNotUseLogging')
+                let w:DoNotUseLogging=matchadd('DoNotUseLogging', 'logging')
+            endif
+        endfunction
+
         highlight WhiteSpaces cterm=None ctermfg=Black ctermbg=Red
-        autocmd Syntax * let w:m3=matchadd('WhiteSpaces', '\(\t\|\s\+$\)')
+        highlight DoNotUseLogging cterm=None ctermfg=Black ctermbg=Magenta
+        autocmd Syntax,BufEnter,WinEnter * call SetupBuffer()
 
-        highlight DoNotUseLogging cterm=None ctermfg=Black ctermbg=Red
-        autocmd Syntax * let w:m4=matchadd('DoNotUseLogging', 'logging')
-
-        set colorcolumn=80
         highlight ColorColumn cterm=None ctermbg=Red
+        set colorcolumn=80
 
     endif
 
