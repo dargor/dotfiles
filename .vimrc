@@ -21,6 +21,7 @@ set ruler
 set shiftround
 set shiftwidth=4
 set showcmd
+set signcolumn=yes
 set smartcase
 set smarttab
 set swapsync=
@@ -92,7 +93,7 @@ if &t_Co > 2
         autocmd Syntax,BufEnter,WinEnter * call SetupBuffer()
 
         highlight ColorColumn cterm=None ctermbg=Red
-        set colorcolumn=80
+        set colorcolumn=77
 
     endif
 
