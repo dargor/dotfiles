@@ -11,6 +11,8 @@ klog() {
     fi
 }
 
+alias klogs="klog"
+
 ktop() {
     pod="$1"
     watch -n 1 kubectl top pod --containers ${pod}
