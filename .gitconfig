@@ -63,6 +63,7 @@
     oops = commit --amend
     fuck = reset --hard ORIG_HEAD
     pfetch = fetch origin --prune
+    ptags = push --tags
     sdiff = stash show -p
     slist = stash list
     spop = stash pop
