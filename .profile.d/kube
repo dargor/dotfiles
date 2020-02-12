@@ -25,3 +25,7 @@ kpods() {
         watch -n 1 kubectl get pods
     fi
 }
+
+alias knodes="kubectl get nodes -o wide"
+
+alias khelp="kubectl api-resources | sort"
