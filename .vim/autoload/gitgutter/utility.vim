@@ -105,6 +105,10 @@ function! gitgutter#utility#system(cmd, ...) abort
   return output
 endfunction
 
+function! gitgutter#utility#has_repo_path(bufnr)
+  return index(['', -1, -2], gitgutter#utility#repo_path(a:bufnr, 0)) == -1
+endfunction
+
 " Path of file relative to repo root.
 "
 " *     empty string - not set
@@ -112,7 +116,7 @@ endfunction
 " *               -1 - pending
 " *               -2 - not tracked by git
 function! gitgutter#utility#repo_path(bufnr, shellesc) abort
-  let p = gitgutter#utility#getbufvar(a:bufnr, 'path')
+  let p = gitgutter#utility#getbufvar(a:bufnr, 'path', '')
   return a:shellesc ? gitgutter#utility#shellescape(p) : p
 endfunction
 
