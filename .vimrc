@@ -51,10 +51,10 @@ let g:gitgutter_map_keys = 0
 let g:gitgutter_max_signs = 1024
 let g:gitgutter_override_sign_column_highlight = 0
 highlight SignColumn ctermbg=None
-highlight GitGutterAdd ctermfg=10
-highlight GitGutterChange ctermfg=11
-highlight GitGutterDelete ctermfg=9
-highlight GitGutterChangeDelete ctermfg=13
+highlight GitGutterAdd ctermfg=Green
+highlight GitGutterChange ctermfg=Yellow
+highlight GitGutterDelete ctermfg=Red
+highlight GitGutterChangeDelete ctermfg=Magenta
 
 if &t_Co > 2
 
@@ -99,8 +99,8 @@ if &t_Co > 2
 
     if &t_Co >= 256
 
-        highlight CursorLine cterm=None ctermbg=235
-        highlight CursorColumn cterm=None ctermbg=235
+        highlight CursorLine cterm=None ctermbg=234
+        highlight CursorColumn cterm=None ctermbg=234
 
         highlight FoldColumn cterm=None ctermfg=243 ctermbg=None
         highlight Folded cterm=None ctermfg=243 ctermbg=None
