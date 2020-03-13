@@ -124,6 +124,8 @@ URxvt.background: #000000
 URxvt.foreground: #A8A8A8
 URxvt.font: -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso10646-1
 URxvt.boldFont: -xos4-terminus-bold-r-normal-*-14-140-72-72-c-80-iso10646-1
+URxvt.italicFont: -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso10646-1
+URxvt.boldItalicFont: -xos4-terminus-bold-r-normal-*-14-140-72-72-c-80-iso10646-1
 URxvt.termName: rxvt-unicode-256color
 URxvt.title: Terminal
 URxvt.scrollBar: false
