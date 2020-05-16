@@ -1,3 +1,6 @@
+# Generic backups
+*~
+
 # Vim
 .sw*
 .*.sw*
@@ -10,12 +13,12 @@
 *.py[co]
 __pycache__
 .coverage
+.coverage.*
 .ipynb_checkpoints
 .mypy_cache
+.pytest_cache
+.tox
 .venv
 
 # Terraform
 .terraform
-
-# Mono
-*.exe
