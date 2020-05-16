@@ -28,8 +28,11 @@ bindsym $mod+n exec --no-startup-id leafpad
 bindsym $mod+p exec --no-startup-id firefox
 bindsym $mod+g exec --no-startup-id google-chrome-stable
 
-# spawn office
+# spawn office suite
 bindsym $mod+o exec --no-startup-id soffice
+
+# spawn character map
+bindsym $mod+i exec --no-startup-id gucharmap
 
 # a man has no pride
 bindsym $mod+y exec --no-startup-id pavucontrol
