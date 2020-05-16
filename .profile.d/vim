@@ -1,0 +1,5 @@
+#! /usr/bin/env bash
+
+vimgrep() {
+    vim $(grep -lir "$1")
+}
