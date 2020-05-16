@@ -1,4 +1,4 @@
-# Copy this file to ~/.ptpython/config.py
+# Copy this file to ~/.config/ptpython/config.py
 
 from __future__ import unicode_literals
 from ptpython.layout import CompletionVisualisation
