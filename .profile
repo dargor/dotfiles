@@ -90,7 +90,7 @@ alias maxima="rlwrap maxima"
 alias sbcl="rlwrap sbcl"
 alias links="links -g"
 alias rcli="redis-cli"
-alias sc="shellcheck"
+alias sc="shellcheck -f gcc"
 
 for f in ~/.profile.d/*; do
     . "$f"
