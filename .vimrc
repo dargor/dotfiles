@@ -1,8 +1,9 @@
 set nocompatible
-filetype off
+
+set background=dark
+silent! colorscheme selenized_bw
 
 set autoindent
-set background=light
 set backspace=indent,start,eol
 set diffopt=internal,filler,iwhiteall
 set display=lastline,uhex
@@ -18,6 +19,7 @@ set mouse=
 set nofsync
 set report=0
 set ruler
+set scrolloff=5
 set shiftround
 set shiftwidth=4
 set showcmd
@@ -41,6 +43,9 @@ set t_BE=
 
 let g:netrw_dirhistmax = 0
 
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_contrast_light = 'hard'
+
 let g:rainbow_active = 1
 
 let g:python_highlight_all = 1
@@ -50,11 +55,6 @@ let g:gitgutter_diff_args = '-w'
 let g:gitgutter_map_keys = 0
 let g:gitgutter_max_signs = 1024
 let g:gitgutter_override_sign_column_highlight = 0
-highlight SignColumn ctermbg=None
-highlight GitGutterAdd ctermfg=Green
-highlight GitGutterChange ctermfg=Yellow
-highlight GitGutterDelete ctermfg=Red
-highlight GitGutterChangeDelete ctermfg=Magenta
 
 if &t_Co > 2
 
@@ -66,7 +66,7 @@ if &t_Co > 2
     autocmd BufNewFile,BufRead Jenkinsfile set filetype=groovy
     autocmd BufNewFile,BufRead master,roster,*.sls set filetype=yaml
     autocmd BufNewFile,BufRead package.{env,provided} set filetype=gentoo-package-use
-    autocmd BufNewFile,BufRead *.{cfg,cnf,service,timer,toml},cqlshrc,supervisord.conf set filetype=dosini
+    autocmd BufNewFile,BufRead *.{cfg,cnf,coveragerc,service,timer,toml},cqlshrc,supervisord.conf set filetype=dosini
 
     autocmd FileType ruby,eruby,xml,yaml,json,markdown set shiftwidth=2 softtabstop=2
     autocmd FileType make set noexpandtab shiftwidth=8
@@ -74,50 +74,73 @@ if &t_Co > 2
 
     if !&diff
 
+        set colorcolumn=77
+
         if &t_Co >= 256
             autocmd BufEnter,WinEnter * set cursorline cursorcolumn
             autocmd BufLeave,WinLeave * set nocursorline nocursorcolumn
         endif
 
-        function! SetupBuffer()
-            if !exists('w:WhiteSpaces')
-                let w:WhiteSpaces=matchadd('WhiteSpaces', '\(\t\|\s\+$\)')
+        function! SetupHighlights()
+
+            highlight ColorColumn cterm=None ctermbg=Red
+
+            highlight WhiteSpaces cterm=None ctermfg=Black ctermbg=Red
+            highlight DoNotUseLogging cterm=None ctermfg=Black ctermbg=Magenta
+
+            highlight SignColumn ctermbg=None
+            highlight GitGutterAdd ctermfg=DarkGreen
+            highlight GitGutterChange ctermfg=DarkYellow
+            highlight GitGutterDelete ctermfg=DarkRed
+            highlight GitGutterChangeDelete ctermfg=DarkMagenta
+
+            if &t_Co >= 256
+
+                if &background ==# 'dark'
+                    highlight CursorLine cterm=None ctermbg=235
+                    highlight CursorColumn cterm=None ctermbg=235
+                    highlight CursorLineNr cterm=None ctermfg=Gray ctermbg=235
+                else
+                    highlight CursorLine cterm=None ctermbg=255
+                    highlight CursorColumn cterm=None ctermbg=255
+                    highlight CursorLineNr cterm=None ctermfg=Gray ctermbg=255
+                endif
+
+                highlight FoldColumn cterm=None ctermfg=243 ctermbg=None
+                highlight Folded cterm=None ctermfg=243 ctermbg=None
+
+                highlight Visual cterm=None ctermbg=193
+
             endif
-            if !exists('w:DoNotUseLogging')
-                let w:DoNotUseLogging=matchadd('DoNotUseLogging', 'logging')
-            endif
+
+            highlight Todo cterm=Bold ctermfg=Red ctermbg=None
+
+            highlight LineNr cterm=None ctermfg=DarkGray ctermbg=None
+
         endfunction
 
-        highlight WhiteSpaces cterm=None ctermfg=Black ctermbg=Red
-        highlight DoNotUseLogging cterm=None ctermfg=Black ctermbg=Magenta
-        autocmd Syntax,BufEnter,WinEnter * call SetupBuffer()
+        autocmd ColorScheme,Syntax * call SetupHighlights()
 
-        highlight ColorColumn cterm=None ctermbg=Red
-        set colorcolumn=77
+        function! SetupBuffer()
 
-    endif
+            if !exists('w:WhiteSpaces') && hlexists('WhiteSpaces')
+                let w:WhiteSpaces=matchadd('WhiteSpaces', '\(\t\|\s\+$\)')
+            endif
 
-    if &t_Co >= 256
+            if !exists('w:DoNotUseLogging') && hlexists('DoNotUseLogging')
+                let w:DoNotUseLogging=matchadd('DoNotUseLogging', 'logging')
+            endif
 
-        highlight CursorLine cterm=None ctermbg=234
-        highlight CursorColumn cterm=None ctermbg=234
+        endfunction
 
-        highlight FoldColumn cterm=None ctermfg=243 ctermbg=None
-        highlight Folded cterm=None ctermfg=243 ctermbg=None
-
-        highlight Visual cterm=None ctermbg=193
+        autocmd ColorScheme,Syntax,BufEnter,WinEnter * call SetupBuffer()
 
     endif
 
-    highlight Todo cterm=Bold ctermfg=Red ctermbg=None
-
-    highlight LineNr cterm=Bold ctermfg=Yellow ctermbg=Blue
-    highlight CursorLineNr cterm=Bold ctermfg=Green ctermbg=DarkBlue
-
-    highlight DiffAdd cterm=None ctermfg=Black ctermbg=Green
+    highlight DiffAdd    cterm=None ctermfg=Black ctermbg=Green
     highlight DiffChange cterm=None ctermfg=Black ctermbg=Yellow
     highlight DiffDelete cterm=None ctermfg=Black ctermbg=Red
-    highlight DiffText cterm=None ctermfg=Black ctermbg=Magenta
+    highlight DiffText   cterm=None ctermfg=Black ctermbg=Magenta
 
 endif
 
@@ -138,6 +161,11 @@ function! MaximizeToggle()
 endfunction
 
 nnoremap <space> za
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
 nnoremap <C-W>o :call MaximizeToggle()<CR>
 nnoremap <C-W>O :call MaximizeToggle()<CR>
