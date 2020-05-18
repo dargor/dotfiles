@@ -123,11 +123,17 @@ if &t_Co > 2
 
         function! SetupBuffer()
 
-            if !exists('w:WhiteSpaces') && hlexists('WhiteSpaces')
+            if !exists('w:WhiteSpaces')
+                if !hlexists('WhiteSpaces')
+                    call SetupHighlights()
+                endif
                 let w:WhiteSpaces=matchadd('WhiteSpaces', '\(\t\|\s\+$\)')
             endif
 
-            if !exists('w:DoNotUseLogging') && hlexists('DoNotUseLogging')
+            if !exists('w:DoNotUseLogging')
+                if !hlexists('DoNotUseLogging')
+                    call SetupHighlights()
+                endif
                 let w:DoNotUseLogging=matchadd('DoNotUseLogging', 'logging')
             endif
 
