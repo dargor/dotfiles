@@ -20,9 +20,13 @@
     pager = cat
     editor = vim
     excludesfile = ~/.gitignore
+    attributesfile = ~/.gitattributes
 
 [diff]
     tool = meld
+
+[diff "gpg"]
+    textconv = gpg --decrypt --batch --no-tty --quiet
 
 [difftool]
     prompt = false

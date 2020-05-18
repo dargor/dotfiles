@@ -1,0 +1,2 @@
+# handle gpg-encrypted files
+*.gpg filter=gpg diff=gpg
