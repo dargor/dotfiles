@@ -11,7 +11,7 @@ klog() {
     if [ -z "${containers}" ]; then
         containers=$(kubectl get pod "${pod}" -o jsonpath="{.spec.containers[*].name}")
     fi
-    xpanes -c "kubectl logs ${pod} --follow --tail 10 -c {}" ${containers}
+    xpanes -c "kubectl logs ${pod} --follow --tail 100 -c {}" ${containers}
 }
 
 kgrep() {
