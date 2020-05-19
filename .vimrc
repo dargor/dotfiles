@@ -97,13 +97,21 @@ if &t_Co > 2
             if &t_Co >= 256
 
                 if &background ==# 'dark'
+
                     highlight CursorLine cterm=None ctermbg=235
                     highlight CursorColumn cterm=None ctermbg=235
+
+                    highlight LineNr cterm=None ctermfg=DarkGray ctermbg=None
                     highlight CursorLineNr cterm=None ctermfg=Gray ctermbg=235
+
                 else
+
                     highlight CursorLine cterm=None ctermbg=255
                     highlight CursorColumn cterm=None ctermbg=255
-                    highlight CursorLineNr cterm=None ctermfg=Gray ctermbg=255
+
+                    highlight LineNr cterm=None ctermfg=Gray ctermbg=None
+                    highlight CursorLineNr cterm=None ctermfg=DarkGray ctermbg=255
+
                 endif
 
                 highlight FoldColumn cterm=None ctermfg=243 ctermbg=None
@@ -114,8 +122,6 @@ if &t_Co > 2
             endif
 
             highlight Todo cterm=Bold ctermfg=Red ctermbg=None
-
-            highlight LineNr cterm=None ctermfg=DarkGray ctermbg=None
 
         endfunction
 
@@ -139,14 +145,14 @@ if &t_Co > 2
 
         endfunction
 
-        autocmd ColorScheme,Syntax,BufEnter,WinEnter * call SetupBuffer()
+        autocmd BufEnter,WinEnter * call SetupBuffer()
 
     endif
 
-    highlight DiffAdd    cterm=None ctermfg=Black ctermbg=Green
+    highlight DiffAdd cterm=None ctermfg=Black ctermbg=Green
     highlight DiffChange cterm=None ctermfg=Black ctermbg=Yellow
     highlight DiffDelete cterm=None ctermfg=Black ctermbg=Red
-    highlight DiffText   cterm=None ctermfg=Black ctermbg=Magenta
+    highlight DiffText cterm=None ctermfg=Black ctermbg=Magenta
 
 endif
 
