@@ -83,7 +83,7 @@ if &t_Co > 2
 
         function! SetupHighlights()
 
-            highlight ErrorMsg cterm=Bold ctermfg=Red
+            highlight ErrorMsg cterm=Bold ctermfg=White ctermbg=DarkRed
             highlight ColorColumn cterm=None ctermbg=Red
 
             highlight WhiteSpaces cterm=None ctermfg=Black ctermbg=Red
