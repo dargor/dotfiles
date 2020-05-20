@@ -33,8 +33,6 @@ function! gitgutter#process_buffer(bufnr, force) abort
       return
     endif
 
-    call gitgutter#utility#set_diff_base_if_fugitive(a:bufnr)
-
     if a:force || s:has_fresh_changes(a:bufnr)
 
       let diff = 'NOT SET'
@@ -184,7 +182,7 @@ endfunction
 function! gitgutter#quickfix()
   let locations = []
   let cmd = g:gitgutter_git_executable.' '.g:gitgutter_git_args.' --no-pager '.g:gitgutter_git_args.
-        \ ' diff --no-ext-diff --no-color -U0 '.g:gitgutter_diff_args
+        \ ' diff --no-ext-diff --no-color -U0 '.g:gitgutter_diff_args. ' '. g:gitgutter_diff_base
   let diff = systemlist(cmd)
   let lnum = 0
   for line in diff
