@@ -103,6 +103,8 @@ if &t_Co > 2
                     highlight LineNr cterm=None ctermfg=DarkGray ctermbg=None
                     highlight CursorLineNr cterm=None ctermfg=Gray ctermbg=235
 
+                    let g:rainbow_conf = {'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta']}
+
                 else
 
                     highlight CursorLine cterm=None ctermbg=255
@@ -110,6 +112,8 @@ if &t_Co > 2
 
                     highlight LineNr cterm=None ctermfg=Gray ctermbg=None
                     highlight CursorLineNr cterm=None ctermfg=DarkGray ctermbg=255
+
+                    let g:rainbow_conf = {'ctermfgs': ['darkblue', 'darkyellow', 'darkcyan', 'darkmagenta']}
 
                 endif
 
