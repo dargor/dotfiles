@@ -9,15 +9,27 @@ window:
     lines: 24
   padding:
     x: 2
-    y: 2
+    y: 0
 
 scrolling:
   history: 10000
   multiplier: 3
 
 font:
+  # https://files.ax86.net/terminus-ttf/
   normal:
-    family: JetBrains Mono
+    family: Terminus (TTF)
+    style: Medium
+  italic:
+    family: Terminus (TTF)
+    style: Medium
+  bold:
+    family: Terminus (TTF)
+    style: Bold
+  bold_italic:
+    family: Terminus (TTF)
+    style: Bold
+  # https://files.ax86.net/terminus-ttf/#fontsizes
   size: 12
 
 draw_bold_text_with_bright_colors: true
@@ -52,7 +64,7 @@ visual_bell:
   duration: 0
 
 selection:
-  semantic_escape_chars: ",│`|\"' ()[]{}<>\t"
+  semantic_escape_chars: ",│`|;\"' ()[]{}<>\t"
   save_to_clipboard: false
 
 dynamic_title: true
