@@ -3,3 +3,7 @@
 vimgrep() {
     vim $(grep -lir "$1")
 }
+
+vimfind() {
+    vim $(find . -iname "$1")
+}
