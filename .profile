@@ -1,7 +1,5 @@
 #! /usr/bin/env bash
 
-set -o posix
-
 head -n 7 /etc/issue
 
 export PATH="$HOME/bin:$PATH"
