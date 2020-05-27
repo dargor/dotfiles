@@ -65,7 +65,7 @@ if &t_Co > 2
     autocmd BufNewFile,BufRead Jenkinsfile set filetype=groovy
     autocmd BufNewFile,BufRead master,roster,*.sls set filetype=yaml
     autocmd BufNewFile,BufRead package.{env,provided} set filetype=gentoo-package-use
-    autocmd BufNewFile,BufRead *.{cfg,cnf,coveragerc,service,timer,toml},cqlshrc,supervisord.conf set filetype=dosini
+    autocmd BufNewFile,BufRead *.{cfg,cnf,coveragerc,service,timer,toml},cqlshrc,{krb5,supervisord}.conf set filetype=dosini
 
     autocmd FileType ruby,eruby,xml,yaml,json,markdown set shiftwidth=2 softtabstop=2
     autocmd FileType make set noexpandtab shiftwidth=8
