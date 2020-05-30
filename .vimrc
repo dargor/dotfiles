@@ -29,6 +29,7 @@ set smarttab
 set swapsync=
 set tabpagemax=99
 set title
+set ttyfast
 set updatetime=100
 set viminfo=
 set virtualedit=block
