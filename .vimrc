@@ -80,6 +80,9 @@ if &t_Co > 2
     autocmd FileType json let g:indentLine_setConceal = 0
 
     function! SetupHighlights()
+        highlight Directory ctermfg=Blue
+        highlight NonText ctermfg=DarkBlue
+        highlight SpecialKey ctermfg=DarkRed
         highlight WhiteSpaces cterm=None ctermfg=Black ctermbg=Red
         highlight DoNotUseLogging cterm=None ctermfg=Black ctermbg=Magenta
         highlight SignColumn ctermbg=None
