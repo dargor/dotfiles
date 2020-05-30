@@ -1,6 +1,6 @@
 {
   "Notebook": {
-    "Header": true,
+    "Header": false,
     "Toolbar": true
   },
   "Cell": {
