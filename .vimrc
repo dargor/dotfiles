@@ -49,6 +49,10 @@ let g:gruvbox_contrast_light = 'hard'
 
 let g:rainbow_active = 1
 
+let g:indentLine_char = '┆'
+let g:indentLine_setColors = 1
+let g:indentLine_setConceal = 1
+
 let g:python_highlight_all = 1
 let g:python_highlight_file_headers_as_comments = 1
 
@@ -60,6 +64,7 @@ if &t_Co > 2
 
     syntax on
     set hlsearch
+    set colorcolumn=77
 
     autocmd BufNewFile,BufRead *.hy set filetype=lisp
     autocmd BufNewFile,BufRead *.pp set filetype=ruby
@@ -72,91 +77,55 @@ if &t_Co > 2
     autocmd FileType make set noexpandtab shiftwidth=8
     autocmd FileType gitcommit set nowrap
 
-    if !&diff
+    autocmd FileType json let g:indentLine_setConceal = 0
 
-        set colorcolumn=77
-
+    function! SetupHighlights()
+        highlight WhiteSpaces cterm=None ctermfg=Black ctermbg=Red
+        highlight DoNotUseLogging cterm=None ctermfg=Black ctermbg=Magenta
+        highlight SignColumn ctermbg=None
+        highlight GitGutterAdd ctermfg=DarkGreen
+        highlight GitGutterChange ctermfg=DarkYellow
+        highlight GitGutterDelete ctermfg=DarkRed
+        highlight GitGutterChangeDelete ctermfg=DarkMagenta
         if &t_Co >= 256
-            autocmd BufEnter,WinEnter * set cursorline cursorcolumn
-            autocmd BufLeave,WinLeave * set nocursorline nocursorcolumn
+            if &background ==# 'dark'
+                highlight ColorColumn ctermbg=DarkRed
+                highlight LineNr cterm=None ctermfg=DarkGray ctermbg=None
+                let g:rainbow_conf = {'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta']}
+            else
+                highlight ColorColumn ctermbg=Red
+                highlight LineNr cterm=None ctermfg=Gray ctermbg=None
+                let g:rainbow_conf = {'ctermfgs': ['darkblue', 'darkyellow', 'darkcyan', 'darkmagenta']}
+            endif
+            highlight FoldColumn cterm=None ctermfg=243 ctermbg=None
+            highlight Folded cterm=None ctermfg=243 ctermbg=None
+            highlight Visual cterm=None ctermbg=193
         endif
+        highlight Todo cterm=Bold ctermfg=Red ctermbg=None
+        highlight DiffAdd cterm=None ctermfg=Black ctermbg=Green
+        highlight DiffChange cterm=None ctermfg=Black ctermbg=Yellow
+        highlight DiffDelete cterm=None ctermfg=Black ctermbg=Red
+        highlight DiffText cterm=None ctermfg=Black ctermbg=Magenta
+    endfunction
 
-        function! SetupHighlights()
+    autocmd ColorScheme,Syntax * call SetupHighlights()
 
-            highlight ColorColumn cterm=None ctermbg=Red
-
-            highlight WhiteSpaces cterm=None ctermfg=Black ctermbg=Red
-            highlight DoNotUseLogging cterm=None ctermfg=Black ctermbg=Magenta
-
-            highlight SignColumn ctermbg=None
-            highlight GitGutterAdd ctermfg=DarkGreen
-            highlight GitGutterChange ctermfg=DarkYellow
-            highlight GitGutterDelete ctermfg=DarkRed
-            highlight GitGutterChangeDelete ctermfg=DarkMagenta
-
-            if &t_Co >= 256
-
-                if &background ==# 'dark'
-
-                    highlight CursorLine cterm=None ctermbg=235
-                    highlight CursorColumn cterm=None ctermbg=235
-
-                    highlight LineNr cterm=None ctermfg=DarkGray ctermbg=None
-                    highlight CursorLineNr cterm=None ctermfg=Gray ctermbg=235
-
-                    let g:rainbow_conf = {'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta']}
-
-                else
-
-                    highlight CursorLine cterm=None ctermbg=255
-                    highlight CursorColumn cterm=None ctermbg=255
-
-                    highlight LineNr cterm=None ctermfg=Gray ctermbg=None
-                    highlight CursorLineNr cterm=None ctermfg=DarkGray ctermbg=255
-
-                    let g:rainbow_conf = {'ctermfgs': ['darkblue', 'darkyellow', 'darkcyan', 'darkmagenta']}
-
-                endif
-
-                highlight FoldColumn cterm=None ctermfg=243 ctermbg=None
-                highlight Folded cterm=None ctermfg=243 ctermbg=None
-
-                highlight Visual cterm=None ctermbg=193
-
+    function! SetupBuffer()
+        if !exists('w:WhiteSpaces')
+            if !hlexists('WhiteSpaces')
+                call SetupHighlights()
             endif
-
-            highlight Todo cterm=Bold ctermfg=Red ctermbg=None
-
-        endfunction
-
-        autocmd ColorScheme,Syntax * call SetupHighlights()
-
-        function! SetupBuffer()
-
-            if !exists('w:WhiteSpaces')
-                if !hlexists('WhiteSpaces')
-                    call SetupHighlights()
-                endif
-                let w:WhiteSpaces=matchadd('WhiteSpaces', '\(\t\|\s\+$\)')
+            let w:WhiteSpaces=matchadd('WhiteSpaces', '\(\t\|\s\+$\)')
+        endif
+        if !exists('w:DoNotUseLogging')
+            if !hlexists('DoNotUseLogging')
+                call SetupHighlights()
             endif
+            let w:DoNotUseLogging=matchadd('DoNotUseLogging', 'logging')
+        endif
+    endfunction
 
-            if !exists('w:DoNotUseLogging')
-                if !hlexists('DoNotUseLogging')
-                    call SetupHighlights()
-                endif
-                let w:DoNotUseLogging=matchadd('DoNotUseLogging', 'logging')
-            endif
-
-        endfunction
-
-        autocmd BufEnter,WinEnter * call SetupBuffer()
-
-    endif
-
-    highlight DiffAdd cterm=None ctermfg=Black ctermbg=Green
-    highlight DiffChange cterm=None ctermfg=Black ctermbg=Yellow
-    highlight DiffDelete cterm=None ctermfg=Black ctermbg=Red
-    highlight DiffText cterm=None ctermfg=Black ctermbg=Magenta
+    autocmd BufEnter,WinEnter * call SetupBuffer()
 
 endif
 
