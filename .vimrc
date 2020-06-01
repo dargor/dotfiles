@@ -49,7 +49,7 @@ let g:gruvbox_contrast_light = 'hard'
 
 let g:rainbow_active = 1
 
-let g:indentLine_char = '┆'
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
 let g:indentLine_setColors = 1
 let g:indentLine_setConceal = 1
 
