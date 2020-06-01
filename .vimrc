@@ -77,7 +77,7 @@ if &t_Co > 2
     autocmd FileType make set noexpandtab shiftwidth=8
     autocmd FileType gitcommit set nowrap
 
-    autocmd FileType json let g:indentLine_setConceal = 0
+    autocmd FileType diff,gitcommit,json let g:indentLine_setConceal = 0
 
     function! SetupHighlights()
         highlight Directory ctermfg=Blue
