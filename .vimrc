@@ -134,7 +134,7 @@ endif
 
 function! MaximizeToggle()
     if exists('s:maximize_session')
-        exec 'source ' . s:maximize_session
+        silent! exec 'source ' . s:maximize_session
         call delete(s:maximize_session)
         unlet s:maximize_session
         let &hidden=s:maximize_hidden_save
