@@ -32,7 +32,21 @@ kexec() {
         return
     fi
     containers=$(kubectl get pod "${pod}" -o jsonpath="{.spec.containers[*].name}")
-    xpanes -c "kubectl exec -it ${pod} -c {} -- sh" ${containers}
+    if [ -z "$2" ]; then
+        cmd="sh"
+    else
+        cmd="$2"
+    fi
+    xpanes -c "kubectl exec -it ${pod} -c {} -- ${cmd}" ${containers}
+}
+
+kthrottled() {
+    pod="$1"
+    if [ -z "${pod}" ]; then
+        echo 1>&2 "Usage: kthrottled pod"
+        return
+    fi
+    kexec "$pod" "cat /sys/fs/cgroup/cpu/cpu.stat"
 }
 
 ktop() {
