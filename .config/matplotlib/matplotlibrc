@@ -1,1 +1,14 @@
-backend: TkAgg
+font.family: sans-serif
+font.sans-serif: Droid Sans
+
+font.size: 12.0
+axes.titlesize: 12.0
+axes.labelsize: 12.0
+xtick.labelsize: 12.0
+ytick.labelsize: 12.0
+legend.fontsize: 12.0
+figure.titlesize: 12.0
+
+axes.grid: True
+grid.linestyle: :
+lines.linewidth: 1.0
