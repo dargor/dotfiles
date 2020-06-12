@@ -49,6 +49,24 @@ kthrottled() {
     kexec "$pod" "cat /sys/fs/cgroup/cpu/cpu.stat"
 }
 
+kimage() {
+    pod="$1"
+    if [ -z "${pod}" ]; then
+        echo 1>&2 "Usage: kimage pod"
+        return
+    fi
+    kubectl describe pod ${pod} | grep Image:
+}
+
+kimages() {
+    deployment="$1"
+    if [ -z "${deployment}" ]; then
+        echo 1>&2 "Usage: kimages deployment"
+        return
+    fi
+    kubectl describe deployments.apps ${deployment} | grep Image:
+}
+
 ktop() {
     pod="$1"
     watch -n 1 "kubectl top pod --containers ${pod}"
