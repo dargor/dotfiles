@@ -1,7 +1,11 @@
 set nocompatible
 
-set background=dark
-silent! colorscheme selenized_bw
+try
+    set background=dark
+    colorscheme selenized_bw
+catch
+    set background=light
+endtry
 
 set autoindent
 set backspace=indent,start,eol
