@@ -80,6 +80,10 @@ kpods() {
     fi
 }
 
+knotrunning() {
+    kubectl get pods | grep -v Running
+}
+
 alias knodes="kubectl get nodes -o wide"
 
 alias kgd="kubectl get deployments.apps"
