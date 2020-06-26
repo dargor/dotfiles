@@ -136,6 +136,14 @@ if &t_Co > 2
 
 endif
 
+function! ToggleBackground()
+    if &background ==# 'dark'
+        set background=light
+    else
+        set background=dark
+    endif
+endfunction
+
 function! MaximizeToggle()
     if exists('s:maximize_session')
         silent! exec 'source ' . s:maximize_session
@@ -158,6 +166,8 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+nnoremap <C-b> :call ToggleBackground()<CR>
 
 nnoremap <C-W>o :call MaximizeToggle()<CR>
 nnoremap <C-W>O :call MaximizeToggle()<CR>
