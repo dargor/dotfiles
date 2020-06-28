@@ -90,3 +90,6 @@ alias kgd="kubectl get deployments.apps"
 alias krs="kubectl rollout restart deployments.apps"
 
 alias khelp="kubectl api-resources | sort"
+
+# ignore kubectl plugins, they only pollute shell completion
+export EXECIGNORE="*/kubectl-*:${EXECIGNORE}"
