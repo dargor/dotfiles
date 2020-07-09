@@ -25,7 +25,7 @@ bindsym $mod+w exec --no-startup-id cool-retro-term
 bindsym $mod+n exec --no-startup-id leafpad
 
 # spawn browsers
-bindsym $mod+p exec --no-startup-id firefox
+bindsym $mod+p exec --no-startup-id firefox-bin
 bindsym $mod+g exec --no-startup-id google-chrome-stable
 
 # spawn office suite
