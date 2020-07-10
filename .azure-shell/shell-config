@@ -8,7 +8,7 @@ history = history.txt
 frequency = frequency.json
 
 [Layout]
-command_description = yes
-param_description = yes
-examples = yes
+command_description = no
+param_description = no
+examples = no
 
