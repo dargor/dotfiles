@@ -10,6 +10,7 @@ window:
   padding:
     x: 2
     y: 0
+  dynamic_title: true
 
 scrolling:
   history: 10000
@@ -60,14 +61,12 @@ colors:
     cyan:    '0x54FFFF'
     white:   '0xFFFFFF'
 
-visual_bell:
+bell:
   duration: 0
 
 selection:
   semantic_escape_chars: ",│`|;\"' ()[]{}<>\t"
   save_to_clipboard: false
-
-dynamic_title: true
 
 cursor:
   style: Block
