@@ -4,4 +4,4 @@
 #       ModuleNotFoundError: No module named 'prompt_toolkit.interface'
 #     run :
 #       pip uninstall -y prompt-toolkit
-alias azi="az interactive --style contrast"
+alias azi="az interactive"
