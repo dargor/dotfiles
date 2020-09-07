@@ -10,7 +10,7 @@ mongo_shell()
     fi
 
     if [[ "$uri" =~ "ssl" ]]; then
-        mongo --shell --ssl --sslAllowInvalidCertificates "$uri"
+        mongo --shell --tls --tlsAllowInvalidCertificates --tlsAllowInvalidHostnames "$uri"
     else
         mongo --shell "$uri"
     fi
