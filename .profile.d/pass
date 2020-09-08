@@ -1,3 +1,5 @@
 #! /usr/bin/env bash
 
 export PASSWORD_STORE_DIR=.
+
+alias pi='pass init $(< .gpg-id)'
