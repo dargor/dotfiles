@@ -124,13 +124,17 @@ if &t_Co > 2
             endif
             let w:DoNotUseLogging=matchadd('DoNotUseLogging', 'logging')
         endif
-        set cursorline
-        set cursorcolumn
+        if !&diff
+            set cursorline
+            set cursorcolumn
+        endif
     endfunction
 
     function! LeaveBuffer()
-        set nocursorline
-        set nocursorcolumn
+        if !&diff
+            set nocursorline
+            set nocursorcolumn
+        endif
     endfunction
 
     autocmd BufEnter,WinEnter * call EnterBuffer()
