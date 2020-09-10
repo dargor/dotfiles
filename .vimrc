@@ -3,9 +3,15 @@ set nocompatible
 try
     set background=dark
     colorscheme selenized_bw
+    let g:dargor_full_moumoute = 1
 catch
     set background=light
+    let g:dargor_full_moumoute = 0
 endtry
+
+if &diff
+    let g:dargor_full_moumoute = 0
+endif
 
 set autoindent
 set backspace=indent,start,eol
@@ -124,14 +130,14 @@ if &t_Co > 2
             endif
             let w:DoNotUseLogging=matchadd('DoNotUseLogging', 'logging')
         endif
-        if !&diff
+        if g:dargor_full_moumoute
             set cursorline
             set cursorcolumn
         endif
     endfunction
 
     function! LeaveBuffer()
-        if !&diff
+        if g:dargor_full_moumoute
             set nocursorline
             set nocursorcolumn
         endif
