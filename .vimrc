@@ -53,10 +53,6 @@ let g:gruvbox_contrast_light = 'hard'
 
 let g:rainbow_active = 1
 
-let g:indentLine_char_list = ['|', '¦', '┆', '┊']
-let g:indentLine_setColors = 1
-let g:indentLine_setConceal = 1
-
 let g:python_highlight_all = 1
 let g:python_highlight_file_headers_as_comments = 1
 
@@ -80,13 +76,6 @@ if &t_Co > 2
     autocmd FileType ruby,eruby,xml,yaml,json,markdown set shiftwidth=2 softtabstop=2
     autocmd FileType make set noexpandtab shiftwidth=8
     autocmd FileType gitcommit set nowrap
-
-    function! DisableConceal()
-        let g:indentLine_setConceal = 0
-        set conceallevel=0
-    endfunction
-
-    autocmd FileType,Syntax diff,gitcommit,json,markdown,rst call DisableConceal()
 
     function! SetupHighlights()
         highlight Directory ctermfg=Blue
@@ -122,7 +111,7 @@ if &t_Co > 2
 
     autocmd ColorScheme,Syntax * call SetupHighlights()
 
-    function! SetupBuffer()
+    function! EnterBuffer()
         if !exists('w:WhiteSpaces')
             if !hlexists('WhiteSpaces')
                 call SetupHighlights()
@@ -135,9 +124,17 @@ if &t_Co > 2
             endif
             let w:DoNotUseLogging=matchadd('DoNotUseLogging', 'logging')
         endif
+        set cursorline
+        set cursorcolumn
     endfunction
 
-    autocmd BufEnter,WinEnter * call SetupBuffer()
+    function! LeaveBuffer()
+        set nocursorline
+        set nocursorcolumn
+    endfunction
+
+    autocmd BufEnter,WinEnter * call EnterBuffer()
+    autocmd BufLeave,WinLeave * call LeaveBuffer()
 
 endif
 
@@ -147,6 +144,7 @@ function! ToggleBackground()
     else
         set background=dark
     endif
+    filetype detect
 endfunction
 
 function! MaximizeToggle()
@@ -167,10 +165,7 @@ endfunction
 
 nnoremap <space> za
 
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <F12> :syntax sync fromstart<CR>
 
 nnoremap <C-b> :call ToggleBackground()<CR>
 
