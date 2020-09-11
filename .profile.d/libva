@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /usr/bin/env bash
 
 # switch from default i965 to newer iHD
 export LIBVA_DRIVER_NAME=iHD
