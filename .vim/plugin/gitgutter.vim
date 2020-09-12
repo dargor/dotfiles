@@ -226,6 +226,8 @@ nnoremap <silent> <Plug>GitGutterPreviewHunk   :call gitgutter#utility#warn('ple
 function! s:on_bufenter()
   call gitgutter#setup_maps()
 
+  if has('vim_starting') && !$VIM_GITGUTTER_TEST | return | endif
+
   if exists('t:gitgutter_didtabenter') && t:gitgutter_didtabenter
     let t:gitgutter_didtabenter = 0
     call gitgutter#all(!g:gitgutter_terminal_reports_focus)
@@ -272,7 +274,7 @@ augroup gitgutter
   " FocusGained gets triggered on startup with Neovim at least already.
   " Therefore this tracks also if it was lost before.
   let s:focus_was_lost = 0
-  autocmd FocusGained * if s:focus_was_lost | let focus_was_lost = 0 | call gitgutter#all(1) | endif
+  autocmd FocusGained * if s:focus_was_lost | let s:focus_was_lost = 0 | call gitgutter#all(1) | endif
   autocmd FocusLost * let s:focus_was_lost = 1
 
   if exists('##VimResume')
