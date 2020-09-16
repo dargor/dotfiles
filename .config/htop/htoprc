@@ -27,4 +27,3 @@ left_meters=AllCPUs2 Memory Swap
 left_meter_modes=1 1 1
 right_meters=LoadAverage Tasks Battery Uptime
 right_meter_modes=2 2 2 2
-vim_mode=0
