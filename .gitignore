@@ -1,6 +1,9 @@
 # Generic backups
 *~
 
+# Exuberant Ctags
+tags
+
 # Vim
 .sw*
 .*.sw*
