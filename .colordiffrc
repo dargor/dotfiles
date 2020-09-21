@@ -6,4 +6,4 @@ newtext       = darkgreen
 oldtext       = darkred
 diffstuff     = darkyellow
 cvsstuff      = darkmagenta
-difffile      = darkcyan
+difffile      = darkmagenta
