@@ -3,7 +3,7 @@
     email = linder.gabriel@gmail.com
 
 [help]
-    autocorrect = -1
+    autocorrect = 0
 
 [color]
     ui = true
