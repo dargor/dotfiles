@@ -1,3 +1,10 @@
 [flake8]
+
+# flake8-colors
 format = ${cyan_bold}%(path)s${reset}:${yellow_bold}%(row)d${reset}:${green_bold}%(col)d${reset}: ${red_bold}%(code)s${reset} %(text)s
-ignore = W504, E402, E722, E741
+
+# E402 module level import not at top of file
+# E722 do not use bare except
+# E741 ambiguous variable name
+# W504 line break after binary operator
+ignore = E402, E722, E741, W504
