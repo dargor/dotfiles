@@ -3,6 +3,9 @@
 # flake8-colors
 format = ${cyan_bold}%(path)s${reset}:${yellow_bold}%(row)d${reset}:${green_bold}%(col)d${reset}: ${red_bold}%(code)s${reset} %(text)s
 
+# flake8-logging-format
+enable-extensions=G
+
 # E402 module level import not at top of file
 # E722 do not use bare except
 # E741 ambiguous variable name
