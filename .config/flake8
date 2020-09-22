@@ -14,5 +14,6 @@ docstring-quotes = """
 # E402 module level import not at top of file
 # E722 do not use bare except
 # E741 ambiguous variable name
+# G004 Logging statement uses f-string
 # W504 line break after binary operator
-ignore = E402, E722, E741, W504
+ignore = E402, E722, E741, G004, W504
