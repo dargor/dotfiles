@@ -22,7 +22,7 @@ xset fp rehash
 [ -x /usr/bin/numlockx ] && /usr/bin/numlockx
 [ -x /usr/bin/xbindkeys ] && /usr/bin/xbindkeys
 [ -x /usr/bin/urxvtd ] && /usr/bin/urxvtd -f -o
-[ -x /usr/bin/pulseaudio ] && /usr/bin/pulseaudio --start
+[ -x /usr/local/bin/start-pulseaudio ] && /usr/local/bin/start-pulseaudio
 [ -x /usr/bin/blueman-applet ] && /usr/bin/blueman-applet &
 [ -x /usr/bin/redshift-gtk ] && /usr/bin/redshift-gtk -l 48.8566:2.3522 &
 
