@@ -118,7 +118,7 @@ if &t_Co > 2
 
     autocmd ColorScheme,Syntax * call SetupHighlights()
 
-    function! EnterBuffer()
+    function! InitBuffer()
         if !exists('w:WhiteSpaces')
             if !hlexists('WhiteSpaces')
                 call SetupHighlights()
@@ -131,6 +131,10 @@ if &t_Co > 2
             endif
             let w:DoNotUseLogging=matchadd('DoNotUseLogging', 'logging')
         endif
+    endfunction
+
+    function! EnterBuffer()
+        call InitBuffer()
         if g:dargor_full_moumoute
             set cursorline
             set cursorcolumn
@@ -144,6 +148,7 @@ if &t_Co > 2
         endif
     endfunction
 
+    autocmd BufWinEnter * call InitBuffer()
     autocmd BufEnter,WinEnter * call EnterBuffer()
     autocmd BufLeave,WinLeave * call LeaveBuffer()
 
