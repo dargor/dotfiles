@@ -1,0 +1,56 @@
+#! /usr/bin/env bash
+
+docker_clean_containers()
+{
+    for container in $(docker ps -aq); do
+        docker stop -t 0 "${container}"
+        docker rm -f "${container}"
+    done
+}
+
+docker_clean_images()
+{
+    if [ "$1" = "all" ]; then
+        docker images -q | xargs -r docker rmi -f --
+        return
+    fi
+    docker images | grep '<none>' | while read -r line; do
+        img=$(echo "$line" | awk '{print $3}')
+        if [ "$img" != "IMAGE ID" ]; then
+            docker rmi "$img"
+        fi
+    done
+}
+
+docker_clean_images_prefix()
+{
+    prefix="$1"
+    if [ -z "${prefix}" ]; then
+        echo 1>&2 "Usage: docker_clean_images_prefix prefix"
+        return
+    fi
+    docker images \
+        | grep "^${prefix}" \
+        | awk '{print $1 ":" $2}' \
+        | xargs -r docker rmi --
+}
+
+docker_clean_networks()
+{
+    docker network ls -q | xargs -r docker network rm --
+}
+
+docker_clean_volumes()
+{
+    docker volume ls -q | xargs -r docker volume rm --
+}
+
+docker_prune()
+{
+    docker_clean_containers
+    docker_clean_images all
+    docker_clean_networks
+    docker_clean_volumes
+    docker system prune -f
+    docker system df
+}
