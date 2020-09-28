@@ -1,7 +1,13 @@
 #! /usr/bin/env bash
 
+_docker_log()
+{
+    echo "[93m>>> [94m$*[0m"
+}
+
 docker_clean_containers()
 {
+    _docker_log "Cleaning containers"
     for container in $(docker ps -aq); do
         docker stop -t 0 "${container}"
         docker rm -f "${container}"
@@ -11,9 +17,11 @@ docker_clean_containers()
 docker_clean_images()
 {
     if [ "$1" = "all" ]; then
+        _docker_log "Cleaning all images"
         docker images -q | xargs -r docker rmi -f --
         return
     fi
+    _docker_log "Cleaning unused images"
     docker images | grep '<none>' | while read -r line; do
         img=$(echo "$line" | awk '{print $3}')
         if [ "$img" != "IMAGE ID" ]; then
@@ -29,6 +37,7 @@ docker_clean_images_prefix()
         echo 1>&2 "Usage: docker_clean_images_prefix prefix"
         return
     fi
+    _docker_log "Cleaning images starting with ${prefix}"
     docker images \
         | grep "^${prefix}" \
         | awk '{print $1 ":" $2}' \
@@ -37,20 +46,39 @@ docker_clean_images_prefix()
 
 docker_clean_networks()
 {
+    _docker_log "Cleaning networks"
     docker network ls -q | xargs -r docker network rm --
 }
 
 docker_clean_volumes()
 {
+    _docker_log "Cleaning volumes"
     docker volume ls -q | xargs -r docker volume rm --
 }
 
 docker_prune()
 {
+    _docker_log "Pruning docker"
+    docker system prune -f
+}
+
+docker_summary()
+{
+    _docker_log "Summary"
+    docker system df
+}
+
+docker_clean()
+{
     docker_clean_containers
-    docker_clean_images all
+    docker_clean_images "${1:-}"
     docker_clean_networks
     docker_clean_volumes
-    docker system prune -f
-    docker system df
+    docker_prune
+    docker_summary
+}
+
+docker_raz()
+{
+    docker_clean all
 }
