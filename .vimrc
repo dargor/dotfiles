@@ -75,6 +75,7 @@ if &t_Co > 2
 
     autocmd BufNewFile,BufRead *.hy set filetype=lisp
     autocmd BufNewFile,BufRead *.pp set filetype=ruby
+    autocmd BufNewFile,BufRead *.tfstate set filetype=json
     autocmd BufNewFile,BufRead Jenkinsfile set filetype=groovy
     autocmd BufNewFile,BufRead master,roster,*.sls set filetype=yaml
     autocmd BufNewFile,BufRead package.{env,provided} set filetype=gentoo-package-use
