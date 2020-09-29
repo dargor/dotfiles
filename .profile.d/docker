@@ -37,7 +37,7 @@ docker_clean_images_prefix()
         echo 1>&2 "Usage: docker_clean_images_prefix prefix"
         return
     fi
-    _docker_log "Cleaning images starting with ${prefix}"
+    _docker_log "Cleaning images starting with [95m${prefix}[0m"
     docker images \
         | grep "^${prefix}" \
         | awk '{print $1 ":" $2}' \
