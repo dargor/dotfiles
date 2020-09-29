@@ -84,6 +84,10 @@ knotrunning() {
     kubectl get pods | grep -v Running
 }
 
+kclean() {
+    kubectl get pods -ojson | jq -r '.items[] | select(.status.reason!=null) | select(.status.reason | contains("Evicted")) | .metadata.name' | xargs -r kubectl delete pods
+}
+
 alias knodes="kubectl get nodes -o wide"
 
 alias kgd="kubectl get deployments.apps"
