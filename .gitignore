@@ -17,6 +17,7 @@ tags
 __pycache__
 .coverage
 .coverage.*
+.hypothesis
 .ipynb_checkpoints
 .mypy_cache
 .pytest_cache
