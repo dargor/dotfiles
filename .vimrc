@@ -182,7 +182,8 @@ endfunction
 
 nnoremap <space> za
 
-nnoremap <F12> :syntax sync fromstart<CR>
+nnoremap <F5> :syntax sync fromstart<CR>
+nnoremap <F9> :!%:p<CR>
 
 nnoremap <C-b> :call ToggleBackground()<CR>
 
