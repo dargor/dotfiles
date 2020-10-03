@@ -52,12 +52,13 @@
 
 [commit]
     gpgsign = true
+    verbose = true
 
 [alias]
     r = remote -v
     t = tag -n
     b = branch --verbose
-    c = commit --verbose --signoff
+    c = commit --signoff
     lea = add --patch
     eax = commit --amend --no-edit
     graph = log --graph --oneline --decorate
