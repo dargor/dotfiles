@@ -111,6 +111,9 @@ if &t_Co > 2
             highlight Visual cterm=None ctermbg=193
         endif
         highlight Todo cterm=Bold ctermfg=Red ctermbg=None
+        highlight DiffFile cterm=None ctermfg=DarkMagenta ctermbg=None
+        highlight DiffAdded cterm=None ctermfg=DarkGreen ctermbg=None
+        highlight DiffRemoved cterm=None ctermfg=DarkRed ctermbg=None
         highlight DiffAdd cterm=None ctermfg=Black ctermbg=Green
         highlight DiffChange cterm=None ctermfg=Black ctermbg=Yellow
         highlight DiffDelete cterm=None ctermfg=Black ctermbg=Red
