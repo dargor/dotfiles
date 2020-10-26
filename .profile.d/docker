@@ -40,7 +40,7 @@ docker_clean_images_prefix()
     _docker_log "Cleaning images starting with [95m${prefix}[0m"
     docker images \
         | grep "^${prefix}" \
-        | awk '{print $1 ":" $2}' \
+        | awk '{print $3}' \
         | xargs -r docker rmi --
 }
 
