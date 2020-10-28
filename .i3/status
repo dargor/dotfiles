@@ -5,6 +5,7 @@ general {
 
 order += "disk /"
 order += "disk /home"
+order += "disk /tmp"
 order += "cpu_usage"
 order += "cpu_temperature 0"
 order += "load"
@@ -21,6 +22,10 @@ disk "/" {
 
 disk "/home" {
     format = "/home: %avail free"
+}
+
+disk "/tmp" {
+    format = "/tmp: %avail free"
 }
 
 cpu_usage {
