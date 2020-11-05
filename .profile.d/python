@@ -1,3 +1,69 @@
 #! /usr/bin/env bash
 
 alias 38='. ~/python38/activate'
+
+mkvenv() {
+    version="${1:-}"
+    name="${2:-}"
+    vanilla="${3:-}"
+    if [ -z "${version}" ] || [ -z "${name}" ]; then
+        echo 1>&2 "Usage: mkvenv version name [vanilla]"
+        return 1
+    fi
+    bin="python${version}"
+    if [ ! "$(type -P "${bin}")" ]; then
+        echo 1>&2 "${bin} not found"
+        return 1
+    fi
+    if [ -d "${name}" ]; then
+        echo 1>&2 "${name} already exists"
+        return 1
+    fi
+    "${bin}" -m venv "${name}"
+    pip="${name}/bin/pip"
+    if [ ! -x "${pip}" ]; then
+        echo 1>&2 "${pip} not found"
+        return 1
+    fi
+    "${pip}" install -U pip
+    "${pip}" install -U setuptools wheel
+    if [ -z "${vanilla}" ]; then
+        "${pip}" install -U \
+            envdir pipdeptree \
+            flake8 flake8-colors \
+            ipython ipdb \
+            bpython ptpython
+    fi
+    echo "${name} is ready"
+}
+
+upvenv() {
+    if [ -z "${VIRTUAL_ENV}" ]; then
+        echo 1>&2 "Not in a virtual environment"
+        return 1
+    fi
+    # update tools
+    pip install -U pip
+    pip install -U setuptools wheel
+    # update everything without consideration for broken dependencies
+    pip list --outdated --format json \
+        | jq -r '.[].name' \
+        | xargs -r pip install --no-warn-conflicts -U
+    # handle broken dependencies
+    for n in {0..9}; do
+        x=0
+        while read -r p; do
+            [ "$p" = "No" ] && break
+            pip install --no-warn-conflicts -U "$p"
+            ((x+=1))
+        done < <(pip check | awk '{print $1}' | sort | uniq)
+        [ "$x" -eq 0 ] && break
+    done
+    # did it work ?
+    if [ "$n" -eq 9 ]; then
+        echo 1>&2 "[91mError: Direct intervention is necessary.[0m"
+        return 1
+    fi
+    # we are up to date
+    echo "${VIRTUAL_ENV##*/} is ready"
+}
