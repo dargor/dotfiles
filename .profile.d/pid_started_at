@@ -4,7 +4,7 @@ pid_started_at() {
     pid="${1:-}"
     if [ -z "${pid}" ]; then
         echo 1>&2 "Usage: pid_started_at pid"
-        return
+        return 1
     fi
     ps -p "${pid}" -o lstart=
 }

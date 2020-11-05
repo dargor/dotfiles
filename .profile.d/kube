@@ -6,7 +6,7 @@ klog() {
     containers="$*"
     if [ -z "${pod}" ]; then
         echo 1>&2 "Usage: klog pod [container{1..3}]"
-        return
+        return 1
     fi
     if [ -z "${containers}" ]; then
         containers=$(kubectl get pod "${pod}" -o jsonpath="{.spec.containers[*].name}")
@@ -19,7 +19,7 @@ kgrep() {
     stuff="$2"
     if [ -z "${pod}" ] || [ -z "${stuff}" ]; then
         echo 1>&2 "Usage: kgrep pod stuff"
-        return
+        return 1
     fi
     containers=$(kubectl get pod "${pod}" -o jsonpath="{.spec.containers[*].name}")
     xpanes -c "kubectl logs ${pod} -c {} | grep -i ${stuff}" ${containers}
@@ -29,7 +29,7 @@ kexec() {
     pod="$1"
     if [ -z "${pod}" ]; then
         echo 1>&2 "Usage: kexec pod"
-        return
+        return 1
     fi
     containers=$(kubectl get pod "${pod}" -o jsonpath="{.spec.containers[*].name}")
     if [ -z "$2" ]; then
@@ -44,7 +44,7 @@ kthrottled() {
     pod="$1"
     if [ -z "${pod}" ]; then
         echo 1>&2 "Usage: kthrottled pod"
-        return
+        return 1
     fi
     kexec "$pod" "cat /sys/fs/cgroup/cpu/cpu.stat"
 }
@@ -53,7 +53,7 @@ kimage() {
     pod="$1"
     if [ -z "${pod}" ]; then
         echo 1>&2 "Usage: kimage pod"
-        return
+        return 1
     fi
     kubectl describe pod ${pod} | grep Image:
 }
@@ -62,7 +62,7 @@ kimages() {
     deployment="$1"
     if [ -z "${deployment}" ]; then
         echo 1>&2 "Usage: kimages deployment"
-        return
+        return 1
     fi
     kubectl describe deployments.apps ${deployment} | grep Image:
 }

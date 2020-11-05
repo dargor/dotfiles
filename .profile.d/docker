@@ -19,7 +19,7 @@ docker_clean_images()
     if [ "$1" = "all" ]; then
         _docker_log "Cleaning all images"
         docker images -q | xargs -r docker rmi -f --
-        return
+        return $?
     fi
     _docker_log "Cleaning unused images"
     docker images | grep '<none>' | while read -r line; do
@@ -35,7 +35,7 @@ docker_clean_images_prefix()
     prefix="$1"
     if [ -z "${prefix}" ]; then
         echo 1>&2 "Usage: docker_clean_images_prefix prefix"
-        return
+        return 1
     fi
     _docker_log "Cleaning images starting with [95m${prefix}[0m"
     # REPOSITORY:TAG

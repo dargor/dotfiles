@@ -16,19 +16,19 @@ _check() {
 }
 
 mono() {
-    _check || return
+    _check || return 1
     xrandr --output "$(_secondary)" --off
     ~/reset
 }
 
 dual_right() {
-    _check || return
+    _check || return 1
     xrandr --output "$(_secondary)" --right-of "$(_primary)" --auto
     ~/reset
 }
 
 dual_left() {
-    _check || return
+    _check || return 1
     xrandr --output "$(_secondary)" --left-of "$(_primary)" --auto
     ~/reset
 }
