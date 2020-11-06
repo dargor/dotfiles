@@ -81,7 +81,7 @@ kpods() {
 }
 
 knotrunning() {
-    kubectl get pods | grep -v Running
+    kubectl get pods | grep -Ev '\<Running\>|\<Completed\>'
 }
 
 kclean() {
