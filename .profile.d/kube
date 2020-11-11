@@ -80,19 +80,34 @@ kpods() {
     fi
 }
 
+kgd() {
+    if [ -z "${1:-}" ]; then
+        kubectl get deployments.apps
+    else
+        kubectl get deployments.apps | grep -- "$1"
+    fi
+}
+
+krs() {
+    deployment="$1"
+    if [ -z "${deployment}" ]; then
+        echo 1>&2 "Usage: krs deployment"
+        return 1
+    fi
+    kubectl rollout restart deployments.apps -- "$1"
+}
+
 knotrunning() {
     kubectl get pods | grep -Ev '\<Running\>|\<Completed\>'
 }
 
 kclean() {
-    kubectl get pods -ojson | jq -r '.items[] | select(.status.reason!=null) | select(.status.reason | contains("Evicted")) | .metadata.name' | xargs -r kubectl delete pods
+    kubectl get pods -ojson \
+        | jq -r '.items[] | select(.status.reason!=null) | select(.status.reason | contains("Evicted")) | .metadata.name' \
+        | xargs -r kubectl delete pods
 }
 
 alias knodes="kubectl get nodes -o wide"
-
-alias kgd="kubectl get deployments.apps"
-alias krs="kubectl rollout restart deployments.apps"
-
 alias khelp="kubectl api-resources | sort"
 
 # ignore kubectl plugins, they only pollute shell completion
