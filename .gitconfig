@@ -1,6 +1,7 @@
 [user]
     name = Gabriel Linder
     email = linder.gabriel@gmail.com
+    signingkey = 5FA837672AC41AE3
 
 [help]
     autocorrect = 0
@@ -44,11 +45,12 @@
     cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 
 [pull]
-    rebase = true
+    ff = only
 
 [push]
     default = simple
     followTags = true
+    signed = if-asked
 
 [commit]
     gpgsign = true
