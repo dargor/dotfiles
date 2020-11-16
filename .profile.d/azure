@@ -1,5 +1,10 @@
 #! /usr/bin/env bash
 
+# https://docs.microsoft.com/en-us/dotnet/core/run-time-config/debugging-profiling
+export COMPlus_EnableDiagnostics=0
+export CORECLR_ENABLE_PROFILING=0
+export COMPlus_PerfMapEnabled=0
+
 # XXX in case of :
 #       ModuleNotFoundError: No module named 'prompt_toolkit.interface'
 #     run :
