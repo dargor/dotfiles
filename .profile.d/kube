@@ -97,6 +97,10 @@ krs() {
     kubectl rollout restart deployments.apps -- "$1"
 }
 
+k() {
+    kubectl config get-contexts | sed -E 's/(^\*.*)$/[91m\1[0m/g'
+}
+
 knotrunning() {
     kubectl get pods | grep -Ev '\<Running\>|\<Completed\>'
 }
