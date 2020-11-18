@@ -9,6 +9,13 @@
 [color]
     ui = true
 
+[delta]
+    paging = never
+    max-line-length = 0
+    minus-style = 1
+    plus-style = 2
+    zero-style = 8
+
 [color "diff"]
     meta = magenta
     frag = yellow
