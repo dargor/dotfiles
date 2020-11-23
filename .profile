@@ -45,7 +45,7 @@ else
     umask 027
     PS1='[1;34m\u[0;0m@[1;35m\H[0;0m [1;32m\w[0;0m \D{%F %T} [$((\j == 0 ? 90 : 94))m\j[0;0m [$(($? == 0 ? 90 : 91))m$?[0;0m [7;31m${AWS_PROFILE:-}[0;0m\n\$ '
 fi
-if [ ! -z "$VIM_TERMINAL" ]; then
+if [ -n "$VIM_TERMINAL" ]; then
     PS1="${PS1//1;/0;}"
 fi
 export PS1="\n$PS1"
@@ -84,6 +84,7 @@ alias sbcl="rlwrap sbcl"
 alias links="links -g"
 alias rcli="redis-cli"
 alias sc="shellcheck -f gcc"
+alias d="delta"
 
 for f in ~/.profile.d/*; do
     . "$f"
