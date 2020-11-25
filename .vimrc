@@ -73,17 +73,17 @@ if &t_Co > 2
     set hlsearch
     set colorcolumn=77
 
-    autocmd BufNewFile,BufRead *.hy set filetype=lisp
-    autocmd BufNewFile,BufRead *.pp set filetype=ruby
-    autocmd BufNewFile,BufRead *.tfstate set filetype=json
-    autocmd BufNewFile,BufRead Jenkinsfile set filetype=groovy
-    autocmd BufNewFile,BufRead master,roster,*.sls set filetype=yaml
-    autocmd BufNewFile,BufRead package.{env,provided} set filetype=gentoo-package-use
-    autocmd BufNewFile,BufRead *.{cfg,cnf,coveragerc,service,timer,toml},cqlshrc,{krb5,supervisord}.conf set filetype=dosini
+    autocmd BufNewFile,BufRead *.hy setlocal filetype=lisp
+    autocmd BufNewFile,BufRead *.pp setlocal filetype=ruby
+    autocmd BufNewFile,BufRead *.tfstate setlocal filetype=json
+    autocmd BufNewFile,BufRead Jenkinsfile setlocal filetype=groovy
+    autocmd BufNewFile,BufRead master,roster,*.sls setlocal filetype=yaml
+    autocmd BufNewFile,BufRead package.{env,provided} setlocal filetype=gentoo-package-use
+    autocmd BufNewFile,BufRead *.{cfg,cnf,coveragerc,service,timer,toml},cqlshrc,{krb5,supervisord}.conf setlocal filetype=dosini
 
-    autocmd FileType ruby,eruby,xml,yaml,json,markdown set shiftwidth=2 softtabstop=2
-    autocmd FileType make set noexpandtab shiftwidth=8
-    autocmd FileType gitcommit set nowrap
+    autocmd FileType ruby,eruby,xml,yaml,json,markdown setlocal shiftwidth=2 softtabstop=2
+    autocmd FileType make setlocal noexpandtab shiftwidth=8
+    autocmd FileType gitcommit setlocal nowrap
 
     function! SetupHighlights()
         highlight Directory ctermfg=Blue
@@ -140,15 +140,15 @@ if &t_Co > 2
     function! EnterBuffer()
         call InitBuffer()
         if g:dargor_full_moumoute
-            set cursorline
-            set cursorcolumn
+            setlocal cursorline
+            setlocal cursorcolumn
         endif
     endfunction
 
     function! LeaveBuffer()
         if g:dargor_full_moumoute
-            set nocursorline
-            set nocursorcolumn
+            setlocal nocursorline
+            setlocal nocursorcolumn
         endif
     endfunction
 
@@ -177,7 +177,7 @@ function! MaximizeToggle()
     else
         let s:maximize_hidden_save = &hidden
         let s:maximize_session = tempname()
-        set hidden
+        setlocal hidden
         exec 'mksession! ' . s:maximize_session
         only
     endif
