@@ -184,6 +184,8 @@ function! MaximizeToggle()
 endfunction
 
 nnoremap <space> za
+nnoremap zC :setlocal foldlevel=0<CR>
+nnoremap zO :setlocal foldlevel=99<CR>
 
 nnoremap <F5> :syntax sync fromstart<CR>
 nnoremap <F9> :!%:p<CR>
