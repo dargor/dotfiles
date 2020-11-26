@@ -29,7 +29,7 @@ mkvenv() {
     "${pip}" install -U setuptools wheel
     if [ -z "${vanilla}" ]; then
         "${pip}" install -U \
-            envdir pipdeptree \
+            envdir pipdeptree pip-upgrader \
             flake8 flake8-colors \
             ipython ipdb \
             bpython ptpython
