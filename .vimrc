@@ -22,6 +22,7 @@ set expandtab
 set foldenable
 set foldlevelstart=99
 set foldmethod=indent
+set formatoptions=croqj
 set ignorecase
 set incsearch
 set infercase
@@ -38,6 +39,7 @@ set smartcase
 set smarttab
 set swapsync=
 set tabpagemax=99
+set textwidth=76
 set title
 set ttyfast
 set updatetime=100
