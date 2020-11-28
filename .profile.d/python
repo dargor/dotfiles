@@ -1,6 +1,7 @@
 #! /usr/bin/env bash
 
 alias 38='. ~/python38/activate'
+alias 39='. ~/python39/activate'
 
 mkvenv() {
     version="${1:-}"
