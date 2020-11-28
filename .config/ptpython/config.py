@@ -17,7 +17,7 @@ def configure(repl):
     repl.wrap_lines = True
     repl.enable_mouse_support = False
     repl.complete_while_typing = True
-    repl.enable_fuzzy_completion = False
+    repl.enable_fuzzy_completion = True
     repl.enable_dictionary_completion = False
     repl.vi_mode = False
     repl.paste_mode = False
