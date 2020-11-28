@@ -7,7 +7,10 @@ window:
   dimensions:
     columns: 80
     lines: 24
-  dynamic_padding: true
+  padding:
+    x: 2
+    y: 2
+  dynamic_padding: false
   dynamic_title: true
 
 scrolling:
