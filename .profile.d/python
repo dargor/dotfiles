@@ -2,6 +2,13 @@
 
 alias 39='. ~/python39/activate'
 
+_venv_ensure_base_packages() {
+    pip="${1:-pip}"
+    for package in pip wheel setuptools packaging Cython; do
+        "${pip}" install -U "${package}"
+    done
+}
+
 mkvenv() {
     version="${1:-}"
     name="${2:-}"
@@ -25,11 +32,11 @@ mkvenv() {
         echo 1>&2 "${pip} not found"
         return 1
     fi
-    "${pip}" install -U pip
-    "${pip}" install -U setuptools wheel packaging
+    _venv_ensure_base_packages "${pip}"
     if [ -z "${vanilla}" ]; then
         "${pip}" install -U \
-            envdir pipdeptree pip-upgrader \
+            envdir \
+            pipdeptree pip-upgrader \
             flake8 flake8-colors \
             ipython ipdb \
             bpython ptpython
@@ -42,9 +49,7 @@ upvenv() {
         echo 1>&2 "Not in a virtual environment"
         return 1
     fi
-    # update tools
-    pip install -U pip
-    pip install -U setuptools wheel packaging
+    _venv_ensure_base_packages
     # update everything without consideration for broken dependencies
     pip list --outdated --format json \
         | jq -r '.[].name' \
