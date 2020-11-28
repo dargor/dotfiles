@@ -1,6 +1,5 @@
 #! /usr/bin/env bash
 
-alias 38='. ~/python38/activate'
 alias 39='. ~/python39/activate'
 
 mkvenv() {
@@ -27,7 +26,7 @@ mkvenv() {
         return 1
     fi
     "${pip}" install -U pip
-    "${pip}" install -U setuptools wheel
+    "${pip}" install -U setuptools wheel packaging
     if [ -z "${vanilla}" ]; then
         "${pip}" install -U \
             envdir pipdeptree pip-upgrader \
@@ -45,7 +44,7 @@ upvenv() {
     fi
     # update tools
     pip install -U pip
-    pip install -U setuptools wheel
+    pip install -U setuptools wheel packaging
     # update everything without consideration for broken dependencies
     pip list --outdated --format json \
         | jq -r '.[].name' \
