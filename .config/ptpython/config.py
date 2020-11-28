@@ -5,17 +5,20 @@ from ptpython.layout import CompletionVisualisation
 
 
 def configure(repl):
-    repl.show_signature = True
+    repl.show_signature = False
     repl.show_docstring = True
     repl.show_meta_enter_message = False
     repl.completion_visualisation = CompletionVisualisation.MULTI_COLUMN
-    repl.show_line_numbers = True
+    repl.show_line_numbers = False
     repl.show_status_bar = True
     repl.show_sidebar_help = True
+    repl.swap_light_and_dark = False
     repl.highlight_matching_parenthesis = True
     repl.wrap_lines = True
     repl.enable_mouse_support = False
     repl.complete_while_typing = True
+    repl.enable_fuzzy_completion = False
+    repl.enable_dictionary_completion = False
     repl.vi_mode = False
     repl.paste_mode = False
     repl.prompt_style = 'classic'
@@ -26,7 +29,8 @@ def configure(repl):
     repl.enable_system_bindings = False
     repl.confirm_exit = False
     repl.enable_input_validation = True
-    repl.true_color = False
+    repl.color_depth = 'DEPTH_24_BIT'
     repl.enable_syntax_highlighting = True
+    repl.vi_start_in_navigation_mode = False
+    repl.vi_keep_last_used_mode = False
     repl.use_code_colorscheme('vim')
-    repl.use_ui_colorscheme('blue')
