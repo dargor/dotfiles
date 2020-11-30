@@ -27,7 +27,7 @@ keyword_casing = auto
 
 # Default log level. Possible values: "CRITICAL", "ERROR", "WARNING", "INFO"
 # and "DEBUG". "NONE" disables logging.
-log_level = INFO
+log_level = NONE
 
 # Log every query and its results to a file. Enable this by uncommenting the
 # line below.
@@ -79,7 +79,7 @@ login_path_as_host = False
 auto_vertical_output = False
 
 # manage pager on startup
-enable_pager = True
+enable_pager = False
 
 # Custom colors for the completion menu, toolbar, etc.
 [colors]

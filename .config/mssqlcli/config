@@ -61,7 +61,7 @@ history_file = default
 
 # Default log level. Possible values: "CRITICAL", "ERROR", "WARNING", "INFO"
 # and "DEBUG". "NONE" disables logging.
-log_level = INFO
+log_level = NONE
 
 # Order of columns when expanding * to column list
 # Possible values: "table_order" and "alphabetic"
