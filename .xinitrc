@@ -19,6 +19,7 @@ find /usr/share/fonts/ -name fonts.dir | while read -r f; do
 done
 xset fp rehash
 
+[ -x /usr/bin/picom ] && /usr/bin/picom -b
 [ -x /usr/bin/numlockx ] && /usr/bin/numlockx
 [ -x /usr/bin/xbindkeys ] && /usr/bin/xbindkeys
 [ -x /usr/bin/urxvtd ] && /usr/bin/urxvtd -f -o
