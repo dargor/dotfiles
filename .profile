@@ -7,6 +7,7 @@ export PATH="$HOME/bin:$PATH"
 if [ "$TERM" != "xterm-256color" ] && [ "$TERM" != "screen-256color" ] && [ "$TERM" != "rxvt-unicode-256color" ]; then
     export TERM="xterm-color"
 fi
+export COLORTERM="truecolor"
 
 export BLOCKSIZE="k"
 export QUOTING_STYLE="literal"
@@ -78,7 +79,7 @@ alias nls="jupyter-notebook list"
 alias notebook="jupyter-notebook --no-browser"
 alias nbconvert="jupyter-nbconvert"
 alias lab="jupyter-lab --no-browser"
-alias ssh="env TERM=xterm-color ssh"
+alias ssh="env -u COLORTERM TERM=xterm-color ssh"
 alias maxima="rlwrap maxima"
 alias sbcl="rlwrap sbcl"
 alias links="links -g"
