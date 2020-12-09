@@ -18,21 +18,19 @@ scrolling:
   multiplier: 3
 
 font:
-  # https://files.ax86.net/terminus-ttf/
   normal:
-    family: Terminus (TTF)
+    family: Terminus
     style: Medium
   italic:
-    family: Terminus (TTF)
+    family: Terminus
     style: Medium
   bold:
-    family: Terminus (TTF)
+    family: Terminus
     style: Bold
   bold_italic:
-    family: Terminus (TTF)
+    family: Terminus
     style: Bold
-  # https://files.ax86.net/terminus-ttf/#fontsizes
-  size: 10.5
+  size: 10
 
 draw_bold_text_with_bright_colors: true
 
