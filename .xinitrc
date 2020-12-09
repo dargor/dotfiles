@@ -19,11 +19,11 @@ find /usr/share/fonts/ -name fonts.dir | while read -r f; do
 done
 xset fp rehash
 
-[ -x /usr/bin/picom ] && /usr/bin/picom -b
+[ -x /usr/local/bin/start-pulseaudio ] && /usr/local/bin/start-pulseaudio
+[ -x /usr/local/bin/start-picom ] && /usr/local/bin/start-picom
 [ -x /usr/bin/numlockx ] && /usr/bin/numlockx
 [ -x /usr/bin/xbindkeys ] && /usr/bin/xbindkeys
 [ -x /usr/bin/urxvtd ] && /usr/bin/urxvtd -f -o
-[ -x /usr/local/bin/start-pulseaudio ] && /usr/local/bin/start-pulseaudio
 [ -x /usr/bin/blueman-applet ] && /usr/bin/blueman-applet &
 [ -x /usr/bin/redshift-gtk ] && /usr/bin/redshift-gtk -l 48.8566:2.3522 &
 
