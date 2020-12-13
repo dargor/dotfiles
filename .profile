@@ -4,19 +4,17 @@ head -n 7 /etc/issue
 
 export PATH="$HOME/bin:$PATH"
 
-if [ -n "${COLORTERM:-}" ]; then
-    case "$TERM" in
-        xterm|xterm-color)
-            # fallback to a reasonable term
-            export TERM="xterm-256color"
-            ;;
-        *)
-            # nothing to see here
-            ;;
-    esac
-    # override any other value
-    export COLORTERM="truecolor"
-fi
+case "$TERM" in
+    alacritty|xterm|xterm-color)
+        # fallback to a reasonable term
+        export TERM="xterm-256color"
+        ;;
+    *)
+        # nothing to see here
+        ;;
+esac
+# override any other value
+export COLORTERM="truecolor"
 
 export BLOCKSIZE="k"
 export QUOTING_STYLE="literal"
