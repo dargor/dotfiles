@@ -189,6 +189,11 @@ nnoremap <space> za
 nnoremap zC :setlocal foldlevel=0<CR>
 nnoremap zO :setlocal foldlevel=99<CR>
 
+nnoremap EN :setlocal spell spelllang=en<CR>
+nnoremap FR :setlocal spell spelllang=fr<CR>
+nnoremap BO :setlocal spell spelllang=en,fr<CR>
+nnoremap NO :setlocal nospell<CR>
+
 nnoremap <F5> :syntax sync fromstart<CR>
 nnoremap <F9> :!%:p<CR>
 
