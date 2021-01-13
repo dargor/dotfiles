@@ -35,6 +35,9 @@
     excludesfile = ~/.gitignore
     attributesfile = ~/.gitattributes
 
+[init]
+    defaultBranch = master
+
 [diff]
     tool = meld
 
