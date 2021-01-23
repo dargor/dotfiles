@@ -67,7 +67,7 @@ selection:
 cursor:
   style:
     shape: Block
-    blinking: On
+    blinking: Off
   unfocused_hollow: true
 
 live_config_reload: true

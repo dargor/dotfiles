@@ -61,9 +61,10 @@ XTerm.vt100.saveLines: 10000
 XTerm.vt100.deleteIsDEL: false
 XTerm.vt100.dynamicColors: false
 XTerm.vt100.showMissingGlyphs: true
+XTerm.vt100.showBlinkAsBold: true
 XTerm.vt100.colorAttrMode: true
 XTerm.vt100.bellIsUrgent: true
-XTerm.vt100.cursorBlink: true
+XTerm.vt100.cursorBlink: false
 XTerm.vt100.loginShell: true
 
 ! UXTerm
@@ -98,9 +99,10 @@ UXTerm.vt100.saveLines: 10000
 UXTerm.vt100.deleteIsDEL: false
 UXTerm.vt100.dynamicColors: false
 UXTerm.vt100.showMissingGlyphs: true
+UXTerm.vt100.showBlinkAsBold: true
 UXTerm.vt100.colorAttrMode: true
 UXTerm.vt100.bellIsUrgent: true
-UXTerm.vt100.cursorBlink: true
+UXTerm.vt100.cursorBlink: false
 UXTerm.vt100.loginShell: true
 
 ! rxvt-unicode
@@ -133,5 +135,5 @@ URxvt.scrollBar: false
 URxvt.saveLines: 10000
 URxvt.visualBell: false
 URxvt.urgentOnBell: true
-URxvt.cursorBlink: true
+URxvt.cursorBlink: false
 URxvt.loginShell: true
