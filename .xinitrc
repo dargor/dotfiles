@@ -3,7 +3,7 @@
 xrandr --output eDP-1 --mode 1920x1080
 xsetroot -solid black -cursor_name left_ptr
 setxkbmap -option '' -option kpdl:dot -layout fr -model pc105
-feh --no-fehbg --bg-fill /home/dargor/git/Code.png
+feh --no-fehbg --bg-fill /home/dargor/git/Necromancer.jpg
 
 xset b off
 xset s off
