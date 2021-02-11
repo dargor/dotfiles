@@ -17,7 +17,7 @@ def configure(repl):
     repl.wrap_lines = True
     repl.enable_mouse_support = False
     # XXX complete_while_typing is conflicting with enable_history_search
-    repl.complete_while_typing = False
+    repl.complete_while_typing = True
     repl.enable_fuzzy_completion = False
     repl.enable_dictionary_completion = False
     repl.vi_mode = False
@@ -25,7 +25,7 @@ def configure(repl):
     repl.prompt_style = 'classic'
     repl.insert_blank_line_after_output = False
     # XXX enable_history_search is conflicting with complete_while_typing
-    repl.enable_history_search = True
+    repl.enable_history_search = False
     repl.enable_auto_suggest = True
     repl.enable_open_in_editor = False
     repl.enable_system_bindings = False
