@@ -81,6 +81,7 @@
     t = tag -n
     b = branch --verbose
     c = commit --signoff
+    co = checkout
     lea = add --patch
     eax = commit --amend --no-edit
     graph = log --graph --oneline --decorate
