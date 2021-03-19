@@ -82,6 +82,7 @@
     b = branch --verbose
     c = commit --signoff
     co = checkout
+    cp = cherry-pick
     lea = add --patch
     eax = commit --amend --no-edit
     graph = log --graph --oneline --decorate
