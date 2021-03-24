@@ -82,6 +82,7 @@ if &t_Co > 2
     autocmd BufNewFile,BufRead master,roster,*.sls setlocal filetype=yaml
     autocmd BufNewFile,BufRead package.{env,provided} setlocal filetype=gentoo-package-use
     autocmd BufNewFile,BufRead *.{cfg,cnf,coveragerc,service,timer,toml},cqlshrc,{krb5,supervisord}.conf setlocal filetype=dosini
+    autocmd BufNewFile,BufRead *.bats setlocal filetype=sh
 
     autocmd FileType ruby,eruby,xml,yaml,json,markdown setlocal shiftwidth=2 softtabstop=2
     autocmd FileType make setlocal noexpandtab shiftwidth=8
