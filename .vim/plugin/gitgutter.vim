@@ -25,7 +25,8 @@ let g:gitgutter_preview_win_location = get(g:, 'gitgutter_preview_win_location',
 if exists('*nvim_open_win')
   let g:gitgutter_preview_win_floating = get(g:, 'gitgutter_preview_win_floating', 1)
 else
-  let g:gitgutter_preview_win_floating = get(g:, 'gitgutter_preview_win_floating', 0)
+  let default = exists('&previewpopup') ? !empty(&previewpopup) : 0
+  let g:gitgutter_preview_win_floating = get(g:, 'gitgutter_preview_win_floating', default)
 endif
 let g:gitgutter_enabled = get(g:, 'gitgutter_enabled', 1)
 if exists('*sign_unplace')
@@ -185,8 +186,7 @@ endfunction
 " window.  The format is [ added, modified, removed ], where each value
 " represents the number of lines added/modified/removed respectively.
 function! GitGutterGetHunkSummary()
-  let bufnr = bufnr('')
-  return gitgutter#utility#is_active(bufnr) ? gitgutter#hunk#summary(bufnr) : [0,0,0]
+  return gitgutter#hunk#summary(winbufnr(0))
 endfunction
 
 " }}}
