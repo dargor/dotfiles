@@ -27,4 +27,4 @@ xset fp rehash
 [ -x /usr/bin/blueman-applet ] && /usr/bin/blueman-applet &
 [ -x /usr/bin/redshift-gtk ] && /usr/bin/redshift-gtk -l 48.8566:2.3522 &
 
-exec dbus-launch --exit-with-session gpg-agent --daemon --auto-expand-secmem ssh-agent i3
+exec dbus-launch --exit-with-session gpg-agent --daemon ssh-agent i3 --shmlog-size 0
