@@ -19,8 +19,8 @@ find /usr/share/fonts/ -name fonts.dir | while read -r f; do
 done
 xset fp rehash
 
-[ -x /usr/local/bin/start-pulseaudio ] && /usr/local/bin/start-pulseaudio
-[ -x /usr/local/bin/start-picom ] && /usr/local/bin/start-picom
+[ -x /usr/bin/pulseaudio ] && /usr/bin/pulseaudio --start
+[ -x /usr/bin/picom ] && nice -n -11 -- chrt -r 4 /usr/bin/picom -b
 [ -x /usr/bin/numlockx ] && /usr/bin/numlockx
 [ -x /usr/bin/xbindkeys ] && /usr/bin/xbindkeys
 [ -x /usr/bin/urxvtd ] && /usr/bin/urxvtd -f -o
