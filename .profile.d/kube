@@ -69,7 +69,7 @@ kimages() {
 
 ktop() {
     pod="$1"
-    watch -n 1 "kubectl top pod --containers ${pod}"
+    watch -n 1 "kubectl top pod --use-protocol-buffers --containers ${pod}"
 }
 
 kpods() {
