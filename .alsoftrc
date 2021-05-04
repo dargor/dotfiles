@@ -1,2 +1,5 @@
 [General]
 sources=1024
+
+[pulse]
+allow-moves=true
