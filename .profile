@@ -19,6 +19,7 @@ export COLORTERM="truecolor"
 export BLOCKSIZE="k"
 export QUOTING_STYLE="literal"
 export HISTCONTROL="ignorespace:erasedups"
+export LESSHISTFILE="/dev/null"
 export SCIPY_PIL_IMAGE_VIEWER="feh"
 export XCURSOR_THEME="default"
 export INPUTRC=~/.inputrc
