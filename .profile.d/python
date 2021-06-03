@@ -35,7 +35,7 @@ mkvenv() {
     _venv_ensure_base_packages "${pip}"
     if [ -z "${vanilla}" ]; then
         "${pip}" install -U \
-            envdir \
+            envdir python-dotenv \
             pipdeptree pip-upgrader \
             flake8 flake8-colors \
             ipython ipdb \
