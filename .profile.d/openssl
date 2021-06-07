@@ -1,0 +1,14 @@
+#! /usr/bin/env bash
+
+ncs() {
+    host="${1:-localhost}"
+    port="${2:-443}"
+    openssl s_client -connect "${host}:${port}"
+}
+
+ssl_cert_dates() {
+    host="${1:-localhost}"
+    port="${2:-443}"
+    openssl s_client -connect "${host}:${port}" 2>/dev/null \
+        | openssl x509 -noout -dates
+}
