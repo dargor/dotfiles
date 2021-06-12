@@ -75,7 +75,7 @@ if &t_Co > 2
     set hlsearch
     set colorcolumn=77
 
-    autocmd BufNewFile,BufRead *.hy setlocal filetype=lisp
+    autocmd BufNewFile,BufRead *.hy,*.lfe setlocal filetype=lisp
     autocmd BufNewFile,BufRead *.pp setlocal filetype=ruby
     autocmd BufNewFile,BufRead *.tfstate setlocal filetype=json
     autocmd BufNewFile,BufRead Jenkinsfile setlocal filetype=groovy
