@@ -1,0 +1,23 @@
+#! /usr/bin/env bash
+
+kv_get() {
+    if [ -z "${1:-}" ]; then
+        echo 1>&2 "Usage: kv_get path/to/key#field"
+        return 1
+    fi
+    IFS='#' read -r k f <<< "$1"
+    vault kv get --field="$f" "$k"
+}
+
+kv_put() {
+    if [ -z "${1:-}" ] || [ -z "${2:-}" ]; then
+        echo 1>&2 "Usage: kv_put path/to/key#field value"
+        return 1
+    fi
+    IFS='#' read -r k f <<< "$1"
+    v="$2"
+    if ! vault kv patch "$k" "$f"="$v"; then
+        echo 1>&2 "Patch failed, trying to put instead..."
+        vault kv put "$k" "$f"="$v"
+    fi
+}
