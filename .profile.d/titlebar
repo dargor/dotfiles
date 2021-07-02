@@ -4,6 +4,7 @@ export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
 
 show_command_in_title_bar()
 {
+    # shellcheck disable=SC1001
     case "$BASH_COMMAND" in
         *\033]0*)
             ;;

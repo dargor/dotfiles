@@ -1,0 +1,7 @@
+#! /bin/sh
+set -u
+
+for f in *; do
+    [ "$f" = "rabbitmqadmin" ] && continue
+    shellcheck -f gcc -x "$f"
+done
