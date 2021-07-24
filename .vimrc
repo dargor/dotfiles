@@ -54,6 +54,10 @@ set secure
 set encoding=utf8
 set t_BE=
 
+if &columns >= 83
+    set number
+endif
+
 let g:netrw_dirhistmax = 0
 
 let g:gruvbox_contrast_dark = 'hard'
