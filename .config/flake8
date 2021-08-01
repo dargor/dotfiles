@@ -1,7 +1,7 @@
 [flake8]
 
 # flake8-colors
-format = ${cyan_bold}%(path)s${reset}:${yellow_bold}%(row)d${reset}:${green_bold}%(col)d${reset}: ${red_bold}%(code)s${reset} %(text)s
+format = ${blue}%(path)s${reset}:${yellow}%(row)d${reset}:${green}%(col)d${reset}: ${red}%(code)s${reset} %(text)s
 
 # flake8-logging-format
 enable-extensions = G
