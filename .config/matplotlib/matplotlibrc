@@ -1,5 +1,8 @@
 font.family: sans-serif
+font.size: 8
 
 axes.grid: True
 grid.linestyle: :
 lines.linewidth: 1.0
+xtick.direction: in
+ytick.direction: in
