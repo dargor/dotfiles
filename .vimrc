@@ -83,6 +83,7 @@ if &t_Co > 2
     autocmd BufNewFile,BufRead *.pp setlocal filetype=ruby
     autocmd BufNewFile,BufRead *.tfstate setlocal filetype=json
     autocmd BufNewFile,BufRead Jenkinsfile setlocal filetype=groovy
+    autocmd BufNewFile,BufRead Dockerfile.* setlocal filetype=dockerfile
     autocmd BufNewFile,BufRead master,roster,*.sls setlocal filetype=yaml
     autocmd BufNewFile,BufRead package.{env,provided} setlocal filetype=gentoo-package-use
     autocmd BufNewFile,BufRead *.{cfg,cnf,coveragerc,service,timer,toml},cqlshrc,{krb5,supervisord}.conf setlocal filetype=dosini
