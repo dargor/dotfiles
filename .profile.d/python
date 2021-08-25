@@ -72,3 +72,22 @@ upvenv() {
     # we are up to date
     echo "${VIRTUAL_ENV##*/} is ready"
 }
+
+flvenv() {
+    if [ -z "${VIRTUAL_ENV}" ]; then
+        echo 1>&2 "Not in a virtual environment"
+        return 1
+    fi
+    _venv_ensure_base_packages
+    pip install -U \
+        flake8 \
+        flake8-bugbear \
+        flake8-builtins \
+        flake8-colors \
+        flake8-commas \
+        flake8-comprehensions \
+        flake8-isort \
+        flake8-plugin-utils \
+        flake8-return \
+        flake8-use-fstring
+}
