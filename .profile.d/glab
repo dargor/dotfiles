@@ -1,3 +1,6 @@
 #! /usr/bin/env bash
 
 alias gl="glab"
+
+. /usr/share/bash-completion/completions/glab
+complete -F __start_glab gl
