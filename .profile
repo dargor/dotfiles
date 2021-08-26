@@ -94,7 +94,7 @@ alias sbcl="rlwrap sbcl"
 alias links="links -g"
 alias rcli="redis-cli"
 alias sc="shellcheck -f gcc"
-alias d="delta | less -RFX"
+alias d="delta"
 
 for f in ~/.profile.d/*; do
     . "$f"
