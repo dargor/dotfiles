@@ -2,11 +2,17 @@
 
 kv_get() {
     if [ -z "${1:-}" ]; then
-        echo 1>&2 "Usage: kv_get path/to/key#field"
+        echo 1>&2 "Usage:"
+        echo 1>&2 "  kv_get path/to/key"
+        echo 1>&2 "  kv_get path/to/key#field"
         return 1
     fi
     IFS='#' read -r k f <<< "$1"
-    vault kv get --field="$f" "$k"
+    if [ -z "$f" ]; then
+        vault kv get "$k"
+    else
+        vault kv get --field="$f" "$k"
+    fi
 }
 
 kv_put() {
