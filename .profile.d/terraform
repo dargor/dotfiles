@@ -1,8 +1,8 @@
 #! /usr/bin/env bash
 
 terraform_clean() {
-    find . -name .terraform | while read -r f; do
-        rm -rf "./$f/"
+    find . -name '.terraform*' | while read -r f; do
+        rm -rf "./$f"
     done
 }
 
