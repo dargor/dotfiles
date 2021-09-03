@@ -168,12 +168,14 @@ if &t_Co > 2
 endif
 
 function! ToggleBackground()
+    let oldsyn = &syntax
     if &background ==# 'dark'
         set background=light
     else
         set background=dark
     endif
     filetype detect
+    let &syntax = oldsyn
 endfunction
 
 function! MaximizeToggle()
