@@ -81,6 +81,7 @@ if &t_Co > 2
 
     autocmd BufNewFile,BufRead *.hy,*.lfe setlocal filetype=lisp
     autocmd BufNewFile,BufRead *.pp setlocal filetype=ruby
+    autocmd BufNewFile,BufRead *.{tf,tfvars} setlocal filetype=terraform syntax=hcl
     autocmd BufNewFile,BufRead *.tfstate setlocal filetype=json
     autocmd BufNewFile,BufRead Jenkinsfile setlocal filetype=groovy
     autocmd BufNewFile,BufRead Dockerfile.* setlocal filetype=dockerfile
