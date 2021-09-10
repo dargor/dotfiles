@@ -94,6 +94,17 @@ if &t_Co > 2
     autocmd FileType make setlocal noexpandtab shiftwidth=8
     autocmd FileType gitcommit setlocal nowrap
 
+    function! HelmSyntax()
+        set filetype=yaml
+        unlet b:current_syntax
+        syntax include @GO syntax/go.vim
+        let b:current_syntax = 'yaml'
+        syntax region goTxt matchgroup=goTpl start=/{{\(-\)\?/ end=/\(-\)\?}}/ contains=@GO containedin=ALLBUT,goTxt
+        highlight link goTpl PreProc
+    endfunction
+
+    autocmd BufNewFile,BufRead */templates/*.yaml,*/templates/*.tpl call HelmSyntax()
+
     function! SetupHighlights()
         highlight Directory ctermfg=Blue
         highlight NonText ctermfg=DarkBlue
@@ -176,6 +187,9 @@ function! ToggleBackground()
     endif
     filetype detect
     let &syntax = oldsyn
+    if &syntax ==# 'yaml'
+        call HelmSyntax()
+    endif
 endfunction
 
 function! MaximizeToggle()
