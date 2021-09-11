@@ -54,7 +54,7 @@ set secure
 set encoding=utf8
 set t_BE=
 
-if &columns >= 83
+if &columns >= 83 && g:dargor_full_moumoute
     set number
 endif
 
