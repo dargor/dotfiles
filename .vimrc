@@ -34,7 +34,6 @@ set scrolloff=5
 set shiftround
 set shiftwidth=4
 set showcmd
-set signcolumn=yes
 set smartcase
 set smarttab
 set swapsync=
@@ -56,6 +55,7 @@ set t_BE=
 
 if &columns >= 83 && g:dargor_full_moumoute
     set number
+    set signcolumn=yes
 endif
 
 let g:netrw_dirhistmax = 0
