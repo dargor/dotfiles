@@ -27,6 +27,7 @@ set ignorecase
 set incsearch
 set infercase
 set mouse=
+set noequalalways
 set nofsync
 set report=0
 set ruler
