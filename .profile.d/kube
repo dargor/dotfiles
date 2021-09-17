@@ -15,6 +15,22 @@ klog() {
     xpanes -c "kubectl logs ${pod} --follow --tail 100 -c {}" ${containers}
 }
 
+klogs() {
+    deployment="$1"
+    container="${2:-}"
+    if [ -z "${deployment}" ]; then
+        echo 1>&2 "Usage: klogs deployment [container]"
+        return 1
+    fi
+    pods=$(kubectl get pods | grep -- "${deployment}" | awk '{print $1}')
+    what="kubectl logs {} --follow --tail 100"
+    if [ -n "${container}" ]; then
+        what="${what} -c ${container}"
+    fi
+    # shellcheck disable=SC2086
+    xpanes -c "${what}" ${pods}
+}
+
 kgrep() {
     pod="$1"
     stuff="$2"
