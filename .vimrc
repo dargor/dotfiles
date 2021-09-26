@@ -228,3 +228,29 @@ nnoremap <C-W>O :call MaximizeToggle()<CR>
 nnoremap <C-W><C-O> :call MaximizeToggle()<CR>
 
 filetype plugin indent on
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" https://github.com/vim/vim/issues/8908
+
+function! NoCUC()
+    if g:dargor_full_moumoute
+        if &cursorcolumn == 1
+            setlocal nocursorcolumn
+        endif
+    endif
+endfunction
+
+autocmd CursorMoved,CursorMovedI * call NoCUC()
+
+function! YesCUC()
+    if g:dargor_full_moumoute
+        if &cursorcolumn == 0
+            setlocal cursorcolumn
+        endif
+    endif
+endfunction
+
+autocmd CursorHold,CursorHoldI * call YesCUC()
+
+" https://github.com/vim/vim/issues/8908
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
