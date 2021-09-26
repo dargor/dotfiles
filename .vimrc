@@ -96,7 +96,7 @@ if &t_Co > 2
     autocmd FileType gitcommit setlocal nowrap
 
     function! HelmSyntax()
-        set filetype=yaml
+        setlocal filetype=yaml
         unlet b:current_syntax
         syntax include @GO syntax/go.vim
         let b:current_syntax = 'yaml'
