@@ -74,6 +74,9 @@ let g:gitgutter_map_keys = 0
 let g:gitgutter_max_signs = -1
 let g:gitgutter_sign_allow_clobber = 1
 
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_enable_on_vim_startup = 1
+
 if &t_Co > 2
 
     syntax on
@@ -121,10 +124,14 @@ if &t_Co > 2
             if &background ==# 'dark'
                 highlight ColorColumn ctermbg=DarkRed
                 highlight LineNr cterm=None ctermfg=DarkGray ctermbg=None
+                highlight IndentGuidesOdd ctermbg=237
+                highlight IndentGuidesEven ctermbg=239
                 let g:rainbow_conf = {'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta']}
             else
                 highlight ColorColumn ctermbg=Red
                 highlight LineNr cterm=None ctermfg=Gray ctermbg=None
+                highlight IndentGuidesOdd ctermbg=251
+                highlight IndentGuidesEven ctermbg=253
                 let g:rainbow_conf = {'ctermfgs': ['darkblue', 'darkyellow', 'darkcyan', 'darkmagenta']}
             endif
             highlight FoldColumn cterm=None ctermfg=243 ctermbg=None
@@ -162,14 +169,14 @@ if &t_Co > 2
         call InitBuffer()
         if g:dargor_full_moumoute
             setlocal cursorline
-            setlocal cursorcolumn
+            "setlocal cursorcolumn
         endif
     endfunction
 
     function! LeaveBuffer()
         if g:dargor_full_moumoute
             setlocal nocursorline
-            setlocal nocursorcolumn
+            "setlocal nocursorcolumn
         endif
     endfunction
 
@@ -228,29 +235,3 @@ nnoremap <C-W>O :call MaximizeToggle()<CR>
 nnoremap <C-W><C-O> :call MaximizeToggle()<CR>
 
 filetype plugin indent on
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" https://github.com/vim/vim/issues/8908
-
-function! NoCUC()
-    if g:dargor_full_moumoute
-        if &cursorcolumn == 1
-            setlocal nocursorcolumn
-        endif
-    endif
-endfunction
-
-autocmd CursorMoved,CursorMovedI * call NoCUC()
-
-function! YesCUC()
-    if g:dargor_full_moumoute
-        if &cursorcolumn == 0
-            setlocal cursorcolumn
-        endif
-    endif
-endfunction
-
-autocmd CursorHold,CursorHoldI * call YesCUC()
-
-" https://github.com/vim/vim/issues/8908
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
