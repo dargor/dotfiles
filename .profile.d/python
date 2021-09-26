@@ -4,7 +4,7 @@ alias 39='. ~/python39/activate'
 
 _venv_ensure_base_packages() {
     pip="${1:-pip}"
-    for package in pip wheel setuptools packaging Cython; do
+    for package in pip wheel setuptools packaging Cython pythran; do
         "${pip}" install -U "${package}"
     done
 }
@@ -87,7 +87,8 @@ flvenv() {
         flake8-commas \
         flake8-comprehensions \
         flake8-isort \
-        flake8-plugin-utils \
+        flake8-logging-format \
+        flake8-quotes \
         flake8-return \
         flake8-use-fstring
 }
