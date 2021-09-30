@@ -50,10 +50,10 @@ XTerm.vt100.color14: #54FFFF
 XTerm.vt100.color15: #FFFFFF
 XTerm.vt100.background: #000000
 XTerm.vt100.foreground: #A8A8A8
-XTerm.vt100.font: -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso8859-15
-XTerm.vt100.boldFont: -xos4-terminus-bold-r-normal-*-14-140-72-72-c-80-iso8859-15
-XTerm.vt100.utf8Fonts.font: -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso10646-1
-XTerm.vt100.utf8Fonts.boldFont: -xos4-terminus-bold-r-normal-*-14-140-72-72-c-80-iso10646-1
+XTerm.vt100.font: -xos4-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-15
+XTerm.vt100.boldFont: -xos4-terminus-bold-r-normal-*-12-120-72-72-c-60-iso8859-15
+XTerm.vt100.utf8Fonts.font: -xos4-terminus-medium-r-normal-*-12-120-72-72-c-60-iso10646-1
+XTerm.vt100.utf8Fonts.boldFont: -xos4-terminus-bold-r-normal-*-12-120-72-72-c-60-iso10646-1
 XTerm.vt100.charClass: 33:48,35:48,37-38:48,43-47:48,58:48,61:48,63-64:48,95:48,126:48
 XTerm.vt100.internalBorder: 1
 XTerm.vt100.scrollBar: false
@@ -88,10 +88,10 @@ UXTerm.vt100.color14: #54FFFF
 UXTerm.vt100.color15: #FFFFFF
 UXTerm.vt100.background: #000000
 UXTerm.vt100.foreground: #A8A8A8
-UXTerm.vt100.font: -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso8859-15
-UXTerm.vt100.boldFont: -xos4-terminus-bold-r-normal-*-14-140-72-72-c-80-iso8859-15
-UXTerm.vt100.utf8Fonts.font: -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso10646-1
-UXTerm.vt100.utf8Fonts.boldFont: -xos4-terminus-bold-r-normal-*-14-140-72-72-c-80-iso10646-1
+UXTerm.vt100.font: -xos4-terminus-medium-r-normal-*-12-120-72-72-c-60-iso8859-15
+UXTerm.vt100.boldFont: -xos4-terminus-bold-r-normal-*-12-120-72-72-c-60-iso8859-15
+UXTerm.vt100.utf8Fonts.font: -xos4-terminus-medium-r-normal-*-12-120-72-72-c-60-iso10646-1
+UXTerm.vt100.utf8Fonts.boldFont: -xos4-terminus-bold-r-normal-*-12-120-72-72-c-60-iso10646-1
 UXTerm.vt100.charClass: 33:48,35:48,37-38:48,43-47:48,58:48,61:48,63-64:48,95:48,126:48
 UXTerm.vt100.internalBorder: 1
 UXTerm.vt100.scrollBar: false
@@ -124,10 +124,10 @@ URxvt.color14: #54FFFF
 URxvt.color15: #FFFFFF
 URxvt.background: #000000
 URxvt.foreground: #A8A8A8
-URxvt.font: -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso10646-1
-URxvt.boldFont: -xos4-terminus-bold-r-normal-*-14-140-72-72-c-80-iso10646-1
-URxvt.italicFont: -xos4-terminus-medium-r-normal-*-14-140-72-72-c-80-iso10646-1
-URxvt.boldItalicFont: -xos4-terminus-bold-r-normal-*-14-140-72-72-c-80-iso10646-1
+URxvt.font: -xos4-terminus-medium-r-normal-*-12-120-72-72-c-60-iso10646-1
+URxvt.boldFont: -xos4-terminus-bold-r-normal-*-12-120-72-72-c-60-iso10646-1
+URxvt.italicFont: -xos4-terminus-medium-r-normal-*-12-120-72-72-c-60-iso10646-1
+URxvt.boldItalicFont: -xos4-terminus-bold-r-normal-*-12-120-72-72-c-60-iso10646-1
 URxvt.termName: rxvt-unicode-256color
 URxvt.cutchars: ,│`|;"' ()[]{}<>
 URxvt.title: Terminal
