@@ -12,6 +12,7 @@ order += "load"
 order += "ethernet eth0"
 order += "ethernet eth1"
 order += "wireless wlan0"
+order += "path_exists vpn"
 order += "battery 0"
 order += "battery 1"
 order += "tztime local"
@@ -34,6 +35,7 @@ cpu_usage {
 
 cpu_temperature 0 {
     format = "CPU: %degrees °C"
+    path = "/sys/devices/platform/coretemp.0/hwmon/hwmon8/temp1_input"
 }
 
 load {
@@ -53,6 +55,10 @@ ethernet eth1 {
 wireless wlan0 {
     format_up = "W: %ip (%essid)"
     format_down = "W: down"
+}
+
+path_exists vpn {
+    path = "/proc/sys/net/ipv4/conf/tun0"
 }
 
 battery 0 {
