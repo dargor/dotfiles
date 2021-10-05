@@ -1,6 +1,7 @@
 #! /usr/bin/env bash
 
 alias 39='. ~/python39/activate'
+alias 310='. ~/python310/activate'
 
 _venv_ensure_base_packages() {
     pip="${1:-pip}"
