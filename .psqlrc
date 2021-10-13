@@ -3,7 +3,9 @@
 \pset border 2
 \pset linestyle unicode
 \pset null NULL
-\pset pager off
+
+\setenv PAGER pspg
+\pset pager on
 
 \set PROMPT1 '%n@%M:%> [%x%/]> '
 \set HISTCONTROL ignoredups
