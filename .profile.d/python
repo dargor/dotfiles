@@ -38,7 +38,7 @@ mkvenv() {
         "${pip}" install -U \
             envdir python-dotenv \
             pipdeptree pip-upgrader \
-            flake8 flake8-colors \
+            flake8 \
             ipython ipdb \
             bpython ptpython
     fi
@@ -84,7 +84,6 @@ flvenv() {
         flake8 \
         flake8-bugbear \
         flake8-builtins \
-        flake8-colors \
         flake8-commas \
         flake8-comprehensions \
         flake8-isort \
