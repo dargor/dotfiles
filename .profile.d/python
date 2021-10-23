@@ -40,7 +40,8 @@ mkvenv() {
             pipdeptree pip-upgrader \
             flake8 \
             ipython ipdb \
-            bpython ptpython
+            bpython ptpython \
+            pretty-errors
     fi
     echo "${name} is ready"
 }
