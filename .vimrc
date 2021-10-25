@@ -98,6 +98,10 @@ if &t_Co > 2
     autocmd FileType make setlocal noexpandtab shiftwidth=8
     autocmd FileType gitcommit setlocal nowrap
 
+    if g:dargor_full_moumoute
+        autocmd FileType cmake RainbowToggleOff
+    endif
+
     function! HelmSyntax()
         setlocal filetype=yaml
         unlet b:current_syntax
