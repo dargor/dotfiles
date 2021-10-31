@@ -137,3 +137,25 @@ URxvt.visualBell: false
 URxvt.urgentOnBell: true
 URxvt.cursorBlink: false
 URxvt.loginShell: true
+
+! Zutty
+Zutty.color0: #000000
+Zutty.color1: #B21818
+Zutty.color2: #18B218
+Zutty.color3: #BE5F00
+Zutty.color4: #6D85BA
+Zutty.color5: #B218B2
+Zutty.color6: #18B2B2
+Zutty.color7: #B2B2B2
+Zutty.color8: #686868
+Zutty.color9: #FF5454
+Zutty.color10: #54FF54
+Zutty.color11: #FFFF54
+Zutty.color12: #73A5FF
+Zutty.color13: #FF54FF
+Zutty.color14: #54FFFF
+Zutty.color15: #FFFFFF
+Zutty.bg: #000000
+Zutty.fg: #A8A8A8
+Zutty.font: ter-x12n
+Zutty.title: Terminal
