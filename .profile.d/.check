@@ -1,7 +1,7 @@
 #! /bin/sh
 set -u
 
-for f in *; do
-    [ "$f" = "rabbitmqadmin" ] && continue
+for f in .check *; do
+    echo "[93m>>> [94m${f}[0m"
     shellcheck -f gcc -x "$f"
 done
