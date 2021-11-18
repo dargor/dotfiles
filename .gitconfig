@@ -4,7 +4,7 @@
     signingkey = 5FA837672AC41AE3
 
 [help]
-    autocorrect = 0
+    autocorrect = never
 
 [color]
     ui = true
