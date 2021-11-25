@@ -28,7 +28,7 @@ kv_put() {
     fi
     IFS='#' read -r k f <<< "$1"
     v="$2"
-    if ! vault kv patch "$k" "$f"="$v"; then
+    if ! vault kv patch -method=rw "$k" "$f"="$v"; then
         echo 1>&2 "Patch failed, trying to put instead..."
         vault kv put "$k" "$f"="$v"
     fi
