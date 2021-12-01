@@ -230,6 +230,7 @@ nnoremap SB :setlocal spell spelllang=en,fr<CR>
 nnoremap SN :setlocal nospell<CR>
 
 nnoremap <F5> :syntax sync fromstart<CR>
+nnoremap <F6> :set invpaste paste?<CR>
 nnoremap <F9> :!%:p<CR>
 
 nnoremap <C-b> :call ToggleBackground()<CR>
