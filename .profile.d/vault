@@ -30,7 +30,7 @@ kv_put() {
     v="$2"
     if vault kv get "$k" >/dev/null 2>&1; then
         echo 1>&2 "Updating existing secret"
-        vault kv patch -method=patch "$k" "$f"="$v"
+        vault kv patch -method=rw "$k" "$f"="$v"
     else
         echo 1>&2 "Creating new secret"
         vault kv put "$k" "$f"="$v"
