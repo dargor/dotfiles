@@ -6,6 +6,12 @@ alias 310='. ~/python310/activate'
 _venv_ensure_base_packages() {
     pip="${1:-pip}"
     for package in pip wheel setuptools packaging Cython pythran; do
+        if [ "${package}" = pythran ]; then
+            if pip freeze | grep -q tensorflow; then
+                pip uninstall -y pythran
+                continue
+            fi
+        fi
         "${pip}" install -U "${package}"
     done
 }
