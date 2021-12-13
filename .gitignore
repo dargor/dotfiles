@@ -25,6 +25,9 @@ __pycache__
 .tox
 .venv
 
+# Rust
+target/
+
 # Terraform
 .terraform
 .terraform.lock.hcl
