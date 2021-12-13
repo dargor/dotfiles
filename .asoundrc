@@ -1,2 +1,15 @@
-pcm.!default pulse
-ctl.!default pulse
+pcm.pulse {
+    type pulse
+}
+
+ctl.pulse {
+    type pulse
+}
+
+pcm.!default {
+    type pulse
+}
+
+ctl.!default {
+    type pulse
+}
