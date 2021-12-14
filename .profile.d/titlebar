@@ -5,11 +5,13 @@ export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
 show_command_in_title_bar()
 {
     # shellcheck disable=SC1001
-    case "$BASH_COMMAND" in
-        *\033]0*)
+    case "${BASH_COMMAND}" in
+        *\033]0\;*)
             ;;
         *)
-            echo -ne "\033]0;${USER}@${HOSTNAME}: ${BASH_COMMAND}\007"
+            local cmd
+            printf -v cmd "%q" "${BASH_COMMAND}"
+            echo -ne "\033]0;${USER}@${HOSTNAME}: ${cmd//\\/}\007"
             ;;
     esac
 }
