@@ -16,6 +16,7 @@ tags
 *.pickle
 *.py[co]
 __pycache__
+report.html
 .coverage
 .coverage.*
 .hypothesis
