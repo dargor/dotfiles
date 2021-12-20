@@ -82,7 +82,7 @@ function rst
 alias j="jobs -l"
 alias h="history 20"
 alias l="ls --color=auto -ap"
-alias ll="ls --color=auto -ailp"
+alias ll="ls --color=auto -alp"
 alias dir="ls --color=auto -ailp"
 alias grep="grep --color=auto"
 alias rgrep="grep -r"
