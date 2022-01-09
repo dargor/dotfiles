@@ -8,12 +8,14 @@ order += "disk /home"
 order += "disk /tmp"
 order += "cpu_usage"
 order += "cpu_temperature 0"
+order += "cpu_temperature 1"
+order += "cpu_temperature 2"
+order += "cpu_temperature 3"
 order += "load"
 order += "ethernet eth0"
 order += "ethernet eth1"
 order += "wireless wlan0"
 order += "path_exists vpn"
-order += "battery 0"
 order += "battery 1"
 order += "tztime local"
 
@@ -35,7 +37,22 @@ cpu_usage {
 
 cpu_temperature 0 {
     format = "CPU: %degrees °C"
-    path = "/sys/devices/platform/coretemp.0/hwmon/hwmon*/temp1_input"
+    path = "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input"
+}
+
+cpu_temperature 1 {
+    format = "GPU: %degrees °C"
+    path = "/sys/devices/pci0000:00/0000:00:08.1/0000:05:00.0/hwmon/hwmon5/temp1_input"
+}
+
+cpu_temperature 2 {
+    format = "NVME: %degrees °C"
+    path = "/sys/devices/pci0000:00/0000:00:02.1/0000:02:00.0/nvme/nvme0/hwmon2/temp1_input"
+}
+
+cpu_temperature 3 {
+    format = "WIFI: %degrees °C"
+    path = "/sys/devices/virtual/thermal/thermal_zone0/hwmon4/temp1_input"
 }
 
 load {
@@ -59,10 +76,6 @@ wireless wlan0 {
 
 path_exists vpn {
     path = "/proc/sys/net/ipv4/conf/tun0"
-}
-
-battery 0 {
-    format = "%status (%percentage)"
 }
 
 battery 1 {
