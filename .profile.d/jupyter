@@ -1,0 +1,12 @@
+#! /usr/bin/env bash
+
+# notebook
+alias notebook="jupyter-notebook --no-browser"
+alias nls="jupyter-notebook list"
+
+# nbconvert
+alias nbconvert="jupyter-nbconvert"
+alias nb2py="jupyter-nbconvert --to python"
+
+# lab
+alias lab="jupyter-lab --no-browser"
