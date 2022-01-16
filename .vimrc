@@ -39,7 +39,7 @@ set smartcase
 set smarttab
 set swapsync=
 set tabpagemax=99
-set textwidth=76
+set textwidth=79
 set title
 set ttyfast
 set updatetime=100
@@ -54,7 +54,7 @@ set secure
 set encoding=utf8
 set t_BE=
 
-if &columns >= 83 && g:dargor_full_moumoute
+if &columns >= 86 && g:dargor_full_moumoute
     set number
     set signcolumn=yes
 endif
@@ -81,7 +81,7 @@ if &t_Co > 2
 
     syntax on
     set hlsearch
-    set colorcolumn=77
+    set colorcolumn=80
 
     autocmd BufNewFile,BufRead *.hy,*.lfe setlocal filetype=lisp
     autocmd BufNewFile,BufRead *.pp setlocal filetype=ruby
