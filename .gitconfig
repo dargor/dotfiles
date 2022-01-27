@@ -89,6 +89,7 @@
     c = commit --signoff
     co = checkout
     cp = cherry-pick
+    ls = lfs ls-files
     lea = add --patch
     eax = commit --amend --no-edit
     graph = log --graph --oneline --decorate
