@@ -91,6 +91,18 @@ ktop() {
     watch -n 1 "kubectl top pod --use-protocol-buffers --containers ${pod}"
 }
 
+ktops() {
+    deployment="$1"
+    if [ -z "${deployment}" ]; then
+        echo 1>&2 "Usage: ktops deployment"
+        return 1
+    fi
+    pods=$(kubectl get pods | grep -- "${deployment}" | awk '{print $1}')
+    what="watch -n 1 kubectl top pod --use-protocol-buffers --containers {}"
+    # shellcheck disable=SC2086
+    xpanes -c "${what}" ${pods}
+}
+
 kpods() {
     if [ -z "${1:-}" ]; then
         kubectl get pods
