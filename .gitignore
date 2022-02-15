@@ -15,6 +15,7 @@ tags
 # Python
 *.pickle
 *.parquet
+*.h5
 *.py[co]
 __pycache__
 report.html
