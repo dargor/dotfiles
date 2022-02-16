@@ -12,7 +12,7 @@ klog() {
         containers=$(kubectl get pod "${pod}" -o jsonpath="{.spec.containers[*].name}")
     fi
     # shellcheck disable=SC2086
-    xpanes -c "kubectl logs ${pod} --follow --tail 100 -c {} | grep -Ev 'health|metrics'" ${containers}
+    xpanes -c "kubectl logs ${pod} --follow --tail 100 -c {} | grep -Ev 'health|metrics|probe'" ${containers}
 }
 
 klogs() {
@@ -27,7 +27,7 @@ klogs() {
     if [ -n "${container}" ]; then
         what="${what} -c ${container}"
     fi
-    what="${what} | grep -Ev 'health|metrics'"
+    what="${what} | grep -Ev 'health|metrics|probe'"
     # shellcheck disable=SC2086
     xpanes -c "${what}" ${pods}
 }
