@@ -197,7 +197,11 @@ function! ToggleBackground()
     else
         set background=dark
     endif
-    filetype detect
+    try
+        filetype detect
+    catch
+        " some plugins generate errors here, just ignore them
+    endtry
     let &syntax = oldsyn
     if &syntax ==# 'yaml'
         call HelmSyntax()
