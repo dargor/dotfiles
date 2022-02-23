@@ -105,10 +105,16 @@ ktops() {
 }
 
 kpods() {
-    if [ -z "${1:-}" ]; then
-        kubectl get pods
+    if [ -z "${2:-}" ]; then
+        CTX=""
     else
-        watch -n 1 "kubectl get pods | grep -- $1"
+        CTX="--context=$2"
+    fi
+    if [ -z "${1:-}" ]; then
+        # shellcheck disable=SC2086
+        kubectl ${CTX} get pods
+    else
+        watch -n 1 "kubectl ${CTX} get pods | grep -- $1"
     fi
 }
 
