@@ -94,6 +94,7 @@ if &t_Co > 2
     autocmd BufNewFile,BufRead *.{cfg,cnf,coveragerc,service,timer,toml},cqlshrc,{krb5,supervisord}.conf setlocal filetype=dosini
     autocmd BufNewFile,BufRead *.bats setlocal filetype=sh
 
+    autocmd FileType rust setlocal matchpairs+=<:>
     autocmd FileType ruby,eruby,xml,yaml,json,markdown setlocal shiftwidth=2 softtabstop=2
     autocmd FileType make setlocal noexpandtab shiftwidth=8
     autocmd FileType gitcommit setlocal nowrap
