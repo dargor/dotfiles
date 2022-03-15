@@ -11,6 +11,7 @@ tags
 # C
 *.o
 *.so
+core
 
 # Python
 *.pickle
