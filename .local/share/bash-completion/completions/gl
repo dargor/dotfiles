@@ -1,4 +1,0 @@
-#! /usr/bin/env bash
-
-. /usr/share/bash-completion/completions/glab
-complete -F __start_glab gl
