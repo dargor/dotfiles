@@ -92,6 +92,7 @@ if &t_Co > 2
     autocmd BufNewFile,BufRead master,roster,*.sls setlocal filetype=yaml
     autocmd BufNewFile,BufRead package.{env,provided} setlocal filetype=gentoo-package-use
     autocmd BufNewFile,BufRead *.{cfg,cnf,coveragerc,service,timer,toml},cqlshrc,{krb5,supervisord}.conf setlocal filetype=dosini
+    autocmd BufNewFile,BufRead *.cql setlocal filetype=sql
     autocmd BufNewFile,BufRead *.bats setlocal filetype=sh
 
     autocmd FileType rust setlocal matchpairs+=<:>
