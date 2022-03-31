@@ -100,3 +100,18 @@ flvenv() {
         flake8-unused-arguments \
         flake8-use-fstring
 }
+
+clpy() {
+    rm -rf -- build dist *.egg-info
+    find -L . -not -path './.git/*' -a \(  \
+              -iname __pycache__   -print0 \
+           -o -iname '*.py[co]'    -print0 \
+           -o -iname .mypy_cache   -print0 \
+           -o -iname .pytest_cache -print0 \
+           -o -iname .hypothesis   -print0 \
+           -o -iname .coverage     -print0 \
+           -o -iname .tox          -print0 \
+           -o -iname report.html   -print0 \
+           -o -iname tags          -print0 \
+    \) | xargs -r0 rm -rf --
+}
