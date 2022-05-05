@@ -226,6 +226,14 @@ function! MaximizeToggle()
     endif
 endfunction
 
+function! ToggleMouse()
+    if empty(&mouse)
+        set mouse=a
+    else
+        set mouse=
+    endif
+endfunction
+
 nnoremap <space> za
 nnoremap zC :setlocal foldlevel=0<CR>
 nnoremap zO :setlocal foldlevel=99<CR>
@@ -237,6 +245,7 @@ nnoremap SN :setlocal nospell<CR>
 
 nnoremap <F5> :syntax sync fromstart<CR>
 nnoremap <F6> :set invpaste paste?<CR>
+nnoremap <F7> :call ToggleMouse()<CR>
 nnoremap <F9> :!%:p<CR>
 
 nnoremap <C-b> :call ToggleBackground()<CR>
