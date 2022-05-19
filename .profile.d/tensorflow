@@ -1,0 +1,7 @@
+#! /usr/bin/env bash
+
+# 0 = no filter
+# 1 = filter out INFO
+# 2 = filter out WARNING
+# 3 = filter out ERROR
+export TF_CPP_MIN_LOG_LEVEL=2
