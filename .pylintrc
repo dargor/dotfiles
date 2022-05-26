@@ -1,0 +1,3 @@
+[perflint]
+output-format = colorized
+recursive = yes
