@@ -7,11 +7,12 @@ order += "disk /"
 order += "disk /home"
 order += "disk /tmp"
 order += "cpu_usage"
+order += "memory"
+order += "load"
 order += "cpu_temperature 0"
 order += "cpu_temperature 1"
 order += "cpu_temperature 2"
 order += "cpu_temperature 3"
-order += "load"
 order += "ethernet eth0"
 order += "ethernet eth1"
 order += "wireless wlan0"
@@ -35,6 +36,14 @@ cpu_usage {
     format = "CPU: %usage"
 }
 
+memory {
+    format = "MEM: %percentage_used"
+}
+
+load {
+    format = "load average: %1min %5min %15min"
+}
+
 cpu_temperature 0 {
     format = "CPU: %degrees °C"
     path = "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp1_input"
@@ -53,10 +62,6 @@ cpu_temperature 2 {
 cpu_temperature 3 {
     format = "WIFI: %degrees °C"
     path = "/sys/devices/virtual/thermal/thermal_zone0/hwmon4/temp1_input"
-}
-
-load {
-    format = "load average: %1min %5min %15min"
 }
 
 ethernet eth0 {
