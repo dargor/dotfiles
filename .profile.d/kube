@@ -87,6 +87,15 @@ kimages() {
     kubectl describe deployments.apps "${deployment}" | grep Image:
 }
 
+knode() {
+    pod="$1"
+    if [ -z "${pod}" ]; then
+        echo 1>&2 "Usage: knode pod"
+        return 1
+    fi
+    kubectl describe pod "${pod}" | grep Node:
+}
+
 ktop() {
     pod="$1"
     watch -n 1 "kubectl top pod --use-protocol-buffers --containers ${pod}"
