@@ -59,9 +59,9 @@ upvenv() {
     fi
     _venv_ensure_base_packages
     # update everything without consideration for broken dependencies
-    pip list --outdated --format json \
-        | jq -r '.[].name' \
-        | xargs -r pip install --no-warn-conflicts -U
+    while read -r p; do
+        pip install --no-warn-conflicts -U "$p"
+    done < <(pip list --outdated --format json | jq -r '.[].name')
     # handle broken dependencies
     for n in {0..9}; do
         x=0
