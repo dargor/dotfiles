@@ -229,10 +229,10 @@ endfunction
 function! ToggleMouse()
     if empty(&mouse)
         set mouse=a
-        echo 'Mouse: enabled'
+        echo '  mouse'
     else
         set mouse=
-        echo 'Mouse: disabled'
+        echo 'nomouse'
     endif
 endfunction
 
