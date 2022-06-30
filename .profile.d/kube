@@ -60,6 +60,23 @@ kexec() {
     xpanes -c "kubectl exec -it ${pod} -c {} -- ${cmd}" ${containers}
 }
 
+kexecs() {
+    deployment="$1"
+    container="${2:-}"
+    if [ -z "${deployment}" ]; then
+        echo 1>&2 "Usage: kexecs deployment [container]"
+        return 1
+    fi
+    pods=$(kubectl get pods | grep -- "${deployment}" | awk '{print $1}')
+    what="kubectl exec -it {}"
+    if [ -n "${container}" ]; then
+        what="${what} -c ${container}"
+    fi
+    what="${what} -- bash"
+    # shellcheck disable=SC2086
+    xpanes -c "${what}" ${pods}
+}
+
 kthrottled() {
     pod="$1"
     if [ -z "${pod}" ]; then
