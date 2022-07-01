@@ -8,7 +8,11 @@ tags
 .sw*
 .*.sw*
 
+# LibreOffice
+.~lock.*#
+
 # C
+a.out
 *.o
 *.so
 core
