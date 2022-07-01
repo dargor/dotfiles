@@ -72,7 +72,7 @@ kexecs() {
     if [ -n "${container}" ]; then
         what="${what} -c ${container}"
     fi
-    what="${what} -- bash"
+    what="${what} -- sh"
     # shellcheck disable=SC2086
     xpanes -c "${what}" ${pods}
 }
