@@ -95,6 +95,9 @@ if &t_Co > 2
     autocmd BufNewFile,BufRead *.cql setlocal filetype=sql
     autocmd BufNewFile,BufRead *.bats setlocal filetype=sh
 
+    " pyx (implementation) and pxd (definition) are handled, but pxi (include) are not
+    autocmd BufNewFile,BufRead *.pxi setlocal filetype=pyrex
+
     autocmd FileType rust setlocal matchpairs+=<:>
     autocmd FileType ruby,eruby,xml,yaml,json,markdown setlocal shiftwidth=2 softtabstop=2
     autocmd FileType make setlocal noexpandtab shiftwidth=8
