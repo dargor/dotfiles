@@ -131,13 +131,13 @@ if &t_Co > 2
         highlight GitGutterChangeDelete ctermfg=DarkMagenta
         if &t_Co >= 256
             if &background ==# 'dark'
-                highlight ColorColumn ctermbg=DarkRed
+                highlight ColorColumn ctermbg=52
                 highlight LineNr cterm=None ctermfg=DarkGray ctermbg=None
                 highlight IndentGuidesOdd ctermbg=237
                 highlight IndentGuidesEven ctermbg=239
                 let g:rainbow_conf = {'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta']}
             else
-                highlight ColorColumn ctermbg=Red
+                highlight ColorColumn ctermbg=224
                 highlight LineNr cterm=None ctermfg=Gray ctermbg=None
                 highlight IndentGuidesOdd ctermbg=251
                 highlight IndentGuidesEven ctermbg=253
