@@ -224,7 +224,7 @@ endfunction
 
 function! MaximizeToggle()
     if exists('s:maximize_session')
-        silent! exec 'source ' . s:maximize_session
+        silent! execute 'source ' . s:maximize_session
         call delete(s:maximize_session)
         unlet s:maximize_session
         let &hidden=s:maximize_hidden_save
@@ -233,7 +233,7 @@ function! MaximizeToggle()
         let s:maximize_hidden_save = &hidden
         let s:maximize_session = tempname()
         setlocal hidden
-        exec 'mksession! ' . s:maximize_session
+        execute 'mksession! ' . s:maximize_session
         only
     endif
 endfunction
