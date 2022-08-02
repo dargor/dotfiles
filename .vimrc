@@ -59,6 +59,14 @@ if &columns >= 86 && g:dargor_full_moumoute
     set signcolumn=yes
 endif
 
+if g:dargor_full_moumoute
+    let g:light_color_column = 224
+    let g:dark_color_column = 52
+else
+    let g:light_color_column = 1
+    let g:dark_color_column = 9
+endif
+
 let g:netrw_dirhistmax = 0
 
 let g:gruvbox_contrast_dark = 'hard'
@@ -132,13 +140,13 @@ if &t_Co > 2
         highlight GitGutterChangeDelete ctermfg=DarkMagenta
         if &t_Co >= 256
             if &background ==# 'dark'
-                highlight ColorColumn ctermbg=52
+                execute 'highlight ColorColumn ctermbg=' . g:dark_color_column
                 highlight LineNr cterm=None ctermfg=DarkGray ctermbg=None
                 highlight IndentGuidesOdd ctermbg=237
                 highlight IndentGuidesEven ctermbg=239
                 let g:rainbow_conf.ctermfgs = ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta']
             else
-                highlight ColorColumn ctermbg=224
+                execute 'highlight ColorColumn ctermbg=' . g:light_color_column
                 highlight LineNr cterm=None ctermfg=Gray ctermbg=None
                 highlight IndentGuidesOdd ctermbg=251
                 highlight IndentGuidesEven ctermbg=253
