@@ -65,6 +65,7 @@ let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_contrast_light = 'hard'
 
 let g:rainbow_active = 1
+let g:rainbow_conf = {}
 
 let g:python_highlight_all = 1
 let g:python_highlight_file_headers_as_comments = 1
@@ -135,13 +136,13 @@ if &t_Co > 2
                 highlight LineNr cterm=None ctermfg=DarkGray ctermbg=None
                 highlight IndentGuidesOdd ctermbg=237
                 highlight IndentGuidesEven ctermbg=239
-                let g:rainbow_conf = {'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta']}
+                let g:rainbow_conf.ctermfgs = ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta']
             else
                 highlight ColorColumn ctermbg=224
                 highlight LineNr cterm=None ctermfg=Gray ctermbg=None
                 highlight IndentGuidesOdd ctermbg=251
                 highlight IndentGuidesEven ctermbg=253
-                let g:rainbow_conf = {'ctermfgs': ['darkblue', 'darkyellow', 'darkcyan', 'darkmagenta']}
+                let g:rainbow_conf.ctermfgs = ['darkblue', 'darkyellow', 'darkcyan', 'darkmagenta']
             endif
             highlight FoldColumn cterm=None ctermfg=243 ctermbg=None
             highlight Folded cterm=None ctermfg=243 ctermbg=None
