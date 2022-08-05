@@ -1,0 +1,66 @@
+#! /usr/bin/env bash
+
+c() {
+    cmd="${1:-}"
+    if [ -z "$cmd" ]; then
+        cat 1>&2 <<EOF
+c <command>, with :
+    n       cargo new <...>
+    f       cargo fmt
+    c(r)    cargo clippy (--release)
+    w(r)    watch files and run cargo clippy (--release)
+    b(r)    cargo build (--release)
+    r(r)    cargo run (--release) <...>
+    t       cargo test <...>
+    u       cargo update + cargo upgrade
+    clean   cargo clean
+EOF
+        return 1
+    fi
+    shift
+    case "$cmd" in
+        "n")
+            cargo new "$@"
+            ;;
+        "f")
+            cargo fmt
+            ;;
+        "c")
+            cargo clippy
+            ;;
+        "cr")
+            cargo clippy --release
+            ;;
+        "w")
+            find src/ -name '*.rs' | entr -cp cargo clippy
+            ;;
+        "wr")
+            find src/ -name '*.rs' | entr -cp cargo clippy --release
+            ;;
+        "b")
+            cargo build
+            ;;
+        "br")
+            cargo build --release
+            ;;
+        "r")
+            cargo run "$@"
+            ;;
+        "rr")
+            cargo run --release "$@"
+            ;;
+        "t")
+            cargo test "$@"
+            ;;
+        "u")
+            cargo update
+            cargo upgrade --verbose --to-lockfile
+            ;;
+        "clean")
+            cargo clean
+            ;;
+        *)
+            echo 1>&2 "Unknown subcommand: $cmd"
+            return 1
+    esac
+}
