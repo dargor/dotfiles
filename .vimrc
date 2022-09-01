@@ -29,6 +29,7 @@ set infercase
 set mouse=
 set noequalalways
 set nofsync
+set nojoinspaces
 set report=0
 set ruler
 set scrolloff=5
