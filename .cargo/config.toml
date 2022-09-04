@@ -5,3 +5,8 @@ strip = false
 [profile.release]
 lto = true
 strip = true
+
+# readelf -p .comment target/*/${binary_name}
+[target.x86_64-unknown-linux-gnu]
+rustflags = ["-C", "link-arg=-fuse-ld=lld"]
+#rustflags = ["-C", "link-arg=-fuse-ld=mold"]
