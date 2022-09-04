@@ -1,5 +1,7 @@
 [profile.dev]
 lto = false
+strip = false
 
 [profile.release]
 lto = true
+strip = true
