@@ -176,6 +176,7 @@ kclean() {
 }
 
 alias knodes="kubectl get nodes -o wide"
+alias knodeslabels="kubectl get nodes --show-labels"
 alias khelp="kubectl api-resources | sort"
 
 # ignore kubectl plugins, they only pollute shell completion
