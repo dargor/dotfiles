@@ -95,6 +95,7 @@ alias links="links -g"
 alias rcli="redis-cli"
 alias sc="shellcheck -f gcc"
 alias d="delta"
+alias dt="difft"
 
 for f in ~/.profile.d/*; do
     . "$f"
