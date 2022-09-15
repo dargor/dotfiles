@@ -54,7 +54,7 @@ EOF
             ;;
         "u")
             cargo update
-            cargo upgrade --verbose --to-lockfile
+            cargo upgrade --verbose
             ;;
         "clean")
             cargo clean
