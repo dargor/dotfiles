@@ -6,6 +6,9 @@
 [help]
     autocorrect = never
 
+[advice]
+    skippedCherryPicks = false
+
 [color]
     ui = true
 
