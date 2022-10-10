@@ -38,6 +38,9 @@ bindsym $mod+i exec --no-startup-id gucharmap
 # a man has no pride
 bindsym $mod+y exec --no-startup-id pavucontrol
 
+# a man is running out of keys
+bindsym $mod+exclam exec --no-startup-id rofi -show drun
+
 # kill focused window
 bindsym $mod+c kill
 
