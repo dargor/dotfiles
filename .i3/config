@@ -20,7 +20,7 @@ bindsym $mod+u exec --no-startup-id uxterm
 bindsym $mod+t exec --no-startup-id urxvtc
 bindsym $mod+m exec --no-startup-id alacritty
 bindsym $mod+w exec --no-startup-id cool-retro-term
-bindsym $mod+x exec --no-startup-id st -f Terminus
+bindsym $mod+x exec --no-startup-id st
 
 # spawn notepad
 bindsym $mod+n exec --no-startup-id leafpad
