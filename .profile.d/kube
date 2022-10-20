@@ -136,12 +136,18 @@ kpods() {
     else
         CTX="--context=$2"
     fi
-    if [ -z "${1:-}" ]; then
-        # shellcheck disable=SC2086
-        kubectl ${CTX} get pods
-    else
-        watch -n 1 "kubectl ${CTX} get pods | grep -- $1"
-    fi
+    case "${1:-}" in
+        '')
+            # shellcheck disable=SC2086
+            kubectl ${CTX} get pods
+            ;;
+        all)
+            watch -n 1 "kubectl ${CTX} get pods"
+            ;;
+        *)
+            watch -n 1 "kubectl ${CTX} get pods | grep -- $1"
+            ;;
+    esac
 }
 
 kgd() {
