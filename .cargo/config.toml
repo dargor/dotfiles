@@ -1,11 +1,11 @@
 [profile.dev]
-lto = false
-strip = false
+lto = "off"
+strip = "none"
 panic = "unwind"
 
 [profile.release]
-lto = true
-strip = true
+lto = "thin"
+strip = "symbols"
 panic = "abort"
 
 # target-cpu -> elfx86exts target/*/${binary}
