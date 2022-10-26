@@ -119,15 +119,21 @@ ktop() {
 }
 
 ktops() {
+    if [ -z "${2:-}" ]; then
+        CTX=""
+    else
+        CTX="--context=$2"
+    fi
     deployment="$1"
     if [ -z "${deployment}" ]; then
-        echo 1>&2 "Usage: ktops deployment"
+        echo 1>&2 "Usage: ktops deployment [context]"
         return 1
     fi
-    pods=$(kubectl get pods | grep -- "${deployment}" | awk '{print $1}')
-    what="watch -n 1 kubectl top pod --use-protocol-buffers --containers {}"
     # shellcheck disable=SC2086
-    xpanes -c "${what}" ${pods}
+    pods=$(kubectl ${CTX} get pods | grep -- "${deployment}" | awk '{print $1}')
+    what="watch -n 1 kubectl ${CTX} top pod --use-protocol-buffers --containers {}"
+    # shellcheck disable=SC2086
+    xpanes -l even-vertical -c "${what}" ${pods}
 }
 
 kpods() {
