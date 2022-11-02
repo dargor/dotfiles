@@ -11,6 +11,9 @@ new_window normal 1
 # mouse drag key
 floating_modifier $mod
 
+# disable tiling drag
+tiling_drag off
+
 # lock session
 bindsym $mod+Return exec --no-startup-id xtrlock -b
 bindsym $mod+Shift+Return exec --no-startup-id xtrlock
