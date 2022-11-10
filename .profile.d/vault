@@ -9,6 +9,7 @@ kv_get() {
     fi
     IFS='#' read -r k f <<< "$1"
     if [ -z "$f" ]; then
+        echo 1>&2 "[93mWarning: missing field[0m"
         vault kv get "$k"
     else
         vault kv get --field="$f" "$k"
@@ -27,6 +28,10 @@ kv_put() {
         return 1
     fi
     IFS='#' read -r k f <<< "$1"
+    if [ -z "$f" ]; then
+        echo 1>&2 "[91mError: missing field[0m"
+        return 1
+    fi
     v="$2"
     if vault kv get "$k" >/dev/null 2>&1; then
         echo 1>&2 "Updating existing secret"
