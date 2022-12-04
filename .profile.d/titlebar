@@ -16,4 +16,6 @@ show_command_in_title_bar()
     esac
 }
 
-trap show_command_in_title_bar DEBUG
+if [ -z "${SSH_CONNECTION:-}" ]; then
+    trap show_command_in_title_bar DEBUG
+fi

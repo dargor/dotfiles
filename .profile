@@ -1,6 +1,8 @@
 #! /usr/bin/env bash
 
-head -n 7 /etc/issue
+if [ -z "${SSH_CONNECTION:-}" ]; then
+    head -n 7 /etc/issue
+fi
 
 export PATH="$HOME/bin:$PATH"
 
