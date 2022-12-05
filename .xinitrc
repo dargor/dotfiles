@@ -25,5 +25,6 @@ xset fp rehash
 [ -x /usr/bin/urxvtd ] && /usr/bin/urxvtd -f -o
 [ -x /usr/bin/blueman-applet ] && /usr/bin/blueman-applet &
 [ -x /usr/bin/redshift-gtk ] && /usr/bin/redshift-gtk -l 48.8566:2.3522 &
+[ -x /usr/bin/pasystray ] && /usr/bin/pasystray &
 
 exec dbus-launch --exit-with-session gpg-agent --daemon ssh-agent i3 --shmlog-size 0
