@@ -1,6 +1,6 @@
 from notebook.auth import passwd
 
-c = get_config()
+c = get_config()  # noqa: F821
 
 c.JupyterApp.answer_yes = True
 
