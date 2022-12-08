@@ -10,7 +10,7 @@ panic = "abort"
 
 # target-cpu -> elfx86exts target/*/${binary}
 # link-arg   -> readelf -p .comment target/*/${binary}
-[target.x86_64-unknown-linux-gnu]
+[build]
 rustflags = [
     "-C", "target-cpu=x86-64-v3",
     "-C", "link-arg=-fuse-ld=lld",
