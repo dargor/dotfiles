@@ -1,17 +1,14 @@
 [profile.dev]
-lto = "off"
+split-debuginfo = "packed"
 strip = "none"
+lto = "off"
 panic = "unwind"
 
 [profile.release]
-lto = "thin"
 strip = "symbols"
+lto = "thin"
 panic = "abort"
 
-# target-cpu -> elfx86exts target/*/${binary}
-# link-arg   -> readelf -p .comment target/*/${binary}
-[build]
-rustflags = [
-    "-C", "target-cpu=x86-64-v3",
-    "-C", "link-arg=-fuse-ld=lld",
-]
+[target.x86_64-unknown-linux-gnu]
+# https://en.wikipedia.org/wiki/X86-64#Microarchitecture_levels
+rustflags = "-C target-cpu=x86-64-v3"
