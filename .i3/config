@@ -20,7 +20,7 @@ bindsym $mod+Shift+Return exec --no-startup-id xtrlock
 
 # spawn terminals
 bindsym $mod+u exec --no-startup-id uxterm
-bindsym $mod+t exec --no-startup-id urxvtc
+bindsym $mod+t exec --no-startup-id uxterm
 bindsym $mod+m exec --no-startup-id alacritty
 bindsym $mod+w exec --no-startup-id cool-retro-term
 bindsym $mod+x exec --no-startup-id st
