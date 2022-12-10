@@ -7,7 +7,7 @@
         2 = Application preference, default interval 1
         3 = Application preference, always synchronize with refresh
       -->
-      <option name="vblank_mode" value="2" />
+      <option name="vblank_mode" value="1" />
     </application>
   </device>
 </driconf>
