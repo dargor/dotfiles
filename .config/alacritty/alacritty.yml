@@ -17,10 +17,10 @@ scrolling:
 font:
   normal:
     family: Terminus
-    style: Medium
+    style: Regular
   italic:
     family: Terminus
-    style: Medium
+    style: Regular
   bold:
     family: Terminus
     style: Bold
@@ -59,6 +59,7 @@ colors:
 
 bell:
   duration: 0
+  command: None
 
 selection:
   semantic_escape_chars: ",│`|;\"' ()[]{}<>\t"
@@ -75,6 +76,8 @@ live_config_reload: true
 working_directory: None
 
 alt_send_esc: true
+
+ipc_socket: false
 
 mouse:
   double_click: { threshold: 300 }
