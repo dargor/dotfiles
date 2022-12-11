@@ -35,7 +35,7 @@
 
 [core]
     pager = less -RFX
-    editor = vim
+    editor = gvim --nofork
     excludesfile = ~/.gitignore
     attributesfile = ~/.gitattributes
 
