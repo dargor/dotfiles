@@ -60,12 +60,23 @@ if &columns >= 86 && g:dargor_full_moumoute
     set signcolumn=yes
 endif
 
+if has('gui')
+    set guifont=Terminus\ 8
+    set guioptions+=c
+    set guioptions+=d
+    set guioptions-=L
+    set guioptions-=T
+    set guioptions-=m
+    set guioptions-=r
+    set nomousehide
+endif
+
 if g:dargor_full_moumoute
-    let g:light_color_column = 224
-    let g:dark_color_column = 52
+    let g:light_color_column = [224, '#ffd7d7']
+    let g:dark_color_column = [52, '#5f0000']
 else
-    let g:light_color_column = 1
-    let g:dark_color_column = 9
+    let g:light_color_column = [1, 'Black']
+    let g:dark_color_column = [9, 'Red']
 endif
 
 let g:netrw_dirhistmax = 0
@@ -83,14 +94,6 @@ let g:gitgutter_diff_args = '-w'
 let g:gitgutter_map_keys = 0
 let g:gitgutter_max_signs = -1
 let g:gitgutter_sign_allow_clobber = 1
-
-let g:indent_guides_auto_colors = 0
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-if &syntax ==# 'gitcommit'
-    let g:indent_guides_enable_on_vim_startup = 0
-endif
 
 if &t_Co > 2
 
@@ -134,42 +137,37 @@ if &t_Co > 2
     autocmd BufNewFile,BufRead */templates/*.yaml,*/templates/*.tpl call HelmSyntax()
 
     function! SetupHighlights()
-        highlight Directory ctermfg=Blue
-        highlight NonText ctermfg=DarkBlue
-        highlight SpecialKey ctermfg=DarkRed
-        highlight WhiteSpaces cterm=None ctermfg=Black ctermbg=Red
-        highlight DoNotUseLogging cterm=None ctermfg=Black ctermbg=Magenta
-        highlight SignColumn ctermbg=None
-        highlight GitGutterAdd ctermfg=DarkGreen
-        highlight GitGutterChange ctermfg=DarkYellow
-        highlight GitGutterDelete ctermfg=DarkRed
-        highlight GitGutterChangeDelete ctermfg=DarkMagenta
+        " :h highlight-groups
+        " :so $VIMRUNTIME/syntax/hitest.vim
+        highlight clear Comment
+        highlight Comment ctermfg=243 guifg=#767676
+        highlight Directory ctermfg=Blue guifg=#73a5ff
+        highlight NonText ctermfg=DarkBlue guifg=#6d85ba
+        highlight SpecialKey ctermfg=DarkRed guifg=#b21818
+        highlight WhiteSpaces ctermbg=Red guibg=#ff5454
+        highlight DoNotUseLogging ctermfg=Black guifg=Black ctermbg=Magenta guibg=#ff54ff
         if &t_Co >= 256
             if &background ==# 'dark'
-                execute 'highlight ColorColumn ctermbg=' . g:dark_color_column
-                highlight LineNr cterm=None ctermfg=DarkGray ctermbg=None
-                highlight IndentGuidesOdd ctermbg=237
-                highlight IndentGuidesEven ctermbg=239
-                let g:rainbow_conf.ctermfgs = ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta']
+                execute 'highlight ColorColumn ctermbg=' . g:dark_color_column[0] . ' guibg=' . g:dark_color_column[1]
+                let g:rainbow_conf.ctermfgs = ['blue', 'yellow', 'cyan', 'magenta']
+                highlight GitGutterAdd ctermfg=Green guifg=#54ff54
+                highlight GitGutterChange ctermfg=Yellow guifg=#ffff54
+                highlight GitGutterDelete ctermfg=Red guifg=#ff5454
+                highlight GitGutterChangeDelete ctermfg=Magenta guifg=#ff54ff
             else
-                execute 'highlight ColorColumn ctermbg=' . g:light_color_column
-                highlight LineNr cterm=None ctermfg=Gray ctermbg=None
-                highlight IndentGuidesOdd ctermbg=251
-                highlight IndentGuidesEven ctermbg=253
+                execute 'highlight ColorColumn ctermbg=' . g:light_color_column[0] . ' guibg=' . g:light_color_column[1]
                 let g:rainbow_conf.ctermfgs = ['darkblue', 'darkyellow', 'darkcyan', 'darkmagenta']
+                highlight GitGutterAdd ctermfg=40 guifg=#00d700
+                highlight GitGutterChange ctermfg=214 guifg=#ffaf00
+                highlight GitGutterDelete ctermfg=Red guifg=#ff5454
+                highlight GitGutterChangeDelete ctermfg=Magenta guifg=#ff54ff
             endif
-            highlight FoldColumn cterm=None ctermfg=243 ctermbg=None
-            highlight Folded cterm=None ctermfg=243 ctermbg=None
-            highlight Visual cterm=None ctermbg=193
+            highlight FoldColumn ctermfg=243 guifg=#767676
+            highlight Folded ctermfg=243 guifg=#767676
         endif
-        highlight Todo cterm=Bold ctermfg=Red ctermbg=None
-        highlight DiffFile cterm=None ctermfg=DarkMagenta ctermbg=None
-        highlight DiffAdded cterm=None ctermfg=DarkGreen ctermbg=None
-        highlight DiffRemoved cterm=None ctermfg=DarkRed ctermbg=None
-        highlight DiffAdd cterm=None ctermfg=Black ctermbg=Green
-        highlight DiffChange cterm=None ctermfg=Black ctermbg=Yellow
-        highlight DiffDelete cterm=None ctermfg=Black ctermbg=Red
-        highlight DiffText cterm=None ctermfg=Black ctermbg=Magenta
+        highlight Todo ctermfg=Red guifg=#ff5454
+        highlight MoreMsg ctermfg=DarkYellow guifg=#ff5f00
+        highlight ErrorMsg ctermfg=Red guifg=#ff5454
     endfunction
 
     autocmd ColorScheme,Syntax * call SetupHighlights()
