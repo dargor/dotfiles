@@ -152,6 +152,7 @@ if &t_Co > 2 || has('gui_running')
             if &background ==# 'dark'
                 execute 'highlight ColorColumn ctermbg=' . g:dark_color_column[0] . ' guibg=' . g:dark_color_column[1]
                 let g:rainbow_conf.ctermfgs = ['blue', 'yellow', 'cyan', 'magenta']
+                let g:rainbow_conf.guifgs = ['#73a5ff', '#ffff54', '#54ffff', '#ff54ff']
                 highlight GitGutterAdd ctermfg=Green guifg=#54ff54
                 highlight GitGutterChange ctermfg=Yellow guifg=#ffff54
                 highlight GitGutterDelete ctermfg=Red guifg=#ff5454
@@ -159,6 +160,7 @@ if &t_Co > 2 || has('gui_running')
             else
                 execute 'highlight ColorColumn ctermbg=' . g:light_color_column[0] . ' guibg=' . g:light_color_column[1]
                 let g:rainbow_conf.ctermfgs = ['darkblue', 'darkyellow', 'darkcyan', 'darkmagenta']
+                let g:rainbow_conf.guifgs = ['#6d85ba', '#be5f00', '#18b2b2', '#b218b2']
                 highlight GitGutterAdd ctermfg=40 guifg=#00d700
                 highlight GitGutterChange ctermfg=214 guifg=#ffaf00
                 highlight GitGutterDelete ctermfg=Red guifg=#ff5454
