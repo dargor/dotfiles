@@ -70,6 +70,7 @@ if has('gui_running')
     set guioptions-=T
     set guioptions-=m
     set guioptions-=r
+    set linespace=-1
     set nomousehide
 endif
 
