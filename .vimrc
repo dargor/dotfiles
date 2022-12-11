@@ -55,12 +55,14 @@ set secure
 set encoding=utf8
 set t_BE=
 
-if &columns >= 86 && g:dargor_full_moumoute
-    set number
-    set signcolumn=yes
+if g:dargor_full_moumoute
+    if &columns >= 86 || has('gui_running')
+        set number
+        set signcolumn=yes
+    endif
 endif
 
-if has('gui')
+if has('gui_running')
     set guifont=Terminus\ 8
     set guioptions+=c
     set guioptions+=d
@@ -95,7 +97,7 @@ let g:gitgutter_map_keys = 0
 let g:gitgutter_max_signs = -1
 let g:gitgutter_sign_allow_clobber = 1
 
-if &t_Co > 2
+if &t_Co > 2 || has('gui_running')
 
     syntax on
     set hlsearch
@@ -146,7 +148,7 @@ if &t_Co > 2
         highlight SpecialKey ctermfg=DarkRed guifg=#b21818
         highlight WhiteSpaces ctermbg=Red guibg=#ff5454
         highlight DoNotUseLogging ctermfg=Black guifg=Black ctermbg=Magenta guibg=#ff54ff
-        if &t_Co >= 256
+        if &t_Co >= 256 || has('gui_running')
             if &background ==# 'dark'
                 execute 'highlight ColorColumn ctermbg=' . g:dark_color_column[0] . ' guibg=' . g:dark_color_column[1]
                 let g:rainbow_conf.ctermfgs = ['blue', 'yellow', 'cyan', 'magenta']
