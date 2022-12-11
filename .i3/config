@@ -14,6 +14,13 @@ floating_modifier $mod
 # disable tiling drag
 tiling_drag off
 
+# float certain windows by default
+for_window [class="XClock"] floating enable
+for_window [class="Gvim"] floating enable
+for_window [class="Leafpad"] floating enable
+for_window [class="FeatherPad"] floating enable
+for_window [class="cool-retro-term"] floating enable
+
 # lock session
 bindsym $mod+Return exec --no-startup-id xtrlock -b
 bindsym $mod+Shift+Return exec --no-startup-id xtrlock
