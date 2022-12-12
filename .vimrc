@@ -173,6 +173,10 @@ if &t_Co > 2 || has('gui_running')
         highlight Todo ctermfg=Red guifg=#ff5454
         highlight MoreMsg ctermfg=DarkYellow guifg=#ff5f00
         highlight ErrorMsg ctermfg=Red guifg=#ff5454
+        highlight DiffFile ctermfg=DarkMagenta guifg=#b218b2
+        highlight DiffAdded ctermfg=DarkGreen guifg=#00af00
+        highlight DiffRemoved ctermfg=DarkRed guifg=#b21818
+        highlight DiffText ctermfg=Black guifg=Black ctermbg=Magenta guibg=#ff54ff
     endfunction
 
     autocmd ColorScheme,Syntax * call SetupHighlights()
