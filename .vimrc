@@ -261,6 +261,24 @@ function! ToggleMouse()
     endif
 endfunction
 
+function! WFlake()
+    execute 'term wflake8 ' . expand('%:p')
+    resize 11
+    wincmd p
+endfunction
+
+function! WShell()
+    execute 'term wshellcheck ' . expand('%:p')
+    resize 11
+    wincmd p
+endfunction
+
+function! WYaml()
+    execute 'term wyamllint ' . expand('%:p')
+    resize 11
+    wincmd p
+endfunction
+
 nnoremap <space> za
 nnoremap zC :setlocal foldlevel=0<CR>
 nnoremap zO :setlocal foldlevel=99<CR>
@@ -269,6 +287,10 @@ nnoremap SE :setlocal spell spelllang=en<CR>
 nnoremap SF :setlocal spell spelllang=fr<CR>
 nnoremap SB :setlocal spell spelllang=en,fr<CR>
 nnoremap SN :setlocal nospell<CR>
+
+nnoremap WF :call WFlake()<CR>
+nnoremap WS :call WShell()<CR>
+nnoremap WY :call WYaml()<CR>
 
 nnoremap <F5> :syntax sync fromstart<CR>
 nnoremap <F6> :set invpaste paste?<CR>
