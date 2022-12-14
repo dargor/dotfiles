@@ -262,19 +262,19 @@ function! ToggleMouse()
 endfunction
 
 function! WFlake()
-    execute 'term wflake8 ' . expand('%:p')
+    execute 'term ++kill=term wflake8 ' . expand('%:p')
     resize 11
     wincmd p
 endfunction
 
 function! WShell()
-    execute 'term wshellcheck ' . expand('%:p')
+    execute 'term ++kill=term wshellcheck ' . expand('%:p')
     resize 11
     wincmd p
 endfunction
 
 function! WYaml()
-    execute 'term wyamllint ' . expand('%:p')
+    execute 'term ++kill=term wyamllint ' . expand('%:p')
     resize 11
     wincmd p
 endfunction
