@@ -51,12 +51,15 @@ fi
 
 if [ "$UID" -eq "0" ]; then
     umask 022
+    # shellcheck disable=SC2025
     PS1='[1;31m\u[0;0m@[1;35m\H[0;0m [1;32m\w[0;0m \D{%F %T} [$((\j == 0 ? 90 : 94))m\j[0;0m [$(($? == 0 ? 90 : 91))m$?[0;0m [7;31m${AWS_PROFILE:-}[0;0m\n\$ '
 else
     umask 027
     if [ -f /.dockerenv ]; then
+        # shellcheck disable=SC2025
         PS1='[1;33m\u[0;0m@[1;35m\H[0;0m [1;32m\w[0;0m \D{%F %T} [$((\j == 0 ? 90 : 94))m\j[0;0m [$(($? == 0 ? 90 : 91))m$?[0;0m [7;31m${AWS_PROFILE:-}[0;0m\n\$ '
     else
+        # shellcheck disable=SC2025
         PS1='[1;34m\u[0;0m@[1;35m\H[0;0m [1;32m\w[0;0m \D{%F %T} [$((\j == 0 ? 90 : 94))m\j[0;0m [$(($? == 0 ? 90 : 91))m$?[0;0m [7;31m${AWS_PROFILE:-}[0;0m\n\$ '
     fi
 fi
@@ -100,6 +103,7 @@ alias d="delta"
 alias dt="difft"
 
 for f in ~/.profile.d/*; do
+    # shellcheck disable=SC1090
     . "$f"
 done
 unset f
