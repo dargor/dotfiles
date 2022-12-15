@@ -10,3 +10,6 @@ alias nb2py="jupyter-nbconvert --to python"
 
 # lab
 alias lab="jupyter-lab --no-browser"
+
+# ignore images in diffs
+alias nbdiff="grep -v image/png | delta"
