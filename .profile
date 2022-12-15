@@ -101,6 +101,7 @@ alias rcli="redis-cli"
 alias sc="shellcheck -f gcc"
 alias d="delta"
 alias dt="difft"
+alias ds="diffstat -C"
 
 for f in ~/.profile.d/*; do
     # shellcheck disable=SC1090
