@@ -2,28 +2,18 @@ let g:lsp_document_highlight_enabled = 0
 
 if executable('pylsp')
     au User lsp_setup call lsp#register_server({
-        \ 'name': 'Python Language Server',
-        \ 'cmd': {server_info->['pylsp']},
-        \ 'allowlist': ['python'],
-        \ })
+    \   'name': 'Python Language Server',
+    \   'cmd': {server_info->['pylsp']},
+    \   'allowlist': ['python'],
+    \ })
 endif
 
 if executable('rust-analyzer')
-  au User lsp_setup call lsp#register_server({
-        \   'name': 'Rust Language Server',
-        \   'cmd': {server_info->['rust-analyzer']},
-        \   'allowlist': ['rust'],
-        \   'initialization_options': {
-        \     'cargo': {
-        \       'buildScripts': {
-        \         'enable': v:true,
-        \       },
-        \     },
-        \     'procMacro': {
-        \       'enable': v:true,
-        \     },
-        \   },
-        \ })
+    au User lsp_setup call lsp#register_server({
+    \   'name': 'Rust Language Server',
+    \   'cmd': {server_info->['rust-analyzer']},
+    \   'allowlist': ['rust'],
+    \ })
 endif
 
 function! s:on_lsp_buffer_enabled() abort
