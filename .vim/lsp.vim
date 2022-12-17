@@ -1,3 +1,5 @@
+let g:lsp_document_highlight_enabled = 0
+
 if executable('pylsp')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'Python Language Server',
