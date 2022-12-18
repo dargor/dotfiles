@@ -76,6 +76,7 @@ if executable('rust-analyzer')
     \       closingBraceHints: #{
     \         minLines: 0,
     \       },
+    \       maxLength: v:null,
     \     },
     \     procMacro: #{
     \       enable: v:false,
