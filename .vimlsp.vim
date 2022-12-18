@@ -21,14 +21,47 @@ let g:lsp_signature_help_enabled = 1
 let g:lsp_signature_help_delay = 200
 
 if executable('pylsp')
+    " https://github.com/python-lsp/python-lsp-server#configuration
     au User lsp_setup call lsp#register_server(#{
     \   name: 'Python Language Server',
     \   cmd: {server_info->['pylsp']},
     \   allowlist: ['python'],
+    \   workspace_config: #{
+    \     pylsp: #{
+    \       configurationSources: ['flake8'],
+    \       plugins: #{
+    \         autopep8: #{
+    \           enabled: v:false,
+    \         },
+    \         flake8: #{
+    \           enabled: v:true,
+    \         },
+    \         mccabe: #{
+    \           enabled: v:false,
+    \         },
+    \         pycodestyle: #{
+    \           enabled: v:false,
+    \         },
+    \         pydocstyle: #{
+    \           enabled: v:false,
+    \         },
+    \         pyflakes: #{
+    \           enabled: v:false,
+    \         },
+    \         pylint: #{
+    \           enabled: v:false,
+    \         },
+    \         yapf: #{
+    \           enabled: v:false,
+    \         },
+    \       },
+    \     },
+    \   },
     \ })
 endif
 
 if executable('rust-analyzer')
+    " https://rust-analyzer.github.io/manual.html#configuration
     au User lsp_setup call lsp#register_server(#{
     \   name: 'Rust Language Server',
     \   cmd: {server_info->['rust-analyzer']},
