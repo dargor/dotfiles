@@ -39,6 +39,7 @@ mkvenv() {
         "${pip}" install -U \
             envdir python-dotenv \
             pipdeptree pip-upgrader \
+            python-lsp-server \
             flake8 \
             ipython ipdb \
             bpython ptpython \
