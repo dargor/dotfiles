@@ -1,3 +1,5 @@
+" https://github.com/prabirshrestha/vim-lsp
+
 let g:lsp_document_highlight_enabled = 0
 
 if executable('pylsp')
@@ -17,9 +19,9 @@ if executable('rust-analyzer')
 endif
 
 function! s:on_lsp_buffer_enabled() abort
-    setlocal omnifunc=lsp#complete
     setlocal signcolumn=yes
-    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+    setlocal omnifunc=lsp#complete
+    setlocal tagfunc=lsp#tagfunc
     nmap <buffer> ga <plug>(lsp-code-action)
     nmap <buffer> gd <plug>(lsp-definition)
     nmap <buffer> gD <plug>(lsp-document-diagnostics)

@@ -305,6 +305,6 @@ nnoremap <C-W><C-O> :call MaximizeToggle()<CR>
 
 filetype plugin indent on
 
-if filereadable(expand('~/.vim/lsp.vim'))
-    source ~/.vim/lsp.vim
+if filereadable(expand('~/.vimlsp.vim'))
+    source ~/.vimlsp.vim
 endif
