@@ -158,6 +158,9 @@ if &t_Co > 2 || has('gui_running')
                 highlight GitGutterChange ctermfg=Yellow guifg=#ffff54
                 highlight GitGutterDelete ctermfg=Red guifg=#ff5454
                 highlight GitGutterChangeDelete ctermfg=Magenta guifg=#ff54ff
+                highlight Pmenu ctermfg=244 ctermbg=235 guifg=#808080 guibg=#262626
+                highlight lspInlayHintsType ctermfg=240 guifg=#585858
+                highlight lspInlayHintsParameter ctermfg=135 guifg=#af5fff
             else
                 execute 'highlight ColorColumn ctermbg=' . g:light_color_column[0] . ' guibg=' . g:light_color_column[1]
                 let g:rainbow_conf.ctermfgs = ['darkblue', 'darkyellow', 'darkcyan', 'darkmagenta']
@@ -166,6 +169,9 @@ if &t_Co > 2 || has('gui_running')
                 highlight GitGutterChange ctermfg=214 guifg=#ffaf00
                 highlight GitGutterDelete ctermfg=Red guifg=#ff5454
                 highlight GitGutterChangeDelete ctermfg=Magenta guifg=#ff54ff
+                highlight Pmenu ctermfg=242 ctermbg=255 guifg=#6c6c6c guibg=#eeeeee
+                highlight lspInlayHintsType ctermfg=250 guifg=#bcbcbc
+                highlight lspInlayHintsParameter ctermfg=129 guifg=#af00ff
             endif
             highlight FoldColumn ctermfg=243 guifg=#767676
             highlight Folded ctermfg=243 guifg=#767676
