@@ -56,30 +56,18 @@ set encoding=utf8
 set t_BE=
 
 if g:dargor_full_moumoute
-    if &columns >= 86 || has('gui_running')
+    if &columns >= 86
         set number
         set signcolumn=yes
     endif
 endif
 
-if has('gui_running')
-    set guifont=Terminus\ 8
-    set guioptions+=c
-    set guioptions+=d
-    set guioptions-=L
-    set guioptions-=T
-    set guioptions-=m
-    set guioptions-=r
-    set linespace=-1
-    set nomousehide
-endif
-
 if g:dargor_full_moumoute
-    let g:light_color_column = [224, '#ffd7d7']
-    let g:dark_color_column = [52, '#5f0000']
+    let g:light_color_column = 224
+    let g:dark_color_column = 52
 else
-    let g:light_color_column = [1, 'Black']
-    let g:dark_color_column = [9, 'Red']
+    let g:light_color_column = 1
+    let g:dark_color_column = 9
 endif
 
 let g:netrw_dirhistmax = 0
@@ -98,7 +86,7 @@ let g:gitgutter_map_keys = 0
 let g:gitgutter_max_signs = -1
 let g:gitgutter_sign_allow_clobber = 1
 
-if &t_Co > 2 || has('gui_running')
+if &t_Co > 2
 
     syntax on
     set hlsearch
@@ -143,46 +131,44 @@ if &t_Co > 2 || has('gui_running')
         " :h highlight-groups
         " :so $VIMRUNTIME/syntax/hitest.vim
         highlight clear Comment
-        highlight Comment ctermfg=243 guifg=#767676
-        highlight Directory ctermfg=Blue guifg=#73a5ff
-        highlight NonText ctermfg=DarkBlue guifg=#6d85ba
-        highlight SpecialKey ctermfg=DarkRed guifg=#b21818
-        highlight WhiteSpaces ctermbg=Red guibg=#ff5454
-        highlight DoNotUseLogging ctermfg=Black guifg=Black ctermbg=Magenta guibg=#ff54ff
-        if &t_Co >= 256 || has('gui_running')
+        highlight Comment ctermfg=243
+        highlight Directory ctermfg=Blue
+        highlight NonText ctermfg=DarkBlue
+        highlight SpecialKey ctermfg=DarkRed
+        highlight WhiteSpaces ctermbg=Red
+        highlight DoNotUseLogging ctermfg=Black ctermbg=Magenta
+        if &t_Co >= 256
             if &background ==# 'dark'
-                execute 'highlight ColorColumn ctermbg=' . g:dark_color_column[0] . ' guibg=' . g:dark_color_column[1]
+                execute 'highlight ColorColumn ctermbg=' . g:dark_color_column
                 let g:rainbow_conf.ctermfgs = ['blue', 'yellow', 'cyan', 'magenta']
-                let g:rainbow_conf.guifgs = ['#73a5ff', '#ffff54', '#54ffff', '#ff54ff']
-                highlight GitGutterAdd ctermfg=Green guifg=#54ff54
-                highlight GitGutterChange ctermfg=Yellow guifg=#ffff54
-                highlight GitGutterDelete ctermfg=Red guifg=#ff5454
-                highlight GitGutterChangeDelete ctermfg=Magenta guifg=#ff54ff
-                highlight Pmenu ctermfg=244 ctermbg=235 guifg=#808080 guibg=#262626
-                highlight lspInlayHintsType ctermfg=240 guifg=#585858
-                highlight lspInlayHintsParameter ctermfg=135 guifg=#af5fff
+                highlight GitGutterAdd ctermfg=Green
+                highlight GitGutterChange ctermfg=Yellow
+                highlight GitGutterDelete ctermfg=Red
+                highlight GitGutterChangeDelete ctermfg=Magenta
+                highlight Pmenu ctermfg=244 ctermbg=235
+                highlight lspInlayHintsType ctermfg=240
+                highlight lspInlayHintsParameter ctermfg=135
             else
-                execute 'highlight ColorColumn ctermbg=' . g:light_color_column[0] . ' guibg=' . g:light_color_column[1]
+                execute 'highlight ColorColumn ctermbg=' . g:light_color_column
                 let g:rainbow_conf.ctermfgs = ['darkblue', 'darkyellow', 'darkcyan', 'darkmagenta']
-                let g:rainbow_conf.guifgs = ['#6d85ba', '#be5f00', '#18b2b2', '#b218b2']
-                highlight GitGutterAdd ctermfg=40 guifg=#00d700
-                highlight GitGutterChange ctermfg=214 guifg=#ffaf00
-                highlight GitGutterDelete ctermfg=Red guifg=#ff5454
-                highlight GitGutterChangeDelete ctermfg=Magenta guifg=#ff54ff
-                highlight Pmenu ctermfg=242 ctermbg=255 guifg=#6c6c6c guibg=#eeeeee
-                highlight lspInlayHintsType ctermfg=250 guifg=#bcbcbc
-                highlight lspInlayHintsParameter ctermfg=129 guifg=#af00ff
+                highlight GitGutterAdd ctermfg=40
+                highlight GitGutterChange ctermfg=214
+                highlight GitGutterDelete ctermfg=Red
+                highlight GitGutterChangeDelete ctermfg=Magenta
+                highlight Pmenu ctermfg=242 ctermbg=255
+                highlight lspInlayHintsType ctermfg=250
+                highlight lspInlayHintsParameter ctermfg=129
             endif
-            highlight FoldColumn ctermfg=243 guifg=#767676
-            highlight Folded ctermfg=243 guifg=#767676
+            highlight FoldColumn ctermfg=243
+            highlight Folded ctermfg=243
         endif
-        highlight Todo ctermfg=Red guifg=#ff5454
-        highlight MoreMsg ctermfg=DarkYellow guifg=#ff5f00
-        highlight ErrorMsg ctermfg=Red guifg=#ff5454
-        highlight DiffFile ctermfg=DarkMagenta guifg=#b218b2
-        highlight DiffAdded ctermfg=DarkGreen guifg=#00af00
-        highlight DiffRemoved ctermfg=DarkRed guifg=#b21818
-        highlight DiffText ctermfg=Black guifg=Black ctermbg=Magenta guibg=#ff54ff
+        highlight Todo ctermfg=Red
+        highlight MoreMsg ctermfg=DarkYellow
+        highlight ErrorMsg ctermfg=Red
+        highlight DiffFile ctermfg=DarkMagenta
+        highlight DiffAdded ctermfg=DarkGreen
+        highlight DiffRemoved ctermfg=DarkRed
+        highlight DiffText ctermfg=Black ctermbg=Magenta
     endfunction
 
     autocmd ColorScheme,Syntax * call SetupHighlights()
