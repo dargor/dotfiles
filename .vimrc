@@ -169,6 +169,13 @@ if &t_Co > 2
         highlight DiffAdded ctermfg=DarkGreen
         highlight DiffRemoved ctermfg=DarkRed
         highlight DiffText ctermfg=Black ctermbg=Magenta
+        if &filetype ==# 'man'
+            " vimmanpager
+            setlocal nonumber
+            setlocal colorcolumn=
+            setlocal signcolumn=no
+            highlight clear WhiteSpaces
+        endif
     endfunction
 
     autocmd ColorScheme,Syntax * call SetupHighlights()
