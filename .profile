@@ -4,6 +4,9 @@ if [ -z "${SSH_CONNECTION:-}" ]; then
     head -n 7 /etc/issue
 fi
 
+# shellcheck disable=SC1091
+. /etc/profile
+
 export PATH="$HOME/bin:$PATH"
 
 case "$TERM" in
