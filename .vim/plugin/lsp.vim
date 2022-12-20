@@ -58,6 +58,7 @@ let g:lsp_preview_fixup_conceal = get(g:, 'lsp_preview_fixup_conceal', 0)
 let g:lsp_peek_alignment = get(g:, 'lsp_peek_alignment', 'center')
 let g:lsp_preview_max_width = get(g:, 'lsp_preview_max_width', -1)
 let g:lsp_preview_max_height = get(g:, 'lsp_preview_max_height', -1)
+let g:lsp_float_max_width = get(g:, 'lsp_float_max_width', -1)
 let g:lsp_signature_help_enabled = get(g:, 'lsp_signature_help_enabled', 1)
 let g:lsp_signature_help_delay = get(g:, 'lsp_signature_help_delay', 200)
 let g:lsp_show_workspace_edits = get(g:, 'lsp_show_workspace_edits', 0)
@@ -199,3 +200,34 @@ nnoremap <silent> <plug>(lsp-status) :<c-u>echo lsp#get_server_status()<cr>
 nnoremap <silent> <plug>(lsp-next-reference) :<c-u>call lsp#internal#document_highlight#jump(+1)<cr>
 nnoremap <silent> <plug>(lsp-previous-reference) :<c-u>call lsp#internal#document_highlight#jump(-1)<cr>
 nnoremap <silent> <plug>(lsp-signature-help) :<c-u>call lsp#ui#vim#signature_help#get_signature_help_under_cursor()<cr>
+
+if has('gui_running')
+  anoremenu <silent> L&sp.Goto.Definition :LspDefinition<CR>
+  anoremenu <silent> L&sp.Goto.Declaration :LspDeclaration<CR>
+  anoremenu <silent> L&sp.Goto.Implementation :LspImplementation<CR>
+  anoremenu <silent> L&sp.Goto.TypeDef :LspTypeDefinition<CR>
+
+  anoremenu <silent> L&sp.Show\ Signature :LspShowSignature<CR>
+  anoremenu <silent> L&sp.Show\ References :LspReferences<CR>
+  anoremenu <silent> L&sp.Show\ Detail :LspHover<CR>
+
+  anoremenu <silent> L&sp.Symbol\ Search :LspDocumentSymbolSearch<CR>
+  anoremenu <silent> L&sp.Outgoing\ Calls :LspCallHierarchyOutgoing<CR>
+  anoremenu <silent> L&sp.Incoming\ Calls :LspCallHierarchyIncoming<CR>
+  anoremenu <silent> L&sp.Rename :LspRename<CR>
+  anoremenu <silent> L&sp.Code\ Action :LspCodeAction<CR>
+
+  anoremenu <silent> L&sp.Diagnostics.Next :LspNextDiagnostic<CR>
+  anoremenu <silent> L&sp.Diagnostics.Prev :LspPrevDiagnostic<CR>
+
+  if &mousemodel =~? 'popup'
+    anoremenu <silent> PopUp.L&sp.Go\ to\ Definition
+	  \ :LspDefinition<CR>
+    anoremenu <silent> PopUp.L&sp.Go\ to\ Declaration
+	  \ :LspDeclaration<CR>
+    anoremenu <silent> PopUp.L&sp.Find\ All\ References
+	  \ :LspReferences<CR>
+    anoremenu <silent> PopUp.L&sp.Show\ Detail
+          \ :LspHover<CR>
+  endif
+endif
