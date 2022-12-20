@@ -3,5 +3,5 @@ set -u
 
 for f in .check *; do
     echo "[93m>>> [94m${f}[0m"
-    shellcheck -f gcc -x "$f"
+    shellcheck -f gcc "$f"
 done
