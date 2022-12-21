@@ -78,16 +78,24 @@ let g:netrw_list_hide= '^.*\.swp$'
 let g:netrw_liststyle = 3
 let g:netrw_sort_by = 'name'
 let g:netrw_sort_direction = 'normal'
-let g:netrw_winsize = 25
+let g:netrw_winsize = -32
 
-if argc() <= 1
-    augroup NetrwDrawer
-        autocmd!
-        autocmd VimEnter * :Vexplore
-        if argc() > 0
-            call feedkeys('', 'n')
+if g:dargor_full_moumoute
+    if &columns >= 119
+        if argc() <= 1
+            if &filetype !=# 'gitcommit'
+                if get(v:argv, -1, '') !=# '-'
+                    augroup NetrwDrawer
+                        autocmd!
+                        autocmd VimEnter * :Vexplore
+                        if argc() > 0
+                            call feedkeys('', 'n')
+                        endif
+                    augroup END
+                endif
+            endif
         endif
-    augroup END
+    endif
 endif
 
 let g:gruvbox_contrast_dark = 'hard'
