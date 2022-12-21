@@ -70,33 +70,7 @@ else
     let g:dark_color_column = 9
 endif
 
-let g:netrw_banner = 0
-let g:netrw_browse_split = 4
 let g:netrw_dirhistmax = 0
-let g:netrw_fastbrowse = 0
-let g:netrw_list_hide= '^.*\.swp$'
-let g:netrw_liststyle = 3
-let g:netrw_sort_by = 'name'
-let g:netrw_sort_direction = 'normal'
-let g:netrw_winsize = -32
-
-if g:dargor_full_moumoute
-    if &columns >= 119
-        if argc() <= 1
-            if &filetype !=# 'gitcommit'
-                if get(v:argv, -1, '') !=# '-'
-                    augroup NetrwDrawer
-                        autocmd!
-                        autocmd VimEnter * :Vexplore
-                        if argc() > 0
-                            call feedkeys('', 'n')
-                        endif
-                    augroup END
-                endif
-            endif
-        endif
-    endif
-endif
 
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_contrast_light = 'hard'
@@ -117,41 +91,6 @@ if &t_Co > 2
     syntax on
     set hlsearch
     set colorcolumn=80
-
-    autocmd BufNewFile,BufRead *.hy,*.lfe setlocal filetype=lisp
-    autocmd BufNewFile,BufRead *.pp setlocal filetype=ruby
-    autocmd BufNewFile,BufRead *.{tf,tfvars} setlocal filetype=terraform syntax=hcl
-    autocmd BufNewFile,BufRead *.tfstate setlocal filetype=json
-    autocmd BufNewFile,BufRead Jenkinsfile setlocal filetype=groovy
-    autocmd BufNewFile,BufRead Dockerfile.* setlocal filetype=dockerfile
-    autocmd BufNewFile,BufRead master,roster,*.sls setlocal filetype=yaml
-    autocmd BufNewFile,BufRead package.{env,provided} setlocal filetype=gentoo-package-use
-    autocmd BufNewFile,BufRead *.{cfg,cnf,coveragerc,service,timer,toml},cqlshrc,{krb5,supervisord}.conf setlocal filetype=dosini
-    autocmd BufNewFile,BufRead *.cql setlocal filetype=sql
-    autocmd BufNewFile,BufRead *.bats setlocal filetype=sh
-
-    " pyx (implementation) and pxd (definition) are handled, but pxi (include) are not
-    autocmd BufNewFile,BufRead *.pxi setlocal filetype=pyrex
-
-    autocmd FileType rust setlocal matchpairs+=<:>
-    autocmd FileType ruby,eruby,xml,yaml,json,markdown setlocal shiftwidth=2 softtabstop=2
-    autocmd FileType make setlocal noexpandtab shiftwidth=8
-    autocmd FileType gitcommit setlocal nowrap
-
-    if g:dargor_full_moumoute
-        autocmd FileType cmake RainbowToggleOff
-    endif
-
-    function! HelmSyntax()
-        setlocal filetype=yaml
-        unlet b:current_syntax
-        syntax include @GO syntax/go.vim
-        let b:current_syntax = 'yaml'
-        syntax region goTxt matchgroup=goTpl start=/{{\(-\)\?/ end=/\(-\)\?}}/ contains=@GO containedin=ALLBUT,goTxt
-        highlight link goTpl PreProc
-    endfunction
-
-    autocmd BufNewFile,BufRead */templates/*.yaml,*/templates/*.tpl call HelmSyntax()
 
     function! SetupHighlights()
         " :h highlight-groups
@@ -330,6 +269,16 @@ nnoremap <C-W><C-O> :call MaximizeToggle()<CR>
 
 filetype plugin indent on
 
-if filereadable(expand('~/.vimlsp.vim'))
-    source ~/.vimlsp.vim
+autocmd FileType rust setlocal matchpairs+=<:>
+autocmd FileType ruby,eruby,xml,yaml,json,markdown setlocal shiftwidth=2 softtabstop=2
+autocmd FileType make setlocal noexpandtab shiftwidth=8
+autocmd FileType gitcommit setlocal nowrap
+if g:dargor_full_moumoute
+    autocmd FileType cmake RainbowToggleOff
 endif
+
+for f in split(expand('~/.vim*.vim'), '\n')
+    if filereadable(f)
+        execute 'source ' . f
+    endif
+endfor

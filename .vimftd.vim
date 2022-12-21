@@ -1,0 +1,28 @@
+augroup filetypedetect
+
+    autocmd BufNewFile,BufRead *.hy,*.lfe setlocal filetype=lisp
+    autocmd BufNewFile,BufRead *.pp setlocal filetype=ruby
+    autocmd BufNewFile,BufRead *.{tf,tfvars} setlocal filetype=terraform syntax=hcl
+    autocmd BufNewFile,BufRead *.tfstate setlocal filetype=json
+    autocmd BufNewFile,BufRead Jenkinsfile setlocal filetype=groovy
+    autocmd BufNewFile,BufRead Dockerfile.* setlocal filetype=dockerfile
+    autocmd BufNewFile,BufRead master,roster,*.sls setlocal filetype=yaml
+    autocmd BufNewFile,BufRead *.{cfg,cnf,coveragerc,sentryclirc,service,timer,toml},cqlshrc,{krb5,supervisord}.conf setlocal filetype=dosini
+    autocmd BufNewFile,BufRead *.cql setlocal filetype=sql
+    autocmd BufNewFile,BufRead *.bats setlocal filetype=sh
+
+    " pyx (implementation) and pxd (definition) are handled, but pxi (include) are not
+    autocmd BufNewFile,BufRead *.pxi setlocal filetype=pyrex
+
+    function! HelmSyntax()
+        setlocal filetype=yaml
+        unlet b:current_syntax
+        syntax include @GO syntax/go.vim
+        let b:current_syntax = 'yaml'
+        syntax region goTxt matchgroup=goTpl start=/{{\(-\)\?/ end=/\(-\)\?}}/ contains=@GO containedin=ALLBUT,goTxt
+        highlight link goTpl PreProc
+    endfunction
+
+    autocmd BufNewFile,BufRead */templates/*.yaml,*/templates/*.tpl call HelmSyntax()
+
+augroup END
