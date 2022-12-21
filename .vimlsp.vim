@@ -25,7 +25,7 @@ let g:lsp_signature_help_delay = 200
 
 if executable('pylsp')
     " https://github.com/python-lsp/python-lsp-server#configuration
-    au User lsp_setup call lsp#register_server(#{
+    autocmd User lsp_setup call lsp#register_server(#{
     \   name: 'Python Language Server',
     \   cmd: {server_info->['pylsp']},
     \   allowlist: ['python'],
@@ -65,7 +65,7 @@ endif
 
 if executable('rust-analyzer')
     " https://rust-analyzer.github.io/manual.html#configuration
-    au User lsp_setup call lsp#register_server(#{
+    autocmd User lsp_setup call lsp#register_server(#{
     \   name: 'Rust Language Server',
     \   cmd: {server_info->['rust-analyzer']},
     \   allowlist: ['rust'],
@@ -111,6 +111,6 @@ function! s:on_lsp_buffer_enabled() abort
 endfunction
 
 augroup lsp_install
-    au!
+    autocmd!
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
