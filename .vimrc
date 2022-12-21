@@ -70,7 +70,25 @@ else
     let g:dark_color_column = 9
 endif
 
+let g:netrw_banner = 0
+let g:netrw_browse_split = 4
 let g:netrw_dirhistmax = 0
+let g:netrw_fastbrowse = 0
+let g:netrw_list_hide= '^.*\.swp$'
+let g:netrw_liststyle = 3
+let g:netrw_sort_by = 'name'
+let g:netrw_sort_direction = 'normal'
+let g:netrw_winsize = 25
+
+if argc() <= 1
+    augroup NetrwDrawer
+        autocmd!
+        autocmd VimEnter * :Vexplore
+        if argc() > 0
+            call feedkeys('', 'n')
+        endif
+    augroup END
+endif
 
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_contrast_light = 'hard'
