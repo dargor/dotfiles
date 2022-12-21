@@ -195,7 +195,9 @@ function! ToggleBackground()
     endtry
     let &syntax = oldsyn
     if &syntax ==# 'yaml'
-        call HelmSyntax()
+        if g:dargor_full_moumoute
+            call HelmSyntax()
+        endif
     endif
 endfunction
 
