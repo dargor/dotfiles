@@ -1,3 +1,5 @@
+set hidden
+
 let g:netrw_banner = 0
 let g:netrw_browse_split = 4
 let g:netrw_fastbrowse = 0
@@ -20,13 +22,7 @@ if g:dargor_full_moumoute
         if argc() <= 1
             if &filetype !=# 'gitcommit'
                 if get(v:argv, -1, '') !=# '-'
-                    augroup NetrwDrawer
-                        autocmd!
-                        autocmd VimEnter * :Vexplore
-                        if argc() > 0
-                            call feedkeys('', 'n')
-                        endif
-                    augroup END
+                    autocmd VimEnter * ++once Vexplore | wincmd p
                 endif
             endif
         endif
