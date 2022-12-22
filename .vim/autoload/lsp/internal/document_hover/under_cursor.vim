@@ -264,8 +264,8 @@ function! s:compute_position(size) abort
     let l:pos = screenpos(0, line('.'), col('.'))
     if l:pos.row == 0 && l:pos.col == 0
         " workaround for float position
-        if g:dargor_full_moumoute
-            let l:pos = {'curscol': wincol() - g:netrw_winsize, 'row': winline()}
+        if bufwinnr('NetrwTreeListing') > 0
+            let l:pos = {'curscol': wincol() - g:netrw_winsize + 1, 'row': winline()}
         else
             let l:pos = {'curscol': wincol(), 'row': winline()}
         endif
