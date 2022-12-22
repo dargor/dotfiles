@@ -24,6 +24,7 @@ core
 *.py[co]
 __pycache__/
 report.html
+htmlcov/
 .coverage
 .coverage.*
 .hypothesis/
