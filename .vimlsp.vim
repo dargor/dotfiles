@@ -23,6 +23,15 @@ let g:lsp_inlay_hints_delay = 200
 let g:lsp_signature_help_enabled = 1
 let g:lsp_signature_help_delay = 200
 
+if executable('bash-language-server')
+    " https://github.com/bash-lsp/bash-language-server#vim
+    autocmd User lsp_setup call lsp#register_server(#{
+    \   name: 'Bash Language Server',
+    \   cmd: {server_info->[&shell, &shellcmdflag, 'bash-language-server start']},
+    \   allowlist: ['sh', 'bash'],
+    \ })
+endif
+
 if executable('pylsp')
     " https://github.com/python-lsp/python-lsp-server#configuration
     autocmd User lsp_setup call lsp#register_server(#{
