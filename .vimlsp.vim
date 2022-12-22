@@ -3,6 +3,8 @@ let g:lsp_use_native_client = 1
 
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_diagnostics_echo_delay = 200
+let g:lsp_diagnostics_float_cursor = 1
+let g:lsp_diagnostics_float_delay = 200
 let g:lsp_diagnostics_highlights_delay = 200
 let g:lsp_diagnostics_signs_delay = 200
 " Signs placed by other plugins have a priority of 10 by default.
