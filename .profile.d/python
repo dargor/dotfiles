@@ -39,8 +39,8 @@ mkvenv() {
         "${pip}" install -U \
             envdir python-dotenv \
             pipdeptree pip-upgrader \
-            ipython ipdb \
-            bpython ptpython \
+            bandit radon interrogate mypy vulture \
+            ipython ipdb bpython ptpython \
             pretty-errors
     fi
     echo "${name} is ready"
