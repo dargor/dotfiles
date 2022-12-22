@@ -6,7 +6,7 @@ alias 311='. ~/python311/activate'
 
 _venv_ensure_base_packages() {
     pip="${1:-pip}"
-    for package in pip wheel setuptools packaging build Cython pythran; do
+    for package in pip wheel setuptools packaging build Cython python-lsp-server flake8; do
         "${pip}" install -U "${package}"
     done
 }
@@ -39,8 +39,6 @@ mkvenv() {
         "${pip}" install -U \
             envdir python-dotenv \
             pipdeptree pip-upgrader \
-            python-lsp-server \
-            flake8 \
             ipython ipdb \
             bpython ptpython \
             pretty-errors
