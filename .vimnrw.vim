@@ -14,7 +14,7 @@ let g:netrw_winsize = -32
 if g:dargor_full_moumoute
     if &columns >= 119
         if argc() <= 1
-            if &filetype !=# 'gitcommit'
+            if index(['gitcommit', 'gitrebase'], &filetype) == -1
                 if get(v:argv, -1, '') !=# '-'
                     autocmd VimEnter * ++once Vexplore | wincmd p
                 endif
