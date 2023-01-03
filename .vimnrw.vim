@@ -4,7 +4,7 @@ let g:netrw_banner = 0
 let g:netrw_browse_split = 4
 let g:netrw_fastbrowse = 0
 let g:netrw_list_hide = join(map(split(system("grep -Ev '^(#|$)' < ~/.gitignore"), '\n'),
-    \   "'^' .. substitute(substitute(v:val, '\\.', '\\\\.', 'g'), '*', '.*', 'g') .. '$'"
+    \   "'^' .. substitute(substitute(v:val, '[~,\\.]', '\\\\&', 'g'), '*', '.*', 'g') .. '$'"
     \ ), ',') . ',^\.git/$'
 let g:netrw_liststyle = 3
 let g:netrw_sort_by = 'name'
