@@ -18,6 +18,7 @@ let g:netrw_list_hide = s:read_gitignore(expand('~/.gitignore')) . s:read_gitign
 let g:netrw_liststyle = 3
 let g:netrw_sort_by = 'name'
 let g:netrw_sort_direction = 'normal'
+let g:netrw_special_syntax= 1
 let g:netrw_winsize = -32
 
 if g:dargor_full_moumoute
