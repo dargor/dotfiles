@@ -12,6 +12,7 @@ c <command>, with :
     b(r)    cargo build (--release)
     r(r)    cargo run (--release) <...>
     t       cargo test <...>
+    ta      cargo tarpaulin <...>
     u       cargo update + cargo upgrade
     clean   cargo clean
 EOF
@@ -51,6 +52,9 @@ EOF
             ;;
         "t")
             cargo test "$@"
+            ;;
+        "ta")
+            cargo tarpaulin --engine llvm "$@"
             ;;
         "u")
             cargo update
