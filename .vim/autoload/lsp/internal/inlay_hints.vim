@@ -104,7 +104,13 @@ function! lsp#internal#inlay_hints#_enable() abort
 
     call s:init_inlay_hints()
     let s:Dispose = lsp#callbag#pipe(
-        \ lsp#callbag#fromEvent(['CursorMoved', 'CursorHold']),
+        \ lsp#callbag#merge(
+        \   lsp#callbag#fromEvent(['CursorMoved', 'CursorHold']),
+        \   lsp#callbag#pipe(
+        \       lsp#callbag#fromEvent(['InsertEnter', 'BufLeave']),
+        \       lsp#callbag#tap({_ -> s:clear_inlay_hints() }),
+        \   )
+        \ ),
         \ lsp#callbag#filter({_ -> g:lsp_inlay_hints_enabled }),
         \ lsp#callbag#debounceTime(g:lsp_inlay_hints_delay),
         \ lsp#callbag#filter({_->getbufvar(bufnr('%'), '&buftype') !~# '^(help\|terminal\|prompt\|popup)$'}),
