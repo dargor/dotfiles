@@ -34,6 +34,15 @@ if executable('bash-language-server')
     \ })
 endif
 
+if executable('clangd')
+    " https://jonasdevlieghere.com/vim-lsp-clangd/#configurevimtouseclangd
+    autocmd User lsp_setup call lsp#register_server(#{
+    \   name: 'C/C++ Language Server',
+    \   cmd: {server_info->['clangd']},
+    \   allowlist: ['c', 'cpp', 'objc', 'objcpp'],
+    \ })
+endif
+
 if executable('pylsp')
     " https://github.com/python-lsp/python-lsp-server#configuration
     autocmd User lsp_setup call lsp#register_server(#{
