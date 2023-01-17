@@ -108,6 +108,15 @@ if executable('rust-analyzer')
     \ })
 endif
 
+if executable('typescript-language-server')
+    " https://github.com/typescript-language-server/typescript-language-server#running-the-language-server
+    autocmd User lsp_setup call lsp#register_server(#{
+    \   name: 'TypeScript Language Server',
+    \   cmd: {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+    \   allowlist: ['javascript', 'typescript'],
+    \ })
+endif
+
 function! s:on_lsp_buffer_enabled() abort
     setlocal signcolumn=yes
     setlocal omnifunc=lsp#complete
