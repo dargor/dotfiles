@@ -96,6 +96,7 @@
     ls = lfs ls-files
     lea = add --patch
     eax = commit --amend --no-edit
+    top = shortlog -nse --no-merges
     graph = log --graph --oneline --decorate
     elog = log --show-signature
     wdiff = diff --word-diff
