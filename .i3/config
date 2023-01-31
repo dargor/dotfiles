@@ -17,8 +17,6 @@ tiling_drag off
 # float certain windows by default
 # use xprop(1) to find WM_CLASS(STRING) = "instance", "class"
 for_window [class="XClock"] floating enable
-for_window [class="Leafpad"] floating enable
-for_window [class="FeatherPad"] floating enable
 for_window [class="cool-retro-term"] floating enable
 
 # lock session
