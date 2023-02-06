@@ -38,7 +38,6 @@ set shiftwidth=4
 set showcmd
 set smartcase
 set smarttab
-set swapsync=
 set tabpagemax=99
 set textwidth=79
 set title
