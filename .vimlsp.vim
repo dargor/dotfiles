@@ -3,27 +3,16 @@ let g:lsp_use_native_client = 1
 
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_diagnostics_echo_delay = 200
-let g:lsp_diagnostics_float_cursor = 0
-let g:lsp_diagnostics_float_delay = 200
 let g:lsp_diagnostics_highlights_delay = 200
 let g:lsp_diagnostics_signs_delay = 200
-" Signs placed by other plugins have a priority of 10 by default.
 let g:lsp_diagnostics_signs_priority = 11
 let g:lsp_diagnostics_virtual_text_enabled = 0
 
-" Using BufWritePre to execute sync commands may cause vim to hang with
-" some language servers, as starting the language server may be slow.
-let g:lsp_format_sync_timeout = 1000
-
 let g:lsp_document_code_action_signs_delay = 200
-" https://github.com/prabirshrestha/vim-lsp/issues/1399
 let g:lsp_document_highlight_enabled = 0
 
 let g:lsp_inlay_hints_enabled = 1
 let g:lsp_inlay_hints_delay = 200
-
-let g:lsp_signature_help_enabled = 1
-let g:lsp_signature_help_delay = 200
 
 if executable('bash-language-server')
     " https://github.com/bash-lsp/bash-language-server#vim
