@@ -32,6 +32,15 @@ if executable('clangd')
     \ })
 endif
 
+if executable('docker-langserver')
+    " https://github.com/rcjsuen/dockerfile-language-server-nodejs#installation-instructions
+    autocmd User lsp_setup call lsp#register_server(#{
+    \   name: 'Docker Language Server',
+    \   cmd: {server_info->[&shell, &shellcmdflag, 'docker-langserver --stdio']},
+    \   allowlist: ['dockerfile'],
+    \ })
+endif
+
 if executable('pylsp')
     " https://github.com/python-lsp/python-lsp-server#configuration
     autocmd User lsp_setup call lsp#register_server(#{
