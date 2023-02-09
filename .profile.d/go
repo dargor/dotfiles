@@ -2,3 +2,6 @@
 
 export GOPATH=~/go
 export PATH="${GOPATH}/bin:${PATH}"
+
+# https://github.com/golang/go/wiki/MinimumRequirements#microarchitecture-support
+export GOAMD64="v3"
