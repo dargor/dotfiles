@@ -48,6 +48,10 @@ set virtualedit=block
 set wildmenu
 set wildmode=list:longest,full
 
+if exists('&swapsync')
+    set swapsync=
+endif
+
 set nomodeline
 set secure
 
