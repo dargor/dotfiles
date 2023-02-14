@@ -94,6 +94,9 @@ if executable('rust-analyzer')
     \       },
     \     },
     \     inlayHints: #{
+    \       chainingHints: #{
+    \         enable: v:false,
+    \       },
     \       closingBraceHints: #{
     \         minLines: 0,
     \       },
