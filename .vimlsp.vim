@@ -93,6 +93,9 @@ if executable('rust-analyzer')
     \         enable: v:false,
     \       },
     \     },
+    \     checkOnSave: #{
+    \       command: "clippy",
+    \     },
     \     inlayHints: #{
     \       chainingHints: #{
     \         enable: v:false,
