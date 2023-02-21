@@ -90,6 +90,7 @@ flvenv() {
         flake8-logging-format \
         flake8-quotes \
         flake8-return \
+        flake8-simplify \
         flake8-unused-arguments \
         flake8-use-fstring
 }
