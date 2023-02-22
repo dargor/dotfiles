@@ -102,6 +102,7 @@ clpy() {
            -o -iname '*.py[co]'    -print0 \
            -o -iname .mypy_cache   -print0 \
            -o -iname .pytest_cache -print0 \
+           -o -iname .ruff_cache   -print0 \
            -o -iname .hypothesis   -print0 \
            -o -iname .coverage     -print0 \
            -o -iname .tox          -print0 \
