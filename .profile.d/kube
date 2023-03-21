@@ -115,7 +115,12 @@ knode() {
 
 ktop() {
     pod="$1"
-    watch -n 1 "kubectl top pod --use-protocol-buffers --containers ${pod}"
+    if [ -z "${2:-}" ]; then
+        CTX=""
+    else
+        CTX="--context=$2"
+    fi
+    watch -n 1 "kubectl ${CTX} top pod --use-protocol-buffers --containers ${pod}"
 }
 
 ktops() {
