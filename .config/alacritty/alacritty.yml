@@ -56,6 +56,13 @@ colors:
     magenta: '0xFF54FF'
     cyan:    '0x54FFFF'
     white:   '0xFFFFFF'
+  search:
+    matches:
+      foreground: '0x000000'
+      background: '0xFFFF54'
+    focused_match:
+      foreground: '0xFFFF54'
+      background: '0x000000'
 
 bell:
   duration: 0
