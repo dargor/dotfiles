@@ -87,6 +87,7 @@ function rst
     fi
 }
 
+alias t="tree"
 alias j="jobs -l"
 alias h="history 20"
 alias l="ls --color=auto -ap"
