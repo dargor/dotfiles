@@ -1,18 +1,18 @@
 let g:lsp_max_buffer_size = -1
 let g:lsp_use_native_client = 1
 
-let g:lsp_diagnostics_float_cursor = 1
-let g:lsp_diagnostics_float_delay = 200
-let g:lsp_diagnostics_float_insert_mode_enabled = 0
 let g:lsp_diagnostics_highlights_delay = 200
 let g:lsp_diagnostics_highlights_insert_mode_enabled = 0
 let g:lsp_diagnostics_signs_delay = 200
 let g:lsp_diagnostics_signs_insert_mode_enabled = 0
 let g:lsp_diagnostics_signs_priority = 11
-let g:lsp_diagnostics_virtual_text_enabled = 0
+let g:lsp_diagnostics_virtual_text_align = "after"
+let g:lsp_diagnostics_virtual_text_delay = 200
+let g:lsp_diagnostics_virtual_text_insert_mode_enabled = 1
+let g:lsp_diagnostics_virtual_text_prefix = "⛔ "
 
 let g:lsp_document_code_action_signs_enabled = 0
-let g:lsp_document_highlight_enabled = 0
+let g:lsp_document_highlight_delay = 200
 
 let g:lsp_inlay_hints_enabled = 1
 let g:lsp_inlay_hints_delay = 200
