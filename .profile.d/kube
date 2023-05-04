@@ -120,7 +120,7 @@ ktop() {
     else
         CTX="--context=$2"
     fi
-    watch -n 1 "kubectl ${CTX} top pod --use-protocol-buffers --containers ${pod}"
+    watch -n 1 "kubectl ${CTX} top pod --containers ${pod}"
 }
 
 ktops() {
@@ -136,7 +136,7 @@ ktops() {
     fi
     # shellcheck disable=SC2086
     pods=$(kubectl ${CTX} get pods | grep -- "${deployment}" | awk '{print $1}')
-    what="watch -n 1 kubectl ${CTX} top pod --use-protocol-buffers --containers {}"
+    what="watch -n 1 kubectl ${CTX} top pod --containers {}"
     # shellcheck disable=SC2086
     xpanes -l even-vertical -c "${what}" ${pods}
 }
