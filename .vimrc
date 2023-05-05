@@ -283,6 +283,9 @@ if g:dargor_full_moumoute
     autocmd FileType cmake RainbowToggleOff
 endif
 
+cnoreabbrev t terminal
+cnoreabbrev vt vertical terminal
+
 for f in split(expand('~/.vim*.vim'), '\n')
     if filereadable(f)
         execute 'source ' . f
