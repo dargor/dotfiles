@@ -22,14 +22,20 @@ order += "tztime local"
 
 disk "/" {
     format = "/: %avail free"
+    prefix_type = "custom"
+    low_threshold = 30
 }
 
 disk "/home" {
     format = "/home: %avail free"
+    prefix_type = "custom"
+    low_threshold = 10
 }
 
 disk "/tmp" {
     format = "/tmp: %avail free"
+    prefix_type = "custom"
+    low_threshold = 50
 }
 
 cpu_usage {
@@ -38,6 +44,8 @@ cpu_usage {
 
 memory {
     format = "MEM: %percentage_used"
+    threshold_degraded = "40%"
+    threshold_critical = "20%"
 }
 
 load {
