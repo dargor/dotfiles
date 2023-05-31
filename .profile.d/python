@@ -95,6 +95,10 @@ flvenv() {
         flake8-use-fstring
 }
 
+pyleaves() {
+    pipdeptree | grep -v "^ " | sort
+}
+
 clpy() {
     rm -rf -- build dist *.egg-info
     find -L . -not -path './.git/*' -a \(  \
