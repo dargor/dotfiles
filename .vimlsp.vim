@@ -124,6 +124,15 @@ if executable('typescript-language-server')
     \ })
 endif
 
+if executable('vim-language-server')
+    " https://github.com/iamcco/vim-language-server#config
+    autocmd User lsp_setup call lsp#register_server(#{
+    \   name: 'VimScript Language Server',
+    \   cmd: {server_info->[&shell, &shellcmdflag, 'vim-language-server --stdio']},
+    \   allowlist: ['vim'],
+    \ })
+endif
+
 function! s:on_lsp_buffer_enabled() abort
     setlocal signcolumn=yes
     setlocal omnifunc=lsp#complete
