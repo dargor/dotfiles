@@ -295,15 +295,17 @@ endfunction
 function! s:stage(hunk_diff)
   let bufnr = bufnr('')
 
-  if s:clean_smudge_filter_applies(bufnr)
+  if gitgutter#utility#clean_smudge_filter_applies(bufnr)
     let choice = input('File uses clean/smudge filter. Stage entire file (y/n)? ')
     normal! :<ESC>
     if choice =~ 'y'
       let path = gitgutter#utility#repo_path(bufnr, 1)
       " Add file to index.
-      call gitgutter#utility#system(
-            \ gitgutter#utility#cd_cmd(bufnr, g:gitgutter_git_executable.' '.g:gitgutter_git_args.' add '.path)
-            \ )
+      let cmd = gitgutter#utility#cd_cmd(bufnr,
+            \ g:gitgutter_git_executable.' '.g:gitgutter_git_args.
+            \ ' add '.
+            \ gitgutter#utility#shellescape(gitgutter#utility#filename(bufnr)))
+      call gitgutter#utility#system(cmd)
     else
       return
     endif
@@ -653,18 +655,4 @@ function gitgutter#hunk#is_preview_window_open()
     endfor
   endif
   return 0
-endfunction
-
-
-function! s:clean_smudge_filter_applies(bufnr)
-  let filtered = gitgutter#utility#getbufvar(a:bufnr, 'filter', -1)
-  if filtered == -1
-    let path = gitgutter#utility#repo_path(a:bufnr, 1)
-    let out = gitgutter#utility#system(
-          \ gitgutter#utility#cd_cmd(a:bufnr, g:gitgutter_git_executable.' '.g:gitgutter_git_args.' check-attr filter -- '.path)
-          \ )
-    let filtered = out !~ 'unspecified'
-    call gitgutter#utility#setbufvar(a:bufnr, 'filter', filtered)
-  endif
-  return filtered
 endfunction
