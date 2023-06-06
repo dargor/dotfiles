@@ -96,7 +96,8 @@ flvenv() {
 }
 
 pyleaves() {
-    pipdeptree | grep -i '^[a-z]' | sort
+    pipdeptree -j \
+        | jq -r '[.[].package.package_name] - [.[].dependencies[].package_name] | .[]'
 }
 
 clpy() {
