@@ -96,7 +96,7 @@ flvenv() {
 }
 
 pyleaves() {
-    pipdeptree | grep -v "^ " | sort
+    pipdeptree | grep -i '^[a-z]' | sort
 }
 
 clpy() {
