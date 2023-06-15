@@ -33,4 +33,10 @@ dual_left() {
     ~/reset
 }
 
+dual_top() {
+    _check || return 1
+    xrandr --output "$(_secondary)" --above "$(_primary)" --auto
+    ~/reset
+}
+
 alias dual="dual_right"
