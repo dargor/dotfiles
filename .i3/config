@@ -158,6 +158,12 @@ bindsym $mod+Shift+Left move workspace to output left
 # move whole workspace to right
 bindsym $mod+Shift+Right move workspace to output right
 
+# move whole workspace to above
+bindsym $mod+Shift+Up move workspace to output up
+
+# move whole workspace to below
+bindsym $mod+Shift+Down move workspace to output down
+
 # push to scratchpad
 bindsym $mod+Shift+asterisk move scratchpad
 
