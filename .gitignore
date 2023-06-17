@@ -31,6 +31,7 @@ htmlcov/
 .ipynb_checkpoints/
 .mypy_cache/
 .pytest_cache/
+.ruff_cache/
 .tox/
 .venv/
 *.egg-info/
