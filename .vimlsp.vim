@@ -44,10 +44,17 @@ if executable('docker-langserver')
     \ })
 endif
 
-if executable('pylsp')
+if executable('ruff-lsp')
+    " https://github.com/astral-sh/ruff-lsp#installation-and-usage
+    autocmd User lsp_setup call lsp#register_server(#{
+    \   name: 'Python Language Server (ruff)',
+    \   cmd: {server_info->['ruff-lsp']},
+    \   allowlist: ['python'],
+    \ })
+elseif executable('pylsp')
     " https://github.com/python-lsp/python-lsp-server#configuration
     autocmd User lsp_setup call lsp#register_server(#{
-    \   name: 'Python Language Server',
+    \   name: 'Python Language Server (pylsp)',
     \   cmd: {server_info->['pylsp']},
     \   allowlist: ['python'],
     \   workspace_config: #{

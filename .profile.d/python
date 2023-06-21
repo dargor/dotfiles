@@ -5,7 +5,7 @@ alias 311='. ~/python311/activate'
 
 _venv_ensure_base_packages() {
     pip="${1:-pip}"
-    for package in pip wheel setuptools packaging build Cython python-lsp-server flake8; do
+    for package in pip wheel setuptools packaging build Cython python-lsp-server flake8 ruff-lsp; do
         "${pip}" install -U "${package}"
     done
 }
