@@ -2,6 +2,6 @@
 
 alias dip="dunstctl is-paused"
 
-alias dst="dunstctl set-paused true"
-alias dsf="dunstctl set-paused false"
+alias dsp="dunstctl set-paused true"
+alias dsr="dunstctl set-paused false"
 alias dst="dunstctl set-paused toggle"
