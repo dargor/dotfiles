@@ -14,9 +14,15 @@ mkvenv() {
     version="${1:-}"
     name="${2:-}"
     vanilla="${3:-}"
-    if [ -z "${version}" ] || [ -z "${name}" ]; then
-        echo 1>&2 "Usage: mkvenv version name [vanilla]"
+    if [ -z "${version}" ]; then
+        echo 1>&2 "Usage: mkvenv version [name] [vanilla]"
         return 1
+    fi
+    if [ -z "${name}" ]; then
+        name=".venv"
+        echo 1>&2 "Creating an anonymous virtual environment in ${name}"
+    else
+        echo 1>&2 "Creating a virtual environment in ${name}"
     fi
     bin="python${version}"
     if [ ! "$(type -P "${bin}")" ]; then
