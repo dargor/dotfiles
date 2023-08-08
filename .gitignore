@@ -8,6 +8,9 @@ tags
 .sw*
 .*.sw*
 
+# Visual Studio Code
+.vscode/
+
 # LibreOffice
 .~lock.*#
 
