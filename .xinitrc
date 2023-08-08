@@ -10,7 +10,6 @@ xset b off
 xset s off
 xset r rate 250 30
 xset dpms 600 1200 1800
-xset -dpms
 
 xset fp default
 find /usr/share/fonts/ -name fonts.dir | while read -r f; do
