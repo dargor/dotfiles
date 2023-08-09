@@ -59,6 +59,9 @@ set encoding=utf8
 set t_BE=
 
 if g:dargor_full_moumoute
+    if $TERM_PROGRAM ==# 'vscode'
+        set background=light
+    endif
     if &columns >= 86
         set number
         set signcolumn=yes
