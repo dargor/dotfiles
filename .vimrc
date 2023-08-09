@@ -61,6 +61,7 @@ set t_BE=
 if g:dargor_full_moumoute
     if $TERM_PROGRAM ==# 'vscode'
         set background=light
+        set mouse=a
     endif
     if &columns >= 86
         set number
