@@ -44,6 +44,12 @@ dist/
 # Rust
 target/
 
+# Scala
+.bloop/
+.bsp/
+.metals/
+metals.sbt
+
 # Terraform
 .terraform/
 .terraform.lock.hcl
