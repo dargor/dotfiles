@@ -104,7 +104,7 @@
     oops = commit --amend
     forget = reset --hard HEAD~1
     fuck = reset --hard ORIG_HEAD
-    pfetch = fetch origin --prune --prune-tags
+    pfetch = fetch origin --prune --prune-tags --force
     ptags = push --tags
     sdiff = stash show -p
     slist = stash list
