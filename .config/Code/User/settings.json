@@ -1,0 +1,42 @@
+{
+
+  // https://code.visualstudio.com/docs/getstarted/settings
+
+  "editor.fontFamily": "Iosevka Term",
+  "editor.minimap.showSlider": "always",
+  "editor.renderLineHighlight": "all",
+
+  "extensions.ignoreRecommendations": true,
+
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "files.watcherExclude": {
+    "**/.bloop": true,
+    "**/.metals": true,
+    "**/.ammonite": true
+  },
+
+  "git.countBadge": "off",
+  "git.defaultBranchName": "master",
+  "git.enableStatusBarSync": false,
+  "git.openRepositoryInParentFolders": "always",
+
+  "notebook.lineNumbers": "on",
+
+  "security.workspace.trust.banner": "always",
+  "security.workspace.trust.startupPrompt": "always",
+
+  "terminal.integrated.confirmOnKill": "always",
+  "terminal.integrated.showExitAlert": false,
+
+  "workbench.colorTheme": "Default Light+",
+  "workbench.fontAliasing": "auto",
+  "workbench.startupEditor": "none",
+  "workbench.tree.renderIndentGuides": "always",
+
+  // extensions
+
+  "jupyter.askForKernelRestart": false
+
+}
