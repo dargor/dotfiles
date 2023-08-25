@@ -1,0 +1,6 @@
+auto_self_update = "enable"
+default_toolchain = "stable-x86_64-unknown-linux-gnu"
+profile = "default"
+version = "12"
+
+[overrides]
