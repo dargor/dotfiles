@@ -5,6 +5,7 @@
   "editor.fontFamily": "Iosevka Term",
   "editor.minimap.showSlider": "always",
   "editor.renderLineHighlight": "all",
+  "editor.rulers": [80],
 
   "extensions.ignoreRecommendations": true,
 
@@ -17,7 +18,7 @@
     "**/.ammonite": true
   },
 
-  "git.countBadge": "off",
+  "git.countBadge": "tracked",
   "git.defaultBranchName": "master",
   "git.enableStatusBarSync": false,
   "git.openRepositoryInParentFolders": "always",
@@ -38,6 +39,8 @@
   // extensions
 
   "jupyter.askForKernelRestart": false,
+
+  "redhat.telemetry.enabled": true,
 
   "todo-tree.general.statusBar": "current file",
   "todo-tree.highlights.useColourScheme": true,
