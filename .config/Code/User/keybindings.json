@@ -3,5 +3,9 @@
   {
     "key": "ctrl+[Backquote]",
     "command": "workbench.action.terminal.focus"
+  },
+  {
+    "key": "f6",
+    "command": "workbench.action.focusOtherSideEditor"
   }
 ]
