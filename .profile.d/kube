@@ -161,6 +161,20 @@ kpods() {
     esac
 }
 
+kwatch() {
+    res="${1:-}"
+    name="${2:-}"
+    if [ -z "${res}" ]; then
+        echo 1>&2 "Usage: kwatch pods|svc|... [name]"
+        return 1
+    fi
+    if [ -z "${name}" ]; then
+        watch -n 1 "kubectl get '${res}'"
+    else
+        watch -n 1 "kubectl get '${res}' | grep -- '${name}'"
+    fi
+}
+
 kgd() {
     if [ -z "${1:-}" ]; then
         kubectl get deployments.apps
