@@ -7,7 +7,7 @@ augroup filetypedetect
     autocmd BufNewFile,BufRead Jenkinsfile setlocal filetype=groovy
     autocmd BufNewFile,BufRead Dockerfile.* setlocal filetype=dockerfile
     autocmd BufNewFile,BufRead master,roster,*.sls setlocal filetype=yaml
-    autocmd BufNewFile,BufRead *.{cfg,cnf,coveragerc,sentryclirc,service,timer},cqlshrc,{krb5,spark-defaults,supervisord}.conf setlocal filetype=dosini
+    autocmd BufNewFile,BufRead *.{cfg,cnf,coveragerc,sentryclirc,service,timer},cqlshrc,{krb5,spark-defaults,supervisord}.conf,.scalafmt.conf setlocal filetype=dosini
     autocmd BufNewFile,BufRead *.cql setlocal filetype=sql
     autocmd BufNewFile,BufRead *.bats setlocal filetype=sh
 
