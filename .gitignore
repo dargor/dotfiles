@@ -49,6 +49,8 @@ target/
 .bsp/
 .metals/
 metals.sbt
+*.class
+*.tasty
 
 # Terraform
 .terraform/
