@@ -9,6 +9,7 @@ window:
     y: 2
   dynamic_padding: false
   dynamic_title: true
+  option_as_alt: Both
 
 scrolling:
   history: 10000
