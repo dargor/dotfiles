@@ -1,5 +1,3 @@
-# https://raw.githubusercontent.com/alacritty/alacritty/master/alacritty.yml
-
 window:
   dimensions:
     columns: 80
@@ -9,7 +7,7 @@ window:
     y: 2
   dynamic_padding: false
   dynamic_title: true
-  option_as_alt: Both
+  option_as_alt: None
 
 scrolling:
   history: 10000
