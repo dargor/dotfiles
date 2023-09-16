@@ -2,4 +2,4 @@
 .headers on
 .mode column
 .nullvalue NULL
--- .timer on
+.timer on
