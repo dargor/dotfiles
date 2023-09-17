@@ -1,7 +1,9 @@
 font.family: sans-serif
 font.size: 8
 
+axes.facecolor: "#f9f9f9"
 axes.grid: True
+
 grid.alpha: 0.4
 grid.color: silver
 grid.linestyle: :
