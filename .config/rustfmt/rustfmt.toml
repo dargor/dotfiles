@@ -1,5 +1,7 @@
 # https://github.com/rust-lang/rustfmt/blob/master/Configurations.md#group_imports
+# https://github.com/rust-lang/rustfmt/issues/5083
 #group_imports = "StdExternalCrate"
 
 # https://github.com/rust-lang/rustfmt/blob/master/Configurations.md#imports_granularity
+# https://github.com/rust-lang/rustfmt/issues/4991
 #imports_granularity = "Crate"
