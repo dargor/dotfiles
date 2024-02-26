@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
 delta() {
-    /usr/bin/delta "$@" | less -RFX
+    /opt/homebrew/bin/delta "$@" | less -RFX
 }
+
+alias d="delta"

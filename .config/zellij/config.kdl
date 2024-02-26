@@ -1,0 +1,2 @@
+copy_command "pbcopy"
+session_serialization false

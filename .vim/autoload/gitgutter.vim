@@ -195,6 +195,7 @@ function! s:clear(bufnr)
   call gitgutter#hunk#reset(a:bufnr)
   call s:reset_tick(a:bufnr)
   call gitgutter#utility#setbufvar(a:bufnr, 'path', '')
+  call gitgutter#utility#setbufvar(a:bufnr, 'basepath', '')
 endfunction
 
 
@@ -221,13 +222,13 @@ function! gitgutter#quickfix(current_file)
   let lnum = 0
   for line in diff
     if line =~ '^diff --git [^"]'
-      let paths = line[11:]
-      let mid = (len(paths) - 1) / 2
-      let [fnamel, fnamer] = [paths[:mid-1], paths[mid+1:]]
-      let fname = fnamel ==# fnamer ? fnamel : fnamel[2:]
+      " No quotation mark therefore no spaces in filenames
+      let [fnamel, fnamer] = split(line)[2:3]
+      let fname = fnamel ==# fnamer ? fnamer : fnamer[2:]
     elseif line =~ '^diff --git "'
+      " Quotation mark therefore do not split on space
       let [_, fnamel, _, fnamer] = split(line, '"')
-      let fname = fnamel ==# fnamer ? fnamel : fnamel[2:]
+      let fname = fnamel ==# fnamer ? fnamer : fnamer[2:]
     elseif line =~ '^diff --cc [^"]'
       let fname = line[10:]
     elseif line =~ '^diff --cc "'
@@ -249,7 +250,6 @@ endfunction
 
 function! gitgutter#difforig()
   let bufnr = bufnr('')
-  let path = gitgutter#utility#repo_path(bufnr, 1)
   let filetype = &filetype
 
   vertical new
@@ -257,7 +257,7 @@ function! gitgutter#difforig()
   let &filetype = filetype
 
   if g:gitgutter_diff_relative_to ==# 'index'
-    let index_name = gitgutter#utility#get_diff_base(bufnr).':'.path
+    let index_name = gitgutter#utility#get_diff_base(bufnr).':'.gitgutter#utility#base_path(bufnr)
     let cmd = gitgutter#utility#cd_cmd(bufnr,
           \ gitgutter#git().' --no-pager show '.index_name
           \ )
@@ -265,7 +265,7 @@ function! gitgutter#difforig()
     " gitgutter#utility's use_known_shell() / restore_shell() functions.
     silent! execute "read ++edit !" cmd
   else
-    silent! execute "read ++edit" path
+    silent! execute "read ++edit" gitgutter#utility#repo_path(bufnr, 1)
   endif
 
   0d_

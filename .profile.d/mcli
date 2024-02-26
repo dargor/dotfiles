@@ -1,7 +1,0 @@
-#! /usr/bin/env bash
-
-mcli() {
-    host="${1:-localhost}"
-    port="${2:-11211}"
-    nc "${host}" "${port}"
-}

@@ -1,0 +1,6 @@
+[main]
+auto_vertical_output = True
+enable_pager = False
+less_chatty = True
+syntax_style = fruity
+wider_completion_menu = True

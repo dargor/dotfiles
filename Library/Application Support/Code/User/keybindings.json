@@ -1,0 +1,16 @@
+// Place your key bindings in this file to override the defaults.
+[
+  {
+    "key": "cmd+[IntlBackslash]",
+    "command": "workbench.action.terminal.focus"
+  },
+  {
+    "key": "cmd+[IntlBackslash]",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "f6",
+    "command": "workbench.action.focusOtherSideEditor"
+  }
+]

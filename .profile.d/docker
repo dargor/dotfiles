@@ -21,11 +21,17 @@ docker_clean_images()
         docker images -q | xargs -r docker rmi -f --
         return $?
     fi
-    _docker_log "Cleaning unused images"
+    if [ "$1" = "force" ]; then
+        _docker_log "Cleaning unused images (forced)"
+        rmi="-f"
+    else
+        _docker_log "Cleaning unused images"
+        rmi=""
+    fi
     docker images | grep '<none>' | while read -r line; do
         img=$(echo "$line" | awk '{print $3}')
         if [ "$img" != "IMAGE ID" ]; then
-            docker rmi "$img"
+            docker rmi "$rmi" "$img"
         fi
     done
 }
@@ -87,4 +93,35 @@ docker_clean()
 docker_raz()
 {
     docker_clean all
+}
+
+docker_images_architectures()
+{
+    for image in $(docker images -q); do
+        name=$(docker inspect -f json "$image" | jq -r '.[].RepoTags[0]')
+        [ "$name" = null ] && continue
+        arch=$(docker inspect -f json "$image" | jq -r '.[].Architecture')
+        case "$arch" in
+            amd64)
+                color=92
+                ;;
+            arm64)
+                color=91
+                ;;
+            *)
+                color=93
+                ;;
+        esac
+        echo "[94m$name[0m uses [${color}m$arch[0m"
+    done
+}
+
+docker_run() {
+    image="$1"
+    if [ -z "$image" ]; then
+        echo 1>&2 "Usage: docker_run image [what]"
+        return 1
+    fi
+    what="${2:-/bin/bash}"
+    docker run --rm --entrypoint "$what" -it "$image"
 }

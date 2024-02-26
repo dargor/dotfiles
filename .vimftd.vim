@@ -3,13 +3,16 @@ augroup filetypedetect
     autocmd BufNewFile,BufRead *.hy,*.lfe setlocal filetype=lisp
     autocmd BufNewFile,BufRead *.pp setlocal filetype=ruby
     autocmd BufNewFile,BufRead *.{tf,tfvars} setlocal filetype=terraform syntax=hcl
-    autocmd BufNewFile,BufRead *.tfstate setlocal filetype=json
+    autocmd BufNewFile,BufRead *.{avsc,tfstate} setlocal filetype=json
     autocmd BufNewFile,BufRead Jenkinsfile setlocal filetype=groovy
     autocmd BufNewFile,BufRead Dockerfile.* setlocal filetype=dockerfile
     autocmd BufNewFile,BufRead master,roster,*.sls setlocal filetype=yaml
-    autocmd BufNewFile,BufRead *.{cfg,cnf,coveragerc,sentryclirc,service,timer},cqlshrc,{krb5,spark-defaults,supervisord}.conf,.{scalafmt,scalafix}.conf setlocal filetype=dosini
+    autocmd BufNewFile,BufRead *.{cfg,cnf,coveragerc,sentryclirc,service,timer},cqlshrc,{krb5,pip,spark-defaults,supervisord}.conf,.{scalafmt,scalafix}.conf,.bandit setlocal filetype=dosini
+    autocmd BufNewFile,BufRead *{requirements,constraints}.txt setlocal filetype=conf
+    autocmd BufNewFile,BufRead .{docker,helm,rg}ignore setlocal filetype=gitignore
     autocmd BufNewFile,BufRead *.cql setlocal filetype=sql
     autocmd BufNewFile,BufRead *.bats setlocal filetype=sh
+    autocmd BufNewFile,BufRead *.tcss setlocal filetype=css
 
     " pyx (implementation) and pxd (definition) are handled, but pxi (include) are not
     autocmd BufNewFile,BufRead *.pxi setlocal filetype=pyrex

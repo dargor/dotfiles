@@ -1,2 +1,0 @@
-#!/bin/sh
-exec X -deferglyphs 16 -dpi 96 -nolisten tcp

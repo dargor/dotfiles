@@ -12,7 +12,7 @@ klog() {
         containers=$(kubectl get pod "${pod}" -o jsonpath="{.spec.containers[*].name}")
     fi
     # shellcheck disable=SC2086
-    xpanes -c "kubectl logs ${pod} --follow --tail 100 -c {} | grep -Ev 'health|metrics|probe|Envoy'" ${containers}
+    xpanes -t -c "kubectl logs ${pod} --follow --tail 100 -c {}" ${=containers}
 }
 
 klogs() {
@@ -27,9 +27,8 @@ klogs() {
     if [ -n "${container}" ]; then
         what="${what} -c ${container}"
     fi
-    what="${what} | grep -Ev 'health|metrics|probe|Envoy'"
     # shellcheck disable=SC2086
-    xpanes -c "${what}" ${pods}
+    xpanes -t -c "${what}" ${=pods}
 }
 
 kgrep() {
@@ -41,7 +40,7 @@ kgrep() {
     fi
     containers=$(kubectl get pod "${pod}" -o jsonpath="{.spec.containers[*].name}")
     # shellcheck disable=SC2086
-    xpanes -c "kubectl logs ${pod} -c {} | grep -i ${stuff}" ${containers}
+    xpanes -t -c "kubectl logs ${pod} -c {} | grep -i ${stuff}" ${=containers}
 }
 
 kexec() {
@@ -57,7 +56,7 @@ kexec() {
         cmd="$2"
     fi
     # shellcheck disable=SC2086
-    xpanes -c "kubectl exec -it ${pod} -c {} -- ${cmd}" ${containers}
+    xpanes -t -c "kubectl exec -it ${pod} -c {} -- ${cmd}" ${=containers}
 }
 
 kexecs() {
@@ -74,7 +73,7 @@ kexecs() {
     fi
     what="${what} -- sh"
     # shellcheck disable=SC2086
-    xpanes -c "${what}" ${pods}
+    xpanes -t -c "${what}" ${=pods}
 }
 
 kthrottled() {
@@ -134,11 +133,11 @@ ktops() {
         echo 1>&2 "Usage: ktops deployment [context]"
         return 1
     fi
-    # shellcheck disable=SC2086
+    # shellcheck disable=SC2086,SC2034
     pods=$(kubectl ${CTX} get pods | grep -- "${deployment}" | awk '{print $1}')
     what="watch -n 1 kubectl ${CTX} top pod --containers {}"
     # shellcheck disable=SC2086
-    xpanes -l even-vertical -c "${what}" ${pods}
+    xpanes -l even-vertical -c "${what}" ${=pods}
 }
 
 kpods() {
@@ -201,14 +200,22 @@ knotrunning() {
 }
 
 kclean() {
-    kubectl get pods -ojson \
-        | jq -r '.items[] | select(.status.reason!=null) | select(.status.reason | contains("Evicted")) | .metadata.name' \
-        | xargs -r kubectl delete pods
+    reason="${1:-}"
+    if [ -z "${reason}" ]; then
+        echo 1>&2 "Usage: kclean rs|\$reason"
+        return 1
+    fi
+    if [ "${reason}" = "rs" ]; then
+        kubectl get rs -o jsonpath='{ .items[?(@.spec.replicas==0)].metadata.name }' \
+            | xargs -r kubectl delete rs --
+    else
+        kubectl get pods \
+            | grep -i "${reason}" \
+            | awk '{print $1}' \
+            | xargs -r kubectl delete pod --
+    fi
 }
 
 alias knodes="kubectl get nodes -o wide"
 alias knodeslabels="kubectl get nodes --show-labels"
 alias khelp="kubectl api-resources --sort-by=name -o wide"
-
-# ignore kubectl plugins, they only pollute shell completion
-export EXECIGNORE="*/kubectl-*:${EXECIGNORE}"

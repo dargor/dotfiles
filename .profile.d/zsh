@@ -1,0 +1,30 @@
+#! /usr/bin/env bash
+
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+autoload -Uz compinit
+compinit
+
+bindkey -e
+
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+
+gitbr() {
+    local br
+    br=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+    if [ -n "$br" ]; then
+        if [ "$br" = "HEAD" ]; then
+            echo "💥 %F{red}%B$br%b%f"
+        else
+            echo "🌵 %F{yellow}$br%f"
+        fi
+    fi
+}
+
+setopt PROMPT_SUBST
+export PROMPT="%F{cyan}%D{%Y-%m-%d} %D{%H:%M:%S}%f %F{blue}%1~%f %B%(?.%F{green}✓.%F{red}✗)%f%b "
+export RPROMPT="\$(gitbr)"

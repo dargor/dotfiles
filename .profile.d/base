@@ -1,0 +1,12 @@
+#! /usr/bin/env bash
+
+alias dt="diffstat -C"
+alias g="links https://www.google.com/"
+alias grep="grep --color=auto"
+alias h="history"
+alias j="jobs -l"
+alias l="ls --color=auto -ap"
+alias ll="ls --color=auto -alp"
+alias show="open -a Preview"
+alias ssh="env -u COLORTERM TERM=xterm-256color ssh"
+alias t="tree"

@@ -1,0 +1,8 @@
+bell_msg ""
+caption always "[%3n] %t %= %h %= %u %f"
+hardstatus alwayslastline "[%l] %= %H %= %Y-%m-%d %c:%s"
+nethack on
+shell -$SHELL
+startup_message off
+term screen-256color
+vbell off

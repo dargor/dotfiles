@@ -58,3 +58,6 @@ metals.sbt
 
 # Vowpal Wabbit
 *.vw
+
+# MacOS stuff
+.DS_Store

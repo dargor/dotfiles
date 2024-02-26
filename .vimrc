@@ -1,4 +1,5 @@
 set nocompatible
+set notermguicolors
 
 try
     set background=dark
@@ -10,6 +11,9 @@ catch
 endtry
 
 if &diff
+    if g:dargor_full_moumoute
+        colorscheme iceberg
+    endif
     let g:dargor_full_moumoute = 0
 endif
 
@@ -59,8 +63,12 @@ set encoding=utf8
 set t_BE=
 
 if g:dargor_full_moumoute
-    if $TERM_PROGRAM ==# 'vscode'
+    if !empty($JUPYTER_SERVER_ROOT)
         set background=light
+        set mouse=a
+    endif
+    if $TERM_PROGRAM ==# 'vscode'
+        set background=dark
         set mouse=a
     endif
     if &columns >= 86
@@ -97,7 +105,10 @@ if &t_Co > 2
 
     syntax on
     set hlsearch
-    set colorcolumn=80
+
+    if !&diff
+        set colorcolumn=80
+    endif
 
     function! SetupHighlights()
         " :h highlight-groups

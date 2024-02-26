@@ -7,6 +7,7 @@
     autocorrect = never
 
 [advice]
+    detachedHead = false
     skippedCherryPicks = false
 
 [color]
@@ -31,6 +32,7 @@
     func = yellow
     old = red
     new = green
+    context = black bold
     whitespace = reverse bold red
 
 [core]
@@ -38,11 +40,15 @@
     editor = vim
     excludesfile = ~/.gitignore
     attributesfile = ~/.gitattributes
+    ignorecase = false
 
 [init]
     defaultBranch = master
 
 [diff]
+    algorithm = histogram
+    colorMoved = default
+    colorMovedWS = allow-indentation-change
     tool = meld
 
 [diff "gpg"]
@@ -74,13 +80,16 @@
 
 [rebase]
     abbreviateCommands = true
-    missingCommitsCheck = warn
+    missingCommitsCheck = error
     empty = drop
 
 [push]
     default = simple
     followTags = true
     signed = if-asked
+
+[status]
+    showStash = true
 
 [commit]
     gpgsign = true

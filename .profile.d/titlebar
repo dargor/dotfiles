@@ -1,21 +1,13 @@
 #! /usr/bin/env bash
 
-export PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
-
-show_command_in_title_bar()
-{
-    # shellcheck disable=SC1001
-    case "${BASH_COMMAND}" in
-        *\033]0\;*)
-            ;;
-        *)
-            local cmd
-            printf -v cmd "%q" "${BASH_COMMAND}"
-            echo -ne "\033]0;${USER}@${HOSTNAME}: ${cmd//\\/}\007"
-            ;;
-    esac
+reset_term_title() {
+    print -n "\e]0;zsh\a"
 }
 
-if [ -z "${SSH_CONNECTION:-}" ]; then
-    trap show_command_in_title_bar DEBUG
-fi
+set_term_title() {
+    print -n "\e]0;${1}\a"
+}
+
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd reset_term_title
+add-zsh-hook preexec set_term_title

@@ -1,7 +1,12 @@
+if &diff
+    finish
+endif
+
 let g:lsp_max_buffer_size = -1
 let g:lsp_use_native_client = 1
 
 let g:lsp_diagnostics_highlights_delay = 200
+let g:lsp_diagnostics_highlights_enabled = 0
 let g:lsp_diagnostics_highlights_insert_mode_enabled = 0
 let g:lsp_diagnostics_signs_delay = 200
 let g:lsp_diagnostics_signs_insert_mode_enabled = 0
@@ -41,6 +46,15 @@ if executable('docker-langserver')
     \   name: 'Docker Language Server',
     \   cmd: {server_info->[&shell, &shellcmdflag, 'docker-langserver --stdio']},
     \   allowlist: ['dockerfile'],
+    \ })
+endif
+
+if executable('lua-language-server')
+    " https://github.com/LuaLS/lua-language-server#install
+    autocmd User lsp_setup call lsp#register_server(#{
+    \   name: 'Lua Language Server',
+    \   cmd: {server_info->['lua-language-server']},
+    \   allowlist: ['lua'],
     \ })
 endif
 
@@ -111,7 +125,19 @@ if executable('rust-analyzer')
     \     procMacro: #{
     \       enable: v:false,
     \     },
+    \     rust: #{
+    \       analyzerTargetDir: v:true,
+    \     },
     \   },
+    \ })
+endif
+
+if executable('terraform-ls')
+    " https://github.com/hashicorp/terraform-ls/blob/main/docs/USAGE.md#vim-lsp
+    autocmd User lsp_setup call lsp#register_server(#{
+    \   name: 'Terraform Language Server',
+    \   cmd: {server_info->[&shell, &shellcmdflag, 'terraform-ls serve']},
+    \   allowlist: ['terraform'],
     \ })
 endif
 
@@ -132,6 +158,15 @@ if executable('vim-language-server')
     \   allowlist: ['vim'],
     \ })
 endif
+
+"if executable('yaml-language-server')
+"    " https://github.com/redhat-developer/yaml-language-server#connecting-to-the-language-server-via-stdio
+"    autocmd User lsp_setup call lsp#register_server(#{
+"    \   name: 'YAML Language Server',
+"    \   cmd: {server_info->[&shell, &shellcmdflag, 'yaml-language-server --stdio']},
+"    \   allowlist: ['yaml'],
+"    \ })
+"endif
 
 function! s:on_lsp_buffer_enabled() abort
     setlocal signcolumn=yes

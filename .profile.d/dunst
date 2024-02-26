@@ -1,7 +1,0 @@
-#! /usr/bin/env bash
-
-alias dip="dunstctl is-paused"
-
-alias dsp="dunstctl set-paused true"
-alias dsr="dunstctl set-paused false"
-alias dst="dunstctl set-paused toggle"

@@ -1,12 +1,14 @@
 #! /usr/bin/env bash
 
 alias v='. ./.venv/bin/activate'
-alias 3='. ~/python3/activate'
-alias 311='. ~/python311/activate'
 
 _venv_ensure_base_packages() {
     pip="${1:-pip}"
-    for package in pip wheel setuptools packaging build Cython python-lsp-server flake8 ruff-lsp; do
+    if [ -z "${VIRTUAL_ENV}" ] && [ "${pip}" = "pip" ]; then
+        echo 1>&2 "Not in a virtual environment"
+        return 1
+    fi
+    for package in pip wheel setuptools packaging build cython; do
         "${pip}" install -U "${package}"
     done
 }
@@ -14,9 +16,8 @@ _venv_ensure_base_packages() {
 mkvenv() {
     version="${1:-}"
     name="${2:-}"
-    vanilla="${3:-}"
     if [ -z "${version}" ]; then
-        echo 1>&2 "Usage: mkvenv version [name] [vanilla]"
+        echo 1>&2 "Usage: mkvenv version [name]"
         return 1
     fi
     if [ -z "${name}" ]; then
@@ -26,7 +27,7 @@ mkvenv() {
         echo 1>&2 "Creating a virtual environment in ${name}"
     fi
     bin="python${version}"
-    if [ ! "$(type -P "${bin}")" ]; then
+    if [ ! "$(type "${bin}")" ]; then
         echo 1>&2 "${bin} not found"
         return 1
     fi
@@ -40,34 +41,31 @@ mkvenv() {
         echo 1>&2 "${pip} not found"
         return 1
     fi
-    _venv_ensure_base_packages "${pip}"
-    if [ -z "${vanilla}" ]; then
-        "${pip}" install -U \
-            envdir python-dotenv \
-            pipdeptree pip-upgrader \
-            bandit radon interrogate mypy vulture \
-            ipython ipdb bpython ptpython \
-            pretty-errors
-    fi
+    _venv_ensure_base_packages "${pip}" || return 1
     echo "${name} is ready"
 }
 
 upvenv() {
-    if [ -z "${VIRTUAL_ENV}" ]; then
-        echo 1>&2 "Not in a virtual environment"
-        return 1
+    _venv_ensure_base_packages || return 1
+    # handle eventual constraints
+    if [ -f "constraints.txt" ]; then
+        constraints="-c constraints.txt"
+    else
+        # shellcheck disable=SC2034
+        constraints=""
     fi
-    _venv_ensure_base_packages
     # update everything without consideration for broken dependencies
     while read -r p; do
-        pip install --no-warn-conflicts -U "$p"
+        # shellcheck disable=SC2086
+        pip install --no-warn-conflicts ${=constraints} -U "$p"
     done < <(pip list --outdated --format json | jq -r '.[].name')
     # handle broken dependencies
     for n in {0..9}; do
         x=0
         while read -r p; do
             [ "$p" = "No" ] && break
-            pip install --no-warn-conflicts -U "$p"
+            # shellcheck disable=SC2086
+            pip install --no-warn-conflicts ${=constraints} -U "$p"
             ((x+=1))
         done < <(pip check | awk '{print $1}' | sort | uniq)
         [ "$x" -eq 0 ] && break
@@ -81,12 +79,21 @@ upvenv() {
     echo "${VIRTUAL_ENV##*/} is ready"
 }
 
+spvenv() {
+    _venv_ensure_base_packages || return 1
+    pip install -U \
+        envdir python-dotenv \
+        pipdeptree pip-upgrader \
+        flake8 bandit radon \
+        pydocstyle pydoclint interrogate \
+        mypy vulture perflint \
+        ipython ipdb bpython ptpython \
+        python-lsp-server ruff-lsp \
+        pretty-errors
+}
+
 flvenv() {
-    if [ -z "${VIRTUAL_ENV}" ]; then
-        echo 1>&2 "Not in a virtual environment"
-        return 1
-    fi
-    _venv_ensure_base_packages
+    _venv_ensure_base_packages || return 1
     pip install -U \
         flake8 \
         flake8-bugbear \
@@ -108,17 +115,19 @@ pyleaves() {
 }
 
 clpy() {
-    rm -rf -- build dist *.egg-info
-    find -L . -not -path './.git/*' -a \(  \
-              -iname __pycache__   -print0 \
-           -o -iname '*.py[co]'    -print0 \
-           -o -iname .mypy_cache   -print0 \
-           -o -iname .pytest_cache -print0 \
-           -o -iname .ruff_cache   -print0 \
-           -o -iname .hypothesis   -print0 \
-           -o -iname .coverage     -print0 \
-           -o -iname .tox          -print0 \
-           -o -iname report.html   -print0 \
-           -o -iname tags          -print0 \
+    find -L . \
+         -not -path './.git/*' \
+      -a -not -path './.venv/*' \
+      -a \( \
+            -iname __pycache__   -print0 \
+         -o -iname '*.py[co]'    -print0 \
+         -o -iname .mypy_cache   -print0 \
+         -o -iname .pytest_cache -print0 \
+         -o -iname .ruff_cache   -print0 \
+         -o -iname .hypothesis   -print0 \
+         -o -iname .coverage     -print0 \
+         -o -iname .tox          -print0 \
+         -o -iname report.html   -print0 \
+         -o -iname tags          -print0 \
     \) | xargs -r0 rm -rf --
 }

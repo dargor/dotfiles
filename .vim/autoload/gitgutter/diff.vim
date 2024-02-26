@@ -4,14 +4,6 @@ let s:nomodeline = (v:version > 703 || (v:version == 703 && has('patch442'))) ? 
 
 let s:hunk_re = '^@@ -\(\d\+\),\?\(\d*\) +\(\d\+\),\?\(\d*\) @@'
 
-" True for git v1.7.2+.
-function! s:git_supports_command_line_config_override() abort
-  let [_, error_code] = gitgutter#utility#system(gitgutter#git().' -c foo.bar=baz --version')
-  return !error_code
-endfunction
-
-let s:c_flag = s:git_supports_command_line_config_override()
-
 let s:temp_from = tempname()
 let s:temp_buffer = tempname()
 let s:counter = 0
@@ -123,7 +115,7 @@ function! gitgutter#diff#run_diff(bufnr, from, preserve_full_diff) abort
     endif
 
     " Write file from index to temporary file.
-    let index_name = gitgutter#utility#get_diff_base(a:bufnr).':'.gitgutter#utility#repo_path(a:bufnr, 1)
+    let index_name = gitgutter#utility#get_diff_base(a:bufnr).':'.gitgutter#utility#base_path(a:bufnr)
     let cmd .= gitgutter#git().' --no-pager show --textconv '.index_name.' > '.from_file.' || exit 0) && ('
 
   elseif a:from ==# 'working_tree'
@@ -132,7 +124,7 @@ function! gitgutter#diff#run_diff(bufnr, from, preserve_full_diff) abort
 
   " Call git-diff.
   let cmd .= gitgutter#git().' --no-pager'
-  if s:c_flag
+  if gitgutter#utility#git_supports_command_line_config_override()
     let cmd .= ' -c "diff.autorefreshindex=0"'
     let cmd .= ' -c "diff.noprefix=false"'
     let cmd .= ' -c "core.safecrlf=false"'

@@ -1,3 +1,4 @@
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-autoload -Uz compinit
-compinit
+for f in ~/.profile.d/*; do
+    . "$f"
+done
+unset f

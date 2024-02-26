@@ -1,0 +1,68 @@
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.bright]
+black = "0x686868"
+blue = "0x73A5FF"
+cyan = "0x54FFFF"
+green = "0x54FF54"
+magenta = "0xFF54FF"
+red = "0xFF5454"
+white = "0xFFFFFF"
+yellow = "0xFFFF54"
+
+[colors.cursor]
+cursor = "0xA8A8A8"
+text = "0x000000"
+
+[colors.normal]
+black = "0x000000"
+blue = "0x6D85BA"
+cyan = "0x18B2B2"
+green = "0x18B218"
+magenta = "0xB218B2"
+red = "0xB21818"
+white = "0xB2B2B2"
+yellow = "0xBE5F00"
+
+[colors.primary]
+background = "0x000000"
+foreground = "0xA8A8A8"
+
+[colors.search.focused_match]
+background = "0x000000"
+foreground = "0xFFFF54"
+
+[colors.search.matches]
+background = "0xFFFF54"
+foreground = "0x000000"
+
+[font]
+size = 11
+
+[font.bold]
+family = "Monaspace Krypton"
+style = "Regular"
+
+[font.bold_italic]
+family = "Monaspace Krypton"
+style = "Regular"
+
+[font.italic]
+family = "Monaspace Krypton"
+style = "Regular"
+
+[font.normal]
+family = "Monaspace Krypton"
+style = "Regular"
+
+[hints]
+enabled = []
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ",│`|;\"' ()[]{}<>\t"
+
+[window.dimensions]
+columns = 80
+lines = 24

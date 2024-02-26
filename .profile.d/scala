@@ -1,3 +1,0 @@
-#! /usr/bin/env bash
-
-export PATH="${HOME}/.local/share/coursier/bin:${PATH}"
