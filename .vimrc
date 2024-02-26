@@ -190,7 +190,7 @@ if &t_Co > 2
     function! LeaveBuffer()
         if g:dargor_full_moumoute
             setlocal nocursorline
-            "setlocal nocursorcolumn
+            setlocal nocursorcolumn
         endif
     endfunction
 
@@ -280,6 +280,7 @@ nnoremap WY :call WYaml()<CR>
 nnoremap <F5> :syntax sync fromstart<CR>
 nnoremap <F6> :set invpaste paste?<CR>
 nnoremap <F7> :call ToggleMouse()<CR>
+nnoremap <F8> :setlocal cursorcolumn!<CR>
 nnoremap <F9> :!%:p<CR>
 
 nnoremap <C-b> :call ToggleBackground()<CR>
