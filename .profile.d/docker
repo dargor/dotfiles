@@ -9,7 +9,7 @@ docker_pull_images() {
     for image in $(docker images | grep ^docker.io/ | awk '{print $1 ":" $2}'); do
         image="${image#docker.io/}"
         _docker_log "Pulling $image"
-        docker pull "$image"
+        docker pull --platform linux/amd64 "$image"
     done
 }
 
