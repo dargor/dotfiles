@@ -118,5 +118,6 @@
     sdiff = stash show -p
     slist = stash list
     spop = stash pop
+    sclear = stash clear
     mdev = merge develop --ff-only
     tdescribe = describe --tags --always
