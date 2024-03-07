@@ -59,6 +59,8 @@
 
   // extensions
 
+  "continue.enableTabAutocomplete": false,
+
   "jupyter.askForKernelRestart": false,
 
   "redhat.telemetry.enabled": true,
