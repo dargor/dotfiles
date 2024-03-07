@@ -1,4 +1,0 @@
-#! /usr/bin/env bash
-
-alias maxima="rlwrap maxima"
-alias sbcl="rlwrap sbcl"

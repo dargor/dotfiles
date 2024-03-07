@@ -1,3 +1,0 @@
-#! /usr/bin/env bash
-
-alias sc="shellcheck -f gcc"
