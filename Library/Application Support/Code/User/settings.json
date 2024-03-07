@@ -5,7 +5,7 @@
   "diffEditor.codeLens": true,
 
   "editor.fontFamily": "Monaspace Krypton",
-  "editor.fontLigatures": "'liga', 'dlig', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08'",
+  "editor.fontLigatures": false,
   "editor.fontSize": 11,
   "editor.minimap.showSlider": "always",
   "editor.renderLineHighlight": "all",
