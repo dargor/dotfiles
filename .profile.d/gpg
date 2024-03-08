@@ -4,3 +4,4 @@ GPG_TTY=$(tty)
 export GPG_TTY
 
 alias gpg-reload="gpg-connect-agent updatestartuptty /bye"
+alias gpg-unload="gpg-connect-agent killagent /bye"
