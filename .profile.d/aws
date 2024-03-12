@@ -1,3 +1,5 @@
 #! /usr/bin/env bash
 
+export AWS_PAGER=""
+
 alias gci="aws sts get-caller-identity"
