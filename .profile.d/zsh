@@ -14,5 +14,13 @@ gitbr() {
     fi
 }
 
+awsp() {
+    if [ -n "$AWS_PROFILE" ]; then
+        echo " ⛅ %F{magenta}%B$AWS_PROFILE%b%f"
+    else
+        echo ""
+    fi
+}
+
 export PROMPT="%F{cyan}%D{%Y-%m-%d} %D{%H:%M:%S}%f %F{blue}%1~%f %B%(?.%F{green}✓.%F{red}✗)%f%b "
-export RPROMPT="\$(gitbr)"
+export RPROMPT="\$(gitbr)\$(awsp)"
