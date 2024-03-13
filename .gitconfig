@@ -49,6 +49,7 @@
     algorithm = histogram
     colorMoved = default
     colorMovedWS = allow-indentation-change
+    wsErrorHighlight = all
     tool = meld
 
 [diff "gpg"]
