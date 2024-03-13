@@ -27,5 +27,6 @@ augroup filetypedetect
     endfunction
 
     autocmd BufNewFile,BufRead */templates/*.yaml,*/templates/*.tpl call HelmSyntax()
+    autocmd BufNewFile,BufRead */.ssh/config.* setlocal filetype=sshconfig
 
 augroup END
