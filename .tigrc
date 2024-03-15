@@ -1,4 +1,8 @@
+set commit-order = default
 set ignore-case = smart-case
+
+# XXX slow option !
+set diff-highlight = false
 
 set log-options = --show-signature
 set diff-options = --show-signature
