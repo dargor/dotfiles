@@ -160,6 +160,19 @@ kpods() {
     esac
 }
 
+kevents() {
+    what=${1:-}
+    while true; do
+        if [ -z "$what" ]; then
+            kubectl get events -w
+        else
+            kubectl get events -w | grep -i -- "${what}"
+        fi
+        # shellcheck disable=SC2181
+        [ $? -ne 0 ] && break
+    done
+}
+
 kwatch() {
     res="${1:-}"
     name="${2:-}"
