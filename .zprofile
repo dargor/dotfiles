@@ -3,6 +3,7 @@ export LC_COLLATE="C"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export HOMEBREW_NO_ENV_HINTS=1
+export CLICOLOR=1
 
 export PATH="${HOME}/Library/Application Support/Coursier/bin:${PATH}"
 export PATH="${HOME}/.cargo/bin:${PATH}"
