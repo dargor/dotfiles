@@ -19,6 +19,12 @@
       "contextLength": 32768
     },
     {
+      "title": "openchat",
+      "provider": "ollama",
+      "model": "openchat:7b-v3.5-0106-q6_K",
+      "contextLength": 8192
+    },
+    {
       "title": "openhermes",
       "provider": "ollama",
       "model": "openhermes:7b-mistral-v2.5-q6_K",
