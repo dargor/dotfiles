@@ -76,10 +76,34 @@
     }
   ],
   "contextProviders": [
-    { "name": "codebase" },
-    { "name": "diff" },
-    { "name": "folder" },
-    { "name": "open" },
-    { "name": "terminal" }
-  ]
+    {
+      "name": "codebase",
+      "params": {}
+    },
+    {
+      "name": "diff",
+      "params": {}
+    },
+    {
+      "name": "folder",
+      "params": {}
+    },
+    {
+      "name": "open",
+      "params": {}
+    },
+    {
+      "name": "terminal",
+      "params": {}
+    },
+    {
+      "name": "code",
+      "params": {}
+    },
+    {
+      "name": "docs",
+      "params": {}
+    }
+  ],
+  "allowAnonymousTelemetry": true
 }
