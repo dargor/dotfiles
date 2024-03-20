@@ -22,5 +22,5 @@ awsp() {
     fi
 }
 
-export PROMPT="%F{cyan}%D{%Y-%m-%d} %D{%H:%M:%S}%f %F{blue}%1~%f %B%(?.%F{green}✓.%F{red}✗)%f%b "
+export PROMPT="%F{8}%(1j.[%j] .)%F{cyan}%D{%Y-%m-%d} %D{%H:%M:%S}%f %F{blue}%1~%f %B%(?.%F{green}✓.%F{red}✗)%f%b "
 export RPROMPT="\$(gitbr)\$(awsp)"
