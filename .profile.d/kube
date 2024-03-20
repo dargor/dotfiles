@@ -229,6 +229,20 @@ kclean() {
     fi
 }
 
+ktp() {
+    case "${1:-}" in
+        c|cpu)
+            kubectl top pod --sort-by=cpu
+            ;;
+        m|mem|memory)
+            kubectl top pod --sort-by=memory
+            ;;
+        *)
+            kubectl top pod
+            ;;
+    esac
+}
+
 alias knodes="kubectl get nodes -o wide"
 alias knodeslabels="kubectl get nodes --show-labels"
 alias khelp="kubectl api-resources --sort-by=name -o wide"
