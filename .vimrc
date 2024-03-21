@@ -301,6 +301,7 @@ endif
 
 cnoreabbrev t terminal
 cnoreabbrev vt vertical terminal
+autocmd TerminalOpen * setlocal nonumber signcolumn=no colorcolumn=
 
 for f in split(expand('~/.vim*.vim'), '\n')
     if filereadable(f)
