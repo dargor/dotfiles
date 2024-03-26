@@ -49,6 +49,15 @@ if executable('docker-langserver')
     \ })
 endif
 
+if executable('gopls')
+    " https://github.com/golang/tools/blob/master/gopls/doc/vim.md#vimlsp
+    autocmd User lsp_setup call lsp#register_server(#{
+    \   name: 'Go Language Server',
+    \   cmd: {server_info->['gopls']},
+    \   allowlist: ['go'],
+    \ })
+endif
+
 if executable('lua-language-server')
     " https://github.com/LuaLS/lua-language-server#install
     autocmd User lsp_setup call lsp#register_server(#{
