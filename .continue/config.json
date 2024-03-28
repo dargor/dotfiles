@@ -1,6 +1,12 @@
 {
   "models": [
     {
+      "title": "gemma",
+      "provider": "ollama",
+      "model": "gemma:7b-instruct-q6_K",
+      "contextLength": 8192
+    },
+    {
       "title": "llama2",
       "provider": "ollama",
       "model": "llama2:13b-chat-q6_K",
