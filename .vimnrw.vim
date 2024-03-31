@@ -22,10 +22,10 @@ if g:dargor_full_moumoute
     if &columns >= 119
         if index(['gitcommit', 'gitrebase'], &filetype) == -1
             if get(v:argv, -1, '') !=# '-'
-                if argc() >= 1
-                    autocmd VimEnter * ++once Lexplore | wincmd p
-                else
+                if argc() == 0
                     autocmd VimEnter * ++once Lexplore
+                elseif argc() == 1
+                    autocmd VimEnter * ++once Lexplore | wincmd p
                 endif
             endif
         endif
