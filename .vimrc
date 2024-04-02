@@ -34,6 +34,7 @@ set mouse=
 set noequalalways
 set nofsync
 set nojoinspaces
+set regexpengine=2
 set report=0
 set ruler
 set scrolloff=5
