@@ -1,17 +1,20 @@
 set hidden
 
 function! s:read_gitignore(fname)
+    let ret = ''
     if filereadable(a:fname)
-        return join(map(split(system("grep -Ev '^(#|$)' < " . a:fname), '\n'), "'^' .. substitute(substitute(v:val, '[~,\\.]', '\\\\&', 'g'), '*', '.*', 'g') .. '$'"), ',')
-    else
-        return ''
+        if a:fname == '.gitignore'
+            let ret .= ','
+        endif
+        let ret .= join(map(split(system("grep -Ev '^(#|$)' < " . a:fname), '\n'), "'^' .. substitute(substitute(v:val, '[~,\\.]', '\\\\&', 'g'), '*', '.*', 'g') .. '$'"), ',')
     endif
+    return ret
 endfunction
 
 let g:netrw_banner = 0
 let g:netrw_browse_split = 4
 let g:netrw_fastbrowse = 0
-let g:netrw_list_hide = join([s:read_gitignore(expand('~/.gitignore')), s:read_gitignore('.gitignore'), '^\.git/$'], ',')
+let g:netrw_list_hide = s:read_gitignore(expand('~/.gitignore')) . s:read_gitignore('.gitignore') . ',^\.git/$'
 let g:netrw_liststyle = 3
 let g:netrw_sort_by = 'name'
 let g:netrw_sort_direction = 'normal'
