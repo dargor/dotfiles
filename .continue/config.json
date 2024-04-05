@@ -39,7 +39,7 @@
     {
       "title": "starling-lm",
       "provider": "ollama",
-      "model": "starling-lm:7b-alpha-q6_K",
+      "model": "starling-lm:7b-beta-q6_K",
       "contextLength": 8192
     },
     {
