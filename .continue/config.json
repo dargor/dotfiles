@@ -3,7 +3,7 @@
     {
       "title": "gemma",
       "provider": "ollama",
-      "model": "gemma:7b-instruct-q6_K",
+      "model": "gemma:7b-instruct-v1.1-q6_K",
       "contextLength": 8192
     },
     {
