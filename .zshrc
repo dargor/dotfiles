@@ -9,7 +9,9 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_REDUCE_BLANKS
+setopt INC_APPEND_HISTORY
 setopt PROMPT_SUBST
+setopt SHARE_HISTORY
 
 for f in ~/.profile.d/*; do
     . "$f"
