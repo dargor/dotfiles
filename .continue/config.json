@@ -49,6 +49,12 @@
       "contextLength": 8192
     },
     {
+      "title": "wizardlm2",
+      "provider": "ollama",
+      "model": "wizardlm2:7b-q6_K",
+      "contextLength": 32768
+    },
+    {
       "title": "zephyr",
       "provider": "ollama",
       "model": "zephyr:7b-beta-q6_K",
