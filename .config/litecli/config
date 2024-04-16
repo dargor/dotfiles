@@ -1,6 +1,9 @@
 [main]
 destructive_warning = False
+enable_pager = True
 less_chatty = True
+multi_line = True
 pager = pspg
 syntax_style = fruity
+table_format = psql
 wider_completion_menu = True
