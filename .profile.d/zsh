@@ -2,6 +2,10 @@
 
 bindkey -e
 
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
+bindkey "^[[3~" delete-char
+
 gitbr() {
     local br
     br=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
