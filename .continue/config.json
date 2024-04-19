@@ -19,6 +19,12 @@
       "contextLength": 4096
     },
     {
+      "title": "llama3",
+      "provider": "ollama",
+      "model": "llama3:8b-instruct-q6_K",
+      "contextLength": 8192
+    },
+    {
       "title": "mistral",
       "provider": "ollama",
       "model": "mistral:7b-instruct-v0.2-q6_K",
