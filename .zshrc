@@ -18,5 +18,8 @@ for f in ~/.profile.d/*; do
 done
 unset f
 
-source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+ZSH_HIGHLIGHT_HIGHLIGHTERS+=(brackets)
