@@ -17,3 +17,6 @@ for f in ~/.profile.d/*; do
     . "$f"
 done
 unset f
+
+source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
