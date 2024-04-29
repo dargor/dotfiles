@@ -67,6 +67,15 @@
       "contextLength": 32768
     }
   ],
+  "tabAutocompleteModel": {
+    "title": "starcoder2",
+    "provider": "ollama",
+    "model": "starcoder2:3b-q6_K"
+  },
+  "tabAutocompleteOptions": {
+    "debounceDelay": 250,
+    "useCopyBuffer": false
+  },
   "systemMessage": "Your role is to assist the user in their programming needs. This include writing, reviewing and explaining code. You must follow and suggest established best practices. Your code should be easy to read, pragmatic and to the point. Include helpful comments and examples in your responses. Use recent examples from official documentation. Provide links to relevant documentation. Follow user requirements carefully, and to the letter. Always use an analytical, proactive and rational approach. Work step by step to ensure you arrive at an optimal answer. Never repeat something you have already explained.",
   "slashCommands": [
     {
