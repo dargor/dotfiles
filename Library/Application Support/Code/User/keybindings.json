@@ -10,6 +10,11 @@
     "when": "terminalFocus"
   },
   {
+    "key": "shift+enter",
+    "command": "workbench.action.terminal.runSelectedText",
+    "when": "editorTextFocus"
+  },
+  {
     "key": "f6",
     "command": "workbench.action.focusOtherSideEditor"
   }
