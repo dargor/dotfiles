@@ -84,7 +84,7 @@ spvenv() {
     pip install -U \
         envdir python-dotenv \
         pipdeptree pip-upgrader \
-        flake8 bandit radon \
+        flake8 isort black bandit radon \
         pydocstyle pydoclint interrogate \
         mypy vulture perflint \
         ipython ipdb bpython ptpython \
