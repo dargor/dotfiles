@@ -13,12 +13,6 @@
       "contextLength": 8192
     },
     {
-      "title": "llama2",
-      "provider": "ollama",
-      "model": "llama2:13b-chat-q6_K",
-      "contextLength": 4096
-    },
-    {
       "title": "llama3",
       "provider": "ollama",
       "model": "llama3:8b-instruct-q6_K",
