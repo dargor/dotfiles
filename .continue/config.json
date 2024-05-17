@@ -7,12 +7,6 @@
       "contextLength": 131072
     },
     {
-      "title": "falcon2",
-      "provider": "ollama",
-      "model": "falcon2:11b-q6_K",
-      "contextLength": 2048
-    },
-    {
       "title": "gemma",
       "provider": "ollama",
       "model": "gemma:7b-instruct-v1.1-q6_K",
@@ -53,12 +47,6 @@
       "provider": "ollama",
       "model": "starling-lm:7b-beta-q6_K",
       "contextLength": 8192
-    },
-    {
-      "title": "wizardlm2",
-      "provider": "ollama",
-      "model": "wizardlm2:7b-q6_K",
-      "contextLength": 32768
     },
     {
       "title": "zephyr",
