@@ -1,4 +1,4 @@
-FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+FPATH="/opt/homebrew/share/zsh/site-functions:${FPATH}"
 autoload -Uz compinit
 compinit
 
@@ -14,12 +14,16 @@ setopt PROMPT_SUBST
 setopt SHARE_HISTORY
 
 for f in ~/.profile.d/*; do
-    . "$f"
+    source "$f"
 done
 unset f
 
-source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+if [ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+    source "/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+    ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+fi
 
-source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-ZSH_HIGHLIGHT_HIGHLIGHTERS+=(brackets)
+if [ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source "/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+    ZSH_HIGHLIGHT_HIGHLIGHTERS+=(brackets)
+fi
