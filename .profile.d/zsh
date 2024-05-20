@@ -29,7 +29,9 @@ awsp() {
 export PROMPT="%F{8}%(1j.[%j] .)%F{cyan}%D{%Y-%m-%d} %D{%H:%M:%S}%f %F{blue}%1~%f %B%(?.%F{green}✓.%F{red}✗)%f%b "
 export RPROMPT="\$(gitbr)\$(awsp)"
 
-eval "$(mcfly init zsh)"
-export MCFLY_DISABLE_MENU=TRUE
-export MCFLY_PROMPT=">"
-export MCFLY_RESULTS=15
+if [ -f /opt/homebrew/bin/mcfly ]; then
+    eval "$(/opt/homebrew/bin/mcfly init zsh)"
+    export MCFLY_DISABLE_MENU=TRUE
+    export MCFLY_PROMPT=">"
+    export MCFLY_RESULTS=15
+fi
