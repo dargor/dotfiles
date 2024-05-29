@@ -1,0 +1,25 @@
+#! /usr/bin/env bash
+
+# v0.1.39
+export OLLAMA_FLASH_ATTENTION=1
+export OLLAMA_NOHISTORY=1
+
+# v0.1.33
+export OLLAMA_MAX_LOADED_MODELS=4
+export OLLAMA_NUM_PARALLEL=4
+
+# v0.1.23
+export OLLAMA_KEEP_ALIVE=15m
+
+unload() {
+    model="${1:-}"
+    if [ -z "$model" ]; then
+        echo 1>&2 "Usage: unload model"
+        return 1
+    fi
+    if ! ollama ps | grep -q "$model"; then
+        echo 1>&2 "Error: this model is not loaded."
+        return 1
+    fi
+    curl http://127.0.0.1:11434/api/generate -d "$(jo model="$model" keep_alive=0)"
+}
