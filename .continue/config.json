@@ -1,15 +1,21 @@
 {
   "models": [
     {
-      "title": "command-r",
+      "title": "codestral",
       "provider": "ollama",
-      "model": "command-r:35b-v0.1-q3_K_L",
-      "contextLength": 131072
+      "model": "codestral:22b-v0.1-q6_K",
+      "contextLength": 32768
     },
     {
       "title": "gemma",
       "provider": "ollama",
       "model": "gemma:7b-instruct-v1.1-q6_K",
+      "contextLength": 8192
+    },
+    {
+      "title": "granite",
+      "provider": "ollama",
+      "model": "granite-code:20b-instruct-q6_K",
       "contextLength": 8192
     },
     {
@@ -21,44 +27,27 @@
     {
       "title": "mistral",
       "provider": "ollama",
-      "model": "mistral:7b-instruct-v0.2-q6_K",
+      "model": "mistral:7b-instruct-v0.3-q6_K",
       "contextLength": 32768
     },
     {
       "title": "mixtral",
       "provider": "ollama",
-      "model": "mixtral:8x7b-instruct-v0.1-q3_K_L",
+      "model": "mixtral:8x7b-instruct-v0.1-q6_K",
       "contextLength": 32768
     },
     {
-      "title": "openchat",
+      "title": "starcoder2",
       "provider": "ollama",
-      "model": "openchat:7b-v3.5-0106-q6_K",
-      "contextLength": 8192
-    },
-    {
-      "title": "openhermes",
-      "provider": "ollama",
-      "model": "openhermes:7b-mistral-v2.5-q6_K",
-      "contextLength": 32768
-    },
-    {
-      "title": "starling-lm",
-      "provider": "ollama",
-      "model": "starling-lm:7b-beta-q6_K",
-      "contextLength": 8192
-    },
-    {
-      "title": "zephyr",
-      "provider": "ollama",
-      "model": "zephyr:7b-beta-q6_K",
-      "contextLength": 32768
+      "model": "starcoder2:15b-instruct-v0.1-q6_K",
+      "contextLength": 16384
     }
   ],
   "tabAutocompleteModel": {
     "title": "starcoder2",
     "provider": "ollama",
-    "model": "starcoder2:3b-q6_K"
+    "model": "starcoder2:3b-q6_K",
+    "contextLength": 16384
   },
   "tabAutocompleteOptions": {
     "debounceDelay": 250,
@@ -126,5 +115,8 @@
       "params": {}
     }
   ],
+  "embeddingsProvider": {
+    "provider": "transformers.js"
+  },
   "allowAnonymousTelemetry": true
 }
