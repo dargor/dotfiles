@@ -8,7 +8,7 @@ augroup filetypedetect
     autocmd BufNewFile,BufRead Dockerfile.* setlocal filetype=dockerfile
     autocmd BufNewFile,BufRead master,roster,*.sls setlocal filetype=yaml
     autocmd BufNewFile,BufRead *.{cfg,cnf,coveragerc,sentryclirc,service,terraformrc,tigrc,timer},cqlshrc,{krb5,pip,spark-defaults,supervisord}.conf,.{scalafmt,scalafix}.conf,.bandit setlocal filetype=dosini
-    autocmd BufNewFile,BufRead *{requirements,constraints}.txt setlocal filetype=conf
+    autocmd BufNewFile,BufRead *{requirements,constraints}*.txt setlocal filetype=conf
     autocmd BufNewFile,BufRead .{docker,helm,rg}ignore setlocal filetype=gitignore
     autocmd BufNewFile,BufRead *.cql setlocal filetype=sql
     autocmd BufNewFile,BufRead *.bats setlocal filetype=sh
