@@ -37,6 +37,12 @@
       "contextLength": 32768
     },
     {
+      "title": "qwen2",
+      "provider": "ollama",
+      "model": "qwen2:7b-instruct-q6_K",
+      "contextLength": 32768
+    },
+    {
       "title": "starcoder2",
       "provider": "ollama",
       "model": "starcoder2:15b-instruct-v0.1-q6_K",
