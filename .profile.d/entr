@@ -1,0 +1,10 @@
+#! /usr/bin/env bash
+
+wr() {
+    what="${1:-}"
+    if [ -z "$what" ]; then
+        echo 1>&2 "Usage: $0 toto.py"
+        return 1
+    fi
+    echo "$what" | entr -cnp "$what"
+}
