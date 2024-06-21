@@ -19,3 +19,10 @@ unload() {
     fi
     curl http://127.0.0.1:11434/api/generate -d "$(jo model="$model" keep_alive=0)"
 }
+
+unload_all() {
+    ollama ps | awk '{print $1}' | while read -r model; do
+        [ "$model" = "NAME" ] && continue
+        unload "$model"
+    done
+}
