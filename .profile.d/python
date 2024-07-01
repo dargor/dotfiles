@@ -54,6 +54,11 @@ upvenv() {
         # shellcheck disable=SC2034
         constraints=""
     fi
+    # handle eventual requirements
+    if [ -f "requirements.txt" ]; then
+        # shellcheck disable=SC2086
+        pip install -U -r requirements.txt ${=constraints}
+    fi
     # update everything without consideration for broken dependencies
     while read -r p; do
         # shellcheck disable=SC2086
