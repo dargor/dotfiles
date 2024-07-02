@@ -3,6 +3,7 @@ local config = wezterm.config_builder()
 
 config.audible_bell = 'Disabled'
 config.check_for_updates = false
+config.cursor_blink_rate = 0
 config.hide_mouse_cursor_when_typing = false
 config.hide_tab_bar_if_only_one_tab = true
 config.hyperlink_rules = {}
