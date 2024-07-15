@@ -35,7 +35,7 @@ mkvenv() {
         echo 1>&2 "${name} already exists"
         return 1
     fi
-    "${bin}" -m venv "${name}"
+    "${bin}" -m venv --prompt "$(basename "$(pwd)")" "${name}"
     pip="${name}/bin/pip"
     if [ ! -x "${pip}" ]; then
         echo 1>&2 "${pip} not found"
