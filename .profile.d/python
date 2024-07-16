@@ -114,6 +114,13 @@ flvenv() {
         flake8-use-fstring
 }
 
+nbvenv() {
+    _venv_ensure_base_packages || return 1
+    pip install -U \
+        notebook \
+        ipywidgets
+}
+
 pyleaves() {
     pipdeptree -j \
         | jq -r '[.[].package.package_name] - [.[].dependencies[].package_name] | .[]'
