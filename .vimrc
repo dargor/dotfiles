@@ -120,7 +120,7 @@ if &t_Co > 2
         highlight NonText ctermfg=DarkBlue
         highlight SpecialKey ctermfg=DarkRed
         highlight WhiteSpaces ctermbg=Red
-        highlight CodeSmells ctermfg=Black ctermbg=Magenta
+        highlight CodeSmells ctermfg=Black ctermbg=DarkYellow
         if &t_Co >= 256
             if &background ==# 'dark'
                 execute 'highlight ColorColumn ctermbg=' . g:dark_color_column
