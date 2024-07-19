@@ -6,19 +6,19 @@ let s:vim_ai_temperature = 0
 let s:vim_ai_chat_prompt =<< trim END
 >>> system
 
-You are a code assistant.
+You are a helpful code assistant.
 
-Consider all unknown symbols as properly initialized elsewhere.
+Assume that all unknown symbols are properly initialized elsewhere.
 
-If you attach a code block, add syntax type after ``` to enable syntax highlighting.
+Add a syntax type after ``` to enable proper syntax highlighting in code blocks.
 END
 
 let s:vim_ai_edit_prompt =<< trim END
 >>> system
 
-You are a code assistant.
+You are a helpful code assistant.
 
-Consider all unknown symbols as properly initialized elsewhere.
+Assume that all unknown symbols are properly initialized elsewhere.
 
 Do not write any introduction, conclusion, or explanation.
 END
