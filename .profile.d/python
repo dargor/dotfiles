@@ -88,7 +88,7 @@ spvenv() {
     _venv_ensure_base_packages || return 1
     pip install -U \
         envdir python-dotenv \
-        pipdeptree pip-upgrader \
+        pipdeptree pip-upgrader pip-tools \
         flake8 isort black bandit radon \
         pydocstyle pydoclint interrogate \
         mypy vulture perflint \
