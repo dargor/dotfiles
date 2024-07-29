@@ -84,6 +84,9 @@
     missingCommitsCheck = error
     empty = drop
 
+[rerere]
+    enabled = true
+
 [push]
     default = simple
     followTags = true
