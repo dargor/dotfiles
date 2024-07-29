@@ -8,8 +8,16 @@ _venv_ensure_base_packages() {
         echo 1>&2 "Not in a virtual environment"
         return 1
     fi
+    # handle eventual constraints
+    if [ -f "constraints.txt" ]; then
+        constraints="-c constraints.txt"
+    else
+        # shellcheck disable=SC2034
+        constraints=""
+    fi
     for package in pip wheel setuptools packaging build cython; do
-        "${pip}" install -U "${package}"
+        # shellcheck disable=SC2086
+        "${pip}" install -U "${package}" ${=constraints}
     done
 }
 
