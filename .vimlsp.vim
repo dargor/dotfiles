@@ -67,6 +67,15 @@ if executable('lua-language-server')
     \ })
 endif
 
+if executable('protobuf-language-server')
+    " https://github.com/lasorda/protobuf-language-server#installation
+    autocmd User lsp_setup call lsp#register_server(#{
+    \   name: 'Protobuf Language Server',
+    \   cmd: {server_info->[&shell, &shellcmdflag, 'protobuf-language-server -stdio']},
+    \   allowlist: ['proto'],
+    \ })
+endif
+
 if executable('pylsp')
     " https://github.com/python-lsp/python-lsp-server#configuration
     autocmd User lsp_setup call lsp#register_server(#{
