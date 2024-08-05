@@ -71,7 +71,7 @@ if executable('protobuf-language-server')
     " https://github.com/lasorda/protobuf-language-server#installation
     autocmd User lsp_setup call lsp#register_server(#{
     \   name: 'Protobuf Language Server',
-    \   cmd: {server_info->[&shell, &shellcmdflag, 'protobuf-language-server -stdio']},
+    \   cmd: {server_info->[&shell, &shellcmdflag, 'protobuf-language-server -stdio -logs ""']},
     \   allowlist: ['proto'],
     \ })
 endif
