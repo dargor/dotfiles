@@ -35,3 +35,8 @@ if g:dargor_full_moumoute
         endif
     endif
 endif
+
+augroup netrw_close
+    autocmd!
+    autocmd WinEnter * if winnr('$') == 1 && getbufvar(winbufnr(winnr()), "&filetype") == "netrw" | q | endif
+augroup END
