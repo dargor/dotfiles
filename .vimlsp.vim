@@ -95,6 +95,9 @@ if executable('pylsp')
     \         mccabe: #{
     \           enabled: v:false,
     \         },
+    \         pylsp_mypy: #{
+    \           enabled: v:true,
+    \         },
     \         pycodestyle: #{
     \           enabled: v:false,
     \         },
