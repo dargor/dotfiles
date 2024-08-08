@@ -120,7 +120,6 @@ if &t_Co > 2
         highlight NonText ctermfg=DarkBlue
         highlight SpecialKey ctermfg=DarkRed
         highlight WhiteSpaces ctermbg=Red
-        highlight CodeSmells ctermfg=Black ctermbg=DarkYellow
         if &t_Co >= 256
             if &background ==# 'dark'
                 execute 'highlight ColorColumn ctermbg=' . g:dark_color_column
@@ -171,12 +170,6 @@ if &t_Co > 2
                 call SetupHighlights()
             endif
             let w:WhiteSpaces=matchadd('WhiteSpaces', '\(\t\|\s\+$\)')
-        endif
-        if !exists('w:CodeSmells')
-            if !hlexists('CodeSmells')
-                call SetupHighlights()
-            endif
-            let w:CodeSmells=matchadd('CodeSmells', '\<logging\>\|\<unwrap\>\|\<expect\>')
         endif
     endfunction
 
