@@ -177,7 +177,9 @@ if &t_Co > 2
         call InitBuffer()
         if g:dargor_full_moumoute
             setlocal cursorline
-            "setlocal cursorcolumn
+            if &syntax ==# 'yaml'
+                setlocal cursorcolumn
+            endif
         endif
     endfunction
 
