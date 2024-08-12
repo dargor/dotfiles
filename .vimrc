@@ -177,7 +177,7 @@ if &t_Co > 2
         call InitBuffer()
         if g:dargor_full_moumoute
             setlocal cursorline
-            if &syntax ==# 'yaml'
+            if index(['yaml', 'json'], &syntax) >= 0
                 setlocal cursorcolumn
             endif
         endif
