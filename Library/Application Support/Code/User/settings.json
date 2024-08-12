@@ -26,6 +26,7 @@
     "*.avsc": "json"
   },
   "files.exclude": {
+    "**/.*.swp": true,
     "**/__pycache__": true,
   },
   "files.insertFinalNewline": true,
