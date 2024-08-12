@@ -58,6 +58,8 @@
   "terminal.integrated.tabs.focusMode": "singleClick",
   "terminal.integrated.tabs.hideCondition": "singleGroup",
 
+  "window.confirmBeforeClose": "keyboardOnly",
+
   "workbench.colorTheme": "Gruvbox Dark Hard",
   "workbench.fontAliasing": "auto",
   "workbench.startupEditor": "none",
