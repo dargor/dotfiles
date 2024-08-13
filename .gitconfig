@@ -6,10 +6,6 @@
 [help]
     autocorrect = never
 
-[advice]
-    detachedHead = false
-    skippedCherryPicks = false
-
 [color]
     ui = true
 
