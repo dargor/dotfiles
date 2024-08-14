@@ -72,6 +72,8 @@
 
   "jupyter.askForKernelRestart": false,
 
+  "makefile.configureOnOpen": false,
+
   "redhat.telemetry.enabled": true,
 
   "rust-analyzer.rust.analyzerTargetDir": true,
