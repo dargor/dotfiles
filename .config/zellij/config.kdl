@@ -1,2 +1,7 @@
 copy_command "pbcopy"
+
+keybinds {
+    unbind "Ctrl q"
+}
+
 session_serialization false
