@@ -152,10 +152,10 @@ kpods() {
             kubectl ${CTX} get pods
             ;;
         all)
-            watch -n 1 "kubectl ${CTX} get pods"
+            watch -n 1 "kubectl ${CTX} get pods | grep -Ev -- '-(gf|mt)-'"
             ;;
         *)
-            watch -n 1 "kubectl ${CTX} get pods | grep -- $1"
+            watch -n 1 "kubectl ${CTX} get pods | grep -Ev -- '-(gf|mt)-' | grep -- $1"
             ;;
     esac
 }
