@@ -19,7 +19,7 @@ endif
 
 set autoindent
 set backspace=indent,start,eol
-set diffopt=internal,filler,iwhiteall
+set diffopt=filler,iwhiteall
 set display=lastline,uhex
 set errorbells
 set expandtab
