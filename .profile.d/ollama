@@ -17,7 +17,7 @@ unload() {
         echo 1>&2 "Error: this model is not loaded."
         return 1
     fi
-    curl http://127.0.0.1:11434/api/generate -d "$(jo model="$model" keep_alive=0)"
+    curl -s http://127.0.0.1:11434/api/generate -d "$(jo model="$model" keep_alive=0)" | jq
 }
 
 unload_all() {
