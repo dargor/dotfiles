@@ -1,6 +1,6 @@
 let s:vim_ai_endpoint_url = "http://localhost:11434/v1/chat/completions"
 
-let s:vim_ai_model = "mistral-nemo:12b-instruct-2407-q6_K"
+let s:vim_ai_model = "yi-coder:9b-chat-q6_K"
 let s:vim_ai_temperature = 0.3
 
 let s:vim_ai_chat_prompt =<< trim END
