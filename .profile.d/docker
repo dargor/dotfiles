@@ -5,6 +5,17 @@ _docker_log()
     echo "[93m>>> [94m$*[0m"
 }
 
+docker_pull() {
+    if [ -z "$1" ]; then
+        echo 1>&2 "Usage: docker_pull [images]"
+        return 1
+    fi
+    for image in "$@"; do
+        _docker_log "Pulling $image"
+        docker pull --platform linux/amd64 "$image"
+    done
+}
+
 docker_pull_images() {
     for image in $(docker images | grep ^docker.io/ | awk '{print $1 ":" $2}'); do
         image="${image#docker.io/}"
