@@ -78,6 +78,7 @@
 [rebase]
     abbreviateCommands = true
     missingCommitsCheck = error
+    autoSquash = true
     empty = drop
 
 [rerere]
@@ -94,6 +95,10 @@
 [commit]
     gpgsign = true
     verbose = true
+
+[absorb]
+    oneFixupPerCommit = true
+    fixupTargetAlwaysSHA = true
 
 [alias]
     r = remote -v
