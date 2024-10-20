@@ -11,6 +11,7 @@
 
 [delta]
     paging = never
+    navigate = true
     max-line-length = 0
     keep-plus-minus-markers = yes
     line-numbers = no
