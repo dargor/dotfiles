@@ -1,0 +1,4 @@
+[main]
+greetings = False
+enable_pager = False
+warning = False
