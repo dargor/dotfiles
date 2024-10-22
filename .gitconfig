@@ -12,9 +12,10 @@
 [delta]
     paging = never
     navigate = true
+    wrap-max-lines = 0
     max-line-length = 0
     keep-plus-minus-markers = yes
-    line-numbers = no
+    line-numbers = yes
     file-style = 5
     hunk-header-style = 3
     minus-style = 1
