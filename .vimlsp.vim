@@ -53,8 +53,8 @@ if executable('gopls')
     " https://github.com/golang/tools/blob/master/gopls/doc/vim.md#vimlsp
     autocmd User lsp_setup call lsp#register_server(#{
     \   name: 'Go Language Server',
-    \   cmd: {server_info->['gopls']},
-    \   allowlist: ['go'],
+    \   cmd: {server_info->['gopls', '-remote=auto']},
+    \   allowlist: ['go', 'gomod', 'gohtmltmpl', 'gotexttmpl'],
     \ })
 endif
 
