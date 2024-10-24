@@ -153,6 +153,16 @@ if executable('rust-analyzer')
     \ })
 endif
 
+if executable('taplo')
+    " https://taplo.tamasfe.dev/cli/usage/language-server.html
+    autocmd User lsp_setup call lsp#register_server(#{
+    \   name: 'TOML Language Server',
+    \   cmd: {server_info->['taplo', 'lsp', 'stdio']},
+    \   allowlist: ['toml'],
+    \   workspace_config: {},
+    \ })
+endif
+
 if executable('terraform-ls')
     " https://github.com/hashicorp/terraform-ls/blob/main/docs/USAGE.md#vim-lsp
     autocmd User lsp_setup call lsp#register_server(#{
