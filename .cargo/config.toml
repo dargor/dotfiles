@@ -19,9 +19,3 @@ strip = "symbols"
 lto = "thin"
 panic = "abort"
 codegen-units = 1
-
-[target.x86_64-unknown-linux-gnu]
-rustflags = "-C target-cpu=x86-64-v3"
-
-[target.aarch64-apple-darwin]
-rustflags = "-C target-cpu=native"
