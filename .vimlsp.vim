@@ -97,6 +97,7 @@ if executable('pylsp')
     \         },
     \         pylsp_mypy: #{
     \           enabled: v:true,
+    \           follow-imports: 'normal',
     \         },
     \         pycodestyle: #{
     \           enabled: v:false,
