@@ -129,16 +129,32 @@ if &t_Co > 2
                 highlight GitGutterDelete ctermfg=Red
                 highlight GitGutterChangeDelete ctermfg=Magenta
                 highlight Pmenu ctermfg=244 ctermbg=235
+                highlight LspHintText ctermfg=243
+                highlight LspHintVirtualText ctermfg=243
+                highlight LspInformationText ctermfg=243
+                highlight LspInformationVirtualText ctermfg=243
+                highlight LspWarningText ctermfg=Yellow
+                highlight LspWarningVirtualText ctermfg=Yellow
+                highlight LspErrorText ctermfg=Red
+                highlight LspErrorVirtualText ctermfg=Red
                 highlight lspInlayHintsType ctermfg=240
                 highlight lspInlayHintsParameter ctermfg=135
             else
                 execute 'highlight ColorColumn ctermbg=' . g:light_color_column
                 let g:rainbow_conf.ctermfgs = ['darkblue', 'darkyellow', 'darkcyan', 'darkmagenta']
                 highlight GitGutterAdd ctermfg=40
-                highlight GitGutterChange ctermfg=214
+                highlight GitGutterChange ctermfg=208
                 highlight GitGutterDelete ctermfg=Red
                 highlight GitGutterChangeDelete ctermfg=Magenta
                 highlight Pmenu ctermfg=242 ctermbg=255
+                highlight LspHintText ctermfg=243
+                highlight LspHintVirtualText ctermfg=243
+                highlight LspInformationText ctermfg=243
+                highlight LspInformationVirtualText ctermfg=243
+                highlight LspWarningText ctermfg=208
+                highlight LspWarningVirtualText ctermfg=208
+                highlight LspErrorText ctermfg=Red
+                highlight LspErrorVirtualText ctermfg=Red
                 highlight lspInlayHintsType ctermfg=250
                 highlight lspInlayHintsParameter ctermfg=129
             endif
