@@ -14,13 +14,14 @@ let g:lsp_diagnostics_signs_priority = 11
 let g:lsp_diagnostics_virtual_text_align = "after"
 let g:lsp_diagnostics_virtual_text_delay = 200
 let g:lsp_diagnostics_virtual_text_insert_mode_enabled = 1
-let g:lsp_diagnostics_virtual_text_prefix = "⛔ "
+let g:lsp_diagnostics_virtual_text_prefix = "💥 "
+let g:lsp_diagnostics_virtual_text_wrap = "truncate"
 
 let g:lsp_document_code_action_signs_enabled = 0
 let g:lsp_document_highlight_delay = 200
 
-let g:lsp_inlay_hints_enabled = 1
 let g:lsp_inlay_hints_delay = 200
+let g:lsp_inlay_hints_enabled = 1
 
 if executable('bash-language-server')
     " https://github.com/bash-lsp/bash-language-server#vim
@@ -207,7 +208,6 @@ endif
 "endif
 
 function! s:on_lsp_buffer_enabled() abort
-    setlocal nowrap
     setlocal signcolumn=yes
     setlocal omnifunc=lsp#complete
     setlocal tagfunc=lsp#tagfunc
