@@ -1,7 +1,15 @@
 copy_command "pbcopy"
+default_layout "compact"
+default_mode "locked"
+session_serialization false
+theme "ao"
 
 keybinds {
     unbind "Ctrl q"
 }
 
-session_serialization false
+ui {
+    pane_frames {
+        hide_session_name true
+    }
+}
