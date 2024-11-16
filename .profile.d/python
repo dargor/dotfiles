@@ -99,7 +99,7 @@ spvenv() {
         pipdeptree pip-upgrader pip-tools \
         flake8 isort black bandit radon \
         pydocstyle pydoclint interrogate \
-        mypy vulture perflint \
+        mypy vulture perflint ruff \
         ipython ipdb bpython ptpython \
         python-lsp-server pylsp-mypy python-lsp-isort python-lsp-black \
         pretty-errors
