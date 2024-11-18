@@ -1,8 +1,6 @@
 copy_command "pbcopy"
-default_layout "compact"
-default_mode "locked"
 session_serialization false
-theme "ao"
+theme "blade-runner"
 
 keybinds {
     unbind "Ctrl q"
