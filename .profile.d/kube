@@ -137,7 +137,7 @@ ktops() {
     pods=$(kubectl ${CTX} get pods | grep -- "${deployment}" | awk '{print $1}')
     what="watch -n 1 kubectl ${CTX} top pod --containers {}"
     # shellcheck disable=SC2086
-    xpanes -s -l even-vertical -c "${what}" ${=pods}
+    xpanes -s -t -c "${what}" ${=pods}
 }
 
 kpods() {
