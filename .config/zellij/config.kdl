@@ -1,6 +1,5 @@
 copy_command "pbcopy"
 session_serialization false
-theme "blade-runner"
 
 keybinds {
     unbind "Ctrl q"
