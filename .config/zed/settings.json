@@ -7,30 +7,29 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "buffer_font_family": "Monaspace Krypton",
+  "buffer_font_size": 13,
+  "inlay_hints": {
+    "enabled": true
+  },
+  "wrap_guides": [79],
+  "terminal": {
+    "blinking": "off",
+    "copy_on_select": true,
+    "line_height": {
+      "custom": 1.0,
+    },
+  },
+  "theme": {
+    "mode": "dark",
+    "light": "Ayu Light",
+    "dark": "Ayu Dark"
+  },
   "assistant": {
     "default_model": {
       "provider": "ollama",
       "model": "qwen2.5-coder:14b-instruct-q8_0"
     },
     "version": "2"
-  },
-  "buffer_font_family": "Monaspace Krypton",
-  "buffer_font_features": {
-    "calt": false
-  },
-  "buffer_font_size": 12,
-  "inlay_hints": {
-    "enabled": true
-  },
-  "terminal": {
-    "blinking": "off",
-    "copy_on_select": true,
-    "line_height": "standard"
-  },
-  "theme": {
-    "mode": "dark",
-    "light": "One Light",
-    "dark": "One Dark"
-  },
-  "ui_font_size": 16
+  }
 }
