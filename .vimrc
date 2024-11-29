@@ -169,8 +169,7 @@ if &t_Co > 2
         highlight DiffAdded ctermfg=DarkGreen
         highlight DiffRemoved ctermfg=DarkRed
         highlight DiffText ctermfg=Black ctermbg=Magenta
-        if &filetype ==# 'man'
-            " vimmanpager
+        if index(['man', 'aichat'], &filetype) >= 0
             setlocal nonumber
             setlocal colorcolumn=
             setlocal signcolumn=no
