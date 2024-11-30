@@ -17,9 +17,9 @@ config.ssh_domains = {}
 config.swallow_mouse_click_on_pane_focus = true
 config.swallow_mouse_click_on_window_focus = true
 
-config.font = wezterm.font('Terminus (TTF)')
-config.font_size = 12
-config.freetype_load_flags = 'NO_HINTING'
+config.font = wezterm.font('Monaspace Krypton')
+config.font_size = 11
+config.freetype_load_flags = 'FORCE_AUTOHINT'
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 
 config.colors = {
