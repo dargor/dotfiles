@@ -1,0 +1,9 @@
+#! /usr/bin/env bash
+
+vimgrep() {
+    rg -.Sl "$1" | tr '\n' '\0' | xargs -o0 vim -c "/${1//\//\\/}" --
+}
+
+vimfind() {
+    fd -Ht f "$1" | tr '\n' '\0' | xargs -o0 vim --
+}
