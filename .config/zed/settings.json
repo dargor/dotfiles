@@ -8,7 +8,14 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "buffer_font_family": "Monaspace Krypton",
+  "buffer_font_fallbacks": ["ZedMono Nerd Font"],
   "buffer_font_size": 13,
+  "git": {
+    "inline_blame": {
+      "enabled": true,
+      "show_commit_summary": true
+    }
+  },
   "inlay_hints": {
     "enabled": true
   },
@@ -17,13 +24,13 @@
     "blinking": "off",
     "copy_on_select": true,
     "line_height": {
-      "custom": 1.0,
-    },
+      "custom": 1.0
+    }
   },
   "theme": {
     "mode": "dark",
-    "light": "Ayu Light",
-    "dark": "Ayu Dark"
+    "light": "Gruvbox Light",
+    "dark": "Gruvbox Dark"
   },
   "assistant": {
     "default_model": {
