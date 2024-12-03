@@ -19,6 +19,11 @@
   "inlay_hints": {
     "enabled": true
   },
+  "languages": {
+    "Markdown": {
+      "soft_wrap": "editor_width",
+    }
+  },
   "wrap_guides": [79],
   "terminal": {
     "blinking": "off",
