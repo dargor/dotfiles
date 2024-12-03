@@ -8,7 +8,7 @@ export OLLAMA_MAX_LOADED_MODELS=4
 export OLLAMA_NUM_PARALLEL=4
 
 # v0.1.23
-export OLLAMA_KEEP_ALIVE=15m
+export OLLAMA_KEEP_ALIVE=30m
 
 unload() {
     model="${1:-}"

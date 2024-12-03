@@ -95,6 +95,7 @@
       "available_models": [
         {
           "name": "qwen2.5-coder:14b-instruct-q8_0",
+          "keep_alive": "30m",
           "max_tokens": 8192
         }
       ]
