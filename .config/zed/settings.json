@@ -35,6 +35,11 @@
     "Dockerfile": [
       "Dockerfile.*"
     ],
+    "Git Ignore": [
+      ".dockerignore",
+      ".helmignore",
+      ".rgignore"
+    ],
     "Helm": [
       "**/templates/**/*.tpl",
       "**/templates/**/*.yaml",
@@ -42,8 +47,16 @@
       "**/helmfile.d/**/*.yaml",
       "**/helmfile.d/**/*.yml"
     ],
+    "JSON": [
+      "*.avsc"
+    ],
     "Make": [
       "Makefile.*"
+    ],
+    "ini": [
+      ".bandit",
+      ".sentryclirc",
+      "setup.cfg"
     ],
     "tmux": [
       ".tmux.conf"

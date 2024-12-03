@@ -20,7 +20,7 @@
     ".rgignore": "ignore",
     ".bandit": "ini",
     ".sentryclirc": "ini",
-    "*.local": "makefile",
+    "Makefile.*": "makefile",
     ".dockerignore": "ignore",
     ".helmignore": "ignore",
     "*.avsc": "json"
