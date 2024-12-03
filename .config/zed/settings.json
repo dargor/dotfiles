@@ -13,6 +13,42 @@
   "tabs": {
     "file_icons": true
   },
+  "file_types": {
+    "Ansible": [
+      "**.ansible.yml",
+      "**/defaults/**.yml",
+      "**/defaults/**.yaml",
+      "**/meta/**.yml",
+      "**/meta/**.yaml",
+      "**/tasks/**.yml",
+      "**/tasks/*.yml",
+      "**/tasks/*.yaml",
+      "**/handlers/*.yml",
+      "**/handlers/*.yaml",
+      "**/host_vars/**.yml",
+      "**/host_vars/**.yaml",
+      "**/group_vars/**.yml",
+      "**/group_vars/**.yaml",
+      "**playbook*.yaml",
+      "**playbook*.yml"
+    ],
+    "Dockerfile": [
+      "Dockerfile.*"
+    ],
+    "Helm": [
+      "**/templates/**/*.tpl",
+      "**/templates/**/*.yaml",
+      "**/templates/**/*.yml",
+      "**/helmfile.d/**/*.yaml",
+      "**/helmfile.d/**/*.yml"
+    ],
+    "Make": [
+      "Makefile.*"
+    ],
+    "tmux": [
+      ".tmux.conf"
+    ]
+  },
   "inlay_hints": {
     "enabled": true
   },
