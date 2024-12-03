@@ -10,6 +10,9 @@
   "buffer_font_family": "Monaspace Krypton",
   "buffer_font_fallbacks": ["MonaspiceKr Nerd Font"],
   "buffer_font_size": 13,
+  "tabs": {
+    "file_icons": true
+  },
   "git": {
     "inline_blame": {
       "enabled": true,
