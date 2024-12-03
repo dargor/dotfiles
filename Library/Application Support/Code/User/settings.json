@@ -6,7 +6,7 @@
 
   "editor.fontFamily": "Monaspace Krypton",
   "editor.fontLigatures": false,
-  "editor.fontSize": 11,
+  "editor.fontSize": 13,
   "editor.minimap.showSlider": "always",
   "editor.renderLineHighlight": "all",
   "editor.rulers": [79],
@@ -54,7 +54,7 @@
   "terminal.integrated.enableImages": true,
   "terminal.integrated.enableMultiLinePasteWarning": false,
   "terminal.integrated.fontFamily": "Monaspace Krypton",
-  "terminal.integrated.fontSize": 11,
+  "terminal.integrated.fontSize": 13,
   "terminal.integrated.macOptionClickForcesSelection": true,
   "terminal.integrated.sendKeybindingsToShell": true,
   "terminal.integrated.shellIntegration.decorationsEnabled": "never",
@@ -64,7 +64,7 @@
 
   "window.confirmBeforeClose": "keyboardOnly",
 
-  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "workbench.colorTheme": "Gruvbox Dark Medium",
   "workbench.fontAliasing": "auto",
   "workbench.startupEditor": "none",
   "workbench.tree.renderIndentGuides": "always",
