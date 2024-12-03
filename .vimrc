@@ -68,7 +68,7 @@ if g:dargor_full_moumoute
         set background=light
         set mouse=a
     endif
-    if $TERM_PROGRAM ==# 'vscode'
+    if index(['vscode', 'zed'], $TERM_PROGRAM) >= 0
         set background=dark
         set mouse=a
     endif
