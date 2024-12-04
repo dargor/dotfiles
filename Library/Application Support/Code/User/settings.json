@@ -83,6 +83,10 @@
   "todo-tree.general.statusBar": "current file",
   "todo-tree.highlights.useColourScheme": true,
   "todo-tree.tree.expanded": true,
-  "todo-tree.tree.showCountsInTree": true
+  "todo-tree.tree.showCountsInTree": true,
+
+  "vs-kubernetes": {
+    "vs-kubernetes.crd-code-completion": "enabled"
+  }
 
 }
