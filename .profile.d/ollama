@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
 # v0.1.39
-export OLLAMA_FLASH_ATTENTION=true
+export OLLAMA_FLASH_ATTENTION=1
 
 # v0.1.33
 export OLLAMA_MAX_LOADED_MODELS=4
