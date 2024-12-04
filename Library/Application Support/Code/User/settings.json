@@ -69,7 +69,7 @@
 
   // extensions
 
-  "gitlens.currentLine.format": "🌵 ${author, }${agoOrDate}",
+  "gitlens.currentLine.format": "${author}, ${agoOrDate}",
   "gitlens.plusFeatures.enabled": false,
 
   "jupyter.askForKernelRestart": false,
