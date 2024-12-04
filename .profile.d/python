@@ -65,7 +65,14 @@ upvenv() {
     # handle eventual requirements
     if [ -f "requirements.txt" ]; then
         # shellcheck disable=SC2086
-        pip install -U -r requirements.txt ${=constraints}
+        pip install -U ${=constraints} -r requirements.txt
+    fi
+    if [ -f "pyproject.toml" ]; then
+        deps=$(yq -p toml -o json -r '.project.dependencies[]' pyproject.toml)
+        if [ -n "$deps" ]; then
+            # shellcheck disable=SC2086
+            pip install -U ${=constraints} ${=deps}
+        fi
     fi
     # update everything without consideration for broken dependencies
     while read -r p; do
