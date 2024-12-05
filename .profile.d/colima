@@ -1,0 +1,3 @@
+#! /usr/bin/env bash
+
+zstyle ':completion:*:*:*:commands' ignored-patterns '*.lima'
