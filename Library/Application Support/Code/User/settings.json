@@ -51,7 +51,7 @@
   "terminal.integrated.confirmOnKill": "always",
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.enableFileLinks": "notRemote",
-  "terminal.integrated.enableImages": true,
+  "terminal.integrated.enableImages": false,
   "terminal.integrated.enableMultiLinePasteWarning": false,
   "terminal.integrated.fontFamily": "Monaspace Krypton",
   "terminal.integrated.fontSize": 13,
