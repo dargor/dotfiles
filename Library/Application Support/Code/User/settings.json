@@ -80,6 +80,10 @@
 
   "rust-analyzer.rust.analyzerTargetDir": true,
 
+  "todo-tree.filtering.excludeGlobs": [
+    "**/node_modules/*/**",
+    ".venv/"
+  ],
   "todo-tree.general.statusBar": "current file",
   "todo-tree.highlights.useColourScheme": true,
   "todo-tree.tree.expanded": true,
