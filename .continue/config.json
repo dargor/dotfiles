@@ -12,6 +12,9 @@
     "title": "Qwen 2.5 Coder",
     "model": "qwen2.5-coder:1.5b-instruct-q8_0"
   },
+  "tabAutocompleteOptions": {
+    "disable": true
+  },
   "embeddingsProvider": {
     "provider": "ollama",
     "model": "nomic-embed-text"
