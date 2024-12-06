@@ -1,5 +1,8 @@
 #! /usr/bin/env bash
 
+# v0.5.0
+export OLLAMA_KV_CACHE_TYPE=q8_0
+
 # v0.1.39
 export OLLAMA_FLASH_ATTENTION=1
 
