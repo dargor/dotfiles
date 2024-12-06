@@ -220,6 +220,7 @@ def ShowBlameWithVirtualText(message: string)
     endif
     if get(commit_data, 'author', '') ==? 'Not Committed Yet'
         commit_data.author = 'You'
+        commit_data['author-time'] = 'now'
         commit_data.summary = 'Uncommitted changes'
     endif
 

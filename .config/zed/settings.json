@@ -62,6 +62,12 @@
       ".tmux.conf"
     ]
   },
+  "git": {
+    "inline_blame": {
+      "enabled": true,
+      "show_commit_summary": true
+    }
+  },
   "inlay_hints": {
     "enabled": true
   },

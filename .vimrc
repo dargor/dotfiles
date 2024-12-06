@@ -103,7 +103,7 @@ let g:gitgutter_max_signs = -1
 let g:gitgutter_sign_allow_clobber = 1
 
 let g:GIT_LENS_CONFIG = #{
-\   blame_template: '    <author>, <author-time>',
+\   blame_template: '    <author>, <author-time> • <summary>',
 \   blame_highlight: 'Comment',
 \   blame_wrap: v:false,
 \   blame_empty_line: v:false,
