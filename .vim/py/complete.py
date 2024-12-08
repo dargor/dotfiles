@@ -4,20 +4,17 @@ import vim
 plugin_root = vim.eval("s:plugin_root")
 vim.command(f"py3file {plugin_root}/py/utils.py")
 
-config = normalize_config(vim.eval("l:config"))
-engine = config['engine']
+prompt, config = load_config_and_prompt()
+config_options = config['options']
+config_ui = config['ui']
 
-prompt, role_options = parse_prompt_and_role(vim.eval("l:prompt"))
-config_options = {
-    **config['options'],
-    **role_options['options_default'],
-    **role_options['options_complete'],
-}
+engine = config['engine']
 is_selection = vim.eval("l:is_selection")
 
 def complete_engine(prompt):
     openai_options = make_openai_options(config_options)
     http_options = make_http_options(config_options)
+    printDebug("[engine-complete] text:\n" + prompt)
 
     request = {
         'prompt': prompt,
@@ -37,6 +34,7 @@ def chat_engine(prompt):
     initial_prompt = '\n'.join(initial_prompt)
     chat_content = f"{initial_prompt}\n\n>>> user\n\n{prompt}".strip()
     messages = parse_chat_messages(chat_content)
+    printDebug("[engine-chat] text:\n" + chat_content)
     return make_chat_text_chunks(messages, config_options)
 
 engines = {"chat": chat_engine, "complete": complete_engine}

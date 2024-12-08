@@ -4,13 +4,8 @@ import vim
 plugin_root = vim.eval("s:plugin_root")
 vim.command(f"py3file {plugin_root}/py/utils.py")
 
-prompt, role_options = parse_prompt_and_role(vim.eval("l:prompt"))
-config = normalize_config(vim.eval("l:config"))
-config_options = {
-    **config['options'],
-    **role_options['options_default'],
-    **role_options['options_chat'],
-}
+prompt, config = load_config_and_prompt()
+config_options = config['options']
 config_ui = config['ui']
 
 def initialize_chat_window():
@@ -55,6 +50,7 @@ initial_prompt = '\n'.join(options.get('initial_prompt', []))
 initial_messages = parse_chat_messages(initial_prompt)
 
 chat_content = vim.eval('trim(join(getline(1, "$"), "\n"))')
+printDebug("[chat] text:\n" + chat_content)
 chat_messages = parse_chat_messages(chat_content)
 is_selection = vim.eval("l:is_selection")
 
