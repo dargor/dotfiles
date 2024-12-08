@@ -61,7 +61,6 @@ def OnBufferLeave()
     if !g:GIT_LENS_ENABLED || !get(b:, 'git_lens_enabled', false)
         return
     endif
-    b:git_lens_previous_line = 0
     DisableShow()
 enddef
 
@@ -84,13 +83,6 @@ enddef
 
 export def Refresh()
     if !g:GIT_LENS_ENABLED || !get(b:, 'git_lens_enabled', false)
-        return
-    endif
-
-    const current_line = line('.')
-    if get(b:, 'git_lens_previous_line', 0) != current_line
-        b:git_lens_previous_line = current_line
-    else
         return
     endif
 
