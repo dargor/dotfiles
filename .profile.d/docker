@@ -93,6 +93,12 @@ docker_prune()
     docker system prune -f
 }
 
+docker_prune_all()
+{
+    _docker_log "Pruning docker (all)"
+    docker system prune -f -a
+}
+
 docker_summary()
 {
     _docker_log "Summary"
