@@ -31,7 +31,7 @@ export def Initialize()
         autocmd!
         autocmd BufEnter * OnBufferEnter()
         autocmd BufLeave * OnBufferLeave()
-        autocmd TextChanged,TextChangedI <buffer> if expand('%') != '' | silent write | endif
+        autocmd TextChanged,TextChangedI * if &buftype ==# '' && !&readonly && expand('%') != '' | silent write | endif
         autocmd BufWritePost,CursorHold,CursorHoldI * Refresh()
     augroup END
     EnableShow()
