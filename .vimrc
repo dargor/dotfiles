@@ -102,15 +102,6 @@ let g:gitgutter_map_keys = 0
 let g:gitgutter_max_signs = -1
 let g:gitgutter_sign_allow_clobber = 1
 
-let g:GIT_LENS_CONFIG = #{
-\   blame_template: '    <author>, <author-time> • <summary>',
-\   blame_highlight: 'Comment',
-\   blame_wrap: v:false,
-\   blame_empty_line: v:false,
-\   blame_delay: 0,
-\ }
-let g:GIT_LENS_ENABLED = v:true
-
 if &t_Co > 2
 
     syntax on
