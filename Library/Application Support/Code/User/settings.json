@@ -69,6 +69,10 @@
 
   // extensions
 
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+
   "gitlens.currentLine.format": "${author}, ${ago} • ${message}",
   "gitlens.plusFeatures.enabled": false,
 
