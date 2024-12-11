@@ -9,7 +9,7 @@
 {
   "buffer_font_family": "Monaspace Krypton",
   "buffer_font_fallbacks": ["MonaspiceKr Nerd Font"],
-  "buffer_font_size": 13,
+  "buffer_font_size": 11,
   "tabs": {
     "file_icons": true
   },
