@@ -29,7 +29,7 @@
     func = yellow
     old = red
     new = green
-    context = black bold
+    context = normal dim
     whitespace = reverse bold red
 
 [core]
