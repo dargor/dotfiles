@@ -2,14 +2,20 @@
   "models": [
     {
       "provider": "ollama",
-      "title": "Qwen 2.5 Coder",
+      "title": "Qwen 2.5 Coder 14b",
       "model": "qwen2.5-coder:14b-instruct-q8_0",
+      "contextLength": 8192
+    },
+    {
+      "provider": "ollama",
+      "title": "Qwen 2.5 Coder 32b",
+      "model": "qwen2.5-coder:32b-instruct-q8_0",
       "contextLength": 8192
     }
   ],
   "tabAutocompleteModel": {
     "provider": "ollama",
-    "title": "Qwen 2.5 Coder",
+    "title": "Qwen 2.5 Coder 1.5b",
     "model": "qwen2.5-coder:1.5b-instruct-q8_0"
   },
   "tabAutocompleteOptions": {
@@ -19,6 +25,19 @@
     "provider": "ollama",
     "model": "nomic-embed-text"
   },
+  "completionOptions": {
+    // https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct/blob/main/generation_config.json
+    "temperature": 0.7,
+    "topP": 0.8,
+    "topK": 20,
+    "presencePenalty": 0.0,
+    "frequencePenalty": 0.0,
+  },
+  "systemMessage": "You are Qwen, created by Alibaba Cloud. You are a helpful assistant. You will work in tandem with a human engineer on code generation, debugging and optimization.",
+  // TODO reranking model
+  // https://docs.continue.dev/customize/model-providers/ollama#reranking-model
+  // https://github.com/ggerganov/llama.cpp/issues/8555 (done)
+  // https://github.com/ollama/ollama/issues/3368 (ongoing)
   "customCommands": [
     {
       "name": "explain",

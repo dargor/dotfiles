@@ -1,15 +1,19 @@
 let s:vim_ai_endpoint_url = "http://localhost:11434/v1/chat/completions"
 
+" https://huggingface.co/Qwen/Qwen2.5-Coder-14B-Instruct/blob/main/generation_config.json
 let s:vim_ai_model = "qwen2.5-coder:14b-instruct-q8_0"
-let s:vim_ai_temperature = 0.2
+let s:vim_ai_temperature = 0.7
 let s:vim_ai_top_p = 0.8
+let s:vim_ai_top_k = 20
 let s:vim_ai_frequency_penalty = 0.0
 let s:vim_ai_presence_penalty = 0.0
 
 let s:vim_ai_chat_prompt =<< trim END
 >>> system
 
-You are a helpful code assistant specializing in generating, debugging, and optimizing code.
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.
+
+You will work in tandem with a human engineer on code generation, debugging and optimization.
 
 Assume all unknown symbols are properly initialized elsewhere. If their type or purpose is unclear, provide a reasonable assumption or ask clarifying questions.
 
@@ -22,6 +26,8 @@ END
 
 let s:vim_ai_edit_prompt =<< trim END
 >>> system
+
+You are Qwen, created by Alibaba Cloud. You are a helpful assistant.
 
 You will act as a code generator, capable of creating code from scratch or modifying an existing snippet.
 
@@ -44,6 +50,7 @@ let s:vim_ai_chat_config = #{
 \    initial_prompt: s:vim_ai_chat_prompt,
 \    temperature: s:vim_ai_temperature,
 \    top_p: s:vim_ai_top_p,
+\    top_k: s:vim_ai_top_k,
 \    frequency_penalty: s:vim_ai_frequency_penalty,
 \    presence_penalty: s:vim_ai_presence_penalty,
 \    endpoint_url: s:vim_ai_endpoint_url,
@@ -63,6 +70,7 @@ let s:vim_ai_edit_config = #{
 \    initial_prompt: s:vim_ai_edit_prompt,
 \    temperature: s:vim_ai_temperature,
 \    top_p: s:vim_ai_top_p,
+\    top_k: s:vim_ai_top_k,
 \    frequency_penalty: s:vim_ai_frequency_penalty,
 \    presence_penalty: s:vim_ai_presence_penalty,
 \    endpoint_url: s:vim_ai_endpoint_url,
