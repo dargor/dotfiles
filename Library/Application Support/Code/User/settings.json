@@ -73,6 +73,8 @@
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
 
+  "cSpell.allowCompoundWords": true,
+
   "gitlens.currentLine.format": "${author}, ${ago} • ${message}",
   "gitlens.plusFeatures.enabled": false,
 
