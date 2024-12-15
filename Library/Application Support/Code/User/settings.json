@@ -74,6 +74,7 @@
   },
 
   "cSpell.allowCompoundWords": true,
+  "cSpell.language": "en,fr",
 
   "gitlens.currentLine.format": "${author}, ${ago} • ${message}",
   "gitlens.plusFeatures.enabled": false,
