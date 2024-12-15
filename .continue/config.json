@@ -32,7 +32,6 @@
     "topK": 20,
     "presencePenalty": 0.0,
     "frequencePenalty": 0.0,
-    "maxTokens": 256
   },
   "systemMessage": "You are Qwen, created by Alibaba Cloud. You are a helpful assistant. You will work in tandem with a human engineer on code generation, debugging and optimization.",
   // TODO reranking model
