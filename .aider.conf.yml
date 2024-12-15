@@ -1,0 +1,13 @@
+map-tokens: 1024
+
+model: ollama_chat/qwen2.5-coder:14b-instruct-q8_0
+weak-model: ollama_chat/llama3.2:3b-instruct-q6_K
+
+code-theme: gruvbox-dark
+
+gitignore: false
+attribute-author: false
+attribute-committer: false
+
+check-update: false
+show-release-notes: false

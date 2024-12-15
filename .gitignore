@@ -11,6 +11,10 @@ tags
 # Visual Studio Code
 .vscode/
 
+# Aider
+.aider*
+.env
+
 # LibreOffice
 .~lock.*#
 
