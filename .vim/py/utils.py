@@ -44,13 +44,13 @@ def load_api_key(config_token_file_path):
 
     return (api_key, org_id)
 
-def load_config_and_prompt():
+def load_config_and_prompt(command_type):
     prompt, role_options = parse_prompt_and_role(vim.eval("l:prompt"))
     config = vim.eval("l:config")
     config['options'] = {
         **normalize_options(config['options']),
         **normalize_options(role_options['options_default']),
-        **normalize_options(role_options['options_chat']),
+        **normalize_options(role_options['options_' + command_type]),
     }
     return prompt, config
 
@@ -334,17 +334,40 @@ empty_role_options = {
     'options_chat': {},
 }
 
+def parse_roles(prompt):
+    chunks = re.split(r'[ :]+', prompt)
+    roles = []
+    for chunk in chunks:
+        if not chunk.startswith("/"):
+            break
+        roles.append(chunk)
+    return [raw_role[1:] for raw_role in roles]
+
+def merge_role_configs(configs):
+    merged_options = empty_role_options
+    merged_role = {}
+    for config in configs:
+        options = config['options']
+        merged_options = {
+            'options_default': { **merged_options['options_default'], **options['options_default'] },
+            'options_complete': { **merged_options['options_complete'], **options['options_complete'] },
+            'options_chat': { **merged_options['options_chat'], **options['options_chat'] },
+        }
+        merged_role ={ **merged_role, **config['role'] }
+    return { 'role': merged_role, 'options': merged_options }
+
 def parse_prompt_and_role(raw_prompt):
     prompt = raw_prompt.strip()
-    role = re.split(' |:', prompt)[0]
-    if not role.startswith('/'):
+    roles = parse_roles(prompt)
+    if not roles:
         # does not require role
         return (prompt, empty_role_options)
 
-    prompt = prompt[len(role):].strip()
-    role = role[1:]
+    last_role = roles[-1]
+    prompt = prompt[prompt.index(last_role) + len(last_role):].strip()
 
-    config = load_role_config(role)
+    role_configs = [load_role_config(role) for role in roles]
+    config = merge_role_configs(role_configs)
     if 'prompt' in config['role'] and config['role']['prompt']:
         delim = '' if prompt.startswith(':') else ':\n'
         prompt = config['role']['prompt'] + delim + prompt
@@ -362,13 +385,22 @@ def make_chat_text_chunks(messages, config_options):
     url = config_options['endpoint_url']
     response = openai_request(url, request, http_options)
 
+    def _choices(resp):
+        choices = resp.get('choices', [{}])
+
+        # NOTE choices may exist in the response, but be an empty list.
+        if not choices:
+            return [{}]
+
+        return choices
+
     def map_chunk_no_stream(resp):
         printDebug("[engine-chat] response: {}", resp)
-        return resp['choices'][0]['message'].get('content', '')
+        return _choices(resp)[0].get('message', {}).get('content', '')
 
     def map_chunk_stream(resp):
         printDebug("[engine-chat] response: {}", resp)
-        return resp['choices'][0]['delta'].get('content', '')
+        return _choices(resp)[0].get('delta', {}).get('content', '')
 
     map_chunk = map_chunk_stream if openai_options['stream'] else map_chunk_no_stream
 
