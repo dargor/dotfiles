@@ -76,7 +76,7 @@
   "cSpell.allowCompoundWords": true,
   "cSpell.language": "en,fr",
 
-  "continue.enableTabAutocomplete": false,
+  "continue.enableTabAutocomplete": true,
 
   "gitlens.currentLine.format": "${author}, ${ago} • ${message}",
   "gitlens.plusFeatures.enabled": false,
