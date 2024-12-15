@@ -1,0 +1,22 @@
+blocks:
+  - permission
+  - user
+  - group
+  - size
+  - date
+  - git
+  - name
+
+color:
+  when: auto
+
+date: relative
+
+icons:
+  when: never
+
+ignore-globs: []
+
+literal: true
+
+size: short
