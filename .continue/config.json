@@ -2,6 +2,18 @@
   "models": [
     {
       "provider": "ollama",
+      "title": "Qwen 2.5 Coder 1.5b",
+      "model": "qwen2.5-coder:1.5b-instruct-q8_0",
+      "contextLength": 8192
+    },
+    {
+      "provider": "ollama",
+      "title": "Qwen 2.5 Coder 7b",
+      "model": "qwen2.5-coder:7b-instruct-q8_0",
+      "contextLength": 8192
+    },
+    {
+      "provider": "ollama",
       "title": "Qwen 2.5 Coder 14b",
       "model": "qwen2.5-coder:14b-instruct-q8_0",
       "contextLength": 8192
