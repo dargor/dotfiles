@@ -56,6 +56,7 @@ let s:vim_ai_chat_config = #{
 \    endpoint_url: s:vim_ai_endpoint_url,
 \    enable_auth: 0,
 \    max_tokens: 0,
+\    max_completion_tokens: 0,
 \    request_timeout: 60,
 \  },
 \  ui: #{
@@ -76,6 +77,7 @@ let s:vim_ai_edit_config = #{
 \    endpoint_url: s:vim_ai_endpoint_url,
 \    enable_auth: 0,
 \    max_tokens: 0,
+\    max_completion_tokens: 0,
 \    request_timeout: 60,
 \  },
 \  ui: #{
