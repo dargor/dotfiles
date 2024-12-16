@@ -74,6 +74,14 @@
   },
 
   "cSpell.allowCompoundWords": true,
+  "cSpell.customDictionaries": {
+    "localWords": {
+      "name": "localWords",
+      "path": "~/.cSpell.localWords.txt",
+      "scope": "user",
+      "addWords": true
+    }
+  },
   "cSpell.language": "en,fr",
 
   "continue.enableTabAutocomplete": true,
