@@ -59,6 +59,7 @@
   "terminal.integrated.fontLigatures": false,
   "terminal.integrated.fontSize": 11,
   "terminal.integrated.macOptionClickForcesSelection": true,
+  "terminal.integrated.macOptionIsMeta": true,
   "terminal.integrated.persistentSessionReviveProcess": "never",
   "terminal.integrated.rightClickBehavior": "default",
   "terminal.integrated.sendKeybindingsToShell": true,
