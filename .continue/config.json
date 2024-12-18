@@ -35,7 +35,7 @@
   },
   "embeddingsProvider": {
     "provider": "ollama",
-    "model": "nomic-embed-text"
+    "model": "nomic-embed-text:v1.5"
   },
   "completionOptions": {
     // https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct/blob/main/generation_config.json
