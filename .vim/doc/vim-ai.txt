@@ -150,15 +150,23 @@ Globbing is expanded out via `glob.gob` and relative paths to the current
 working directory (as determined by `getcwd()`) will be resolved to absolute
 paths.
 
-                                                *:AINewChat*
-
-:AINewChat {preset shortname}?      spawn a new conversation with a given open
-                                    chat preset - below, tab or right.
-
                                                 *:AIRedo*
 
 :AIRedo                             repeat last AI command in order to re-try
                                     or get an alternative completion.
+
+                                                *:AIUtilOpenRoles*
+
+:AIUtilOpenRoles                    open role configuration file
+
+                                                *:AIUtilDebugOn*
+
+:AIUtilDebugOn                      turn on debug logging
+
+                                                *:AIUtilDebugOff*
+
+:AIUtilDebugOff                     turn off debug logging
+
 
 CONFIGURATION                                   *vim-ai-config*
 
@@ -172,10 +180,11 @@ a selection of options: >
   \  },
   \}
 
-Or modify options directly during the vim session: >
+Alternatively you can use special `default` role: >
 
-  let g:vim_ai_chat['options']['model'] = 'gpt-4'
-  let g:vim_ai_chat['options']['temperature'] = 0.2
+  [default]
+  options.model=gpt-4
+  options.temperature=0.2
 
 You can also customize the options in the chat header: >
 
