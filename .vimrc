@@ -306,6 +306,7 @@ filetype plugin indent on
 autocmd FileType rust setlocal matchpairs+=<:> | syntax keyword Keyword async await
 autocmd FileType ruby,eruby,xml,yaml,json,markdown setlocal shiftwidth=2 softtabstop=2
 autocmd FileType make setlocal noexpandtab shiftwidth=8
+autocmd FileType markdown setlocal formatoptions-=tc
 autocmd FileType gitcommit setlocal nowrap
 if g:dargor_full_moumoute
     autocmd FileType cmake RainbowToggleOff
