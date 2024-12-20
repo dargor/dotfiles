@@ -1,15 +1,5 @@
-architect: true
 map-tokens: 1024
-
-# model to use for the main chat
-model: ollama_chat/qwen2.5-coder:7b-instruct-q8_0
-
-# model to use for commit messages and chat history summarization
-weak-model: ollama_chat/llama3.2:3b-instruct-q6_K
-
-# model to use for editor tasks
-editor-model: ollama_chat/qwen2.5-coder:14b-instruct-q8_0
-editor-edit-format: editor-whole
+model: ollama_chat/qwen2.5-coder:14b-instruct-q8_0
 
 code-theme: gruvbox-dark
 
