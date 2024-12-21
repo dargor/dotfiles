@@ -1,5 +1,10 @@
+architect: true
 map-tokens: 1024
-model: ollama_chat/qwen2.5-coder:14b-instruct-q8_0
+
+model: openai/qwen-2.5-coder
+editor-edit-format: editor-diff
+openai-api-base: http://localhost:8080/v1/
+openai-api-key: lol
 
 code-theme: gruvbox-dark
 
