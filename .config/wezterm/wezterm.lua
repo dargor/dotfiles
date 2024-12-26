@@ -25,36 +25,7 @@ config.font_size = 11
 config.freetype_load_flags = 'FORCE_AUTOHINT'
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 
-config.colors = {
-    background = '#000000',
-    foreground = '#A8A8A8',
-    cursor_bg = '#A8A8A8',
-    cursor_fg = '#000000',
-    selection_bg = '#A8A8A8',
-    selection_fg = '#000000',
-    ansi = {
-        '#000000',
-        '#B21818',
-        '#18B218',
-        '#BE5F00',
-        '#6D85BA',
-        '#B218B2',
-        '#18B2B2',
-        '#B2B2B2',
-    },
-    brights = {
-        '#686868',
-        '#FF5454',
-        '#54FF54',
-        '#FFFF54',
-        '#73A5FF',
-        '#FF54FF',
-        '#54FFFF',
-        '#FFFFFF',
-    },
-    compose_cursor = 'orange',
-    cursor_border = '#A8A8A8',
-}
+config.color_scheme = 'Gruvbox dark, hard (base16)'
 
 config.keys = {
     {
