@@ -14,3 +14,5 @@ attribute-committer: false
 
 check-update: false
 show-release-notes: false
+
+suggest-shell-commands: false
