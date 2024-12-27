@@ -2,7 +2,10 @@ architect: true
 map-tokens: 1024
 
 model: openai/qwen-2.5-coder
+weak-model: openai/qwen-2.5-coder
+editor-model: openai/qwen-2.5-coder
 editor-edit-format: editor-diff
+
 openai-api-base: http://localhost:8080/v1/
 openai-api-key: lol
 
