@@ -158,7 +158,7 @@ if &t_Co > 2
                 highlight lspInlayHintsType ctermfg=250
                 highlight lspInlayHintsParameter ctermfg=129
             endif
-            highlight lspReference ctermfg=Magenta ctermbg=Yellow
+            highlight lspReference ctermfg=201 ctermbg=226
             highlight FoldColumn ctermfg=243
             highlight Folded ctermfg=243
         endif
