@@ -16,6 +16,8 @@ setopt MENU_COMPLETE
 setopt PROMPT_SUBST
 setopt SHARE_HISTORY
 
+zstyle ':completion:*' rehash true
+
 for f in ~/.profile.d/*; do
     source "$f"
 done
