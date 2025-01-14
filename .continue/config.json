@@ -28,7 +28,7 @@
   "tabAutocompleteModel": {
     "provider": "ollama",
     "title": "Qwen 2.5 Coder 1.5b",
-    "model": "qwen2.5-coder:1.5b-instruct-q8_0"
+    "model": "qwen2.5-coder:1.5b-base-q8_0"
   },
   "tabAutocompleteOptions": {
     "multilineCompletions": "never"
