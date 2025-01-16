@@ -1,4 +1,4 @@
-openai-api-base: http://localhost:8080/v1/
+openai-api-base: http://localhost:1337/v1/
 openai-api-key: lol
 
 model: openai/qwen-2.5-coder
@@ -11,5 +11,3 @@ attribute-committer: false
 
 check-update: false
 show-release-notes: false
-
-suggest-shell-commands: false
