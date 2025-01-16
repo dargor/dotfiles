@@ -1,7 +1,7 @@
-let s:vim_ai_endpoint_url = "http://localhost:11434/v1/chat/completions"
+let s:vim_ai_endpoint_url = "http://localhost:1337/v1/chat/completions"
 
 " https://huggingface.co/Qwen/Qwen2.5-Coder-14B-Instruct/blob/main/generation_config.json
-let s:vim_ai_model = "qwen2.5-coder:14b-instruct-q8_0"
+let s:vim_ai_model = "qwen2.5-coder"
 let s:vim_ai_temperature = 0.7
 let s:vim_ai_top_p = 0.8
 let s:vim_ai_top_k = 20
