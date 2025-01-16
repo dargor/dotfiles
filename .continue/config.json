@@ -1,41 +1,30 @@
 {
   "models": [
     {
-      "provider": "ollama",
-      "title": "Qwen 2.5 Coder 1.5b",
-      "model": "qwen2.5-coder:1.5b-instruct-q8_0",
-      "contextLength": 8192
-    },
-    {
-      "provider": "ollama",
-      "title": "Qwen 2.5 Coder 7b",
-      "model": "qwen2.5-coder:7b-instruct-q8_0",
-      "contextLength": 8192
-    },
-    {
-      "provider": "ollama",
-      "title": "Qwen 2.5 Coder 14b",
-      "model": "qwen2.5-coder:14b-instruct-q8_0",
-      "contextLength": 8192
-    },
-    {
-      "provider": "ollama",
-      "title": "Qwen 2.5 Coder 32b",
-      "model": "qwen2.5-coder:32b-instruct-q8_0",
+      "provider": "openai",
+      "apiBase": "http://localhost:1337/v1",
+      "apiKey": "lol",
+      "title": "Qwen 2.5 Coder",
+      "model": "qwen2.5-coder",
       "contextLength": 8192
     }
   ],
   "tabAutocompleteModel": {
-    "provider": "ollama",
-    "title": "Qwen 2.5 Coder 1.5b",
-    "model": "qwen2.5-coder:1.5b-base-q8_0"
+    "provider": "openai",
+    "apiBase": "http://localhost:1336/v1",
+    "apiKey": "lol",
+    "title": "Qwen 2.5 Coder",
+    "model": "qwen2.5-coder",
+    "contextLength": 8192
   },
   "tabAutocompleteOptions": {
     "multilineCompletions": "never"
   },
   "embeddingsProvider": {
-    "provider": "ollama",
-    "model": "nomic-embed-text:v1.5"
+    "provider": "huggingface-tei",
+    "model": "BAAI/bge-m3",
+    "apiBase": "http://127.0.0.1:1338",
+    "apiKey": "lol"
   },
   "completionOptions": {
     // https://huggingface.co/Qwen/Qwen2.5-Coder-32B-Instruct/blob/main/generation_config.json
@@ -46,11 +35,14 @@
     "frequencePenalty": 0.0,
   },
   "systemMessage": "You are Qwen, created by Alibaba Cloud. You are a helpful assistant. You will work in tandem with a human engineer on code generation, debugging and optimization.",
-  // TODO reranking model
-  // https://docs.continue.dev/customize/model-providers/ollama#reranking-model
-  // https://github.com/ggerganov/llama.cpp/issues/8555 (done)
-  // https://github.com/ollama/ollama/issues/3368 (ongoing)
-  // https://github.com/continuedev/continue/issues/2487 (ongoing)
+  "reranker": {
+    "name": "huggingface-tei",
+    "params": {
+      "model": "BAAI/bge-reranker-v2-m3",
+      "apiBase": "http://127.0.0.1:1339",
+      "apiKey": "lol"
+    }
+  },
   "customCommands": [
     {
       "name": "explain",
