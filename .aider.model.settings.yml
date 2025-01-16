@@ -1,0 +1,5 @@
+- name: openai/qwen-2.5-coder
+  weak_model_name: openai/qwen-2.5-coder
+  editor_model_name: openai/qwen-2.5-coder
+  editor_edit_format: editor-diff
+  use_repo_map: true
