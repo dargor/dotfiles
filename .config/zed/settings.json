@@ -96,35 +96,18 @@
   "assistant": {
     "version": "2",
     "default_model": {
-      "provider": "ollama",
-      "model": "qwen2.5-coder:14b-instruct-q8_0"
+      "provider": "openai",
+      "model": "qwen2.5-coder"
     }
   },
   "language_models": {
-    "ollama": {
+    "openai": {
+      "version": "1",
+      "api_url": "http://localhost:1337/v1",
       "available_models": [
         {
-          "name": "qwen2.5-coder:1.5b-instruct-q8_0",
-          "display_name": "Qwen 2.5 Coder 1.5b",
-          "keep_alive": "30m",
-          "max_tokens": 8192
-        },
-        {
-          "name": "qwen2.5-coder:7b-instruct-q8_0",
-          "display_name": "Qwen 2.5 Coder 7b",
-          "keep_alive": "30m",
-          "max_tokens": 8192
-        },
-        {
-          "name": "qwen2.5-coder:14b-instruct-q8_0",
-          "display_name": "Qwen 2.5 Coder 14b",
-          "keep_alive": "30m",
-          "max_tokens": 8192
-        },
-        {
-          "name": "qwen2.5-coder:32b-instruct-q8_0",
-          "display_name": "Qwen 2.5 Coder 32b",
-          "keep_alive": "30m",
+          "name": "qwen2.5-coder",
+          "display_name": "Qwen 2.5 Coder",
           "max_tokens": 8192
         }
       ]
