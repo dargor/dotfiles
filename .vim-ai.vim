@@ -1,12 +1,6 @@
 let s:vim_ai_endpoint_url = "http://localhost:1337/v1/chat/completions"
 
-" https://huggingface.co/Qwen/Qwen2.5-Coder-14B-Instruct/blob/main/generation_config.json
 let s:vim_ai_model = "qwen2.5-coder"
-let s:vim_ai_temperature = 0.7
-let s:vim_ai_top_p = 0.8
-let s:vim_ai_top_k = 20
-let s:vim_ai_frequency_penalty = 0.0
-let s:vim_ai_presence_penalty = 0.0
 
 let s:vim_ai_chat_prompt =<< trim END
 >>> system
@@ -48,11 +42,6 @@ let s:vim_ai_chat_config = #{
 \  options: #{
 \    model: s:vim_ai_model,
 \    initial_prompt: s:vim_ai_chat_prompt,
-\    temperature: s:vim_ai_temperature,
-\    top_p: s:vim_ai_top_p,
-\    top_k: s:vim_ai_top_k,
-\    frequency_penalty: s:vim_ai_frequency_penalty,
-\    presence_penalty: s:vim_ai_presence_penalty,
 \    endpoint_url: s:vim_ai_endpoint_url,
 \    enable_auth: 0,
 \    max_tokens: 0,
@@ -69,11 +58,6 @@ let s:vim_ai_edit_config = #{
 \  options: #{
 \    model: s:vim_ai_model,
 \    initial_prompt: s:vim_ai_edit_prompt,
-\    temperature: s:vim_ai_temperature,
-\    top_p: s:vim_ai_top_p,
-\    top_k: s:vim_ai_top_k,
-\    frequency_penalty: s:vim_ai_frequency_penalty,
-\    presence_penalty: s:vim_ai_presence_penalty,
 \    endpoint_url: s:vim_ai_endpoint_url,
 \    enable_auth: 0,
 \    max_tokens: 0,
