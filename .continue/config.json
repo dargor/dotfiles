@@ -22,7 +22,6 @@
   },
   "embeddingsProvider": {
     "provider": "huggingface-tei",
-    "model": "BAAI/bge-m3",
     "apiBase": "http://127.0.0.1:1338",
     "apiKey": "lol"
   },
@@ -38,7 +37,6 @@
   "reranker": {
     "name": "huggingface-tei",
     "params": {
-      "model": "BAAI/bge-reranker-v2-m3",
       "apiBase": "http://127.0.0.1:1339",
       "apiKey": "lol"
     }
