@@ -1,0 +1,7 @@
+{
+    "workbench.editorAssociations": {
+        "*.{sqlplan}": "workbench.editor.executionplan"
+    },
+    "workbench.colorTheme": "Default Light Modern",
+    "workbench.startupEditor": "none"
+}
