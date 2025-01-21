@@ -1,7 +1,19 @@
 {
+    "editor.renderLineHighlight": "all",
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.sendKeybindingsToShell": true,
+    "terminal.integrated.shellIntegration.decorationsEnabled": "never",
+    "terminal.integrated.tabs.focusMode": "singleClick",
+    "terminal.integrated.tabs.hideCondition": "singleGroup",
     "workbench.editorAssociations": {
         "*.{sqlplan}": "workbench.editor.executionplan"
     },
-    "workbench.colorTheme": "Default Light Modern",
-    "workbench.startupEditor": "none"
+    "workbench.colorTheme": "Monokai",
+    "workbench.startupEditor": "none",
+    "datasource.connectionGroups": [
+        {}
+    ],
+    "datasource.connections": [
+        {}
+    ]
 }
