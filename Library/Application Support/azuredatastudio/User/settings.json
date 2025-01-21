@@ -10,10 +10,6 @@
     },
     "workbench.colorTheme": "Monokai",
     "workbench.startupEditor": "none",
-    "datasource.connectionGroups": [
-        {}
-    ],
-    "datasource.connections": [
-        {}
-    ]
+    "datasource.connectionGroups": [],
+    "datasource.connections": []
 }
