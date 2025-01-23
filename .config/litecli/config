@@ -2,6 +2,7 @@
 destructive_warning = False
 enable_pager = True
 less_chatty = True
+log_level = NONE
 multi_line = True
 pager = pspg
 syntax_style = fruity
