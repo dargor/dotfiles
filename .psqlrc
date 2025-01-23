@@ -11,6 +11,9 @@
 \set HISTCONTROL ignoredups
 \set VERBOSITY verbose
 
+-- :desc 'table';
+\set desc 'select column_name, data_type, is_nullable, column_default, is_generated, generation_expression from information_schema.columns where table_name = '
+
 \timing on
 
 \unset QUIET
