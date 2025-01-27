@@ -7,7 +7,7 @@
   "editor.fontFamily": "Monaspace Krypton",
   "editor.fontLigatures": false,
   "editor.fontSize": 11,
-  "editor.minimap.showSlider": "always",
+  "editor.minimap.enabled": false,
   "editor.renderLineHighlight": "all",
   "editor.rulers": [79],
   "editor.unicodeHighlight.allowedCharacters": {
