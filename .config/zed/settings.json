@@ -14,6 +14,15 @@
     "file_icons": true,
     "git_status": true
   },
+  "lsp": {
+    "rust-analyzer": {
+      "initialization_options": {
+        "check": {
+          "command": "clippy"
+        }
+      }
+    }
+  },
   "file_types": {
     "Ansible": [
       "**.ansible.yml",
