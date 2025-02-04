@@ -10,6 +10,7 @@
   "buffer_font_family": "Monaspace Krypton",
   "buffer_font_fallbacks": ["MonaspiceKr Nerd Font"],
   "buffer_font_size": 11,
+  "buffer_line_height": "standard",
   "tabs": {
     "file_icons": true,
     "git_status": true
@@ -91,7 +92,7 @@
     "blinking": "off",
     "copy_on_select": true,
     "line_height": {
-      "custom": 1.0
+      "custom": 1.1
     },
     "toolbar": {
       "breadcrumbs": false
