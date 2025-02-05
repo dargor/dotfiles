@@ -11,7 +11,8 @@
   "editor.renderLineHighlight": "all",
   "editor.rulers": [79],
   "editor.unicodeHighlight.allowedCharacters": {
-    "α": true
+    "α": true,
+    "σ": true
   },
 
   "extensions.ignoreRecommendations": true,
