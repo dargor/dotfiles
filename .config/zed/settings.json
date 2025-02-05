@@ -1,4 +1,5 @@
 {
+  "restore_on_startup": "none",
   "buffer_font_family": "Monaspace Krypton",
   "buffer_font_fallbacks": [
     "MonaspiceKr Nerd Font"
