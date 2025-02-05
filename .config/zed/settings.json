@@ -92,7 +92,6 @@
       "language_servers": [
         "ruff"
       ],
-      "format_on_save": "on",
       "formatter": [
         {
           "code_actions": {
