@@ -94,6 +94,9 @@
     "line_height": {
       "custom": 1.1
     },
+    "scrollbar": {
+      "show": "never"
+    },
     "toolbar": {
       "breadcrumbs": false
     }
