@@ -13,6 +13,10 @@
     "file_icons": true,
     "git_status": true
   },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false
+  },
   "lsp": {
     "rust-analyzer": {
       "initialization_options": {
