@@ -2,6 +2,8 @@
 
   // https://code.visualstudio.com/docs/getstarted/settings
 
+  "breadcrumbs.enabled": false,
+
   "diffEditor.codeLens": true,
 
   "editor.fontFamily": "Monaspace Krypton",
