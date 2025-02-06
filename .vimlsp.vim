@@ -90,7 +90,7 @@ if executable('pylsp')
     \           enabled: v:false,
     \         },
     \         black: #{
-    \           enabled: v:false,
+    \           enabled: v:true,
     \         },
     \         flake8: #{
     \           enabled: v:true,
