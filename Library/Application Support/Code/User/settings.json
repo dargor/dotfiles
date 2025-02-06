@@ -1,25 +1,20 @@
 {
-
-  // https://code.visualstudio.com/docs/getstarted/settings
-
   "breadcrumbs.enabled": false,
-
   "diffEditor.codeLens": true,
-
   "editor.fontFamily": "Monaspace Krypton",
   "editor.fontLigatures": false,
   "editor.fontSize": 11,
   "editor.lineHeight": 1.3,
   "editor.minimap.enabled": false,
   "editor.renderLineHighlight": "all",
-  "editor.rulers": [79],
+  "editor.rulers": [
+    79
+  ],
   "editor.unicodeHighlight.allowedCharacters": {
     "α": true,
     "σ": true
   },
-
   "extensions.ignoreRecommendations": true,
-
   "files.associations": {
     ".rgignore": "ignore",
     ".bandit": "ini",
@@ -31,7 +26,7 @@
   },
   "files.exclude": {
     "**/.*.swp": true,
-    "**/__pycache__": true,
+    "**/__pycache__": true
   },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
@@ -41,17 +36,13 @@
     "**/.metals": true,
     "**/.ammonite": true
   },
-
   "git.countBadge": "tracked",
   "git.defaultBranchName": "master",
   "git.enableStatusBarSync": false,
   "git.openRepositoryInParentFolders": "always",
-
   "notebook.lineNumbers": "on",
-
   "security.workspace.trust.banner": "always",
   "security.workspace.trust.startupPrompt": "always",
-
   "terminal.integrated.confirmOnKill": "always",
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.enableFileLinks": "notRemote",
@@ -72,35 +63,24 @@
   "terminal.integrated.suggest.enabled": false,
   "terminal.integrated.tabs.focusMode": "singleClick",
   "terminal.integrated.tabs.hideCondition": "singleGroup",
-
   "workbench.colorTheme": "Gruvbox Dark Medium",
   "workbench.fontAliasing": "auto",
   "workbench.startupEditor": "none",
   "workbench.tree.renderIndentGuides": "always",
-
-  // extensions
-
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
-
   "continue.enableTabAutocomplete": true,
-
   "gitlens.currentLine.format": "${author}, ${ago} • ${message}",
   "gitlens.plusFeatures.enabled": false,
   "workbench.colorCustomizations": {
     "gitlens.trailingLineBackgroundColor": "#00000000",
-    "gitlens.trailingLineForegroundColor": "#888888FF",
+    "gitlens.trailingLineForegroundColor": "#888888FF"
   },
-
   "jupyter.askForKernelRestart": false,
-
   "makefile.configureOnOpen": false,
-
   "redhat.telemetry.enabled": true,
-
   "rust-analyzer.rust.analyzerTargetDir": true,
-
   "todo-tree.filtering.excludeGlobs": [
     "**/node_modules/*/**",
     ".venv/"
@@ -109,9 +89,7 @@
   "todo-tree.highlights.useColourScheme": true,
   "todo-tree.tree.expanded": true,
   "todo-tree.tree.showCountsInTree": true,
-
   "vs-kubernetes": {
     "vs-kubernetes.crd-code-completion": "enabled"
   }
-
 }
