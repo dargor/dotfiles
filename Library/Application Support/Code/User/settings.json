@@ -85,6 +85,10 @@
 
   "gitlens.currentLine.format": "${author}, ${ago} • ${message}",
   "gitlens.plusFeatures.enabled": false,
+  "workbench.colorCustomizations": {
+    "gitlens.trailingLineBackgroundColor": "#00000000",
+    "gitlens.trailingLineForegroundColor": "#888888FF",
+  },
 
   "jupyter.askForKernelRestart": false,
 
