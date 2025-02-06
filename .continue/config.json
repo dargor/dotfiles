@@ -28,6 +28,7 @@
       "apiBase": "http://localhost:1339"
     }
   },
+  "systemMessage": "You are Qwen, created by Alibaba Cloud. You are a helpful assistant. You will work in tandem with a human engineer on code generation, debugging and optimization.",
   "customCommands": [
     {
       "name": "explain",
