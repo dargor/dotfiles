@@ -288,6 +288,9 @@ nnoremap WF :call WFlake()<CR>
 nnoremap WS :call WShell()<CR>
 nnoremap WY :call WYaml()<CR>
 
+nnoremap fj :%!jq .<CR>
+nnoremap fJ :%!jq -S .<CR>
+
 nnoremap <F4> :Lexplore<CR>
 nnoremap <F5> :syntax sync fromstart<CR>
 nnoremap <F6> :set invpaste paste?<CR>
