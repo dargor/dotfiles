@@ -22,7 +22,6 @@
     "provider": "huggingface-tei",
     "apiBase": "http://localhost:1338"
   },
-  "systemMessage": "You are Qwen, created by Alibaba Cloud. You are a helpful assistant. You will work in tandem with a human engineer on code generation, debugging and optimization.",
   "reranker": {
     "name": "huggingface-tei",
     "params": {
