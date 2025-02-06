@@ -197,6 +197,20 @@ if executable('vim-language-server')
     \ })
 endif
 
+"if executable('vue-language-server')
+"    " https://github.com/vuejs/language-tools#community-integration
+"    autocmd User lsp_setup call lsp#register_server(#{
+"    \   name: 'Vue Language Server',
+"    \   cmd: {server_info->[&shell, &shellcmdflag, 'vue-language-server --stdio']},
+"    \   allowlist: ['vue'],
+"    \   initialization_options: #{
+"    \     typescript: #{
+"    \       tsdk: 'node_modules/typescript/lib',
+"    \     },
+"    \   },
+"    \ })
+"endif
+
 "if executable('yaml-language-server')
 "    " https://github.com/redhat-developer/yaml-language-server#connecting-to-the-language-server-via-stdio
 "    autocmd User lsp_setup call lsp#register_server(#{
