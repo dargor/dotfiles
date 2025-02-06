@@ -68,8 +68,16 @@
   "workbench.startupEditor": "none",
   "workbench.tree.renderIndentGuides": "always",
   "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter"
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
   },
+  "isort.args": [
+    "--profile",
+    "black"
+  ],
   "continue.enableTabAutocomplete": true,
   "gitlens.currentLine.format": "${author}, ${ago} • ${message}",
   "gitlens.plusFeatures.enabled": false,
