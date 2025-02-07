@@ -6,6 +6,16 @@ bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
 bindkey "^[[3~" delete-char
 
+gitci() {
+    local ci
+    ci=$(git rev-parse --short HEAD 2>/dev/null)
+    if [ -n "$ci" ]; then
+        if [[ $ci =~ ^[0-9]+$ ]]; then
+            echo "💣 %F{red}%B$ci%b%f "
+        fi
+    fi
+}
+
 gitbr() {
     local br
     br=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
@@ -27,7 +37,7 @@ awsp() {
 }
 
 export PROMPT="%F{8}%(1j.[%j] .)%F{cyan}%D{%Y-%m-%d} %D{%H:%M:%S}%f %F{blue}%1~%f %B%(?.%F{green}✓.%F{red}✗)%f%b "
-export RPROMPT="\$(gitbr)\$(awsp)"
+export RPROMPT="\$(gitci)\$(gitbr)\$(awsp)"
 
 if [ -f /opt/homebrew/bin/mcfly ]; then
     eval "$(/opt/homebrew/bin/mcfly init zsh)"
