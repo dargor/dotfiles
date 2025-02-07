@@ -119,6 +119,7 @@
     oops = commit --amend
     forget = reset --hard HEAD~1
     fuck = reset --hard ORIG_HEAD
+    bordel = commit --allow-empty -m 'Trigger CI/CD.'
     pfetch = fetch origin --prune --prune-tags --force
     ptags = push --tags
     sdiff = stash show -p
