@@ -5,8 +5,7 @@
       "provider": "openai",
       "model": "qwen2.5-coder",
       "apiBase": "http://localhost:1337/v1",
-      "contextLength": 8192,
-      "systemMessage": "You are Qwen, created by Alibaba Cloud. You are a helpful assistant. You will work in tandem with a human engineer on code generation, debugging and optimization."
+      "contextLength": 8192
     }
   ],
   "tabAutocompleteModel": {
