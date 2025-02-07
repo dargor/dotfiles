@@ -134,27 +134,16 @@ if executable('rust-analyzer')
     \   allowlist: ['rust'],
     \   initialization_options: #{
     \     cargo: #{
-    \       buildScripts: #{
-    \         enable: v:false,
-    \       },
+    \       targetDir: v:true,
     \     },
-    \     checkOnSave: #{
+    \     check: #{
     \       command: "clippy",
     \     },
     \     inlayHints: #{
-    \       chainingHints: #{
-    \         enable: v:false,
-    \       },
     \       closingBraceHints: #{
     \         minLines: 0,
     \       },
     \       maxLength: v:null,
-    \     },
-    \     procMacro: #{
-    \       enable: v:false,
-    \     },
-    \     rust: #{
-    \       analyzerTargetDir: v:true,
     \     },
     \   },
     \ })

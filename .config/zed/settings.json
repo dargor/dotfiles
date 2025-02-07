@@ -22,8 +22,17 @@
   "lsp": {
     "rust-analyzer": {
       "initialization_options": {
+        "cargo": {
+          "targetDir": true
+        },
         "check": {
           "command": "clippy"
+        },
+        "inlayHints": {
+          "closingBraceHints": {
+            "minLines": 0
+          },
+          "maxLength": null
         }
       }
     }
