@@ -20,6 +20,13 @@
     "quick_actions": false
   },
   "lsp": {
+    "pyright": {
+      "settings": {
+        "python.analysis": {
+          "typeCheckingMode": "off"
+        }
+      }
+    },
     "rust-analyzer": {
       "initialization_options": {
         "cargo": {
@@ -101,6 +108,7 @@
     },
     "Python": {
       "language_servers": [
+        "pyright",
         "ruff"
       ],
       "formatter": [
