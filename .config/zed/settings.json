@@ -7,9 +7,8 @@
   "buffer_font_fallbacks": [
     "MonaspiceKr Nerd Font"
   ],
-  "buffer_font_size": 11,
   "buffer_line_height": {
-    "custom": 1.3
+    "custom": 1.2
   },
   "tabs": {
     "file_icons": true,
@@ -133,7 +132,7 @@
     "blinking": "off",
     "copy_on_select": true,
     "line_height": {
-      "custom": 1.1
+      "custom": 1.2
     },
     "scrollbar": {
       "show": "never"
