@@ -7,6 +7,7 @@
   "buffer_font_fallbacks": [
     "MonaspiceKr Nerd Font"
   ],
+  "buffer_font_size": 11,
   "buffer_line_height": {
     "custom": 1.2
   },
@@ -99,7 +100,8 @@
     }
   },
   "inlay_hints": {
-    "enabled": true
+    "enabled": true,
+    "show_background": true
   },
   "languages": {
     "Markdown": {

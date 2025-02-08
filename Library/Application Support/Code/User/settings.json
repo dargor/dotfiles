@@ -6,7 +6,7 @@
   "editor.fontLigatures": false,
   "editor.fontSize": 11,
   "editor.inlayHints.maximumLength": 0,
-  "editor.lineHeight": 1.3,
+  "editor.lineHeight": 1.2,
   "editor.minimap.enabled": false,
   "editor.renderLineHighlight": "all",
   "editor.rulers": [
@@ -55,6 +55,7 @@
   "terminal.integrated.fontFamily": "Monaspace Krypton",
   "terminal.integrated.fontLigatures": false,
   "terminal.integrated.fontSize": 11,
+  "terminal.integrated.lineHeight": 1.2,
   "terminal.integrated.macOptionClickForcesSelection": true,
   "terminal.integrated.macOptionIsMeta": false,
   "terminal.integrated.persistentSessionReviveProcess": "never",
