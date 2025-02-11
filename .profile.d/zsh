@@ -6,6 +6,9 @@ bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
 bindkey "^[[3~" delete-char
 
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
+
 gitci() {
     local ci
     ci=$(git rev-parse --short HEAD 2>/dev/null)
