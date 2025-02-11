@@ -94,6 +94,7 @@ if executable('pylsp')
     \         },
     \         flake8: #{
     \           enabled: v:true,
+    \           extendIgnore: ['Q000'],
     \         },
     \         isort: #{
     \           enabled: v:true,
