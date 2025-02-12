@@ -46,5 +46,5 @@ if [ -f /opt/homebrew/bin/mcfly ]; then
     eval "$(/opt/homebrew/bin/mcfly init zsh)"
     export MCFLY_DISABLE_MENU=TRUE
     export MCFLY_PROMPT=">"
-    export MCFLY_RESULTS=15
+    export MCFLY_FUZZY=3
 fi
