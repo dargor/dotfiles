@@ -48,3 +48,8 @@ if [ -f /opt/homebrew/bin/mcfly ]; then
     export MCFLY_PROMPT=">"
     export MCFLY_FUZZY=3
 fi
+
+if [ -f /opt/homebrew/bin/vivid ]; then
+    LS_COLORS="$(vivid generate catppuccin-latte)"
+    export LS_COLORS
+fi
