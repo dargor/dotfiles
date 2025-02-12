@@ -1,6 +1,6 @@
 copy_command "pbcopy"
 session_serialization false
-theme "gruvbox-dark"
+theme "catppuccin-latte"
 
 keybinds {
     unbind "Ctrl q"

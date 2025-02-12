@@ -25,7 +25,7 @@ config.font_size = 11
 config.freetype_load_flags = 'FORCE_AUTOHINT'
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
 
-config.color_scheme = 'Gruvbox dark, hard (base16)'
+config.color_scheme = 'Catppuccin Latte'
 
 config.keys = {
     {

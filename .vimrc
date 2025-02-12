@@ -1,9 +1,9 @@
 set nocompatible
-set notermguicolors
+set termguicolors
 
 try
     set background=dark
-    colorscheme selenized_bw
+    colorscheme catppuccin_latte
     let g:dargor_full_moumoute = 1
 catch
     set background=light
@@ -11,9 +11,6 @@ catch
 endtry
 
 if &diff
-    if g:dargor_full_moumoute
-        colorscheme iceberg
-    endif
     let g:dargor_full_moumoute = 0
 endif
 
@@ -64,35 +61,17 @@ set encoding=utf8
 set t_BE=
 
 if g:dargor_full_moumoute
-    if !empty($JUPYTER_SERVER_ROOT)
-        set background=light
-        set mouse=a
-    endif
-    if index(['vscode', 'zed'], $TERM_PROGRAM) >= 0
-        set background=dark
-        set mouse=a
-    endif
     if &columns >= 86
         set number
         set signcolumn=yes
     endif
 endif
 
-if g:dargor_full_moumoute
-    let g:light_color_column = 224
-    let g:dark_color_column = 52
-else
-    let g:light_color_column = 1
-    let g:dark_color_column = 9
-endif
-
 let g:netrw_dirhistmax = 0
-
-let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_contrast_light = 'hard'
 
 let g:rainbow_active = 1
 let g:rainbow_conf = {}
+let g:rainbow_conf.ctermfgs = ['blue', 'yellow', 'green', 'magenta']
 
 let g:python_highlight_all = 1
 let g:python_highlight_file_headers_as_comments = 1
@@ -114,61 +93,20 @@ if &t_Co > 2
     function! SetupHighlights()
         " :h highlight-groups
         " :so $VIMRUNTIME/syntax/hitest.vim
-        highlight clear Comment
-        highlight Comment ctermfg=243
-        highlight Directory ctermfg=Blue
-        highlight NonText ctermfg=DarkBlue
-        highlight SpecialKey ctermfg=DarkRed
         highlight WhiteSpaces ctermbg=Red
-        if &t_Co >= 256
-            if &background ==# 'dark'
-                execute 'highlight ColorColumn ctermbg=' . g:dark_color_column
-                let g:rainbow_conf.ctermfgs = ['blue', 'yellow', 'cyan', 'magenta']
-                highlight GitGutterAdd ctermfg=Green
-                highlight GitGutterChange ctermfg=Yellow
-                highlight GitGutterDelete ctermfg=Red
-                highlight GitGutterChangeDelete ctermfg=Magenta
-                highlight Pmenu ctermfg=244 ctermbg=235
-                highlight LspHintText ctermfg=243
-                highlight LspHintVirtualText ctermfg=243
-                highlight LspInformationText ctermfg=243
-                highlight LspInformationVirtualText ctermfg=243
-                highlight LspWarningText ctermfg=Yellow
-                highlight LspWarningVirtualText ctermfg=Yellow
-                highlight LspErrorText ctermfg=Red
-                highlight LspErrorVirtualText ctermfg=Red
-                highlight lspInlayHintsType ctermfg=240
-                highlight lspInlayHintsParameter ctermfg=135
-            else
-                execute 'highlight ColorColumn ctermbg=' . g:light_color_column
-                let g:rainbow_conf.ctermfgs = ['darkblue', 'darkyellow', 'darkcyan', 'darkmagenta']
-                highlight GitGutterAdd ctermfg=40
-                highlight GitGutterChange ctermfg=208
-                highlight GitGutterDelete ctermfg=Red
-                highlight GitGutterChangeDelete ctermfg=Magenta
-                highlight Pmenu ctermfg=242 ctermbg=255
-                highlight LspHintText ctermfg=243
-                highlight LspHintVirtualText ctermfg=243
-                highlight LspInformationText ctermfg=243
-                highlight LspInformationVirtualText ctermfg=243
-                highlight LspWarningText ctermfg=208
-                highlight LspWarningVirtualText ctermfg=208
-                highlight LspErrorText ctermfg=Red
-                highlight LspErrorVirtualText ctermfg=Red
-                highlight lspInlayHintsType ctermfg=250
-                highlight lspInlayHintsParameter ctermfg=129
-            endif
-            highlight lspReference ctermfg=201 ctermbg=226
-            highlight FoldColumn ctermfg=243
-            highlight Folded ctermfg=243
-        endif
-        highlight Todo ctermfg=Red
-        highlight MoreMsg ctermfg=DarkYellow
-        highlight ErrorMsg ctermfg=Red
-        highlight DiffFile ctermfg=DarkMagenta
-        highlight DiffAdded ctermfg=DarkGreen
-        highlight DiffRemoved ctermfg=DarkRed
-        highlight DiffText ctermfg=Black ctermbg=Magenta
+        highlight CursorLine ctermbg=242 guibg=#E6E9EF
+        highlight CursorColumn ctermbg=242 guibg=#E6E9EF
+        highlight ColorColumn ctermbg=242 guibg=#E6E9EF
+        highlight LspHintText ctermfg=243
+        highlight LspHintVirtualText ctermfg=243
+        highlight LspInformationText ctermfg=243
+        highlight LspInformationVirtualText ctermfg=243
+        highlight LspWarningText ctermfg=Yellow
+        highlight LspWarningVirtualText ctermfg=Yellow
+        highlight LspErrorText ctermfg=Red
+        highlight LspErrorVirtualText ctermfg=Red
+        highlight lspInlayHintsType ctermfg=249
+        highlight lspInlayHintsParameter ctermfg=135
         if index(['man', 'aichat'], &filetype) >= 0
             setlocal nonumber
             setlocal colorcolumn=
@@ -210,26 +148,6 @@ if &t_Co > 2
     autocmd BufLeave,WinLeave * call LeaveBuffer()
 
 endif
-
-function! ToggleBackground()
-    let oldsyn = &syntax
-    if &background ==# 'dark'
-        set background=light
-    else
-        set background=dark
-    endif
-    try
-        filetype detect
-    catch
-        " some plugins generate errors here, just ignore them
-    endtry
-    let &syntax = oldsyn
-    if &syntax ==# 'yaml'
-        if g:dargor_full_moumoute
-            call HelmSyntax()
-        endif
-    endif
-endfunction
 
 function! MaximizeToggle()
     if exists('s:maximize_session')
@@ -297,8 +215,6 @@ nnoremap <F6> :set invpaste paste?<CR>
 nnoremap <F7> :call ToggleMouse()<CR>
 nnoremap <F8> :setlocal cursorcolumn!<CR>
 nnoremap <F9> :!%:p<CR>
-
-nnoremap <C-b> :call ToggleBackground()<CR>
 
 nnoremap <C-W>o :call MaximizeToggle()<CR>
 nnoremap <C-W>O :call MaximizeToggle()<CR>

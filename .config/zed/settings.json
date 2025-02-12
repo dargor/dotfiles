@@ -143,9 +143,9 @@
     }
   },
   "theme": {
-    "mode": "dark",
-    "light": "Gruvbox Light",
-    "dark": "Gruvbox Dark"
+    "mode": "light",
+    "light": "Catppuccin Latte - No Italics",
+    "dark": "Catppuccin Frappé - No Italics"
   },
   "project_panel": {
     "entry_spacing": "standard"
