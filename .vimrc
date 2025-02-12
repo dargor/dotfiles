@@ -2,11 +2,9 @@ set nocompatible
 set termguicolors
 
 try
-    set background=dark
     colorscheme catppuccin_latte
     let g:dargor_full_moumoute = 1
 catch
-    set background=light
     let g:dargor_full_moumoute = 0
 endtry
 
@@ -15,6 +13,7 @@ if &diff
 endif
 
 set autoindent
+set background=light
 set backspace=indent,start,eol
 set diffopt=filler,iwhiteall
 set display=lastline,uhex
@@ -94,9 +93,20 @@ if &t_Co > 2
         " :h highlight-groups
         " :so $VIMRUNTIME/syntax/hitest.vim
         highlight WhiteSpaces ctermbg=Red
+
         highlight CursorLine ctermbg=242 guibg=#E6E9EF
         highlight CursorColumn ctermbg=242 guibg=#E6E9EF
         highlight ColorColumn ctermbg=242 guibg=#E6E9EF
+
+        highlight clear Comment
+        highlight Comment ctermfg=243
+
+        highlight clear Ignore
+        highlight Ignore ctermfg=249
+
+        highlight clear Type
+        highlight Type ctermfg=5 guifg=#6a0dad
+
         highlight LspHintText ctermfg=243
         highlight LspHintVirtualText ctermfg=243
         highlight LspInformationText ctermfg=243
@@ -107,6 +117,7 @@ if &t_Co > 2
         highlight LspErrorVirtualText ctermfg=Red
         highlight lspInlayHintsType ctermfg=249
         highlight lspInlayHintsParameter ctermfg=135
+
         if index(['man', 'aichat'], &filetype) >= 0
             setlocal nonumber
             setlocal colorcolumn=
