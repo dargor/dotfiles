@@ -58,6 +58,7 @@
   "terminal.integrated.lineHeight": 1.1,
   "terminal.integrated.macOptionClickForcesSelection": true,
   "terminal.integrated.macOptionIsMeta": false,
+  "terminal.integrated.minimumContrastRatio": 1,
   "terminal.integrated.persistentSessionReviveProcess": "never",
   "terminal.integrated.rightClickBehavior": "default",
   "terminal.integrated.sendKeybindingsToShell": true,
