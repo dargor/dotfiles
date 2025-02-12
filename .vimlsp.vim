@@ -231,7 +231,6 @@ function! s:on_lsp_buffer_enabled() abort
     nmap <buffer> tt <plug>(lsp-definition)
     nnoremap <buffer> <expr><c-k> lsp#scroll(-3)
     nnoremap <buffer> <expr><c-j> lsp#scroll(+3)
-    autocmd! BufWritePre *.py,*.rs,*.go call execute('LspDocumentFormatSync')
 endfunction
 
 augroup lsp_install
