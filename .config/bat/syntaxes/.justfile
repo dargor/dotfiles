@@ -2,6 +2,10 @@
 help:
     @just -l
 
+# fetch all syntaxes
+fetch:
+    just | grep 'download syntax:' | awk '{print $1}' | xargs just
+
 # bat: update cache
 cache:
     bat cache --build
