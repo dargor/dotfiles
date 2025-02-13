@@ -80,6 +80,11 @@ let g:gitgutter_map_keys = 0
 let g:gitgutter_max_signs = -1
 let g:gitgutter_sign_allow_clobber = 1
 
+let g:llama_config = #{
+\   endpoint: 'http://localhost:1336/infill',
+\   show_info: v:false,
+\ }
+
 if &t_Co > 2
 
     syntax on
