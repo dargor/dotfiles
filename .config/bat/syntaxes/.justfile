@@ -4,7 +4,7 @@ help:
 
 # fetch all syntaxes
 fetch:
-    just | grep 'download syntax:' | awk '{print $1}' | xargs just
+    @just -l | grep 'download syntax:' | awk '{print $1}' | xargs just
 
 # bat: update cache
 cache:
