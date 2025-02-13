@@ -1,0 +1,4 @@
+#! /usr/bin/env bash
+
+export JUST_COMMAND_COLOR=purple
+
