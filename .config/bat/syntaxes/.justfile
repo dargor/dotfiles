@@ -13,3 +13,7 @@ clear:
 # download syntax: just
 just:
     wget -c https://raw.githubusercontent.com/nk9/just_sublime/refs/heads/main/Syntax/Just.sublime-syntax
+
+# download syntax: tmux
+tmux:
+    wget -c https://raw.githubusercontent.com/gerardroche/sublime-tmux/refs/heads/master/Tmux.sublime-syntax
