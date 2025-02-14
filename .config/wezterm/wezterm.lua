@@ -5,7 +5,6 @@ config.audible_bell = 'Disabled'
 config.check_for_updates = false
 config.cursor_blink_rate = 0
 config.hide_mouse_cursor_when_typing = false
-config.hide_tab_bar_if_only_one_tab = true
 config.hyperlink_rules = {}
 config.initial_cols = 80
 config.initial_rows = 24
@@ -16,6 +15,10 @@ config.skip_close_confirmation_for_processes_named = {}
 config.ssh_domains = {}
 config.swallow_mouse_click_on_pane_focus = true
 config.swallow_mouse_click_on_window_focus = true
+
+config.hide_tab_bar_if_only_one_tab = true
+config.mouse_wheel_scrolls_tabs = false
+config.use_fancy_tab_bar = false
 
 config.font = wezterm.font_with_fallback({
     'Monaspace Krypton',
