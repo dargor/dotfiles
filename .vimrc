@@ -82,6 +82,7 @@ let g:gitgutter_sign_allow_clobber = 1
 
 let g:llama_config = #{
 \   endpoint: 'http://localhost:1336/infill',
+\   max_line_suffix: 80,
 \   show_info: v:false,
 \ }
 
