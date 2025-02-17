@@ -14,5 +14,5 @@ alias rcli="redis-cli"
 alias sbcl="rlwrap sbcl"
 alias sc="shellcheck -f gcc"
 alias show="open -a Preview"
-alias ssh="env -u COLORTERM TERM=xterm-256color ssh"
 alias t="tree"
+
