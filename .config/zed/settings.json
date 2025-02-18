@@ -30,6 +30,7 @@
     "ruff": {
       "initialization_options": {
         "settings": {
+          "configurationPreference": "filesystemFirst",
           "lint": {
             "select": [
               "ALL"
