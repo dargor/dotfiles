@@ -144,6 +144,13 @@ if executable('rust-analyzer')
     \       closingBraceHints: #{
     \         minLines: 0,
     \       },
+    \       closureReturnTypeHints: #{
+    \         enable: "always",
+    \       },
+    \       lifetimeElisionHints: #{
+    \         enable: "skip_trivial",
+    \         useParameterNames: v:true,
+    \       },
     \       maxLength: v:null,
     \     },
     \   },

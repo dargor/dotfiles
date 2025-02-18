@@ -51,6 +51,13 @@
           "closingBraceHints": {
             "minLines": 0
           },
+          "closureReturnTypeHints": {
+            "enable": "always"
+          },
+          "lifetimeElisionHints": {
+            "enable": "skip_trivial",
+            "useParameterNames": true
+          },
           "maxLength": null
         }
       }

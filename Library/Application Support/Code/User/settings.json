@@ -102,6 +102,9 @@
   "rust-analyzer.cargo.targetDir": true,
   "rust-analyzer.check.command": "clippy",
   "rust-analyzer.inlayHints.closingBraceHints.minLines": 0,
+  "rust-analyzer.inlayHints.closureReturnTypeHints.enable": "always",
+  "rust-analyzer.inlayHints.lifetimeElisionHints.enable": "skip_trivial",
+  "rust-analyzer.inlayHints.lifetimeElisionHints.useParameterNames": true,
   "rust-analyzer.inlayHints.maxLength": null,
   "todo-tree.filtering.excludeGlobs": [
     "**/node_modules/*/**",
