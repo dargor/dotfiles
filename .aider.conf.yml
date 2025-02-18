@@ -3,7 +3,7 @@ openai-api-key: lol
 
 model: openai/qwen-2.5-coder
 
-code-theme: gruvbox-dark
+light-mode: true
 
 gitignore: false
 attribute-author: false
