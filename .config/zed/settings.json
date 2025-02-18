@@ -27,6 +27,17 @@
         }
       }
     },
+    "ruff": {
+      "initialization_options": {
+        "settings": {
+          "lint": {
+            "select": [
+              "ALL"
+            ]
+          }
+        }
+      }
+    },
     "rust-analyzer": {
       "initialization_options": {
         "cargo": {
