@@ -31,22 +31,5 @@
     "params": {
       "apiBase": "http://localhost:1339"
     }
-  },
-  "customCommands": [
-    {
-      "name": "explain",
-      "prompt": "{{{ input }}}\n\nExplain what the selected code does, but without explaining it line by line. Give a general overview of the code, why it might have been implemented this way, its purpose, its quirks and possible improvements, if any.",
-      "description": "Explain highlighted code"
-    },
-    {
-      "name": "review",
-      "prompt": "{{{ input }}}\n\nReview the selected code and check it for any mistakes. Make sure it follows established best practices, is clean, efficient and maintainable. Pay close attention to common mistakes like syntax errors, logic errors, security vulnerabilities, performance and scalability issues, or anything that seems questionable. For each mistake found, explain what is wrong and how to correct or improve it. Give your answer as one bullet point per mistake found.",
-      "description": "Review highlighted code"
-    },
-    {
-      "name": "test",
-      "prompt": "{{{ input }}}\n\nWrite a comprehensive set of unit tests for the selected code. It should setup, run tests that check for correctness including important edge cases, and teardown. Ensure that the tests are complete and sophisticated. Give your answer as chat output, do not edit any file nor explain the tests themselves. For python code, use pytest.",
-      "description": "Write tests for highlighted code"
-    }
-  ]
+  }
 }
