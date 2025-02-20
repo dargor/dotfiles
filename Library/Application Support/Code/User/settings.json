@@ -77,16 +77,13 @@
   "catppuccin.italicComments": false,
   "catppuccin.boldKeywords": false,
   "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-      "source.organizeImports": "explicit"
+      "source.organizeImports.ruff": "explicit",
+      "source.fixAll.ruff": "explicit"
     }
   },
-  "isort.args": [
-    "--profile",
-    "black"
-  ],
   "ruff.configurationPreference": "filesystemFirst",
   "ruff.lint.select": [
     "ALL"
