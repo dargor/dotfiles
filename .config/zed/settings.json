@@ -11,6 +11,11 @@
   "buffer_line_height": {
     "custom": 1.2
   },
+  "scrollbar": {
+    "axes": {
+      "horizontal": false
+    }
+  },
   "tabs": {
     "file_icons": true,
     "git_status": true
