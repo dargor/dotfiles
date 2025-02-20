@@ -5,14 +5,24 @@
       "provider": "openai",
       "model": "qwen2.5-coder",
       "apiBase": "http://localhost:1337/v1",
-      "contextLength": 8192
+      "contextLength": 8192,
+      "completionOptions": {
+        "temperature": 0.7,
+        "topP": 0.8,
+        "topK": 20
+      }
     },
     {
       "title": "Fuse O1",
       "provider": "openai",
       "model": "fuse-o1",
       "apiBase": "http://localhost:1335/v1",
-      "contextLength": 8192
+      "contextLength": 8192,
+      "completionOptions": {
+        "temperature": 0.6,
+        "topP": 0.95,
+        "topK": 40
+      }
     }
   ],
   "tabAutocompleteModel": {
