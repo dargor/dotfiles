@@ -86,6 +86,10 @@
     "--profile",
     "black"
   ],
+  "ruff.configurationPreference": "filesystemFirst",
+  "ruff.lint.select": [
+    "ALL"
+  ],
   "continue.enableTabAutocomplete": true,
   "gitlens.currentLine.format": "${author}, ${ago} • ${message}",
   "gitlens.plusFeatures.enabled": false,
