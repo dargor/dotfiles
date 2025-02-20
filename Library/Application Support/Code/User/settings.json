@@ -89,14 +89,18 @@
     "ALL"
   ],
   "continue.enableTabAutocomplete": true,
+  "errorLens.enabledDiagnosticLevels": [
+    "error",
+    "warning",
+    "info",
+    "hint"
+  ],
+  "errorLens.messageBackgroundMode": "message",
   "gitlens.currentLine.format": "${author}, ${ago} • ${message}",
   "gitlens.plusFeatures.enabled": false,
   "workbench.colorCustomizations": {
-    "editorError.foreground": "#00000000",
-    "editorInfo.foreground": "#00000000",
-    "editorWarning.foreground": "#00000000",
     "gitlens.trailingLineBackgroundColor": "#00000000",
-    "gitlens.trailingLineForegroundColor": "#888888FF"
+    "gitlens.trailingLineForegroundColor": "#AAAAAAFF"
   },
   "jupyter.askForKernelRestart": false,
   "makefile.configureOnOpen": false,
