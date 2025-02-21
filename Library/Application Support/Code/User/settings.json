@@ -95,6 +95,13 @@
     "info",
     "hint"
   ],
+  "errorLens.messageTemplate": "$severity $message",
+  "errorLens.severityText": [
+    "🚨",
+    "💥",
+    "🌱",
+    "🔬"
+  ],
   "errorLens.messageBackgroundMode": "message",
   "gitlens.currentLine.format": "${author}, ${ago} • ${message}",
   "gitlens.plusFeatures.enabled": false,
