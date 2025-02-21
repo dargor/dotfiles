@@ -100,7 +100,7 @@
   "gitlens.plusFeatures.enabled": false,
   "workbench.colorCustomizations": {
     "gitlens.trailingLineBackgroundColor": "#00000000",
-    "gitlens.trailingLineForegroundColor": "#AAAAAAFF"
+    "gitlens.trailingLineForegroundColor": "#BBBBBBFF"
   },
   "jupyter.askForKernelRestart": false,
   "makefile.configureOnOpen": false,
