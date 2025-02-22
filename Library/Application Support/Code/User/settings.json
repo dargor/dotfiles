@@ -13,6 +13,7 @@
     79
   ],
   "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "visible",
   "editor.stickyScroll.enabled": false,
   "editor.unicodeHighlight.allowedCharacters": {
     "α": true,

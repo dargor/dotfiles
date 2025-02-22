@@ -12,6 +12,7 @@
     "custom": 1.2
   },
   "scrollbar": {
+    "show": "always",
     "axes": {
       "horizontal": false
     }
