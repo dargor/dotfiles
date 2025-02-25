@@ -190,7 +190,7 @@
         {
           "name": "qwen2.5-coder",
           "display_name": "Qwen 2.5 Coder",
-          "max_tokens": 8192
+          "max_tokens": 16384
         }
       ]
     }
