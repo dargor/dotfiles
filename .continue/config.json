@@ -23,8 +23,9 @@
     "contextLength": 16384
   },
   "embeddingsProvider": {
-    "provider": "huggingface-tei",
-    "apiBase": "http://localhost:1338"
+    "provider": "openai",
+    "model": "jina-embeddings-v2-base-code",
+    "apiBase": "http://localhost:1338/v1"
   },
   "reranker": {
     "name": "huggingface-tei",
