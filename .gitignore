@@ -15,6 +15,9 @@ tags
 .aider*
 .env
 
+# Repomix
+repomix-output.txt
+
 # LibreOffice
 .~lock.*#
 
