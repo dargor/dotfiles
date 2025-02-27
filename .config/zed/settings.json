@@ -68,6 +68,12 @@
       }
     }
   },
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.venv",
+    "**/.DS_Store",
+    "**/Thumbs.db"
+  ],
   "file_types": {
     "Ansible": [
       "**.ansible.yml",

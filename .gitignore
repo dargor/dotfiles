@@ -70,3 +70,4 @@ metals.sbt
 
 # MacOS stuff
 .DS_Store
+Thumbs.db
