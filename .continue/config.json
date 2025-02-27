@@ -30,6 +30,7 @@
   "reranker": {
     "name": "huggingface-tei",
     "params": {
+      "model": "bge-reranker-v2-m3",
       "apiBase": "http://localhost:1339"
     }
   }

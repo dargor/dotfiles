@@ -1,11 +1,3 @@
 # Aider
 .aider*
-
-# Ignores
-.dockerignore
-.gitignore
-.helmignore
-.rgignore
-
-# Repomix
-repomix-output.txt
+.env
