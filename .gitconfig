@@ -42,6 +42,12 @@
 [init]
     defaultBranch = master
 
+[branch]
+    sort = -committerdate
+
+[tag]
+    sort = -version:refname
+
 [diff]
     algorithm = histogram
     colorMoved = default
@@ -80,10 +86,12 @@
     abbreviateCommands = true
     missingCommitsCheck = error
     autoSquash = true
+    updateRefs = true
     empty = drop
 
 [rerere]
     enabled = true
+    autoupdate = true
 
 [push]
     default = simple
