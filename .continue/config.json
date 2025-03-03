@@ -24,7 +24,7 @@
   },
   "embeddingsProvider": {
     "provider": "openai",
-    "model": "jina-embeddings-v2-base-code",
+    "model": "gte-qwen2",
     "apiBase": "http://localhost:1338/v1"
   },
   "reranker": {
