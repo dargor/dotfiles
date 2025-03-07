@@ -201,11 +201,13 @@ Commands for operating on a hunk:~
 :GitGutterUndoHunk      Undo the hunk the cursor is in.
 
                                               *gitgutter-:GitGutterPreviewHunk*
-:GitGutterPreviewHunk   Preview the hunk the cursor is in.
+:GitGutterPreviewHunk   Preview the hunk the cursor is in or, if you are using
+                        floating preview windows in Neovim and the window is
+                        already open, move the cursor into the window.
 
                         To stage part of the hunk, move to the preview window,
-                        delete any lines you do not want to stage, and
-                        |GitGutterStageHunk|.
+                        delete any lines you do not want to stage, and |write|
+                        or |GitGutterStageHunk|.
 
                         To close a non-floating preview window use |:pclose|
                         or |CTRL-W_z| or |CTRL-W_CTRL-Z|; or normal window-
