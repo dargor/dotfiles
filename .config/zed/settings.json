@@ -25,6 +25,13 @@
     "quick_actions": false
   },
   "lsp": {
+    "cargotom": {
+      "initialization_options": {
+        "offline": false,
+        "stable": false,
+        "per_page_web": 50
+      }
+    },
     "pyright": {
       "settings": {
         "python.analysis": {
