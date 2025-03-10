@@ -39,7 +39,8 @@
   "files.watcherExclude": {
     "**/.bloop": true,
     "**/.metals": true,
-    "**/.ammonite": true
+    "**/.ammonite": true,
+    "**/target": true
   },
   "git.countBadge": "tracked",
   "git.defaultBranchName": "master",
