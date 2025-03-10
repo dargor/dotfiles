@@ -32,6 +32,27 @@
         "per_page_web": 50
       }
     },
+    "metals": {
+      "settings": {
+        "inlayHints": {
+          "inferredTypes": {
+            "enable": true
+          },
+          "implicitArguments": {
+            "enable": true
+          },
+          "implicitConversions": {
+            "enable": true
+          },
+          "typeParameters": {
+            "enable": true
+          },
+          "hintsInPatternMatch": {
+            "enable": true
+          }
+        }
+      }
+    },
     "pyright": {
       "settings": {
         "python.analysis": {
