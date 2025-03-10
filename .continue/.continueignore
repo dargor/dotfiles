@@ -1,3 +1,8 @@
 # Aider
 .aider*
 .env
+
+# Repomix
+repomix-output.md
+repomix-output.txt
+repomix-output.xml
