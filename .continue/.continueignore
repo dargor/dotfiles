@@ -6,3 +6,8 @@
 repomix-output.md
 repomix-output.txt
 repomix-output.xml
+
+# Scala
+.bloop/
+.bsp/
+.metals/
