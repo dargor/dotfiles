@@ -8,9 +8,9 @@
       "contextLength": 16384
     },
     {
-      "title": "Fuse O1",
+      "title": "QwQ",
       "provider": "openai",
-      "model": "fuse-o1",
+      "model": "qwq",
       "apiBase": "http://localhost:1335/v1",
       "contextLength": 16384
     }
