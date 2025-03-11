@@ -667,86 +667,6 @@ function! llama#fim(pos_x, pos_y, is_auto, prev, use_cache) abort
     endif
 endfunction
 
-" if accept_type == 'full', accept entire response
-" if accept_type == 'line', accept only the first line of the response
-" if accept_type == 'word', accept only the first word of the response
-function! llama#fim_accept(accept_type)
-    let l:pos_x  = s:fim_data['pos_x']
-    let l:pos_y  = s:fim_data['pos_y']
-
-    let l:line_cur = s:fim_data['line_cur']
-
-    let l:can_accept = s:fim_data['can_accept']
-    let l:content    = s:fim_data['content']
-
-    if l:can_accept && len(l:content) > 0
-        " insert suggestion on current line
-        if a:accept_type != 'word'
-            " insert first line of suggestion
-            call setline(l:pos_y, l:line_cur[:(l:pos_x - 1)] . l:content[0])
-        else
-            " insert first word of suggestion
-            let l:suffix = l:line_cur[(l:pos_x):]
-            let l:word = matchstr(l:content[0][:-(len(l:suffix) + 1)], '^\s*\S\+')
-            call setline(l:pos_y, l:line_cur[:(l:pos_x - 1)] . l:word . l:suffix)
-        endif
-
-        " insert rest of suggestion
-        if len(l:content) > 1 && a:accept_type == 'full'
-            call append(l:pos_y, l:content[1:-1])
-        endif
-
-        " move cusor
-        if a:accept_type == 'word'
-            " move cursor to end of word
-            call cursor(l:pos_y, l:pos_x + len(l:word) + 1)
-        elseif a:accept_type == 'line' || len(l:content) == 1
-            " move cursor for 1-line suggestion
-            call cursor(l:pos_y, l:pos_x + len(l:content[0]) + 1)
-            if len(l:content) > 2
-                " simulate pressing Enter to move to next line
-                call feedkeys("\<CR>")
-            endif
-        else
-            " move cursor for multi-line suggestion
-            call cursor(l:pos_y + len(l:content) - 1, len(l:content[-1]) + 1)
-        endif
-    endif
-
-    call llama#fim_hide()
-endfunction
-
-function! llama#fim_hide()
-    let s:hint_shown = v:false
-
-    " clear the virtual text
-    let l:bufnr = bufnr('%')
-
-    if s:ghost_text_nvim
-        let l:id_vt_fim = nvim_create_namespace('vt_fim')
-        call nvim_buf_clear_namespace(l:bufnr, l:id_vt_fim,  0, -1)
-    elseif s:ghost_text_vim
-        call prop_remove({'type': s:hlgroup_hint, 'all': v:true})
-        call prop_remove({'type': s:hlgroup_info, 'all': v:true})
-    endif
-
-    " remove the mappings
-    exe 'silent! iunmap <buffer> ' . g:llama_config.keymap_accept_full
-    exe 'silent! iunmap <buffer> ' . g:llama_config.keymap_accept_line
-    exe 'silent! iunmap <buffer> ' . g:llama_config.keymap_accept_word
-endfunction
-
-function! s:on_move()
-    let s:t_last_move = reltime()
-
-    call llama#fim_hide()
-
-    let l:pos_x = col('.') - 1
-    let l:pos_y = line('.')
-
-    call s:fim_try_hint(l:pos_x, l:pos_y)
-endfunction
-
 " callback that processes the FIM result from the server
 function! s:fim_on_response(hashes, job_id, data, event = v:null)
     if s:ghost_text_nvim
@@ -772,6 +692,25 @@ function! s:fim_on_response(hashes, job_id, data, event = v:null)
 
         call s:fim_try_hint(l:pos_x, l:pos_y)
     endif
+endfunction
+
+function! s:fim_on_exit(job_id, exit_code, event = v:null)
+    if a:exit_code != 0
+        echom "Job failed with exit code: " . a:exit_code
+    endif
+
+    let s:current_job = v:null
+endfunction
+
+function! s:on_move()
+    let s:t_last_move = reltime()
+
+    call llama#fim_hide()
+
+    let l:pos_x = col('.') - 1
+    let l:pos_y = line('.')
+
+    call s:fim_try_hint(l:pos_x, l:pos_y)
 endfunction
 
 " try to generate a suggestion using the data in the cache
@@ -1065,10 +1004,71 @@ function! s:fim_render(pos_x, pos_y, data)
     let s:fim_data['content']    = l:content
 endfunction
 
-function! s:fim_on_exit(job_id, exit_code, event = v:null)
-    if a:exit_code != 0
-        echom "Job failed with exit code: " . a:exit_code
+" if accept_type == 'full', accept entire response
+" if accept_type == 'line', accept only the first line of the response
+" if accept_type == 'word', accept only the first word of the response
+function! llama#fim_accept(accept_type)
+    let l:pos_x  = s:fim_data['pos_x']
+    let l:pos_y  = s:fim_data['pos_y']
+
+    let l:line_cur = s:fim_data['line_cur']
+
+    let l:can_accept = s:fim_data['can_accept']
+    let l:content    = s:fim_data['content']
+
+    if l:can_accept && len(l:content) > 0
+        " insert suggestion on current line
+        if a:accept_type != 'word'
+            " insert first line of suggestion
+            call setline(l:pos_y, l:line_cur[:(l:pos_x - 1)] . l:content[0])
+        else
+            " insert first word of suggestion
+            let l:suffix = l:line_cur[(l:pos_x):]
+            let l:word = matchstr(l:content[0][:-(len(l:suffix) + 1)], '^\s*\S\+')
+            call setline(l:pos_y, l:line_cur[:(l:pos_x - 1)] . l:word . l:suffix)
+        endif
+
+        " insert rest of suggestion
+        if len(l:content) > 1 && a:accept_type == 'full'
+            call append(l:pos_y, l:content[1:-1])
+        endif
+
+        " move cusor
+        if a:accept_type == 'word'
+            " move cursor to end of word
+            call cursor(l:pos_y, l:pos_x + len(l:word) + 1)
+        elseif a:accept_type == 'line' || len(l:content) == 1
+            " move cursor for 1-line suggestion
+            call cursor(l:pos_y, l:pos_x + len(l:content[0]) + 1)
+            if len(l:content) > 2
+                " simulate pressing Enter to move to next line
+                call feedkeys("\<CR>")
+            endif
+        else
+            " move cursor for multi-line suggestion
+            call cursor(l:pos_y + len(l:content) - 1, len(l:content[-1]) + 1)
+        endif
     endif
 
-    let s:current_job = v:null
+    call llama#fim_hide()
+endfunction
+
+function! llama#fim_hide()
+    let s:hint_shown = v:false
+
+    " clear the virtual text
+    let l:bufnr = bufnr('%')
+
+    if s:ghost_text_nvim
+        let l:id_vt_fim = nvim_create_namespace('vt_fim')
+        call nvim_buf_clear_namespace(l:bufnr, l:id_vt_fim,  0, -1)
+    elseif s:ghost_text_vim
+        call prop_remove({'type': s:hlgroup_hint, 'all': v:true})
+        call prop_remove({'type': s:hlgroup_info, 'all': v:true})
+    endif
+
+    " remove the mappings
+    exe 'silent! iunmap <buffer> ' . g:llama_config.keymap_accept_full
+    exe 'silent! iunmap <buffer> ' . g:llama_config.keymap_accept_line
+    exe 'silent! iunmap <buffer> ' . g:llama_config.keymap_accept_word
 endfunction
