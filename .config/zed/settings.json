@@ -100,7 +100,8 @@
     "**/.git",
     "**/.venv",
     "**/.DS_Store",
-    "**/Thumbs.db"
+    "**/Thumbs.db",
+    "**/__pycache__"
   ],
   "file_types": {
     "Ansible": [
