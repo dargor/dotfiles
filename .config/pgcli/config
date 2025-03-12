@@ -7,6 +7,9 @@ log_level = NONE
 multi_line = True
 null_string = NULL
 pager = pspg
-syntax_style = fruity
+syntax_style = emacs
 table_format = psql
 wider_completion_menu = True
+
+[colors]
+output.header = "italic"
