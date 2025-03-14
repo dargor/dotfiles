@@ -38,7 +38,7 @@ Do not ask for clarifications, do not request interactions, and do not make any 
 END
 
 let s:vim_ai_chat_config = #{
-\  engine: "chat",
+\  provider: "openai",
 \  options: #{
 \    model: s:vim_ai_model,
 \    initial_prompt: s:vim_ai_chat_prompt,
@@ -54,7 +54,7 @@ let s:vim_ai_chat_config = #{
 \}
 
 let s:vim_ai_edit_config = #{
-\  engine: "chat",
+\  provider: "openai",
 \  options: #{
 \    model: s:vim_ai_model,
 \    initial_prompt: s:vim_ai_edit_prompt,

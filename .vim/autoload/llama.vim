@@ -36,9 +36,10 @@ highlight llama_hl_info ctermfg=243
 "
 " keymaps parameters:
 "
-"   keymap_accept_full: accept full suggestion keymap, default: <Tab>
-"   keymap_accept_line: accept line suggestion keymap, default: <S-Tab>
-"   keymap_accept_word: accept word suggestion keymap, default: <C-B>
+"   keymap_trigger:     keymap to trigger the completion, default: <C-F>
+"   keymap_accept_full: keymap to accept full suggestion, default: <Tab>
+"   keymap_accept_line: keymap to accept line suggestion, default: <S-Tab>
+"   keymap_accept_word: keymap to accept word suggestion, default: <C-B>
 "
 let s:default_config = {
     \ 'endpoint':           'http://127.0.0.1:8012/infill',
@@ -56,6 +57,7 @@ let s:default_config = {
     \ 'ring_chunk_size':    64,
     \ 'ring_scope':         1024,
     \ 'ring_update_ms':     1000,
+    \ 'keymap_trigger':     "<C-F>",
     \ 'keymap_accept_full': "<Tab>",
     \ 'keymap_accept_line': "<S-Tab>",
     \ 'keymap_accept_word': "<C-B>",
@@ -103,7 +105,7 @@ endfunction
 function! llama#disable()
     call llama#fim_hide()
     autocmd! llama
-    silent! iunmap <C-F>
+    exe "silent! iunmap " .. g:llama_config.keymap_trigger
 endfunction
 
 function! llama#toggle()
@@ -166,7 +168,7 @@ function! llama#init()
 
     augroup llama
         autocmd!
-        autocmd InsertEnter     * inoremap <expr> <silent> <C-F> llama#fim_inline(v:false, v:false)
+        exe "autocmd InsertEnter * inoremap <expr> <silent> " .. g:llama_config.keymap_trigger .. " llama#fim_inline(v:false, v:false)"
         autocmd InsertLeavePre  * call llama#fim_hide()
 
         autocmd CursorMoved     * call s:on_move()
@@ -955,12 +957,12 @@ function! s:fim_render(pos_x, pos_y, data)
     if s:ghost_text_nvim
         call nvim_buf_set_extmark(l:bufnr, l:id_vt_fim, l:pos_y - 1, l:pos_x - 1, {
             \ 'virt_text': [[l:content[0], 'llama_hl_hint'], [l:info, 'llama_hl_info']],
-            \ 'virt_text_win_col': l:pos_x
+            \ 'virt_text_win_col': virtcol('.') - 1
             \ })
 
         call nvim_buf_set_extmark(l:bufnr, l:id_vt_fim, l:pos_y - 1, 0, {
             \ 'virt_lines': map(l:content[1:], {idx, val -> [[val, 'llama_hl_hint']]}),
-            \ 'virt_text_win_col': l:pos_x + 1
+            \ 'virt_text_win_col': virtcol('.')
             \ })
     elseif s:ghost_text_vim
         let l:full_suffix = l:content[0]

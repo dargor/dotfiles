@@ -13,7 +13,7 @@ let s:last_config = {}
 let s:scratch_buffer_name = ">>> AI chat"
 
 function! s:ImportPythonModules()
-  for py_module in ['utils', 'context', 'chat', 'complete', 'roles', 'image']
+  for py_module in ['types', 'utils', 'context', 'chat', 'complete', 'roles', 'image']
     if !py3eval("'" . py_module . "_py_imported' in globals()")
       execute "py3file " . s:plugin_root . "/py/" . py_module . ".py"
     endif
@@ -187,7 +187,7 @@ function! vim_ai#AIEditRun(uses_range, config, ...) range abort
   \  "user_instruction": l:instruction,
   \  "user_selection": l:selection,
   \  "is_selection": l:is_selection,
-  \  "command_type": 'complete',
+  \  "command_type": 'edit',
   \}
   let l:context = py3eval("make_ai_context(unwrap('l:config_input'))")
   let l:config = l:context['config']
@@ -339,6 +339,7 @@ function! vim_ai#AIRedoRun() abort
 endfunction
 
 function! s:RoleCompletion(A, command_type) abort
+  if a:A !~# '^/' | return [] | endif
   call s:ImportPythonModules()
   let l:role_list = py3eval("load_ai_role_names(unwrap('a:command_type'))")
   call map(l:role_list, '"/" . v:val')
