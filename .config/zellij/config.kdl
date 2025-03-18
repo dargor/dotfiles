@@ -1,5 +1,7 @@
 copy_command "pbcopy"
 session_serialization false
+show_release_notes false
+show_startup_tips false
 theme "catppuccin-latte"
 
 keybinds {
@@ -9,5 +11,6 @@ keybinds {
 ui {
     pane_frames {
         hide_session_name true
+        rounded_corners true
     }
 }
