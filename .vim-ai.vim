@@ -48,9 +48,6 @@ let s:vim_ai_chat_config = #{
 \    max_completion_tokens: 0,
 \    request_timeout: 60,
 \  },
-\  ui: #{
-\    code_syntax_enabled: 1,
-\  },
 \}
 
 let s:vim_ai_edit_config = #{

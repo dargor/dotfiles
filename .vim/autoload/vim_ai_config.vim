@@ -49,7 +49,6 @@ let g:vim_ai_chat_default = {
 \    "open_chat_command": "preset_below",
 \    "scratch_buffer_keep_open": 0,
 \    "populate_options": 0,
-\    "code_syntax_enabled": 1,
 \    "force_new_chat": 0,
 \    "paste_mode": 1,
 \  },
@@ -109,6 +108,10 @@ if !exists("g:vim_ai_open_chat_presets")
   \  "preset_tab": "tabnew",
   \  "preset_right": "rightbelow 55vnew | setlocal noequalalways | setlocal winfixwidth",
   \}
+endif
+
+if !exists("g:vim_ai_chat_markdown")
+  let g:vim_ai_chat_markdown = 0
 endif
 
 if !exists("g:vim_ai_debug")
