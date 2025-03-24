@@ -73,6 +73,7 @@
   "terminal.integrated.tabs.hideCondition": "singleGroup",
   "workbench.colorTheme": "Catppuccin Latte",
   "workbench.fontAliasing": "auto",
+  "workbench.secondarySideBar.showLabels": false,
   "workbench.startupEditor": "none",
   "workbench.tree.renderIndentGuides": "always",
   "catppuccin.italicKeywords": false,
