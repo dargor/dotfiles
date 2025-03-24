@@ -7,6 +7,7 @@ runtime! syntax/markdown.vim
 syntax match aichatRole ">>> system"
 syntax match aichatRole ">>> user"
 syntax match aichatRole ">>> include"
+syntax match aichatRole ">>> exec"
 syntax match aichatRole "<<< thinking"
 syntax match aichatRole "<<< assistant"
 

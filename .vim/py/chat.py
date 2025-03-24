@@ -30,6 +30,8 @@ def run_ai_chat(context):
     roles = context['roles']
 
     def initialize_chat_window():
+        file_content = vim.eval('trim(join(getline(1, "$"), "\n"))')
+        contains_user_prompt = re.search(r"^>>> (user|exec|include)", file_content, flags=re.MULTILINE)
         lines = vim.eval('getline(1, "$")')
 
         # if populate is set in config, populate once
@@ -44,7 +46,6 @@ def run_ai_chat(context):
                 vim.command("normal! " + str(line_num) + "gg")
                 vim.command("normal! d}dd")
 
-        contains_user_prompt = '>>> user' in lines
         if not contains_user_prompt:
             # user role not found, put whole file content as an user prompt
             vim.command("normal! gg")
@@ -58,10 +59,9 @@ def run_ai_chat(context):
         vim_break_undo_sequence()
         vim.command("redraw")
 
-        file_content = vim.eval('trim(join(getline(1, "$"), "\n"))')
-        role_lines = re.findall(r'(^>>> user|^>>> system|^<<< thinking|^<<< assistant).*', file_content, flags=re.MULTILINE)
-        if not role_lines[-1].startswith(">>> user"):
-            # last role is not user, most likely completion was cancelled before
+        last_role = re.match(r".*^(>>>|<<<) (\w+)", file_content, flags=re.DOTALL | re.MULTILINE)
+        if last_role and last_role.group(2) not in ('user', 'include', 'exec'):
+            # last role is not a user role, most likely completion was cancelled before
             vim.command("normal! o")
             vim.command("normal! i\n>>> user\n\n")
 
