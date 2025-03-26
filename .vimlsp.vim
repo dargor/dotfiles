@@ -58,6 +58,15 @@ if executable('gopls')
     \ })
 endif
 
+if executable('just-lsp')
+    " https://github.com/terror/just-lsp
+    autocmd User lsp_setup call lsp#register_server(#{
+    \   name: 'Just Language Server',
+    \   cmd: {server_info->[&shell, &shellcmdflag, 'just-lsp']},
+    \   allowlist: ['just'],
+    \ })
+endif
+
 if executable('lua-language-server')
     " https://github.com/LuaLS/lua-language-server#install
     autocmd User lsp_setup call lsp#register_server(#{
