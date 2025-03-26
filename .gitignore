@@ -11,15 +11,6 @@ tags
 # Visual Studio Code
 .vscode/
 
-# Aider
-.aider*
-.env
-
-# Repomix
-repomix-output.md
-repomix-output.txt
-repomix-output.xml
-
 # LibreOffice
 .~lock.*#
 
@@ -39,6 +30,7 @@ report.html
 htmlcov/
 .coverage
 .coverage.*
+.env
 .hypothesis/
 .ipynb_checkpoints/
 .mypy_cache/
