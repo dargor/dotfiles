@@ -111,6 +111,7 @@
   "[rust]": {
     "editor.formatOnSave": true
   },
+  "roo-cline.allowedCommands": [],
   "rust-analyzer.cargo.targetDir": true,
   "rust-analyzer.check.command": "clippy",
   "rust-analyzer.inlayHints.closingBraceHints.minLines": 0,
