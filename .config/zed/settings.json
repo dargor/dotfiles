@@ -10,6 +10,9 @@
   "buffer_line_height": {
     "custom": 1.2
   },
+  "hide_mouse_while_typing": false,
+  "use_system_path_prompts": false,
+  "use_system_prompts": false,
   "scrollbar": {
     "show": "always",
     "axes": {
@@ -18,7 +21,8 @@
   },
   "tabs": {
     "file_icons": true,
-    "git_status": true
+    "git_status": true,
+    "show_diagnostics": "errors"
   },
   "toolbar": {
     "breadcrumbs": false,
@@ -96,6 +100,7 @@
       }
     }
   },
+  "auto_signature_help": true,
   "file_scan_exclusions": [
     "**/.git",
     "**/.venv",
