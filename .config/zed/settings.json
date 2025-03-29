@@ -100,7 +100,7 @@
       }
     }
   },
-  "show_signature_help_after_edits": true,
+  "auto_signature_help": true,
   "file_scan_exclusions": [
     "**/.git",
     "**/.venv",
