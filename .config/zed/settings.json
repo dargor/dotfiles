@@ -233,7 +233,10 @@
     "dark": "Catppuccin Frappé - No Italics"
   },
   "project_panel": {
-    "entry_spacing": "standard"
+    "entry_spacing": "standard",
+    "scrollbar": {
+      "show": "never"
+    }
   },
   "assistant": {
     "version": "2",
