@@ -161,5 +161,5 @@ clpy() {
 }
 
 fdvenv() {
-    find . -name .venv
+    fd -HI '\.venv'
 }
