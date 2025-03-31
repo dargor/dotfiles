@@ -159,3 +159,7 @@ clpy() {
          -o -iname tags          -print0 \
     \) | xargs -r0 rm -rf --
 }
+
+fdvenv() {
+    find . -name .venv
+}
