@@ -99,11 +99,8 @@
     "hint"
   ],
   "errorLens.messageBackgroundMode": "message",
-  "gitlens.currentLine.format": "${author}, ${ago} • ${message}",
-  "gitlens.plusFeatures.enabled": false,
   "workbench.colorCustomizations": {
-    "gitlens.trailingLineBackgroundColor": "#00000000",
-    "gitlens.trailingLineForegroundColor": "#BBBBBBFF"
+    "betterGitLineBlame.foregroundColor": "#A0A0A0"
   },
   "jupyter.askForKernelRestart": false,
   "makefile.configureOnOpen": false,
