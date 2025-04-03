@@ -1,0 +1,5 @@
+k9s:
+  refreshRate: 1
+  readOnly: false
+  ui:
+    skin: catppuccin-latte
