@@ -136,3 +136,6 @@
     sclear = stash clear
     mdev = merge develop --ff-only
     tdescribe = describe --tags --always
+    dlog = -c diff.external=difft log --ext-diff
+    dshow = -c diff.external=difft show --ext-diff
+    ddiff = -c diff.external=difft diff
