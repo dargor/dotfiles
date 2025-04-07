@@ -98,6 +98,24 @@
           "maxLength": null
         }
       }
+    },
+    "solargraph": {
+      "initialization_options": {
+        "diagnostics": true,
+        "formatting": true
+      },
+      "settings": {
+        "use_bundler": false
+      }
+    },
+    "yaml-language-server": {
+      "settings": {
+        "yaml": {
+          "customTags": [
+            "!vault scalar"
+          ]
+        }
+      }
     }
   },
   "auto_signature_help": true,
@@ -209,6 +227,20 @@
           }
         }
       ]
+    },
+    "Shell Script": {
+      "formatter": {
+        "external": {
+          "command": "shfmt",
+          "arguments": [
+            "--filename",
+            "{buffer_path}",
+            "--indent",
+            "4",
+            "--simplify"
+          ]
+        }
+      }
     }
   },
   "wrap_guides": [
