@@ -46,7 +46,6 @@
   "git.defaultBranchName": "master",
   "git.enableStatusBarSync": false,
   "git.openRepositoryInParentFolders": "always",
-  "notebook.lineNumbers": "on",
   "security.workspace.trust.banner": "always",
   "security.workspace.trust.startupPrompt": "always",
   "terminal.integrated.confirmOnKill": "always",
@@ -91,7 +90,6 @@
   "ruff.lint.select": [
     "ALL"
   ],
-  "continue.enableTabAutocomplete": true,
   "errorLens.enabledDiagnosticLevels": [
     "error",
     "warning",
@@ -102,13 +100,11 @@
   "workbench.colorCustomizations": {
     "betterGitLineBlame.foregroundColor": "#A0A0A0"
   },
-  "jupyter.askForKernelRestart": false,
   "makefile.configureOnOpen": false,
   "redhat.telemetry.enabled": true,
   "[rust]": {
     "editor.formatOnSave": true
   },
-  "roo-cline.allowedCommands": [],
   "rust-analyzer.cargo.targetDir": true,
   "rust-analyzer.check.command": "clippy",
   "rust-analyzer.inlayHints.closingBraceHints.minLines": 0,
