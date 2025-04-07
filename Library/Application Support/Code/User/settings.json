@@ -100,6 +100,9 @@
   "workbench.colorCustomizations": {
     "betterGitLineBlame.foregroundColor": "#A0A0A0"
   },
+  "llama-vscode.endpoint": "http://localhost:1336/",
+  "llama-vscode.max_line_suffix": 80,
+  "llama-vscode.show_info": false,
   "makefile.configureOnOpen": false,
   "redhat.telemetry.enabled": true,
   "[rust]": {
