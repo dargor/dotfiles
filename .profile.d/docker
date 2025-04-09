@@ -1,31 +1,10 @@
 #! /usr/bin/env bash
 
-_docker_log()
-{
+_docker_log() {
     echo "[93m>>> [94m$*[0m"
 }
 
-docker_pull() {
-    if [ -z "$1" ]; then
-        echo 1>&2 "Usage: docker_pull [images]"
-        return 1
-    fi
-    for image in "$@"; do
-        _docker_log "Pulling $image"
-        docker pull --platform linux/amd64 "$image"
-    done
-}
-
-docker_pull_images() {
-    for image in $(docker images | grep ^docker.io/ | awk '{print $1 ":" $2}'); do
-        image="${image#docker.io/}"
-        _docker_log "Pulling $image"
-        docker pull --platform linux/amd64 "$image"
-    done
-}
-
-docker_clean_containers()
-{
+docker_clean_containers() {
     _docker_log "Cleaning containers"
     for container in $(docker ps -aq); do
         docker stop -t 0 "${container}"
@@ -33,8 +12,7 @@ docker_clean_containers()
     done
 }
 
-docker_clean_images()
-{
+docker_clean_images() {
     if [ "$1" = "all" ]; then
         _docker_log "Cleaning all images"
         docker images -q | xargs -r docker rmi -f --
@@ -55,8 +33,7 @@ docker_clean_images()
     done
 }
 
-docker_clean_images_prefix()
-{
+docker_clean_images_prefix() {
     prefix="$1"
     if [ -z "${prefix}" ]; then
         echo 1>&2 "Usage: docker_clean_images_prefix prefix"
@@ -64,49 +41,43 @@ docker_clean_images_prefix()
     fi
     _docker_log "Cleaning images starting with [95m${prefix}[0m"
     # REPOSITORY:TAG
-    docker images \
-        | grep "^${prefix}" \
-        | awk '{print $1 ":" $2}' \
-        | xargs -r docker rmi --
+    docker images |
+        grep "^${prefix}" |
+        awk '{print $1 ":" $2}' |
+        xargs -r docker rmi --
     # IMAGE ID
-    docker images \
-        | grep "^${prefix}" \
-        | awk '{print $3}' \
-        | xargs -r docker rmi --
+    docker images |
+        grep "^${prefix}" |
+        awk '{print $3}' |
+        xargs -r docker rmi --
 }
 
-docker_clean_networks()
-{
+docker_clean_networks() {
     _docker_log "Cleaning networks"
     docker network ls -q | xargs -r docker network rm --
 }
 
-docker_clean_volumes()
-{
+docker_clean_volumes() {
     _docker_log "Cleaning volumes"
     docker volume ls -q | xargs -r docker volume rm --
 }
 
-docker_prune()
-{
+docker_prune() {
     _docker_log "Pruning docker"
     docker system prune -f
 }
 
-docker_prune_all()
-{
+docker_prune_all() {
     _docker_log "Pruning docker (all)"
     docker system prune -f -a
 }
 
-docker_summary()
-{
+docker_summary() {
     _docker_log "Summary"
     docker system df
 }
 
-docker_clean()
-{
+docker_clean() {
     docker_clean_containers
     docker_clean_images "${1:-}"
     docker_clean_networks
@@ -115,27 +86,25 @@ docker_clean()
     docker_summary
 }
 
-docker_raz()
-{
+docker_raz() {
     docker_clean all
 }
 
-docker_images_architectures()
-{
+docker_images_architectures() {
     for image in $(docker images -q); do
         name=$(docker inspect -f json "$image" | jq -r '.[].RepoTags[0]')
         [ "$name" = null ] && continue
         arch=$(docker inspect -f json "$image" | jq -r '.[].Architecture')
         case "$arch" in
-            amd64)
-                color=92
-                ;;
-            arm64)
-                color=91
-                ;;
-            *)
-                color=93
-                ;;
+        amd64)
+            color=92
+            ;;
+        arm64)
+            color=91
+            ;;
+        *)
+            color=93
+            ;;
         esac
         echo "[94m$name[0m uses [${color}m$arch[0m"
     done
@@ -150,3 +119,4 @@ docker_run() {
     what="${2:-/bin/bash}"
     docker run --rm --entrypoint "$what" -it "$image"
 }
+
