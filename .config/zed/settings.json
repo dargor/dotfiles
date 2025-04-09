@@ -10,7 +10,7 @@
   "buffer_line_height": {
     "custom": 1.2
   },
-  "hide_mouse_while_typing": false,
+  "hide_mouse": "never",
   "use_system_path_prompts": false,
   "use_system_prompts": false,
   "scrollbar": {
