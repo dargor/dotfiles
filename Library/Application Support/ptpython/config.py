@@ -1,8 +1,10 @@
 from prompt_toolkit.output import ColorDepth
+
 from ptpython.layout import CompletionVisualisation
+from ptpython.repl import PythonRepl
 
 
-def configure(repl):
+def configure(repl: PythonRepl) -> None:
     repl.show_signature = False
     repl.show_docstring = True
     repl.show_meta_enter_message = False
@@ -20,7 +22,7 @@ def configure(repl):
     repl.enable_dictionary_completion = False
     repl.vi_mode = False
     repl.paste_mode = False
-    repl.prompt_style = 'classic'
+    repl.prompt_style = "classic"
     repl.insert_blank_line_after_output = False
     # XXX enable_history_search is conflicting with complete_while_typing
     repl.enable_history_search = False
@@ -33,4 +35,4 @@ def configure(repl):
     repl.enable_syntax_highlighting = True
     repl.vi_start_in_navigation_mode = False
     repl.vi_keep_last_used_mode = False
-    repl.use_code_colorscheme('vim')
+    repl.use_code_colorscheme("abap")
