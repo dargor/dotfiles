@@ -7,3 +7,12 @@ vimgrep() {
 vimfind() {
     fd -Ht f "$1" | tr '\n' '\0' | xargs -o0 vim --
 }
+
+vman() {
+    if [ $# -eq 0 ]; then
+        echo "Usage: vman <manpage>"
+        return 1
+    fi
+    man "$1" | col -b | vim -RMc 'setf man' -
+}
+
