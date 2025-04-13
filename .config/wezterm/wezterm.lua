@@ -9,7 +9,6 @@ config.hyperlink_rules = {}
 config.initial_cols = 80
 config.initial_rows = 24
 config.native_macos_fullscreen_mode = true
-config.pane_focus_follows_mouse = true
 config.scrollback_lines = 10000
 config.selection_word_boundary = ',│`|;"\' ()[]{}<>\t'
 config.skip_close_confirmation_for_processes_named = {}
