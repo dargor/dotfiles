@@ -108,7 +108,7 @@ spvenv() {
         pydocstyle pydoclint interrogate \
         mypy vulture perflint ruff \
         ipython ipdb bpython ptpython \
-        python-lsp-server pylsp-mypy python-lsp-isort python-lsp-black \
+        python-lsp-server pylsp-mypy python-lsp-ruff \
         pretty-errors
 }
 

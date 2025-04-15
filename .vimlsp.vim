@@ -93,42 +93,15 @@ if executable('pylsp')
     \   allowlist: ['python'],
     \   workspace_config: #{
     \     pylsp: #{
-    \       configurationSources: ['flake8'],
     \       plugins: #{
-    \         autopep8: #{
-    \           enabled: v:false,
-    \         },
-    \         black: #{
-    \           enabled: v:true,
-    \         },
-    \         flake8: #{
-    \           enabled: v:true,
-    \           extendIgnore: ['Q000'],
-    \         },
-    \         isort: #{
-    \           enabled: v:true,
-    \         },
-    \         mccabe: #{
-    \           enabled: v:false,
-    \         },
     \         pylsp_mypy: #{
     \           enabled: v:true,
     \           follow-imports: 'normal',
     \         },
-    \         pycodestyle: #{
-    \           enabled: v:false,
-    \         },
-    \         pydocstyle: #{
+    \         ruff: #{
     \           enabled: v:true,
-    \         },
-    \         pyflakes: #{
-    \           enabled: v:false,
-    \         },
-    \         pylint: #{
-    \           enabled: v:false,
-    \         },
-    \         yapf: #{
-    \           enabled: v:false,
+    \           select: ['ALL'],
+    \           format: ['I'],
     \         },
     \       },
     \     },
