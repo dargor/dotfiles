@@ -78,6 +78,8 @@
   "catppuccin.italicKeywords": false,
   "catppuccin.italicComments": false,
   "catppuccin.boldKeywords": false,
+  "python.analysis.diagnosticMode": "workspace",
+  "python.analysis.typeCheckingMode": "strict",
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.formatOnSave": true,
