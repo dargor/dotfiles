@@ -21,8 +21,7 @@
   },
   "tabs": {
     "file_icons": true,
-    "git_status": true,
-    "show_diagnostics": "errors"
+    "git_status": true
   },
   "toolbar": {
     "breadcrumbs": false,
