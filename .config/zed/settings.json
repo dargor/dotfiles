@@ -167,19 +167,11 @@
       "Makefile.*"
     ],
     "Python constraints": [
-      "constraints.txt",
-      "constraints-*.txt",
-      "constraints_*.txt",
-      "*-constraints.txt",
-      "*_constraints.txt"
+      "*constraints*.txt"
     ],
     "Python requirements": [
-      "**/requirements/*.txt",
-      "requirements.txt",
-      "requirements-*.txt",
-      "requirements_*.txt",
-      "*-requirements.txt",
-      "*_requirements.txt"
+      "**/requirements/*.{in,txt}",
+      "*requirements*.{in,txt}"
     ],
     "ini": [
       ".bandit",
