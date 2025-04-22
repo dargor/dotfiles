@@ -35,6 +35,17 @@
         "per_page_web": 50
       }
     },
+    "golangci-lint": {
+      "initialization_options": {
+        "command": [
+          "golangci-lint",
+          "run",
+          "--out-format",
+          "json",
+          "--issues-exit-code=1"
+        ]
+      }
+    },
     "metals": {
       "settings": {
         "inlayHints": {
@@ -198,6 +209,12 @@
     "show_background": true
   },
   "languages": {
+    "Go": {
+      "language_servers": [
+        "gopls",
+        "golangci-lint"
+      ]
+    },
     "Markdown": {
       "soft_wrap": "editor_width"
     },
