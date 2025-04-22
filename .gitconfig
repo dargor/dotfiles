@@ -130,7 +130,7 @@
     bordel = commit --allow-empty -m 'Trigger CI/CD.'
     pfetch = fetch origin --prune --prune-tags --force
     ptags = push --tags
-    sdiff = stash show -p
+    sdiff = -c diff.external=difft stash show -p --ext-diff
     slist = stash list
     spop = stash pop
     sclear = stash clear
