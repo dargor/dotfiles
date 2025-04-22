@@ -250,6 +250,12 @@
           ]
         }
       }
+    },
+    "YAML": {
+      "language_servers": [
+        "yaml-language-server",
+        "!docker-compose"
+      ]
     }
   },
   "wrap_guides": [
