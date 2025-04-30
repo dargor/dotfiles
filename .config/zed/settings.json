@@ -1,4 +1,7 @@
 {
+  "features": {
+    "edit_prediction_provider": "none"
+  },
   "buffer_font_family": "Monaspace Krypton",
   "buffer_font_features": {
     "calt": false
