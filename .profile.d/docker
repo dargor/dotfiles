@@ -91,9 +91,7 @@ docker_raz() {
 }
 
 docker_images_architectures() {
-    for image in $(docker images -q); do
-        name=$(docker inspect -f json "$image" | jq -r '.[].RepoTags[0]')
-        [ "$name" = null ] && continue
+    for image in $(docker images -q | uniq); do
         arch=$(docker inspect -f json "$image" | jq -r '.[].Architecture')
         case "$arch" in
         amd64)
@@ -106,7 +104,10 @@ docker_images_architectures() {
             color=93
             ;;
         esac
-        echo "[94m$name[0m uses [${color}m$arch[0m"
+        docker inspect -f json "$image" | jq -r '.[].RepoTags[]' | while read -r tag; do
+            [ "$tag" = null ] && continue
+            echo "[94m${tag}[0m uses [${color}m${arch}[0m"
+        done
     done
 }
 
@@ -119,4 +120,3 @@ docker_run() {
     what="${2:-/bin/bash}"
     docker run --rm --entrypoint "$what" -it "$image"
 }
-
