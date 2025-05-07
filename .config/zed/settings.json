@@ -291,6 +291,14 @@
       "provider": "openai",
       "model": "qwen2.5-coder"
     },
+    "editor_model": {
+      "provider": "openai",
+      "model": "qwen2.5-coder"
+    },
+    "inline_assistant_model": {
+      "provider": "openai",
+      "model": "qwen2.5-coder"
+    },
     "default_profile": "minimal"
   },
   "language_models": {
