@@ -1,7 +1,7 @@
 " vim: ts=4 sts=4 expandtab
 " colors (adjust to your liking)
-highlight llama_hl_hint ctermfg=249
-highlight llama_hl_info ctermfg=243
+highlight default llama_hl_hint ctermfg=249
+highlight default llama_hl_info ctermfg=243
 
 " general parameters:
 "
