@@ -184,6 +184,9 @@
       "**/requirements/*.{in,txt}",
       "*requirements*.{in,txt}"
     ],
+    "env": [
+      ".env.*"
+    ],
     "ini": [
       ".bandit",
       ".sentryclirc",
