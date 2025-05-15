@@ -75,6 +75,7 @@
   "workbench.secondarySideBar.showLabels": false,
   "workbench.startupEditor": "none",
   "workbench.tree.renderIndentGuides": "always",
+  "ansible.lightspeed.enabled": false,
   "catppuccin.italicKeywords": false,
   "catppuccin.italicComments": false,
   "catppuccin.boldKeywords": false,
