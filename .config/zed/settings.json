@@ -209,6 +209,9 @@
       "show_commit_summary": true
     }
   },
+  "edit_predictions": {
+    "enabled_in_text_threads": false
+  },
   "inlay_hints": {
     "enabled": true,
     "show_background": true
