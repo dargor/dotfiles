@@ -15,6 +15,7 @@
   "hide_mouse": "never",
   "use_system_path_prompts": false,
   "use_system_prompts": false,
+  "confirm_quit": true,
   "scrollbar": {
     "show": "always",
     "axes": {
