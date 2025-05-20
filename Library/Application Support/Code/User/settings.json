@@ -106,6 +106,7 @@
   "llama-vscode.endpoint": "http://localhost:1336/",
   "llama-vscode.max_line_suffix": 80,
   "llama-vscode.show_info": false,
+  "llama-vscode.rag_enabled": false,
   "makefile.configureOnOpen": false,
   "redhat.telemetry.enabled": true,
   "[rust]": {
