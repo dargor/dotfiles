@@ -80,7 +80,7 @@
   "catppuccin.italicComments": false,
   "catppuccin.boldKeywords": false,
   "python.analysis.diagnosticMode": "workspace",
-  "python.analysis.typeCheckingMode": "strict",
+  "python.analysis.typeCheckingMode": "standard",
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.formatOnSave": true,
