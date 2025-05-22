@@ -8,6 +8,7 @@
   "editor.inlayHints.maximumLength": 0,
   "editor.lineHeight": 1.2,
   "editor.minimap.enabled": false,
+  "editor.minimap.showSlider": "always",
   "editor.renderLineHighlight": "all",
   "editor.rulers": [
     79
