@@ -273,6 +273,7 @@
       ]
     }
   },
+  "diagnostics_max_severity": null,
   "wrap_guides": [
     79
   ],
