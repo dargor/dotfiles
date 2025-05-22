@@ -186,6 +186,12 @@
     "Make": [
       "Makefile.*"
     ],
+    "Markdown": [
+      ".rules",
+      ".clinerules",
+      ".cursorrules",
+      ".windsurfrules"
+    ],
     "Python constraints": [
       "*constraints*.txt"
     ],
