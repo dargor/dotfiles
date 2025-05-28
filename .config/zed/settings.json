@@ -281,7 +281,9 @@
   },
   "diagnostics_max_severity": null,
   "wrap_guides": [
-    79
+    79,
+    99,
+    119
   ],
   "terminal": {
     "blinking": "off",
