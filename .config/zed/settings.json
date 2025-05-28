@@ -181,7 +181,8 @@
       "**/helmfile.d/**/*.yml"
     ],
     "JSON": [
-      "*.avsc"
+      "*.avsc",
+      "*.ipynb"
     ],
     "Make": [
       "Makefile.*"
