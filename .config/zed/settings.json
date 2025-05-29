@@ -74,6 +74,17 @@
         }
       }
     },
+    "basedpyright": {
+      "settings": {
+        "basedpyright.analysis": {
+          "diagnosticMode": "workspace",
+          "typeCheckingMode": "strict",
+          "inlayHints": {
+            "genericTypes": true
+          }
+        }
+      }
+    },
     "pyright": {
       "settings": {
         "python.analysis": {
@@ -242,7 +253,8 @@
     },
     "Python": {
       "language_servers": [
-        "pyright",
+        "!pyright",
+        "basedpyright",
         "ruff"
       ],
       "formatter": [
