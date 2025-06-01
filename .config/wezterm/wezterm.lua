@@ -20,10 +20,7 @@ config.hide_tab_bar_if_only_one_tab = true
 config.mouse_wheel_scrolls_tabs = false
 config.use_fancy_tab_bar = false
 
-config.font = wezterm.font_with_fallback({
-    'Monaspace Krypton',
-    'MonaspiceKr Nerd Font',
-})
+config.font = wezterm.font('Monaspace Krypton')
 config.font_size = 11
 config.freetype_load_flags = 'FORCE_AUTOHINT'
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
