@@ -334,6 +334,13 @@
     },
     "default_profile": "minimal"
   },
+  "context_servers": {
+    "mcp-server-context7": {
+      "settings": {
+        "default_minimum_tokens": "10000"
+      }
+    }
+  },
   "language_models": {
     "openai": {
       "version": "1",
