@@ -290,6 +290,11 @@
         "yaml-language-server",
         "!docker-compose"
       ]
+    },
+    "reST": {
+      "language_servers": [
+        "!esbonio"
+      ]
     }
   },
   "diagnostics_max_severity": null,
