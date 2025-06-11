@@ -49,6 +49,7 @@ target/
 .bloop/
 .bsp/
 .metals/
+.scala-build/
 metals.sbt
 *.class
 *.tasty
