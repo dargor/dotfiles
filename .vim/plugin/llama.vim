@@ -1,1 +1,0 @@
-call llama#init()
