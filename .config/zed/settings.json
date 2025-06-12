@@ -212,6 +212,7 @@
       "*requirements*.{in,txt}"
     ],
     "env": [
+      ".env",
       ".env.*"
     ],
     "ini": [
