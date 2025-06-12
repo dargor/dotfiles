@@ -252,6 +252,11 @@
     "Markdown": {
       "soft_wrap": "editor_width"
     },
+    "Nginx": {
+      "language_servers": [
+        "!nginx"
+      ]
+    },
     "Python": {
       "language_servers": [
         "!pyright",
