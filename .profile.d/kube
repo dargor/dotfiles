@@ -43,6 +43,19 @@ kgrep() {
     xpanes -s -t -c "kubectl logs ${pod} -c {} | grep -i ${stuff}" ${=containers}
 }
 
+kgreps() {
+    deployment="$1"
+    stuff="$2"
+    if [ -z "${deployment}" ] || [ -z "${stuff}" ]; then
+        echo 1>&2 "Usage: kgreps deployment stuff"
+        return 1
+    fi
+    pods=$(kubectl get pods | grep -- "${deployment}" | awk '{print $1}')
+    what="kubectl logs {} --follow --tail 100 | grep -i ${stuff}"
+    # shellcheck disable=SC2086
+    xpanes -s -t -c "${what}" ${=pods}
+}
+
 kexec() {
     pod="$1"
     if [ -z "${pod}" ]; then
