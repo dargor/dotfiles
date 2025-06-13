@@ -10,6 +10,7 @@ augroup filetypedetect
     autocmd BufNewFile,BufRead *.{cfg,cnf,coveragerc,sentryclirc,service,terraformrc,tigrc,timer},cqlshrc,{krb5,pip,spark-defaults,supervisord}.conf,.{scalafmt,scalafix}.conf,.bandit,.iredisrc setlocal filetype=dosini
     autocmd BufNewFile,BufRead *{requirements,constraints}*.txt setlocal filetype=conf
     autocmd BufNewFile,BufRead .{continue,docker,helm,rg}ignore setlocal filetype=gitignore
+    autocmd BufNewFile,BufRead .{,*}rules setlocal filetype=markdown
     autocmd BufNewFile,BufRead .env{,.*} setlocal filetype=dosini
     autocmd BufNewFile,BufRead *.cql setlocal filetype=sql
     autocmd BufNewFile,BufRead *.bats setlocal filetype=sh
