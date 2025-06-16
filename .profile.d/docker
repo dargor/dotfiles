@@ -111,6 +111,14 @@ docker_images_architectures() {
     done
 }
 
+docker_pull() {
+    if [ -z "$1" ]; then
+        echo 1>&2 "Usage: docker_pull image:tag"
+        return 1
+    fi
+    docker pull --platform linux/amd64 "$1"
+}
+
 docker_run() {
     image="$1"
     if [ -z "$image" ]; then
@@ -120,3 +128,4 @@ docker_run() {
     what="${2:-/bin/bash}"
     docker run --rm --entrypoint "$what" -it "$image"
 }
+
