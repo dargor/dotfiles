@@ -7,6 +7,11 @@ help:
 fetch:
     @just -l | grep 'download syntax:' | awk '{print $1}' | xargs just
 
+# clean all files
+[group('fetch')]
+clean:
+    rm -vf *.sublime-syntax
+
 # bat: update cache
 [group('cache')]
 cache:
@@ -31,3 +36,8 @@ tmux:
 [group('syntax')]
 kdl:
     wget -c https://raw.githubusercontent.com/eugenesvk/sublime-KDL/refs/heads/main/KDL1.sublime-syntax
+
+# download syntax: systemd
+[group('syntax')]
+systemd:
+    wget -c https://gist.githubusercontent.com/thendrix/2330cf22ba6cae6a0c574fa22a7809fc/raw/24040eebccc596a1932be256ccb34d2b66926fb6/Systemd.sublime-syntax

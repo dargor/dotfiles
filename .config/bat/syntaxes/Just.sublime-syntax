@@ -19,24 +19,145 @@ file_extensions:
 variables:
   valid_name: '[a-zA-Z_][a-zA-Z0-9_-]*'
   built_in_functions: |-
-    (?x: absolute_path | arch | capitalize | clean | env_var_or_default | env_var
-    | error | extension | file_name | file_stem | invocation_directory_native
-    | invocation_directory | join | just_executable | justfile_directory | justfile
-    | kebabcase | lowercamelcase | lowercase | os_family | os | parent_directory
-    | path_exists | quote | replace_regex | replace | sha256_file | sha256
-    | shoutykebabcase | shoutysnakecase | snakecase | titlecase
-    | trim_end_matches | trim_end_match | trim_end | trim_start_matches
-    | trim_start_match | trim_start | trim | uppercase | uppercamelcase
-    | uuid | without_extension )
+    (?x:
+      absolute_path
+    | append
+    | arch
+    | blake3
+    | blake3_file
+    | cache_dir
+    | cache_directory
+    | canonicalize
+    | capitalize
+    | choose
+    | clean
+    | config_dir
+    | config_directory
+    | config_local_dir
+    | config_local_directory
+    | data_dir
+    | data_directory
+    | data_local_dir
+    | data_local_directory
+    | datetime
+    | datetime_utc
+    | encode_uri_component
+    | env
+    | env_var
+    | env_var_or_default
+    | error
+    | executable_dir
+    | executable_directory
+    | extension
+    | file_name
+    | file_stem
+    | home_dir
+    | home_directory
+    | invocation_dir
+    | invocation_dir_native
+    | invocation_directory
+    | invocation_directory_native
+    | is_dependency
+    | join
+    | just_executable
+    | just_pid
+    | justfile
+    | justfile_dir
+    | justfile_directory
+    | kebabcase
+    | lowercamelcase
+    | lowercase
+    | module_dir
+    | module_directory
+    | module_file
+    | num_cpus
+    | os
+    | os_family
+    | parent_dir
+    | parent_directory
+    | path_exists
+    | prepend
+    | quote
+    | read
+    | replace
+    | replace_regex
+    | require
+    | semver_matches
+    | sha256
+    | sha256_file
+    | shell
+    | shoutykebabcase
+    | shoutysnakecase
+    | snakecase
+    | source_dir
+    | source_directory
+    | source_file
+    | style
+    | titlecase
+    | trim
+    | trim_end
+    | trim_end_match
+    | trim_end_matches
+    | trim_start
+    | trim_start_match
+    | trim_start_matches
+    | uppercamelcase
+    | uppercase
+    | uuid
+    | which
+    | without_extension
+    )
   boolean_settings: |-
-    (?x: allow-duplicate-recipes | dotenv-load | export | fallback | ignore-comments
-    | positional-arguments | windows-powershell )
+    (?x:
+      allow-duplicate-recipes
+    | allow-duplicate-variables
+    | dotenv-load
+    | export
+    | fallback
+    | ignore-comments
+    | positional-arguments
+    | quiet
+    | unstable
+    )
   string_settings: |-
-    (?x: tempdir )
+    (?x:
+      dotenv-filename
+    | dotenv-path
+    | tempdir
+    | working-directory
+    )
   shell_settings: |-
-    (?x: shell | windows-shell )
-  recipe_attributes: |-
-    (?x: linux | macos | no-cd | no-exit-message | private | unix | windows )
+    (?x:
+      script-interpreter
+    | shell
+    | windows-shell
+    )
+  deprecated_settings: |-
+    (?x: windows-powershell )
+  recipe_attributes_bare: |-
+    (?x:
+      confirm
+    | linux
+    | macos
+    | no-cd
+    | no-exit-message
+    | no-quiet
+    | openbsd
+    | positional-arguments
+    | private
+    | script
+    | unix
+    | windows
+    )
+  recipe_attributes_arguments: |-
+    (?x:
+      confirm
+    | doc
+    | extension
+    | group
+    | script
+    | working-directory
+    )
 
 ###############################################################################
 # MAIN CONTEXT
@@ -45,11 +166,12 @@ variables:
 contexts:
   main:
     - include: includes
+    - include: modules
     - include: settings
     - include: aliases
     - include: comments
     - include: assignment
-    - include: recipe-attribute
+    - include: recipe-attributes
     - include: recipe-definition
     - include: recipe-generic-line
 
@@ -78,6 +200,18 @@ contexts:
         1: keyword.control.import.just
         2: meta.generic-name.just
 
+  modules:
+    - match: ^(mod)(\??)(\s+\w+)
+      scope: meta.statement.mod.just
+      captures:
+        1: keyword.control.import.just
+        2: keyword.operator.assignment.just
+        3: meta.generic-name.just
+    - match: '`'
+      scope: invalid.illegal.just
+      pop: 2
+    - include: quoted-strings
+
 ###[ ALIASES ]#################################################################
 
   aliases:
@@ -96,7 +230,7 @@ contexts:
     - include: operators
     - include: function-calls
     - include: if-statements
-    - include: strings
+    - include: all-strings
     - include: operands-variables
 
 
@@ -191,11 +325,17 @@ contexts:
 
 ###[ CHARACTERS ]##############################################################
 
-  strings:
+  all-strings:
+    - include: quoted-strings
+    - include: backtick-strings
+
+  quoted-strings:
     - include: single-quote-block-strings
     - include: single-quote-strings
     - include: double-quote-block-strings
     - include: double-quote-strings
+
+  backtick-strings:
     - include: backtick-quote-block-strings
     - include: backtick-quote-strings
 
@@ -301,9 +441,63 @@ contexts:
 ###[ RECIPE DEFINITION ]#######################################################
 # Recipe definition lines, including attributes, arguments and dependencies
 
-  recipe-attribute:
-    - match: ^\[\s*({{recipe_attributes}})\s*\]\s*$ # Only one attribute allowed per line
+  recipe-attributes:
+    - match: ^\[
       scope: meta.annotation.just variable.annotation.just
+      push:
+        - recipe-attributes-body
+        - expect-recipe-attribute-name
+    - include: eol-pop
+
+  recipe-attributes-body:
+    - meta_scope: meta.sequence.list.just meta.annotation.just
+    - match: \]
+      scope: variable.annotation.just
+      pop: 1
+    - match: ','
+      scope: punctuation.separator.parameters.just
+      push: expect-recipe-attribute-name
+    - include: eol-pop
+
+  expect-recipe-attribute-name:
+    - match: ({{recipe_attributes_arguments}})
+      scope: variable.annotation.just
+      set: recipe-attribute-argument
+    - match: ({{recipe_attributes_bare}})
+      scope: variable.annotation.just
+      pop: 1
+    - match: \]
+      scope: invalid.illegal.just
+      comment: If properly handled, this frame will be popped before the \] is encountered
+      pop: 2
+    - include: else-pop
+
+  recipe-attribute-argument:
+    - match: \(
+      scope:  punctuation.definition.annotation.begin.just
+      set: recipe-attribute-argument-paren-body
+    - match: ':'
+      scope: keyword.operator.assignment.just
+      set: recipe-attribute-argument-colon-body
+    - include: else-pop
+
+  recipe-attribute-argument-paren-body:
+    - match: \)
+      scope: punctuation.definition.annotation.end.just
+      pop: 1
+    - match: ','
+      scope: punctuation.separator.parameters.just
+    - match: '`'
+      scope: invalid.illegal.just
+      pop: 1
+    - include: quoted-strings
+
+  recipe-attribute-argument-colon-body:
+    - match: '`'
+      scope: invalid.illegal.just
+      pop: 1
+    - include: quoted-strings
+    - include: else-pop
 
   recipe-definition:
     - match: (?=^@?{{valid_name}}(?![^:]*:=)) # Matches '^recipeName' but not '^varName :='
@@ -508,9 +702,11 @@ contexts:
       push: settings-name
 
   settings-name:
+    - meta_scope: meta.setting-name.just
     - include: settings-boolean-name
     - include: settings-shell-name
     - include: settings-string-name
+    - include: settings-deprecated-name
     - include: settings-invalid-name
     - include: else-pop
 
@@ -527,6 +723,12 @@ contexts:
       pop: 1
     - include: else-pop
     - include: eol-pop
+
+  settings-deprecated-name:
+    - match: ({{deprecated_settings}})\b
+      captures:
+        1: invalid.deprecated.just
+      push: eol-pop
 
   settings-invalid-name:
     - match: ({{valid_name}})\b\s*:=
@@ -555,7 +757,7 @@ contexts:
       pop: 1
     - match: ','
       scope: punctuation.separator.parameters.just
-    - include: strings
+    - include: all-strings
     - include: eol-pop #??
 
   settings-string-name:
@@ -566,7 +768,7 @@ contexts:
         - assignment-operator
 
   settings-string-value:
-    - include: strings
+    - include: all-strings
     - include: eol-pop
 
 # ###[ General Types ]##########################################################
