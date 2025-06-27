@@ -349,6 +349,7 @@
   },
   "context_servers": {
     "mcp-server-context7": {
+      "source": "extension",
       "settings": {
         "default_minimum_tokens": "10000"
       }
