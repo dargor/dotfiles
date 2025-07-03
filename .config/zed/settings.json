@@ -15,6 +15,7 @@
   "confirm_quit": true,
   "minimap": {
     "show": "never",
+    "display_in": "all_editors",
     "thumb_border": "none"
   },
   "scrollbar": {
