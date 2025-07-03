@@ -1,6 +1,7 @@
 [
   {
     "bindings": {
+      "shift-tab": "editor::AcceptPartialEditPrediction",
       "cmd-@": "terminal_panel::ToggleFocus"
     }
   }
