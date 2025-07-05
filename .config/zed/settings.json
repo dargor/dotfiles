@@ -154,6 +154,7 @@
     "**/.venv",
     "**/.DS_Store",
     "**/Thumbs.db",
+    "**/*.egg-info",
     "**/__pycache__"
   ],
   "file_types": {
