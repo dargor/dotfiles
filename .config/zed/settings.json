@@ -338,7 +338,6 @@
   },
   "agent": {
     "version": "2",
-    "stream_edits": true,
     "enable_feedback": false,
     "default_model": {
       "provider": "openai",
