@@ -307,11 +307,6 @@
     }
   },
   "diagnostics_max_severity": null,
-  "wrap_guides": [
-    79,
-    99,
-    119
-  ],
   "terminal": {
     "blinking": "off",
     "copy_on_select": true,
