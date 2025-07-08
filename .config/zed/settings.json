@@ -343,6 +343,14 @@
       "provider": "openai",
       "model": "qwen2.5-coder"
     },
+    "commit_message_model": {
+      "provider": "openai",
+      "model": "qwen2.5-coder"
+    },
+    "thread_summary_model": {
+      "provider": "openai",
+      "model": "qwen2.5-coder"
+    },
     "default_profile": "minimal"
   },
   "context_servers": {
