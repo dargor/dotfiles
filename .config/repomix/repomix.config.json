@@ -2,26 +2,7 @@
   "output": {
     "filePath": "repomix-output.txt",
     "style": "plain",
-    "parsableStyle": false,
-    "fileSummary": true,
-    "directoryStructure": true,
     "removeComments": true,
-    "removeEmptyLines": true,
-    "compress": false,
-    "topFilesLength": 5,
-    "showLineNumbers": false,
-    "copyToClipboard": false
-  },
-  "include": [],
-  "ignore": {
-    "useGitignore": true,
-    "useDefaultPatterns": true,
-    "customPatterns": []
-  },
-  "security": {
-    "enableSecurityCheck": true
-  },
-  "tokenCount": {
-    "encoding": "o200k_base"
+    "removeEmptyLines": true
   }
 }
