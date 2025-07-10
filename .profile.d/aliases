@@ -1,6 +1,7 @@
 #! /usr/bin/env bash
 
-alias dt="diffstat -C"
+alias ds="diffstat -C"
+alias dt="difft"
 alias g="links https://www.google.com/"
 alias grep="grep --color=auto"
 alias h="history"
