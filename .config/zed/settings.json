@@ -152,6 +152,7 @@
   "file_scan_exclusions": [
     "**/.git",
     "**/.venv",
+    "**/.*.swp",
     "**/.*_cache",
     "**/.DS_Store",
     "**/Thumbs.db",
