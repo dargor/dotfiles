@@ -332,7 +332,6 @@
     }
   },
   "agent": {
-    "version": "2",
     "stream_edits": true,
     "enable_feedback": false,
     "default_model": {
@@ -363,7 +362,6 @@
   },
   "language_models": {
     "openai": {
-      "version": "1",
       "api_url": "http://localhost:1337/v1",
       "available_models": [
         {
