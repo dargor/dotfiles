@@ -341,6 +341,7 @@
   "agent": {
     "stream_edits": true,
     "enable_feedback": false,
+    "default_view": "text_thread",
     "default_model": {
       "provider": "openai",
       "model": "qwen2.5-coder"
