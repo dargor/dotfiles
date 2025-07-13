@@ -180,6 +180,9 @@
       "**playbook*.yaml",
       "**playbook*.yml"
     ],
+    "Diff": [
+      "*.patch"
+    ],
     "Dockerfile": [
       "Dockerfile.*"
     ],
