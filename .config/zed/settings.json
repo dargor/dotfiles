@@ -34,11 +34,9 @@
     "quick_actions": false
   },
   "lsp": {
-    "cargotom": {
+    "cargo-tom": {
       "initialization_options": {
-        "offline": false,
-        "stable": false,
-        "per_page_web": 50
+        "hide_docs_info_message": true
       }
     },
     "golangci-lint": {
