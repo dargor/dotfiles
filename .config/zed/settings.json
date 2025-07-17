@@ -149,7 +149,6 @@
       }
     }
   },
-  "auto_signature_help": true,
   "inline_code_actions": false,
   "file_scan_exclusions": [
     "**/.git",
