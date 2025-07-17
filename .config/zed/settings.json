@@ -19,6 +19,9 @@
     "display_in": "all_editors",
     "thumb_border": "none"
   },
+  "title_bar": {
+    "show_branch_icon": true
+  },
   "scrollbar": {
     "show": "always",
     "axes": {
