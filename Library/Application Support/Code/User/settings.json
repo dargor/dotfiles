@@ -6,6 +6,7 @@
   "editor.fontLigatures": false,
   "editor.fontSize": 11,
   "editor.inlayHints.maximumLength": 0,
+  "editor.lightbulb.enabled": false,
   "editor.lineHeight": 1.2,
   "editor.minimap.enabled": false,
   "editor.minimap.showSlider": "always",
