@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
+
 _docker_log() {
     echo "[93m>>> [94m$*[0m"
 }
