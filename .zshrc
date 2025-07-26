@@ -2,12 +2,16 @@ FPATH="/opt/homebrew/share/zsh/site-functions:${FPATH}"
 autoload -Uz compinit
 compinit
 
+# Max entries kept in memory
+HISTSIZE=10000
+
+# Max entries saved to disk
+SAVEHIST=2000
+
 setopt COMPLETE_ALIASES
-setopt HIST_EXPIRE_DUPS_FIRST
 setopt HIST_FCNTL_LOCK
 setopt HIST_FIND_NO_DUPS
 setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_SPACE
 setopt HIST_REDUCE_BLANKS
 setopt HIST_SAVE_NO_DUPS
