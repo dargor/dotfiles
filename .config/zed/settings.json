@@ -30,7 +30,8 @@
   },
   "tabs": {
     "file_icons": true,
-    "git_status": true
+    "git_status": true,
+    "show_diagnostics": "all"
   },
   "toolbar": {
     "breadcrumbs": false,
@@ -191,7 +192,8 @@
     "Git Ignore": [
       ".dockerignore",
       ".helmignore",
-      ".rgignore"
+      ".rgignore",
+      ".sccignore"
     ],
     "Helm": [
       "**/templates/**/*.tpl",
