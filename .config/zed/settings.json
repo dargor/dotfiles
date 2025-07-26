@@ -153,6 +153,7 @@
   "file_scan_exclusions": [
     "**/.git",
     "**/.venv",
+    "**/.swp",
     "**/.*.swp",
     "**/.*_cache",
     "**/.DS_Store",
