@@ -140,5 +140,6 @@
   "todo-tree.tree.showCountsInTree": true,
   "vs-kubernetes": {
     "vs-kubernetes.crd-code-completion": "enabled"
-  }
+  },
+  "zig.zls.enabled": "on"
 }

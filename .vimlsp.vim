@@ -199,6 +199,15 @@ endif
 "    \ })
 "endif
 
+if executable('zls')
+    " https://github.com/mattn/vim-lsp-settings/blob/master/settings/zls.vim
+    autocmd User lsp_setup call lsp#register_server(#{
+    \   name: 'Zig Language Server',
+    \   cmd: {server_info->['zls']},
+    \   allowlist: ['zig'],
+    \ })
+endif
+
 function! s:on_lsp_buffer_enabled() abort
     setlocal nowrap
     setlocal signcolumn=yes
