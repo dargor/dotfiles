@@ -351,19 +351,19 @@
     "use_modifier_to_send": true,
     "default_view": "text_thread",
     "default_model": {
-      "provider": "openai",
+      "provider": "localhost",
       "model": "qwen2.5-coder"
     },
     "inline_assistant_model": {
-      "provider": "openai",
+      "provider": "localhost",
       "model": "qwen2.5-coder"
     },
     "commit_message_model": {
-      "provider": "openai",
+      "provider": "localhost",
       "model": "qwen2.5-coder"
     },
     "thread_summary_model": {
-      "provider": "openai",
+      "provider": "localhost",
       "model": "qwen2.5-coder"
     },
     "default_profile": "write"
@@ -377,15 +377,17 @@
     }
   },
   "language_models": {
-    "openai": {
-      "api_url": "http://localhost:1337/v1",
-      "available_models": [
-        {
-          "name": "qwen2.5-coder",
-          "display_name": "Qwen 2.5 Coder",
-          "max_tokens": 16384
-        }
-      ]
+    "openai_compatible": {
+      "localhost": {
+        "api_url": "http://localhost:1337/v1",
+        "available_models": [
+          {
+            "name": "qwen2.5-coder",
+            "display_name": "Qwen 2.5 Coder",
+            "max_tokens": 16384
+          }
+        ]
+      }
     }
   }
 }
