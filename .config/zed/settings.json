@@ -10,6 +10,7 @@
   "ui_font_size": 15,
   "agent_font_size": 15,
   "hide_mouse": "never",
+  "snippet_sort_order": "none",
   "unnecessary_code_fade": 0.5,
   "use_system_path_prompts": false,
   "use_system_prompts": false,
