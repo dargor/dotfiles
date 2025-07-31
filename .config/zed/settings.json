@@ -349,7 +349,6 @@
     "stream_edits": true,
     "enable_feedback": false,
     "use_modifier_to_send": true,
-    "default_view": "text_thread",
     "default_model": {
       "provider": "localhost",
       "model": "qwen2.5-coder"
