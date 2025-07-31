@@ -349,6 +349,7 @@
     "stream_edits": true,
     "enable_feedback": false,
     "use_modifier_to_send": true,
+    "notify_when_agent_waiting": "all_screens",
     "default_model": {
       "provider": "localhost",
       "model": "qwen2.5-coder"
