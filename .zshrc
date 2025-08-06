@@ -8,6 +8,9 @@ HISTSIZE=10000
 # Max entries saved to disk
 SAVEHIST=2000
 
+# Ignore some useless commands
+HISTORY_IGNORE="source *"
+
 setopt COMPLETE_ALIASES
 setopt HIST_FCNTL_LOCK
 setopt HIST_FIND_NO_DUPS
