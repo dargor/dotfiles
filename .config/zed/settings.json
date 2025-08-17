@@ -367,14 +367,6 @@
     },
     "default_profile": "write"
   },
-  "context_servers": {
-    "mcp-server-context7": {
-      "source": "extension",
-      "settings": {
-        "default_minimum_tokens": "10000"
-      }
-    }
-  },
   "language_models": {
     "openai_compatible": {
       "localhost": {
