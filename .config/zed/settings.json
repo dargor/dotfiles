@@ -351,19 +351,19 @@
     "notify_when_agent_waiting": "all_screens",
     "default_model": {
       "provider": "localhost",
-      "model": "qwen2.5-coder"
+      "model": "qwen3-coder"
     },
     "inline_assistant_model": {
       "provider": "localhost",
-      "model": "qwen2.5-coder"
+      "model": "qwen3-coder"
     },
     "commit_message_model": {
       "provider": "localhost",
-      "model": "qwen2.5-coder"
+      "model": "qwen3-coder"
     },
     "thread_summary_model": {
       "provider": "localhost",
-      "model": "qwen2.5-coder"
+      "model": "qwen3-coder"
     },
     "default_profile": "write"
   },
@@ -373,9 +373,9 @@
         "api_url": "http://localhost:1337/v1",
         "available_models": [
           {
-            "name": "qwen2.5-coder",
-            "display_name": "Qwen 2.5 Coder",
-            "max_tokens": 16384
+            "name": "qwen3-coder",
+            "display_name": "Qwen3 Coder",
+            "max_tokens": 65536
           }
         ]
       }
