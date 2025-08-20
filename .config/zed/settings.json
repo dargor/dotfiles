@@ -375,7 +375,7 @@
           {
             "name": "qwen3-coder",
             "display_name": "Qwen3 Coder",
-            "max_tokens": 65536
+            "max_tokens": 131072
           }
         ]
       }
