@@ -338,6 +338,11 @@
     "light": "Catppuccin Latte - No Italics",
     "dark": "Catppuccin Frappé - No Italics"
   },
+  "theme_overrides": {
+    "Catppuccin Latte - No Italics": {
+      "scrollbar.thumb.hover_background": "#8839ef63"
+    }
+  },
   "project_panel": {
     "entry_spacing": "standard",
     "sticky_scroll": false,
