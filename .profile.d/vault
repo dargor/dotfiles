@@ -7,7 +7,7 @@ kv_get() {
         echo 1>&2 "  kv_get path/to/key#field"
         return 1
     fi
-    IFS='#' read -r k f <<< "$1"
+    IFS='#' read -r k f <<<"$1"
     if [ -z "$f" ]; then
         echo 1>&2 "[93mWarning: missing field[0m"
         vault kv get "$k"
@@ -20,14 +20,14 @@ kv_put() {
     if [ -z "${1:-}" ] || [ -z "${2:-}" ]; then
         echo 1>&2 "To put raw values:"
         echo 1>&2 "  kv_put path/to/key#field value"
-        echo 1>&2 "  echo value | kv_put path/to/key#field -"
+        echo 1>&2 "  echo -n value | kv_put path/to/key#field -"
         echo 1>&2 "  kv_put path/to/key#field @filename"
         echo 1>&2 ""
         echo 1>&2 "To put base64 encoded values:"
         echo 1>&2 "  base64 -w 0 < filename | kv_put path/to/key#field -"
         return 1
     fi
-    IFS='#' read -r k f <<< "$1"
+    IFS='#' read -r k f <<<"$1"
     if [ -z "$f" ]; then
         echo 1>&2 "[91mError: missing field[0m"
         return 1
@@ -41,3 +41,4 @@ kv_put() {
         vault kv put "$k" "$f"="$v"
     fi
 }
+
