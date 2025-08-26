@@ -20,6 +20,10 @@
     "display_in": "all_editors",
     "thumb_border": "none"
   },
+  "indent_guides": {
+    "active_line_width": 3,
+    "coloring": "indent_aware"
+  },
   "title_bar": {
     "show_branch_icon": true
   },
