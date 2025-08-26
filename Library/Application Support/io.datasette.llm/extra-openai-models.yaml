@@ -1,0 +1,6 @@
+# https://llm.datasette.io/en/stable/other-models.html
+
+- model_id: "qwen3-coder"
+  model_name: "Qwen3 Coder"
+  api_base: "http://localhost:1337/v1"
+  supports_tools: true
