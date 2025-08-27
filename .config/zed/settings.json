@@ -97,17 +97,6 @@
         }
       }
     },
-    "pyright": {
-      "initialization_options": {
-        "disablePullDiagnostics": true
-      },
-      "settings": {
-        "python.analysis": {
-          "diagnosticMode": "workspace",
-          "typeCheckingMode": "standard"
-        }
-      }
-    },
     "ruff": {
       "initialization_options": {
         "settings": {
