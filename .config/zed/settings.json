@@ -81,6 +81,9 @@
       }
     },
     "basedpyright": {
+      "initialization_options": {
+        "disablePullDiagnostics": true
+      },
       "settings": {
         "basedpyright.analysis": {
           "diagnosticMode": "workspace",
@@ -88,12 +91,16 @@
           "inlayHints": {
             "callArgumentNames": true,
             "functionReturnTypes": true,
+            "genericTypes": true,
             "variableTypes": true
           }
         }
       }
     },
     "pyright": {
+      "initialization_options": {
+        "disablePullDiagnostics": true
+      },
       "settings": {
         "python.analysis": {
           "diagnosticMode": "workspace",
