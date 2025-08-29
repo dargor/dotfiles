@@ -32,6 +32,9 @@
       "horizontal": false
     }
   },
+  "chat_panel": {
+    "button": "always"
+  },
   "tabs": {
     "file_icons": true,
     "git_status": true,
@@ -351,7 +354,7 @@
   "agent": {
     "stream_edits": true,
     "enable_feedback": false,
-    "notify_when_agent_waiting": "all_screens",
+    "default_profile": "write",
     "default_model": {
       "provider": "localhost",
       "model": "qwen3-coder"
@@ -367,8 +370,7 @@
     "thread_summary_model": {
       "provider": "localhost",
       "model": "qwen3-coder"
-    },
-    "default_profile": "write"
+    }
   },
   "language_models": {
     "openai_compatible": {
