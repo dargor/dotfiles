@@ -336,12 +336,15 @@
   },
   "theme": {
     "mode": "light",
-    "light": "Catppuccin Latte - No Italics",
-    "dark": "Catppuccin Frappé - No Italics"
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Macchiato"
   },
   "theme_overrides": {
-    "Catppuccin Latte - No Italics": {
+    "Catppuccin Latte": {
       "scrollbar.thumb.hover_background": "#8839ef63"
+    },
+    "Catppuccin Macchiato": {
+      "scrollbar.thumb.hover_background": "#c6a0f663"
     }
   },
   "project_panel": {
