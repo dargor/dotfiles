@@ -102,29 +102,43 @@ if &t_Co > 2
         " :so $VIMRUNTIME/syntax/hitest.vim
         highlight WhiteSpaces ctermbg=Red
 
-        highlight CursorLine ctermbg=242 guibg=#E6E9EF
-        highlight CursorColumn ctermbg=242 guibg=#E6E9EF
-        highlight ColorColumn ctermbg=242 guibg=#E6E9EF
+        highlight clear LspHintText
+        highlight link LspHintText Ignore
+        highlight clear LspHintVirtualText
+        highlight link LspHintVirtualText Ignore
 
-        highlight clear Comment
-        highlight Comment ctermfg=243
+        highlight clear LspInformationText
+        highlight link LspInformationText Ignore
+        highlight clear LspInformationVirtualText
+        highlight link LspInformationVirtualText Ignore
 
-        highlight clear Ignore
-        highlight Ignore ctermfg=249
+        highlight clear LspWarningText
+        highlight link LspWarningText Todo
+        highlight clear LspWarningVirtualText
+        highlight link LspWarningVirtualText Todo
 
-        highlight clear Type
-        highlight Type ctermfg=5 guifg=#6a0dad
+        highlight clear LspErrorText
+        highlight link LspErrorText Error
+        highlight clear LspErrorVirtualText
+        highlight link LspErrorVirtualText Error
 
-        highlight LspHintText ctermfg=243
-        highlight LspHintVirtualText ctermfg=243
-        highlight LspInformationText ctermfg=243
-        highlight LspInformationVirtualText ctermfg=243
-        highlight LspWarningText ctermfg=Yellow
-        highlight LspWarningVirtualText ctermfg=Yellow
-        highlight LspErrorText ctermfg=Red
-        highlight LspErrorVirtualText ctermfg=Red
-        highlight lspInlayHintsType ctermfg=249
-        highlight lspInlayHintsParameter ctermfg=135
+        highlight clear LspHintHighlight
+        highlight link LspHintHighlight Ignore
+
+        highlight clear LspInformationHighlight
+        highlight link LspInformationHighlight Ignore
+
+        highlight clear LspWarningHighlight
+        highlight link LspWarningHighlight Todo
+
+        highlight clear LspErrorHighlight
+        highlight link LspErrorHighlight Error
+
+        highlight clear lspInlayHintsType
+        highlight link lspInlayHintsType Ignore
+
+        highlight clear lspInlayHintsParameter
+        highlight link lspInlayHintsParameter Ignore
 
         if index(['man', 'aichat'], &filetype) >= 0
             setlocal nonumber
