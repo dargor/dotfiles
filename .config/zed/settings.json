@@ -163,7 +163,8 @@
     "**/.DS_Store",
     "**/Thumbs.db",
     "**/*.egg-info",
-    "**/__pycache__"
+    "**/__pycache__",
+    "**/target"
   ],
   "file_types": {
     "Ansible": [
