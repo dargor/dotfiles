@@ -93,10 +93,6 @@ if &t_Co > 2
     syntax on
     set hlsearch
 
-    if !&diff
-        set colorcolumn=80
-    endif
-
     function! SetupHighlights()
         " :h highlight-groups
         " :so $VIMRUNTIME/syntax/hitest.vim
@@ -142,7 +138,6 @@ if &t_Co > 2
 
         if index(['man', 'aichat'], &filetype) >= 0
             setlocal nonumber
-            setlocal colorcolumn=
             setlocal signcolumn=no
             highlight clear WhiteSpaces
         endif
@@ -163,16 +158,12 @@ if &t_Co > 2
         call InitBuffer()
         if g:dargor_full_moumoute
             setlocal cursorline
-            if index(['yaml', 'json'], &syntax) >= 0
-                setlocal cursorcolumn
-            endif
         endif
     endfunction
 
     function! LeaveBuffer()
         if g:dargor_full_moumoute
             setlocal nocursorline
-            setlocal nocursorcolumn
         endif
     endfunction
 
@@ -242,11 +233,10 @@ nnoremap WY :call WYaml()<CR>
 nnoremap fj :%!jq .<CR>
 nnoremap fJ :%!jq -S .<CR>
 
-nnoremap <F4> :Lexplore<CR>
 nnoremap <F5> :syntax sync fromstart<CR>
 nnoremap <F6> :set invpaste paste?<CR>
 nnoremap <F7> :call ToggleMouse()<CR>
-nnoremap <F8> :setlocal cursorcolumn!<CR>
+nnoremap <F8> :Lexplore<CR>
 nnoremap <F9> :!%:p<CR>
 
 nnoremap <C-W>o :call MaximizeToggle()<CR>
@@ -266,7 +256,7 @@ endif
 
 cnoreabbrev t terminal
 cnoreabbrev vt vertical terminal
-autocmd TerminalOpen * setlocal nonumber signcolumn=no colorcolumn=
+autocmd TerminalOpen * setlocal nonumber signcolumn=no
 
 for f in split(expand('~/.vim*.vim'), '\n')
     if filereadable(f)
