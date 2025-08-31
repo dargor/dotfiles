@@ -94,7 +94,27 @@ if executable('protobuf-language-server')
     \ })
 endif
 
-if executable('pylsp')
+if executable('basedpyright-langserver')
+    " https://github.com/mattn/vim-lsp-settings/blob/master/settings/pyright-langserver.vim
+    autocmd User lsp_setup call lsp#register_server(#{
+    \   name: 'Python Language Server',
+    \   cmd: {server_info->['basedpyright-langserver', '--stdio']},
+    \   allowlist: ['python'],
+    \   workspace_config: #{
+    \     basedpyright: #{
+    \       analysis: #{
+    \         typeCheckingMode: 'strict',
+    \         inlayHints: #{
+    \           callArgumentNames: v:true,
+    \           functionReturnTypes: v:true,
+    \           genericTypes: v:true,
+    \           variableTypes: v:true,
+    \         },
+    \       },
+    \     },
+    \   },
+    \ })
+elseif executable('pylsp')
     " https://github.com/python-lsp/python-lsp-server#configuration
     autocmd User lsp_setup call lsp#register_server(#{
     \   name: 'Python Language Server',
