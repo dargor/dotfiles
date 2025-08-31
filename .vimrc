@@ -1,9 +1,27 @@
 set nocompatible
 set termguicolors
 
+if executable('lumos')
+    " https://github.com/dargor/lumos
+    let g:terminal_background = trim(system('lumos'))
+else
+    let g:terminal_background = 'unknown'
+endif
+
 try
-    colorscheme catppuccin_latte
-    let g:dargor_full_moumoute = 1
+    if g:terminal_background ==# 'light'
+        set background=light
+        colorscheme catppuccin_latte
+        let g:dargor_full_moumoute = 1
+    elseif g:terminal_background ==# 'dark'
+        set background=dark
+        colorscheme catppuccin_frappe
+        let g:dargor_full_moumoute = 1
+    else
+        set background=dark
+        colorscheme blue
+        let g:dargor_full_moumoute = 0
+    endif
 catch
     let g:dargor_full_moumoute = 0
 endtry
@@ -13,7 +31,6 @@ if &diff
 endif
 
 set autoindent
-set background=light
 set backspace=indent,start,eol
 set diffopt=filler,iwhiteall
 set display=lastline,uhex
