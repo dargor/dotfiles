@@ -58,14 +58,14 @@ if executable('gopls')
     \ })
 endif
 
-if executable('jinja-lsp')
-    " https://github.com/uros-5/jinja-lsp#configuration
-    autocmd User lsp_setup call lsp#register_server(#{
-    \   name: 'Jinja Language Server',
-    \   cmd: {server_info->['jinja-lsp', '--stdio']},
-    \   allowlist: ['jinja', 'python', 'rust'],
-    \ })
-endif
+"if executable('jinja-lsp')
+"    " https://github.com/uros-5/jinja-lsp#configuration
+"    autocmd User lsp_setup call lsp#register_server(#{
+"    \   name: 'Jinja Language Server',
+"    \   cmd: {server_info->['jinja-lsp', '--stdio']},
+"    \   allowlist: ['jinja', 'python', 'rust'],
+"    \ })
+"endif
 
 if executable('just-lsp')
     " https://github.com/terror/just-lsp
