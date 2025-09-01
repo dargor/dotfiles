@@ -156,14 +156,17 @@
   "inline_code_actions": false,
   "file_scan_exclusions": [
     "**/.git",
-    "**/.venv",
     "**/.swp",
     "**/.*.swp",
-    "**/.*_cache",
     "**/.DS_Store",
     "**/Thumbs.db",
     "**/*.egg-info",
+    "**/.*_cache",
+    "**/.tox",
+    "**/.venv",
     "**/__pycache__",
+    "**/build",
+    "**/dist",
     "**/target"
   ],
   "file_types": {
