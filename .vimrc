@@ -116,19 +116,19 @@ if &t_Co > 2
         highlight WhiteSpaces ctermbg=Red
 
         highlight clear LspHintText
-        highlight link LspHintText Ignore
+        highlight link LspHintText NonText
         highlight clear LspHintVirtualText
-        highlight link LspHintVirtualText Ignore
+        highlight link LspHintVirtualText NonText
 
         highlight clear LspInformationText
-        highlight link LspInformationText Ignore
+        highlight link LspInformationText NonText
         highlight clear LspInformationVirtualText
-        highlight link LspInformationVirtualText Ignore
+        highlight link LspInformationVirtualText NonText
 
         highlight clear LspWarningText
-        highlight link LspWarningText Todo
+        highlight link LspWarningText WarningMsg
         highlight clear LspWarningVirtualText
-        highlight link LspWarningVirtualText Todo
+        highlight link LspWarningVirtualText WarningMsg
 
         highlight clear LspErrorText
         highlight link LspErrorText Error
@@ -136,22 +136,22 @@ if &t_Co > 2
         highlight link LspErrorVirtualText Error
 
         highlight clear LspHintHighlight
-        highlight link LspHintHighlight Ignore
+        highlight link LspHintHighlight NonText
 
         highlight clear LspInformationHighlight
-        highlight link LspInformationHighlight Ignore
+        highlight link LspInformationHighlight NonText
 
         highlight clear LspWarningHighlight
-        highlight link LspWarningHighlight Todo
+        highlight link LspWarningHighlight WarningMsg
 
         highlight clear LspErrorHighlight
         highlight link LspErrorHighlight Error
 
         highlight clear lspInlayHintsType
-        highlight link lspInlayHintsType Ignore
+        highlight link lspInlayHintsType NonText
 
         highlight clear lspInlayHintsParameter
-        highlight link lspInlayHintsParameter Ignore
+        highlight link lspInlayHintsParameter NonText
 
         if index(['man', 'aichat'], &filetype) >= 0
             setlocal nonumber
