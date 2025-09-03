@@ -22,8 +22,7 @@ config.use_fancy_tab_bar = false
 
 config.font = wezterm.font('Monaspace Krypton')
 config.font_size = 11
-config.freetype_load_flags = 'FORCE_AUTOHINT'
-config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
+config.harfbuzz_features = { 'calt=1', 'liga=1' }
 
 config.color_scheme = 'Catppuccin Latte'
 
