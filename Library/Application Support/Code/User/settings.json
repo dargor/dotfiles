@@ -3,7 +3,7 @@
   "chat.commandCenter.enabled": false,
   "diffEditor.codeLens": true,
   "editor.fontFamily": "Monaspace Krypton",
-  "editor.fontLigatures": false,
+  "editor.fontLigatures": "'calt', 'liga'",
   "editor.fontSize": 11,
   "editor.inlayHints.maximumLength": 0,
   "editor.lightbulb.enabled": "off",
@@ -80,7 +80,7 @@
   "catppuccin.boldKeywords": false,
   "python.analysis": {
     "diagnosticMode": "workspace",
-    "typeCheckingMode": "standard",
+    "typeCheckingMode": "strict",
     "inlayHints": {
       "callArgumentNames": true,
       "functionReturnTypes": true,
