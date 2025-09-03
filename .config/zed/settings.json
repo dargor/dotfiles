@@ -1,7 +1,8 @@
 {
   "buffer_font_family": "Monaspace Krypton",
   "buffer_font_features": {
-    "calt": false
+    "calt": true,
+    "liga": true
   },
   "buffer_font_size": 11,
   "buffer_line_height": {
