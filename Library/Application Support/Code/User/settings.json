@@ -79,7 +79,6 @@
   "catppuccin.italicComments": false,
   "catppuccin.boldKeywords": false,
   "python.analysis": {
-    "diagnosticMode": "workspace",
     "typeCheckingMode": "strict",
     "inlayHints": {
       "callArgumentNames": true,
