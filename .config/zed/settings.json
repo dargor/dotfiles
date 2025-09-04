@@ -84,12 +84,8 @@
       }
     },
     "basedpyright": {
-      "initialization_options": {
-        "disablePullDiagnostics": true
-      },
       "settings": {
         "basedpyright.analysis": {
-          "diagnosticMode": "workspace",
           "typeCheckingMode": "strict",
           "inlayHints": {
             "callArgumentNames": true,
