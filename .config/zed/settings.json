@@ -362,19 +362,19 @@
     "default_profile": "write",
     "default_model": {
       "provider": "localhost",
-      "model": "qwen3-coder"
+      "model": "chat-big"
     },
     "inline_assistant_model": {
       "provider": "localhost",
-      "model": "qwen3-coder"
+      "model": "chat-big"
     },
     "commit_message_model": {
       "provider": "localhost",
-      "model": "qwen3-coder"
+      "model": "chat-small"
     },
     "thread_summary_model": {
       "provider": "localhost",
-      "model": "qwen3-coder"
+      "model": "chat-small"
     }
   },
   "language_models": {
@@ -383,8 +383,28 @@
         "api_url": "http://localhost:1337/v1",
         "available_models": [
           {
-            "name": "qwen3-coder",
-            "display_name": "Qwen3 Coder",
+            "name": "chat-small",
+            "display_name": "Qwen3-4B-Instruct-2507",
+            "max_tokens": 16384
+          },
+          {
+            "name": "chat-big",
+            "display_name": "Qwen3-30B-A3B-Instruct-2507",
+            "max_tokens": 131072
+          },
+          {
+            "name": "gpt-oss-low",
+            "display_name": "gpt-oss-20b (low)",
+            "max_tokens": 131072
+          },
+          {
+            "name": "gpt-oss-medium",
+            "display_name": "gpt-oss-20b (medium)",
+            "max_tokens": 131072
+          },
+          {
+            "name": "gpt-oss-high",
+            "display_name": "gpt-oss-20b (high)",
             "max_tokens": 131072
           }
         ]
