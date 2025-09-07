@@ -10,15 +10,12 @@ endif
 
 try
     if g:terminal_background ==# 'light'
-        set background=light
         colorscheme catppuccin_latte
         let g:dargor_full_moumoute = 1
     elseif g:terminal_background ==# 'dark'
-        set background=dark
         colorscheme catppuccin_frappe
         let g:dargor_full_moumoute = 1
     else
-        set background=dark
         colorscheme blue
         let g:dargor_full_moumoute = 0
     endif
