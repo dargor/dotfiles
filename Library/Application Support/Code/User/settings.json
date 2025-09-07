@@ -87,14 +87,8 @@
       "variableTypes": true
     }
   },
-  "python.analysis": {
-    "typeCheckingMode": "strict",
-    "inlayHints": {
-      "callArgumentNames": true,
-      "functionReturnTypes": true,
-      "variableTypes": true
-    }
-  },
+  "pyright.disableLanguageServices": true,
+  "python.analysis.typeCheckingMode": "off",
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.formatOnSave": true,
