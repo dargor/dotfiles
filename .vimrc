@@ -16,10 +16,11 @@ try
         colorscheme catppuccin_frappe
         let g:dargor_full_moumoute = 1
     else
-        colorscheme blue
+        colorscheme zellner
         let g:dargor_full_moumoute = 0
     endif
 catch
+    colorscheme zellner
     let g:dargor_full_moumoute = 0
 endtry
 
