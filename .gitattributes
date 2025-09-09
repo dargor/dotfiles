@@ -1,2 +1,2 @@
 # handle gpg-encrypted files
-*.gpg filter=gpg diff=gpg
+*.gpg filter=gpg diff=gpg merge=gpg
