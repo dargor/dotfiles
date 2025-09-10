@@ -1,3 +1,6 @@
+" see v9.1.1703 and runtime/plugin/colorresp.vim
+let g:loaded_colorresp = 1
+
 set nocompatible
 set termguicolors
 
