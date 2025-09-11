@@ -33,9 +33,6 @@
       "horizontal": false
     }
   },
-  "chat_panel": {
-    "button": "always"
-  },
   "tabs": {
     "file_icons": true,
     "git_status": true,
