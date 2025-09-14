@@ -1,6 +1,12 @@
 [registries.crates-io]
 protocol = "sparse"
 
+[profile.dev]
+debug = "line-tables-only"
+strip = "none"
+lto = "off"
+panic = "unwind"
+
 [profile.dev.build-override]
 debug = false
 opt-level = 3
@@ -9,10 +15,9 @@ opt-level = 3
 debug = false
 opt-level = 3
 
-[profile.dev]
-strip = "none"
-lto = "off"
-panic = "unwind"
+[profile.debugging]
+inherits = "dev"
+debug = true
 
 [profile.release]
 strip = "symbols"
