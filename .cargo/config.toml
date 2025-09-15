@@ -3,9 +3,6 @@ protocol = "sparse"
 
 [profile.dev]
 debug = "line-tables-only"
-strip = "none"
-lto = "off"
-panic = "unwind"
 
 [profile.dev.build-override]
 debug = false
@@ -20,7 +17,4 @@ inherits = "dev"
 debug = true
 
 [profile.release]
-strip = "symbols"
-lto = "thin"
-panic = "abort"
 codegen-units = 1
