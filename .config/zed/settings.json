@@ -337,7 +337,7 @@
     }
   },
   "theme": {
-    "mode": "light",
+    "mode": "system",
     "light": "Catppuccin Latte - No Italics",
     "dark": "Catppuccin Frappé - No Italics"
   },
