@@ -24,7 +24,22 @@ config.font = wezterm.font('Monaspace Krypton')
 config.font_size = 11
 config.harfbuzz_features = { 'calt=1', 'liga=1' }
 
-config.color_scheme = 'Catppuccin Latte'
+local function get_appearance()
+  if wezterm.gui then
+    return wezterm.gui.get_appearance()
+  end
+  return 'Dark'
+end
+
+local function scheme_for_appearance(appearance)
+  if appearance:find 'Dark' then
+    return 'Catppuccin Frappe'
+  else
+    return 'Catppuccin Latte'
+  end
+end
+
+config.color_scheme = scheme_for_appearance(get_appearance())
 
 config.keys = {
     {
