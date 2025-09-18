@@ -390,21 +390,6 @@
             "name": "chat-big",
             "display_name": "Qwen3-30B-A3B-Instruct-2507",
             "max_tokens": 131072
-          },
-          {
-            "name": "gpt-oss-low",
-            "display_name": "gpt-oss-20b (low)",
-            "max_tokens": 131072
-          },
-          {
-            "name": "gpt-oss-medium",
-            "display_name": "gpt-oss-20b (medium)",
-            "max_tokens": 131072
-          },
-          {
-            "name": "gpt-oss-high",
-            "display_name": "gpt-oss-20b (high)",
-            "max_tokens": 131072
           }
         ]
       }

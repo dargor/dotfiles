@@ -9,18 +9,3 @@
   model_name: "chat-big"
   api_base: "http://localhost:1337/v1"
   supports_tools: true
-
-- model_id: "gpt-oss-low"
-  model_name: "gpt-oss-low"
-  api_base: "http://localhost:1337/v1"
-  supports_tools: true
-
-- model_id: "gpt-oss-medium"
-  model_name: "gpt-oss-medium"
-  api_base: "http://localhost:1337/v1"
-  supports_tools: true
-
-- model_id: "gpt-oss-high"
-  model_name: "gpt-oss-high"
-  api_base: "http://localhost:1337/v1"
-  supports_tools: true

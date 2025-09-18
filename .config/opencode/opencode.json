@@ -21,27 +21,6 @@
             "context": 131072,
             "output": 131072
           }
-        },
-        "gpt-oss-low": {
-          "name": "gpt-oss-20b (low)",
-          "limit": {
-            "context": 131072,
-            "output": 131072
-          }
-        },
-        "gpt-oss-medium": {
-          "name": "gpt-oss-20b (medium)",
-          "limit": {
-            "context": 131072,
-            "output": 131072
-          }
-        },
-        "gpt-oss-high": {
-          "name": "gpt-oss-20b (high)",
-          "limit": {
-            "context": 131072,
-            "output": 131072
-          }
         }
       }
     }
