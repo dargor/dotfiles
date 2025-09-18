@@ -6,7 +6,7 @@ set termguicolors
 
 if executable('lumos')
     " https://github.com/dargor/lumos
-    let g:terminal_background = trim(system('lumos'))
+    silent let g:terminal_background = trim(system('lumos'))
 else
     let g:terminal_background = 'unknown'
 endif
