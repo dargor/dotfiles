@@ -305,6 +305,13 @@
         }
       }
     },
+    "TOML": {
+      "formatter": {
+        "language_server": {
+          "name": "toml"
+        }
+      }
+    },
     "YAML": {
       "language_servers": [
         "yaml-language-server",
