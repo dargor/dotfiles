@@ -358,6 +358,7 @@
   "agent": {
     "stream_edits": true,
     "enable_feedback": false,
+    "message_editor_min_lines": 6,
     "default_profile": "write",
     "default_model": {
       "provider": "localhost",
