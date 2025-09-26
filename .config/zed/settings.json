@@ -261,9 +261,6 @@
         "golangci-lint"
       ]
     },
-    "Just": {
-      "format_on_save": "off"
-    },
     "Markdown": {
       "soft_wrap": "editor_width"
     },
