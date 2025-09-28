@@ -1,8 +1,10 @@
 {
   "output": {
-    "filePath": "repomix-output.txt",
-    "style": "plain",
+    "fileSummary": false,
     "removeComments": true,
     "removeEmptyLines": true
+  },
+  "security": {
+    "enableSecurityCheck": false
   }
 }
