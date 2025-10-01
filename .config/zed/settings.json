@@ -326,9 +326,6 @@
     "blinking": "off",
     "copy_on_select": true,
     "keep_selection_on_copy": true,
-    "env": {
-      "COLORTERM": "truecolor"
-    },
     "line_height": {
       "custom": 1.2
     },
