@@ -395,6 +395,11 @@
             "name": "chat-big",
             "display_name": "Qwen3-30B-A3B-Instruct-2507",
             "max_tokens": 131072
+          },
+          {
+            "name": "coder",
+            "display_name": "Qwen3-Coder-30B-A3B-Instruct",
+            "max_tokens": 131072
           }
         ]
       }

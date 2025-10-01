@@ -21,6 +21,13 @@
             "context": 131072,
             "output": 131072
           }
+        },
+        "coder": {
+          "name": "Qwen3-Coder-30B-A3B-Instruct",
+          "limit": {
+            "context": 131072,
+            "output": 131072
+          }
         }
       }
     }

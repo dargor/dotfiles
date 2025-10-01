@@ -9,3 +9,8 @@
   model_name: "chat-big"
   api_base: "http://localhost:1337/v1"
   supports_tools: true
+
+- model_id: "coder"
+  model_name: "coder"
+  api_base: "http://localhost:1337/v1"
+  supports_tools: true
