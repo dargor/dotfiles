@@ -19,6 +19,7 @@
     "σ": true
   },
   "extensions.ignoreRecommendations": true,
+  "files.autoSave": "onFocusChange",
   "files.associations": {
     ".rgignore": "ignore",
     ".bandit": "ini",
