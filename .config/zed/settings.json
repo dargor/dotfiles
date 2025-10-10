@@ -249,7 +249,6 @@
     }
   },
   "edit_predictions": {
-    "mode": "subtle",
     "enabled_in_text_threads": false
   },
   "inlay_hints": {
