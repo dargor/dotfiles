@@ -9,7 +9,13 @@ bindkey "^[[3~" delete-char
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
 
+_FIRST_PROMPT=1
+
 precmd() {
+    if [[ -n $_FIRST_PROMPT ]]; then
+        unset _FIRST_PROMPT
+        return
+    fi
     # shellcheck disable=SC2296
     print -P "%F{252}${(l:COLUMNS::─:)}%f"
 }
