@@ -1,0 +1,18 @@
+theme = light:Catppuccin Latte,dark:Catppuccin Frappe
+unfocused-split-fill = #B0B0B0
+
+font-family = Monaspace Krypton
+font-feature = calt=1,liga=1
+font-size = 11
+
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
+auto-update = check
+copy-on-select = clipboard
+mouse-hide-while-typing = false
+scrollback-limit = 10000
+
+keybind = option+shift+n=new_split:down
+keybind = option+shift+v=new_split:right
