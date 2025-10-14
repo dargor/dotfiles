@@ -20,9 +20,11 @@ config.hide_tab_bar_if_only_one_tab = true
 config.mouse_wheel_scrolls_tabs = false
 config.use_fancy_tab_bar = false
 
-config.font = wezterm.font('Monaspace Krypton')
+config.font = wezterm.font {
+    family = 'Monaspace Krypton',
+    harfbuzz_features = { 'calt=1', 'liga=1' },
+}
 config.font_size = 11
-config.harfbuzz_features = { 'calt=1', 'liga=1' }
 
 local function get_appearance()
   if wezterm.gui then

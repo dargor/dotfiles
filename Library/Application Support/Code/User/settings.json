@@ -56,7 +56,7 @@
   "terminal.integrated.enablePersistentSessions": false,
   "terminal.integrated.environmentChangesRelaunch": false,
   "terminal.integrated.fontFamily": "Monaspace Krypton",
-  "terminal.integrated.fontLigatures": false,
+  "terminal.integrated.fontLigatures": "'calt', 'liga'",
   "terminal.integrated.fontSize": 11,
   "terminal.integrated.lineHeight": 1.1,
   "terminal.integrated.macOptionClickForcesSelection": true,
