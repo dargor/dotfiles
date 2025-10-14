@@ -1,5 +1,6 @@
 theme = light:Catppuccin Latte,dark:Catppuccin Frappe
 unfocused-split-fill = #B0B0B0
+split-divider-color = #C0C0C0
 
 font-family = Monaspace Krypton
 font-feature = calt=1,liga=1
