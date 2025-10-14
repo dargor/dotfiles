@@ -42,3 +42,17 @@ kv_put() {
     fi
 }
 
+kv_fields() {
+    if [ -z "${1:-}" ]; then
+        echo 1>&2 "Usage:"
+        echo 1>&2 "  kv_fields path/to/key"
+        return 1
+    fi
+    k="$1"
+    if vault kv get "$k" >/dev/null 2>&1; then
+        vault kv get -format=json "$k" | jq -r '.data.data | keys[]'
+    else
+        echo 1>&2 "[91mError: key not found[0m"
+        return 1
+    fi
+}
