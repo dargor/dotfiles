@@ -33,7 +33,6 @@
       "horizontal": false
     }
   },
-  "autosave": "on_focus_change",
   "tabs": {
     "file_icons": true,
     "git_status": true,
