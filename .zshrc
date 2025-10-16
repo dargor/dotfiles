@@ -9,7 +9,7 @@ HISTSIZE=10000
 SAVEHIST=2000
 
 # Ignore some useless commands
-HISTORY_IGNORE="source *"
+HISTORY_IGNORE="(source|.) *|clear"
 
 setopt COMPLETE_ALIASES
 setopt HIST_FCNTL_LOCK
