@@ -1,6 +1,9 @@
 [client]
 toolbarMode = "minimal"
 
+[runner]
+magicEnabled = false
+
 [server]
 headless = true
 runOnSave = true
