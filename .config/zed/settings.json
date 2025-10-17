@@ -15,11 +15,6 @@
   "use_system_path_prompts": false,
   "use_system_prompts": false,
   "confirm_quit": true,
-  "minimap": {
-    "show": "never",
-    "display_in": "all_editors",
-    "thumb_border": "none"
-  },
   "indent_guides": {
     "active_line_width": 3,
     "coloring": "indent_aware"
@@ -251,8 +246,7 @@
     "enabled_in_text_threads": false
   },
   "inlay_hints": {
-    "enabled": true,
-    "show_background": false
+    "enabled": true
   },
   "languages": {
     "Go": {
@@ -260,9 +254,6 @@
         "gopls",
         "golangci-lint"
       ]
-    },
-    "Markdown": {
-      "soft_wrap": "editor_width"
     },
     "Nginx": {
       "language_servers": [
