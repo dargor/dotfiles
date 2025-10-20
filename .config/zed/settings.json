@@ -355,14 +355,6 @@
     "inline_assistant_model": {
       "provider": "localhost",
       "model": "chat-big"
-    },
-    "commit_message_model": {
-      "provider": "localhost",
-      "model": "chat-small"
-    },
-    "thread_summary_model": {
-      "provider": "localhost",
-      "model": "chat-small"
     }
   },
   "language_models": {
