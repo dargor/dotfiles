@@ -139,3 +139,4 @@
     dlog = -c diff.external=difft log --ext-diff
     dshow = -c diff.external=difft show --ext-diff
     ddiff = -c diff.external=difft diff
+    fixup = !GIT_SEQUENCE_EDITOR=: git absorb --and-rebase
