@@ -83,13 +83,8 @@
   "catppuccin.italicComments": false,
   "catppuccin.boldKeywords": false,
   "basedpyright.analysis": {
-    "typeCheckingMode": "strict",
-    "inlayHints": {
-      "callArgumentNames": true,
-      "functionReturnTypes": true,
-      "genericTypes": true,
-      "variableTypes": true
-    }
+    "diagnosticMode": "workspace",
+    "typeCheckingMode": "strict"
   },
   "pyright.disableLanguageServices": true,
   "python.analysis.typeCheckingMode": "off",

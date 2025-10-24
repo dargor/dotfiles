@@ -78,13 +78,8 @@
     "basedpyright": {
       "settings": {
         "basedpyright.analysis": {
-          "typeCheckingMode": "strict",
-          "inlayHints": {
-            "callArgumentNames": true,
-            "functionReturnTypes": true,
-            "genericTypes": true,
-            "variableTypes": true
-          }
+          "diagnosticMode": "workspace",
+          "typeCheckingMode": "strict"
         }
       }
     },
