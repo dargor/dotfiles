@@ -1,4 +1,5 @@
 {
+  "disable_ai": false,
   "buffer_font_family": "Monaspace Krypton",
   "buffer_font_features": {
     "calt": true,
