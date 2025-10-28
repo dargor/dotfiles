@@ -195,6 +195,9 @@
       "**/helmfile.d/**/*.yaml",
       "**/helmfile.d/**/*.yml"
     ],
+    "Jinja2": [
+      "*.j2"
+    ],
     "JSON": [
       "*.avsc",
       "*.ipynb"
