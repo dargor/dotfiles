@@ -183,10 +183,7 @@
       "Dockerfile.*"
     ],
     "Git Ignore": [
-      ".dockerignore",
-      ".helmignore",
-      ".rgignore",
-      ".sccignore"
+      ".*ignore"
     ],
     "Helm": [
       "**/templates/**/*.tpl",
