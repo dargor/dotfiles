@@ -5,6 +5,7 @@
   "editor.fontFamily": "Monaspace Krypton",
   "editor.fontLigatures": "'calt', 'liga'",
   "editor.fontSize": 11,
+  "editor.guides.bracketPairs": "active",
   "editor.inlayHints.maximumLength": 0,
   "editor.lightbulb.enabled": "off",
   "editor.lineHeight": 1.2,
