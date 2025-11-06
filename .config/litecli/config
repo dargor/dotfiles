@@ -1,6 +1,6 @@
 [main]
 destructive_warning = False
-enable_pager = True
+enable_pager = False
 less_chatty = True
 log_level = NONE
 multi_line = True

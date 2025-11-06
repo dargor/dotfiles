@@ -1,6 +1,6 @@
 [main]
 destructive_warning =
-enable_pager = True
+enable_pager = False
 keyring = False
 less_chatty = True
 log_level = NONE
