@@ -1,4 +1,5 @@
 [main]
+auto_vertical_output = True
 destructive_warning = False
 enable_pager = False
 less_chatty = True
@@ -6,8 +7,8 @@ log_level = NONE
 multi_line = True
 pager = pspg
 syntax_style = emacs
-table_format = psql
+table_format = double
 wider_completion_menu = True
 
 [colors]
-output.header = "italic"
+output.header = "bold"

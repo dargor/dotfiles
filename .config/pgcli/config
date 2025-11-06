@@ -1,4 +1,5 @@
 [main]
+auto_expand = True
 destructive_warning =
 enable_pager = False
 keyring = False
@@ -8,8 +9,8 @@ multi_line = True
 null_string = NULL
 pager = pspg
 syntax_style = emacs
-table_format = psql
+table_format = double
 wider_completion_menu = True
 
 [colors]
-output.header = "italic"
+output.header = "bold"
