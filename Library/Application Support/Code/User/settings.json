@@ -84,7 +84,7 @@
   "catppuccin.italicComments": false,
   "catppuccin.boldKeywords": false,
   "basedpyright.analysis": {
-    "diagnosticMode": "workspace",
+    "diagnosticMode": "openFilesOnly",
     "typeCheckingMode": "strict"
   },
   "pyright.disableLanguageServices": true,
