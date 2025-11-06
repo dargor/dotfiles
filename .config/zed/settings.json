@@ -16,10 +16,6 @@
   "use_system_path_prompts": false,
   "use_system_prompts": false,
   "confirm_quit": true,
-  "indent_guides": {
-    "active_line_width": 3,
-    "coloring": "indent_aware"
-  },
   "title_bar": {
     "show_branch_icon": true
   },
