@@ -16,6 +16,7 @@ augroup filetypedetect
     autocmd BufNewFile,BufRead *.cql setlocal filetype=sql
     autocmd BufNewFile,BufRead *.bats setlocal filetype=sh
     autocmd BufNewFile,BufRead *.tcss setlocal filetype=css
+    autocmd BufNewFile,BufRead *.j2 setlocal filetype=jinja
 
     " pyx (implementation) and pxd (definition) are handled, but pxi (include) are not
     autocmd BufNewFile,BufRead *.pxi setlocal filetype=pyrex
