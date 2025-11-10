@@ -103,13 +103,8 @@ if executable('basedpyright-langserver')
     \   workspace_config: #{
     \     basedpyright: #{
     \       analysis: #{
+    \         diagnosticMode: 'openFilesOnly',
     \         typeCheckingMode: 'strict',
-    \         inlayHints: #{
-    \           callArgumentNames: v:true,
-    \           functionReturnTypes: v:true,
-    \           genericTypes: v:true,
-    \           variableTypes: v:true,
-    \         },
     \       },
     \     },
     \   },
