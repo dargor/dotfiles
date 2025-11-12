@@ -146,6 +146,7 @@
     "**/.DS_Store",
     "**/Thumbs.db",
     "**/*.egg-info",
+    "**/.*-cache",
     "**/.*_cache",
     "**/.tox",
     "**/.venv",
