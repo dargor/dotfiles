@@ -137,6 +137,7 @@
       }
     }
   },
+  "completion_menu_scrollbar": "always",
   "show_signature_help_after_edits": true,
   "inline_code_actions": false,
   "file_scan_exclusions": [
