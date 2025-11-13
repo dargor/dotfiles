@@ -286,7 +286,7 @@
     "TOML": {
       "formatter": {
         "language_server": {
-          "name": "toml"
+          "name": "tombi"
         }
       }
     },
