@@ -164,3 +164,12 @@ clpy() {
 fdvenv() {
     fd -HI '\.venv'
 }
+
+rule() {
+    rule="${1:-}"
+    if [ -z "$rule" ]; then
+        echo 1>&2 "Usage: rule [ruff rule ID]"
+        return 1
+    fi
+    ruff rule "$rule" | glow
+}
