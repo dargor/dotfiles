@@ -10,6 +10,7 @@ null_string = NULL
 pager = pspg
 syntax_style = emacs
 table_format = double
+use_local_timezone = False
 wider_completion_menu = True
 
 [colors]
