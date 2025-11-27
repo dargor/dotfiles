@@ -2,7 +2,7 @@
 
 alias ds="diffstat -C"
 alias dt="difft"
-alias gli="rg '\(gli\)'"
+alias gli="rg -. -g '!.git' '\(gli\)'"
 alias grep="grep --color=auto"
 alias h="history"
 alias https="http --verify=no"
