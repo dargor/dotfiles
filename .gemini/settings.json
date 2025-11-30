@@ -1,0 +1,17 @@
+{
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
+  "tools": {
+    "autoAccept": true,
+    "sandbox": "sandbox-exec"
+  },
+  "ui": {
+    "theme": "Default Light",
+    "footer": {
+      "hideContextPercentage": false
+    }
+  }
+}
