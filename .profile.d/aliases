@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
 
+alias dn="diffnav"
 alias ds="diffstat -C"
 alias dt="difft"
 alias gli="rg -. -g '!.git' '\(gli\)'"
