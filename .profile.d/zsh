@@ -64,3 +64,5 @@ if [ -f /opt/homebrew/bin/vivid ]; then
     LS_COLORS="$(vivid generate catppuccin-latte)"
     export LS_COLORS
 fi
+
+zstyle ':completion:*:*:*:commands' ignored-patterns '*.lima' 'just-lsp'
