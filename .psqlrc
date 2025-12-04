@@ -6,6 +6,7 @@
 
 \setenv PAGER pspg
 \pset pager on
+\x auto
 
 \set PROMPT1 '%n@%M:%> [%x%/]> '
 \set HISTCONTROL ignoredups
