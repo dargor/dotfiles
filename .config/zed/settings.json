@@ -180,6 +180,9 @@
     "Diff": [
       "*.patch"
     ],
+    "Django": [
+      "**/templates/**/*.html"
+    ],
     "Dockerfile": [
       "Dockerfile.*"
     ],
