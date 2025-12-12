@@ -1,16 +1,6 @@
 # https://llm.datasette.io/en/stable/other-models.html
 
-- model_id: "chat-small"
-  model_name: "chat-small"
-  api_base: "http://localhost:1337/v1"
-  supports_tools: true
-
-- model_id: "chat-big"
-  model_name: "chat-big"
-  api_base: "http://localhost:1337/v1"
-  supports_tools: true
-
-- model_id: "gpt-oss"
-  model_name: "gpt-oss"
+- model_id: "chat"
+  model_name: "chat"
   api_base: "http://localhost:1337/v1"
   supports_tools: true

@@ -378,11 +378,11 @@
     "default_profile": "write",
     "default_model": {
       "provider": "localhost",
-      "model": "chat-big"
+      "model": "chat"
     },
     "inline_assistant_model": {
       "provider": "localhost",
-      "model": "chat-big"
+      "model": "chat"
     }
   },
   "language_models": {
@@ -391,14 +391,9 @@
         "api_url": "http://localhost:1337/v1",
         "available_models": [
           {
-            "name": "chat-big",
-            "display_name": "Qwen3-30B-A3B-Instruct-2507",
-            "max_tokens": 131072
-          },
-          {
-            "name": "gpt-oss",
-            "display_name": "gpt-oss-20b",
-            "max_tokens": 131072
+            "name": "chat",
+            "display_name": "Qwen3-Next-80B-A3B-Instruct",
+            "max_tokens": 262144
           }
         ]
       }
