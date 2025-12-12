@@ -2,7 +2,7 @@
 " Language:	Justfile
 " Maintainer:	Noah Bogart <noah.bogart@hey.com>
 " URL:		https://github.com/NoahTheDuke/vim-just.git
-" Last Change:	2025 Jul 07
+" Last Change:	2025 Dec 10
 
 if exists('b:current_syntax')
   finish
@@ -56,9 +56,20 @@ syn region justShellExpandString
    \ start=/\v\k@1<!x"""/ skip=/\\\\\|\\"/ end=/"""/
    \ contains=justStringEscapeSequence,justStringUEscapeSequence,justStringEscapeError,justShellExpandVar,justDollarEscape,justDollarEscapeSplit
 
+syn region justFStringRaw start=/\v\k@1<!f'/ end=/'/
+   \ contains=justInterpolation,@justOtherCurlyBraces
+syn region justFStringRaw start=/\v\k@1<!f'''/ end=/'''/
+   \ contains=justInterpolation,@justOtherCurlyBraces
+syn region justFString
+   \ start=/\v\k@1<!f"/ skip=/\\\\\|\\"/ end=/"/
+   \ contains=justStringEscapeSequence,justStringUEscapeSequence,justStringEscapeError,justInterpolation,@justOtherCurlyBraces
+syn region justFString
+   \ start=/\v\k@1<!f"""/ skip=/\\\\\|\\"/ end=/"""/
+   \ contains=justStringEscapeSequence,justStringUEscapeSequence,justStringEscapeError,justInterpolation,@justOtherCurlyBraces
+
 syn cluster justStringLiterals
    \ contains=justRawString,justString,justShellExpandRawString,justShellExpandString
-syn cluster justAllStrings contains=justBacktick,@justStringLiterals
+syn cluster justAllStrings contains=justBacktick,justFStringRaw,justFString,@justStringLiterals
 
 syn match justRegexReplacement
    \ /\v,%(\_s|\\\n)*%('\_[^']*'|'''%(\_.%(''')@!)*\_.?''')%(\_s|\\\n)*%(,%(\_s|\\\n)*)?\)/me=e-1
@@ -98,17 +109,21 @@ syn region justRecipeAttributes
    \ contains=justRecipeAttr,justRecipeAttrSep,justRecipeAttrArgs,justRecipeAttrArgError,justRecipeAttrValueShort
 
 syn keyword justRecipeAttr
-   \ confirm default doc exit-message extension group linux macos metadata no-cd no-exit-message no-quiet openbsd parallel positional-arguments private script unix windows working-directory
+   \ arg confirm default doc exit-message extension group linux macos metadata no-cd no-exit-message no-quiet openbsd parallel positional-arguments private script unix windows working-directory
    \ contained
 syn match justRecipeAttrSep ',' contained
 syn match justRecipeAttrValueShort '\v:%(\_s|\\\n)*' transparent contained
    \ contains=justRecipeAttrValueColon nextgroup=@justStringLiterals,justInvalidAttrValue
 syn match justRecipeAttrValueColon '\V:' contained
 syn region justRecipeAttrArgs matchgroup=justRecipeAttr start='\V(' end='\V)' contained
-   \ contains=@justStringLiterals
+   \ contains=@justStringLiterals,justRecipeAttrKeywordArg
 syn match justRecipeAttrArgError '\v\(%(\s|\\?\n)*\)' contained
 
 syn match justInvalidAttrValue '\v[^"',]["']@![^,\]]*' contained
+
+syn match justRecipeAttrKeywordArg '\v\h\k*%(\s|\\?\n)*\=' contained
+   \ contains=justRecipeAttrArgName,justParameterOperator
+syn match justRecipeAttrArgName '\h\k*' contained
 
 syn match justRecipeDeclSimple "\v^\@?\h\k*%(\s|\\\n)*%(:\=@!)@="
    \ transparent contains=justRecipeName
@@ -212,7 +227,7 @@ syn match justUnexport '\v^unexport' contained
 
 syn keyword justConditional if else
 syn region justConditionalBraces start="\v\{\{@!" end="\v\}@=" transparent contains=@justExpr
-syn region justConditionalBracesInInterp start="\v\{\{@!" end="\v\}@=" transparent contained contains=@justExprInInterp
+syn region justConditionalBracesInInterp start="\v\{\{@!" end="\V}" transparent contained contains=@justExprInInterp
 
 syn match justLineLeadingSymbol "\v^%(\\\n)@3<!\s+\zs%(\@-|-\@|\@|-)"
 
@@ -240,14 +255,12 @@ syn match justShebangIndentError '\v^ +\zs\t\s*\S@='
 
 syn region justInterpolation
    \ matchgroup=justInterpolationDelim
-   \ start="\v\{\{\{@!" end="\v%(%(\\\n\s|\S)\s*)@<=\}\}|$"
-   \ matchgroup=justInterpError end='^\S'
+   \ start="\v\{\{\{@!" end="\V}}"
    \ contained
    \ contains=@justExprInInterp
 
 syn match justBadCurlyBraces '\v\{{3}\ze[^{]' contained
 syn match justCurlyBraces '\v\{{4}' contained
-syn match justBadCurlyBraces '\v\{{5}\ze[^{]' contained
 syn cluster justOtherCurlyBraces contains=justCurlyBraces,justBadCurlyBraces
 
 syn match justFunctionCall "\v\w+%(\s|\\\n)*\(@=" transparent
@@ -369,6 +382,8 @@ hi def link justDeprecatedFunction               Underlined
 hi def link justDollarEscape                     Special
 hi def link justDollarEscapeSplit                Special
 hi def link justExport                           Statement
+hi def link justFString                          String
+hi def link justFStringRaw                       String
 hi def link justImportStatement                  Include
 hi def link justIndentError                      Error
 hi def link justInterpError                      Error
@@ -392,6 +407,7 @@ hi def link justRawStrRegexRepl                  String
 hi def link justRecipeAt                         Special
 hi def link justRecipeAttr                       Type
 hi def link justRecipeAttrArgError               Error
+hi def link justRecipeAttrArgName                Keyword
 hi def link justRecipeAttrSep                    Operator
 hi def link justRecipeAttrValueColon             Operator
 hi def link justRecipeColon                      Operator
