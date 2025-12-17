@@ -261,9 +261,9 @@
     },
     "Python": {
       "language_servers": [
-        "!basedpyright",
+        "basedpyright",
         "ruff",
-        "ty"
+        "!ty"
       ],
       "formatter": [
         {
