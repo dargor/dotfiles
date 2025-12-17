@@ -95,6 +95,11 @@
         }
       }
     },
+    "ty": {
+      "settings": {
+        "diagnosticMode": "workspace"
+      }
+    },
     "rust-analyzer": {
       "initialization_options": {
         "cargo": {
@@ -256,8 +261,9 @@
     },
     "Python": {
       "language_servers": [
-        "basedpyright",
-        "ruff"
+        "!basedpyright",
+        "ruff",
+        "ty"
       ],
       "formatter": [
         {
