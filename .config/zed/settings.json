@@ -398,7 +398,7 @@
         "available_models": [
           {
             "name": "chat",
-            "display_name": "Qwen3-Next-80B-A3B-Instruct",
+            "display_name": "Qwen3-30B-A3B-Instruct-2507",
             "max_tokens": 262144
           }
         ]
