@@ -2,6 +2,9 @@
 
 bindkey -e
 
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
 bindkey "^[[H" beginning-of-line
 bindkey "^[[F" end-of-line
 bindkey "^[[3~" delete-char
@@ -52,13 +55,6 @@ awsp() {
 
 export PROMPT="%F{8}%(1j.[%j] .)%F{cyan}%D{%Y-%m-%d} %D{%H:%M:%S}%f %F{blue}%1~%f %B%(?.%F{green}✓.%F{red}✗)%f%b "
 export RPROMPT="\$(gitci)\$(gitbr)\$(awsp)"
-
-if [ -f /opt/homebrew/bin/mcfly ]; then
-    eval "$(/opt/homebrew/bin/mcfly init zsh)"
-    export MCFLY_DISABLE_MENU=TRUE
-    export MCFLY_PROMPT=">"
-    export MCFLY_FUZZY=3
-fi
 
 if [ -f /opt/homebrew/bin/vivid ]; then
     LS_COLORS="$(vivid generate catppuccin-latte)"

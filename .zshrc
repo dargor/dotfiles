@@ -38,3 +38,7 @@ if [ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 
     source "/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
     ZSH_HIGHLIGHT_HIGHLIGHTERS+=(brackets)
 fi
+
+if [ -f /opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh ]; then
+    source "/opt/homebrew/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
+fi
