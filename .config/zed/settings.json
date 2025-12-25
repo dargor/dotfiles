@@ -254,6 +254,9 @@
         "golangci-lint"
       ]
     },
+    "Markdown": {
+      "format_on_save": "on"
+    },
     "Nginx": {
       "language_servers": [
         "!nginx"
