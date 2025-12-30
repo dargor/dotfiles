@@ -97,6 +97,11 @@
     },
     "ty": {
       "settings": {
+        "configuration": {
+          "rules": {
+            "unused-ignore-comment": "warn"
+          }
+        },
         "diagnosticMode": "workspace"
       }
     },
