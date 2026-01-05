@@ -15,6 +15,7 @@ let g:lsp_diagnostics_virtual_text_align = "after"
 let g:lsp_diagnostics_virtual_text_delay = 200
 let g:lsp_diagnostics_virtual_text_insert_mode_enabled = 1
 let g:lsp_diagnostics_virtual_text_prefix = "💥 "
+let g:lsp_diagnostics_virtual_text_tidy = 1
 
 let g:lsp_document_code_action_signs_enabled = 0
 let g:lsp_document_highlight_delay = 200
