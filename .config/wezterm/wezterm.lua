@@ -45,6 +45,11 @@ config.color_scheme = scheme_for_appearance(get_appearance())
 
 config.keys = {
     {
+        key = 'Escape',
+        mods = 'SHIFT',
+        action = wezterm.action.TogglePaneZoomState,
+    },
+    {
         key = 'n',
         mods = 'META|SHIFT',
         action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
