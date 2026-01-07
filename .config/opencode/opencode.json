@@ -21,7 +21,6 @@
   "disabled_providers": [
     "opencode"
   ],
-  "model": "localhost/chat",
   "theme": "catppuccin",
   "autoupdate": false,
   "share": "disabled"
