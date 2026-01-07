@@ -22,7 +22,6 @@
     "opencode"
   ],
   "model": "localhost/chat",
-  "small_model": "localhost/chat",
   "theme": "catppuccin",
   "autoupdate": false,
   "share": "disabled"
