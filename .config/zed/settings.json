@@ -13,6 +13,7 @@
   "hide_mouse": "never",
   "snippet_sort_order": "none",
   "unnecessary_code_fade": 0.5,
+  "restore_on_startup": "launchpad",
   "use_system_path_prompts": false,
   "use_system_prompts": false,
   "confirm_quit": true,
