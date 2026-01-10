@@ -134,6 +134,15 @@ elseif executable('pylsp')
     \ })
 endif
 
+if executable('rumdl')
+    " https://github.com/rvben/rumdl#lsp
+    autocmd User lsp_setup call lsp#register_server(#{
+    \   name: 'Markdown Language Server',
+    \   cmd: {server_info->['rumdl', 'server', '--stdio']},
+    \   allowlist: ['markdown'],
+    \ })
+endif
+
 if executable('rust-analyzer')
     " https://rust-analyzer.github.io/manual.html#configuration
     autocmd User lsp_setup call lsp#register_server(#{
