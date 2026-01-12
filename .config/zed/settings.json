@@ -392,17 +392,17 @@
     "message_editor_min_lines": 6,
     "default_profile": "write",
     "default_model": {
-      "provider": "localhost",
+      "provider": "local/llama.cpp",
       "model": "chat"
     },
     "inline_assistant_model": {
-      "provider": "localhost",
+      "provider": "local/llama.cpp",
       "model": "chat"
     }
   },
   "language_models": {
     "openai_compatible": {
-      "localhost": {
+      "local/llama.cpp": {
         "api_url": "http://localhost:1337/v1",
         "available_models": [
           {
