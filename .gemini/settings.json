@@ -1,4 +1,8 @@
 {
+  "general": {
+    "disableAutoUpdate": true,
+    "previewFeatures": true
+  },
   "security": {
     "auth": {
       "selectedType": "oauth-personal"
@@ -9,9 +13,9 @@
     "sandbox": "sandbox-exec"
   },
   "ui": {
-    "theme": "Default Light",
     "footer": {
       "hideContextPercentage": false
-    }
+    },
+    "theme": "Default Light"
   }
 }
