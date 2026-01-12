@@ -1,6 +1,7 @@
 {
   "general": {
     "disableAutoUpdate": true,
+    "disableUpdateNag": true,
     "previewFeatures": true
   },
   "security": {
