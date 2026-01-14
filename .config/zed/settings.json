@@ -74,9 +74,6 @@
       }
     },
     "basedpyright": {
-      "initialization_options": {
-        "disablePullDiagnostics": true
-      },
       "settings": {
         "basedpyright.analysis": {
           "diagnosticMode": "openFilesOnly",
