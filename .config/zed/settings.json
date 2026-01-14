@@ -76,7 +76,7 @@
     "basedpyright": {
       "settings": {
         "basedpyright.analysis": {
-          "diagnosticMode": "openFilesOnly",
+          "diagnosticMode": "workspace",
           "typeCheckingMode": "strict"
         }
       }
