@@ -8,5 +8,9 @@
       "Read(**/*.crt)",
       "Read(**/secrets.yml)"
     ]
+  },
+  "statusLine": {
+    "command": "~/.claude/statusline.sh",
+    "type": "command"
   }
 }
