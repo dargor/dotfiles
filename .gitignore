@@ -33,7 +33,7 @@ report.html
 htmlcov/
 .coverage
 .coverage.*
-.env
+.env*
 .hypothesis/
 .ipynb_checkpoints/
 .mypy_cache/
