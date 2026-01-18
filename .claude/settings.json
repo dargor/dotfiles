@@ -9,6 +9,9 @@
       "Read(**/secrets.yml)"
     ]
   },
+  "sandbox": {
+    "enabled": true
+  },
   "statusLine": {
     "command": "~/.claude/statusline.sh",
     "type": "command"
