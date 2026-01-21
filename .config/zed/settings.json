@@ -318,6 +318,9 @@
       ]
     }
   },
+  "session": {
+    "trust_all_worktrees": true
+  },
   "diagnostics_max_severity": null,
   "terminal": {
     "blinking": "off",
