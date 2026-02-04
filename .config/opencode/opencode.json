@@ -14,6 +14,13 @@
             "context": 262144,
             "output": 16384
           }
+        },
+        "coder": {
+          "name": "Qwen3-Coder-Next",
+          "limit": {
+            "context": 262144,
+            "output": 16384
+          }
         }
       }
     }

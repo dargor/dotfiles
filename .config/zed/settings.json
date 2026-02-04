@@ -359,11 +359,11 @@
     "default_profile": "write",
     "default_model": {
       "provider": "local/llama.cpp",
-      "model": "chat"
+      "model": "coder"
     },
     "inline_assistant_model": {
       "provider": "local/llama.cpp",
-      "model": "chat"
+      "model": "coder"
     }
   },
   "language_models": {
@@ -374,6 +374,11 @@
           {
             "name": "chat",
             "display_name": "Qwen3-30B-A3B-Instruct-2507",
+            "max_tokens": 262144
+          },
+          {
+            "name": "coder",
+            "display_name": "Qwen3-Coder-Next",
             "max_tokens": 262144
           }
         ]
