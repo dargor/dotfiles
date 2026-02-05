@@ -1,0 +1,6 @@
+#! /usr/bin/env bash
+
+export OLLAMA_CONTEXT_LENGTH=32768
+export OLLAMA_FLASH_ATTENTION=1
+export OLLAMA_KEEP_ALIVE=-1
+
