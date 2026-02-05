@@ -248,7 +248,6 @@
   "edit_predictions": {
     "provider": "ollama",
     "ollama": {
-      "api_url": "http://localhost:11434",
       "model": "qwen2.5-coder:1.5b-base-q8_0"
     },
     "enabled_in_text_threads": false
