@@ -1,7 +1,7 @@
 {
   "general": {
-    "disableAutoUpdate": true,
-    "disableUpdateNag": true,
+    "enableAutoUpdate": false,
+    "enableAutoUpdateNotification": false,
     "previewFeatures": true
   },
   "security": {
@@ -10,7 +10,7 @@
     }
   },
   "tools": {
-    "autoAccept": true,
+    "approvalMode": "auto_edit",
     "sandbox": "sandbox-exec"
   },
   "ui": {
