@@ -1,0 +1,6 @@
+#! /usr/bin/env bash
+
+lci() {
+    glab ci view -p "$(glab ci list -F json | jq -r '.[0].id')"
+}
+
