@@ -40,7 +40,7 @@ gitbr() {
         if [ "$br" = "HEAD" ]; then
             echo "💥 %F{red}%B$br%b%f"
         else
-            echo "🌵 %F{yellow}$br%f"
+            echo "🌿 %F{yellow}$br%f"
         fi
     fi
 }
