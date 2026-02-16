@@ -6,3 +6,13 @@ personality = "pragmatic"
 
 approval_policy = "on-request"
 sandbox_mode = "workspace-write"
+
+[tui]
+status_line = [
+    "current-dir",
+    "git-branch",
+    "model-name",
+    "context-remaining",
+    "five-hour-limit",
+    "weekly-limit",
+]
