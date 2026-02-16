@@ -10,17 +10,13 @@
     ui = true
 
 [delta]
+    syntax-theme = Catppuccin Latte
     paging = never
     wrap-max-lines = 0
     max-line-length = 0
     keep-plus-minus-markers = yes
     line-numbers = yes
     file-style = 5
-    hunk-header-style = 3
-    minus-style = 1
-    minus-emph-style = 0 9
-    plus-style = 2
-    plus-emph-style = 0 10
     zero-style = 8
 
 [color "diff"]
