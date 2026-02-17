@@ -7,6 +7,10 @@ personality = "pragmatic"
 approval_policy = "on-request"
 sandbox_mode = "workspace-write"
 
+[sandbox_workspace_write]
+writable_roots = ["~/.cargo"]
+network_access = true
+
 [tui]
 status_line = [
     "current-dir",

@@ -10,7 +10,10 @@
     ]
   },
   "sandbox": {
-    "enabled": true
+    "enabled": true,
+    "excludedCommands": [
+      "cargo:*"
+    ]
   },
   "statusLine": {
     "command": "~/.claude/statusline.sh",
