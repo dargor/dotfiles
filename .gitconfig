@@ -16,6 +16,7 @@
     max-line-length = 0
     keep-plus-minus-markers = yes
     line-numbers = yes
+    hunk-header-style = 3
     file-style = 5
     zero-style = 8
 
