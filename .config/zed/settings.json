@@ -270,6 +270,11 @@
         "!nginx"
       ]
     },
+    "Perl": {
+      "language_servers": [
+        "!perlnavigator-server"
+      ]
+    },
     "Python": {
       "language_servers": [
         "basedpyright",
