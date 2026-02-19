@@ -1,5 +1,6 @@
 {
   "general": {
+    "defaultApprovalMode": "auto_edit",
     "enableAutoUpdate": false,
     "enableAutoUpdateNotification": false,
     "previewFeatures": true
