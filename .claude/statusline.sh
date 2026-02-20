@@ -6,10 +6,13 @@ input=$(cat)
 MODEL_NAME=$(echo "$input" | jq -r '.model.display_name')
 STATUS="🧠 ${MODEL_NAME}"
 
-CONTEXT_USED=$(echo "$input" | jq -r '.context_window.used_percentage')
-if [ "$CONTEXT_USED" != "null" ]; then
-    STATUS="${STATUS} (${CONTEXT_USED}%)"
+CONTEXT_REMAINING=$(echo "$input" | jq -r '.context_window.remaining_percentage')
+if [ "$CONTEXT_REMAINING" != "null" ]; then
+    STATUS="${STATUS} (${CONTEXT_REMAINING}% left)"
 fi
+
+PROJECT_DIR=$(echo "$input" | jq -r '.workspace.project_dir | sub("^" + env.HOME; "~")')
+STATUS="${STATUS} | 📁 ${PROJECT_DIR}"
 
 if git rev-parse --git-dir >/dev/null 2>&1; then
     GIT_BRANCH=$(git branch --show-current 2>/dev/null)
