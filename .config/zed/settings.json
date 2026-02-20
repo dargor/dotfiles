@@ -368,6 +368,7 @@
     "message_editor_min_lines": 6,
     "default_profile": "write",
     "default_model": {
+      "enable_thinking": false,
       "provider": "local/llama.cpp",
       "model": "coder"
     },
