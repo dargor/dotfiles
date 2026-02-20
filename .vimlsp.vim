@@ -192,6 +192,15 @@ if executable('terraform-ls')
     \ })
 endif
 
+if executable('ts_query_ls')
+    " https://github.com/ribru17/ts_query_ls#configuration
+    autocmd User lsp_setup call lsp#register_server(#{
+    \   name: 'Tree-sitter Language Server',
+    \   cmd: {server_info->[&shell, &shellcmdflag, 'ts_query_ls']},
+    \   allowlist: ['scheme'],
+    \ })
+endif
+
 if executable('typescript-language-server')
     " https://github.com/typescript-language-server/typescript-language-server#running-the-language-server
     autocmd User lsp_setup call lsp#register_server(#{
