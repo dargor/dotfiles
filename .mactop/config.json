@@ -2,5 +2,6 @@
   "default_layout": "vertical",
   "theme": "1977",
   "background": "clear",
+  "sort_column": 5,
   "sort_reverse": false
 }
