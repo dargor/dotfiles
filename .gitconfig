@@ -30,7 +30,7 @@
     whitespace = reverse bold red
 
 [core]
-    pager = less -RFXS
+    pager = delta
     editor = vim
     excludesfile = ~/.gitignore
     attributesfile = ~/.gitattributes
