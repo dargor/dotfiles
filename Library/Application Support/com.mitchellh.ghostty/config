@@ -22,4 +22,5 @@ scrollback-limit = 10000
 keybind = option+shift+n=new_split:down
 keybind = option+shift+v=new_split:right
 keybind = shift+escape=toggle_split_zoom
+keybind = super+à=reset_font_size
 keybind = shift+enter=text:\n
