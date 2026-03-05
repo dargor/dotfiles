@@ -343,6 +343,7 @@
     }
   },
   "project_panel": {
+    "diagnostic_badges": true,
     "entry_spacing": "standard",
     "sticky_scroll": false,
     "scrollbar": {
