@@ -13,7 +13,6 @@
   "hide_mouse": "never",
   "snippet_sort_order": "none",
   "unnecessary_code_fade": 0.5,
-  "restore_on_startup": "launchpad",
   "use_system_path_prompts": false,
   "use_system_prompts": false,
   "confirm_quit": true,
@@ -36,11 +35,6 @@
     "quick_actions": false
   },
   "lsp": {
-    "cargo-tom": {
-      "initialization_options": {
-        "hide_docs_info_message": true
-      }
-    },
     "golangci-lint": {
       "initialization_options": {
         "command": [
@@ -204,9 +198,6 @@
       "**/helmfile.d/**/*.yaml",
       "**/helmfile.d/**/*.yml"
     ],
-    "Jinja2": [
-      "*.j2"
-    ],
     "JSON": [
       "*.avsc",
       "*.ipynb"
@@ -229,9 +220,6 @@
       ".bandit",
       ".sentryclirc",
       "setup.cfg"
-    ],
-    "tmux": [
-      ".tmux.conf"
     ]
   },
   "diagnostics": {
@@ -330,7 +318,6 @@
   "session": {
     "trust_all_worktrees": true
   },
-  "diagnostics_max_severity": null,
   "terminal": {
     "blinking": "off",
     "copy_on_select": true,
@@ -362,7 +349,6 @@
     }
   },
   "agent": {
-    "stream_edits": true,
     "enable_feedback": false,
     "message_editor_min_lines": 6,
     "default_profile": "write",
