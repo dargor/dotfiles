@@ -259,6 +259,11 @@ function! s:on_lsp_buffer_enabled() abort
     nmap <buffer> tt <plug>(lsp-definition)
     nnoremap <buffer> <expr><c-k> lsp#scroll(-3)
     nnoremap <buffer> <expr><c-j> lsp#scroll(+3)
+    " https://github.com/prabirshrestha/vim-lsp/issues/1505#issuecomment-2110455309
+    let l:capabilities = lsp#get_server_capabilities('Python Language Server (ruff)')
+    if !empty(l:capabilities)
+        let l:capabilities.hoverProvider = v:false
+    endif
 endfunction
 
 augroup lsp_install
