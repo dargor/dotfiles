@@ -98,7 +98,7 @@ endif
 if executable('basedpyright-langserver')
     " https://github.com/mattn/vim-lsp-settings/blob/master/settings/pyright-langserver.vim
     autocmd User lsp_setup call lsp#register_server(#{
-    \   name: 'Python Language Server',
+    \   name: 'Python Language Server (basedpyright)',
     \   cmd: {server_info->['basedpyright-langserver', '--stdio']},
     \   allowlist: ['python'],
     \   workspace_config: #{
@@ -110,27 +110,14 @@ if executable('basedpyright-langserver')
     \     },
     \   },
     \ })
-elseif executable('pylsp')
-    " https://github.com/python-lsp/python-lsp-server#configuration
+endif
+
+if executable('ruff')
+    " https://docs.astral.sh/ruff/editors/setup/#vim
     autocmd User lsp_setup call lsp#register_server(#{
-    \   name: 'Python Language Server',
-    \   cmd: {server_info->['pylsp']},
+    \   name: 'Python Language Server (ruff)',
+    \   cmd: {server_info->['ruff', 'server']},
     \   allowlist: ['python'],
-    \   workspace_config: #{
-    \     pylsp: #{
-    \       plugins: #{
-    \         pylsp_mypy: #{
-    \           enabled: v:true,
-    \           follow-imports: 'normal',
-    \         },
-    \         ruff: #{
-    \           enabled: v:true,
-    \           select: ['ALL'],
-    \           format: ['I'],
-    \         },
-    \       },
-    \     },
-    \   },
     \ })
 endif
 
