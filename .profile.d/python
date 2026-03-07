@@ -15,7 +15,7 @@ _venv_ensure_base_packages() {
         # shellcheck disable=SC2034
         constraints=""
     fi
-    for package in pip wheel setuptools packaging build cython; do
+    for package in pip wheel setuptools packaging build cython pipdeptree; do
         # shellcheck disable=SC2086
         "${pip}" install -U "${package}" ${=constraints}
     done
@@ -97,43 +97,6 @@ upvenv() {
     fi
     # we are up to date
     echo "${VIRTUAL_ENV##*/} is ready"
-}
-
-spvenv() {
-    _venv_ensure_base_packages || return 1
-    pip install -U \
-        envdir python-dotenv \
-        pipdeptree pip-upgrader pip-tools pip-audit \
-        flake8 isort black bandit radon \
-        pydocstyle pydoclint interrogate \
-        mypy vulture perflint ruff \
-        ipython ipdb bpython ptpython \
-        python-lsp-server pylsp-mypy python-lsp-ruff \
-        pretty-errors
-}
-
-flvenv() {
-    _venv_ensure_base_packages || return 1
-    pip install -U \
-        flake8 \
-        flake8-bugbear \
-        flake8-builtins \
-        flake8-commas \
-        flake8-comprehensions \
-        flake8-isort \
-        flake8-logging-format \
-        flake8-quotes \
-        flake8-return \
-        flake8-simplify \
-        flake8-unused-arguments \
-        flake8-use-fstring
-}
-
-nbvenv() {
-    _venv_ensure_base_packages || return 1
-    pip install -U \
-        notebook \
-        ipywidgets
 }
 
 pyleaves() {
