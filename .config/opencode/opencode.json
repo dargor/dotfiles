@@ -28,7 +28,6 @@
   "disabled_providers": [
     "opencode"
   ],
-  "theme": "catppuccin",
   "autoupdate": false,
   "share": "disabled"
 }
