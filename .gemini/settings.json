@@ -3,7 +3,12 @@
     "defaultApprovalMode": "auto_edit",
     "enableAutoUpdate": false,
     "enableAutoUpdateNotification": false,
-    "previewFeatures": true
+    "previewFeatures": true,
+    "sessionRetention": {
+      "warningAcknowledged": true,
+      "enabled": true,
+      "maxAge": "120d"
+    }
   },
   "security": {
     "auth": {
