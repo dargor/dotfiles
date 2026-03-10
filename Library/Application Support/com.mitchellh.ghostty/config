@@ -2,6 +2,7 @@ theme = light:Catppuccin Latte,dark:Catppuccin Frappe
 unfocused-split-fill = #B0B0B0
 split-divider-color = #C0C0C0
 bell-features = no-attention
+scrollbar = never
 
 window-width = 80
 window-height = 24
@@ -13,6 +14,7 @@ font-size = 11
 cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
+window-inherit-working-directory = false
 quit-after-last-window-closed = true
 macos-titlebar-style = tabs
 
