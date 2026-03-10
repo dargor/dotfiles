@@ -20,7 +20,6 @@ auto-update = check
 copy-on-select = clipboard
 clipboard-paste-protection = false
 mouse-hide-while-typing = false
-scrollback-limit = 10000
 
 keybind = option+shift+n=new_split:down
 keybind = option+shift+v=new_split:right
