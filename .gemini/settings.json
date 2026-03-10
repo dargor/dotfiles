@@ -3,9 +3,9 @@
     "defaultApprovalMode": "auto_edit",
     "enableAutoUpdate": false,
     "enableAutoUpdateNotification": false,
+    "enableNotifications": true,
     "previewFeatures": true,
     "sessionRetention": {
-      "warningAcknowledged": true,
       "enabled": true,
       "maxAge": "120d"
     }
@@ -23,6 +23,6 @@
     "footer": {
       "hideContextPercentage": false
     },
-    "theme": "Default Light"
+    "loadingPhrases": "all"
   }
 }
