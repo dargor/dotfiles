@@ -241,9 +241,12 @@
     }
   },
   "edit_predictions": {
-    "provider": "ollama",
-    "ollama": {
-      "model": "qwen2.5-coder:1.5b-base-q8_0"
+    "provider": "open_ai_compatible_api",
+    "open_ai_compatible_api": {
+      "api_url": "http://localhost:1337/v1/completions",
+      "model": "qwen2.5-coder-1.5b",
+      "prompt_format": "qwen",
+      "max_output_tokens": 64
     },
     "enabled_in_text_threads": false
   },
