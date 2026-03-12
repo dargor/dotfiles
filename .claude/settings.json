@@ -8,6 +8,7 @@
     "allow": [
       "Bash(cargo:*)"
     ],
+    "defaultMode": "acceptEdits",
     "deny": [
       "Read(**/.env*)",
       "Read(**/*.pem)",
