@@ -25,6 +25,7 @@
       "horizontal": false
     }
   },
+  "semantic_tokens": "combined",
   "tabs": {
     "file_icons": true,
     "git_status": true,
