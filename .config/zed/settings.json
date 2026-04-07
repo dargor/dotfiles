@@ -380,7 +380,7 @@
         "available_models": [
           {
             "name": "chat",
-            "display_name": "Qwen3.5-35B-A3B",
+            "display_name": "gemma-4-26B-A4B-it",
             "max_tokens": 262144
           }
         ]
