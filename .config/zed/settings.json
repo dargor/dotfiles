@@ -246,8 +246,7 @@
       "api_url": "http://localhost:1337/v1/completions",
       "model": "qwen2.5-coder-1.5b",
       "prompt_format": "qwen"
-    },
-    "enabled_in_text_threads": false
+    }
   },
   "inlay_hints": {
     "enabled": true
