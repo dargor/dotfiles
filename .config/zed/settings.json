@@ -255,6 +255,7 @@
   "languages": {
     "Go": {
       "language_servers": [
+        "codebook",
         "gopls",
         "golangci-lint"
       ]
@@ -264,16 +265,19 @@
     },
     "Nginx": {
       "language_servers": [
+        "codebook",
         "!nginx"
       ]
     },
     "Perl": {
       "language_servers": [
+        "codebook",
         "!perlnavigator-server"
       ]
     },
     "Python": {
       "language_servers": [
+        "codebook",
         "basedpyright",
         "ruff",
         "!ty"
@@ -315,12 +319,14 @@
     },
     "YAML": {
       "language_servers": [
+        "codebook",
         "yaml-language-server",
         "!docker-compose"
       ]
     },
     "reST": {
       "language_servers": [
+        "codebook",
         "!esbonio"
       ]
     }
