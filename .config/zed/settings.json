@@ -381,7 +381,8 @@
           {
             "name": "chat",
             "display_name": "gemma-4-26B-A4B-it",
-            "max_tokens": 262144
+            "max_tokens": 262144,
+            "max_output_tokens": 65536
           }
         ]
       }
