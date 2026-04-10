@@ -1,2 +1,3 @@
 exclude-newer = "7 days"
 python-preference = "only-system"
+system-certs = true
