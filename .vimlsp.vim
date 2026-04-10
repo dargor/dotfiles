@@ -160,11 +160,10 @@ if executable('rust-analyzer')
     \ })
 endif
 
-if executable('taplo')
-    " https://taplo.tamasfe.dev/cli/usage/language-server.html
+if executable('tombi')
     autocmd User lsp_setup call lsp#register_server(#{
     \   name: 'TOML Language Server',
-    \   cmd: {server_info->['taplo', 'lsp', 'stdio']},
+    \   cmd: {server_info->['tombi', 'lsp']},
     \   allowlist: ['toml'],
     \   workspace_config: {},
     \ })
