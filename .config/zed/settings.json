@@ -330,6 +330,7 @@
   },
   "terminal": {
     "blinking": "off",
+    "detect_venv": "off",
     "copy_on_select": true,
     "line_height": {
       "custom": 1.2
