@@ -1,6 +1,6 @@
 {
   "breadcrumbs.enabled": false,
-  "chat.commandCenter.enabled": false,
+  "chat.disableAIFeatures": true,
   "diffEditor.codeLens": true,
   "editor.fontFamily": "Monaspace Krypton",
   "editor.fontLigatures": "'calt', 'liga'",
