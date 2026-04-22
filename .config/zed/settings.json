@@ -16,9 +16,6 @@
   "use_system_path_prompts": false,
   "use_system_prompts": false,
   "confirm_quit": true,
-  "title_bar": {
-    "show_branch_icon": true
-  },
   "scrollbar": {
     "show": "always",
     "axes": {
@@ -354,6 +351,7 @@
     }
   },
   "project_panel": {
+    "dock": "left",
     "diagnostic_badges": true,
     "entry_spacing": "standard",
     "sticky_scroll": false,
@@ -361,7 +359,18 @@
       "show": "never"
     }
   },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left"
+  },
   "agent": {
+    "dock": "right",
+    "sidebar_side": "right",
     "enable_feedback": false,
     "message_editor_min_lines": 6,
     "default_profile": "write",
