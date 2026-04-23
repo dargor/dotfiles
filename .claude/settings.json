@@ -9,7 +9,6 @@
     "allow": [
       "Bash(cargo:*)"
     ],
-    "defaultMode": "acceptEdits",
     "deny": [
       "Read(**/.env*)",
       "Read(**/*.pem)",
@@ -17,7 +16,12 @@
       "Read(**/*.cert)",
       "Read(**/*.crt)",
       "Read(**/secrets.yml)"
-    ]
+    ],
+    "defaultMode": "acceptEdits"
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
   },
   "sandbox": {
     "enabled": true,
@@ -25,8 +29,7 @@
       "cargo:*"
     ]
   },
-  "statusLine": {
-    "command": "~/.claude/statusline.sh",
-    "type": "command"
+  "enabledPlugins": {
+    "rust-analyzer-lsp@claude-plugins-official": true
   }
 }
