@@ -160,6 +160,7 @@
     "**/.tox",
     "**/.venv",
     "**/__pycache__",
+    "**/node_modules",
     "**/build",
     "**/dist",
     "**/target"

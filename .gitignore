@@ -45,6 +45,9 @@ htmlcov/
 build/
 dist/
 
+# JavaScript / TypeScript
+node_modules/
+
 # Rust
 target/
 
