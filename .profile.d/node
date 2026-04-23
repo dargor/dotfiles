@@ -1,0 +1,6 @@
+#! /usr/bin/env bash
+
+fdnm() {
+    fd -HI node_modules --type d --prune
+}
+
