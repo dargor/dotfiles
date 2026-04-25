@@ -134,6 +134,22 @@
         "use_bundler": false
       }
     },
+    "oxfmt": {
+      "binary": {
+        "path": "/opt/homebrew/bin/oxfmt",
+        "arguments": [
+          "--lsp"
+        ]
+      }
+    },
+    "oxlint": {
+      "binary": {
+        "path": "/opt/homebrew/bin/oxlint",
+        "arguments": [
+          "--lsp"
+        ]
+      }
+    },
     "yaml-language-server": {
       "settings": {
         "yaml": {
