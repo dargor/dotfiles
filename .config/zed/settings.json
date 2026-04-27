@@ -328,6 +328,7 @@
     "trust_all_worktrees": true
   },
   "terminal": {
+    "flexible": false,
     "blinking": "off",
     "detect_venv": "off",
     "copy_on_select": true,
@@ -371,6 +372,7 @@
   },
   "agent": {
     "dock": "right",
+    "flexible": false,
     "sidebar_side": "right",
     "enable_feedback": false,
     "message_editor_min_lines": 6,
