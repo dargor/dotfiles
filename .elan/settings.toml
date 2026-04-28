@@ -1,5 +1,0 @@
-default_toolchain = "stable"
-telemetry = false
-version = "12"
-
-[overrides]
