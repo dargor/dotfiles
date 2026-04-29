@@ -19,5 +19,4 @@ alias sc="shellcheck -f gcc"
 alias show="open -a Preview"
 alias t="tree"
 alias x="hexdump -C"
-alias π="/opt/homebrew/bin/pi"
 
