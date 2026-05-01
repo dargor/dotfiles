@@ -351,11 +351,11 @@
         "property.comment.error": {
           "color": "#d20f39ff"
         },
-        "keyword.comment.warn": {
-          "color": "#8839efff"
-        },
         "constant.comment.todo": {
           "color": "#fe640bff"
+        },
+        "keyword.comment.warn": {
+          "color": "#8839efff"
         },
         "string.comment.info": {
           "color": "#04a5e5ff"
@@ -368,11 +368,11 @@
         "property.comment.error": {
           "color": "#e78284ff"
         },
-        "keyword.comment.warn": {
-          "color": "#ca9ee6ff"
-        },
         "constant.comment.todo": {
           "color": "#ef9f76ff"
+        },
+        "keyword.comment.warn": {
+          "color": "#ca9ee6ff"
         },
         "string.comment.info": {
           "color": "#85c1dcff"
