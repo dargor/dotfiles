@@ -346,10 +346,38 @@
   },
   "theme_overrides": {
     "Catppuccin Latte - No Italics": {
-      "scrollbar.thumb.hover_background": "#8839ef63"
+      "scrollbar.thumb.hover_background": "#8839ef63",
+      "syntax": {
+        "property.comment.error": {
+          "color": "#d20f39ff"
+        },
+        "keyword.comment.warn": {
+          "color": "#8839efff"
+        },
+        "constant.comment.todo": {
+          "color": "#fe640bff"
+        },
+        "string.comment.info": {
+          "color": "#04a5e5ff"
+        }
+      }
     },
     "Catppuccin Frappé - No Italics": {
-      "scrollbar.thumb.hover_background": "#c6a0f663"
+      "scrollbar.thumb.hover_background": "#c6a0f663",
+      "syntax": {
+        "property.comment.error": {
+          "color": "#e78284ff"
+        },
+        "keyword.comment.warn": {
+          "color": "#ca9ee6ff"
+        },
+        "constant.comment.todo": {
+          "color": "#ef9f76ff"
+        },
+        "string.comment.info": {
+          "color": "#85c1dcff"
+        }
+      }
     }
   },
   "project_panel": {
