@@ -32,13 +32,6 @@
     "quick_actions": false
   },
   "lsp": {
-    "dependi": {
-      "initialization_options": {
-        "diagnostics": {
-          "enabled": false
-        }
-      }
-    },
     "golangci-lint": {
       "initialization_options": {
         "command": [
