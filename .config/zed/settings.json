@@ -421,6 +421,9 @@
           }
         ]
       }
+    },
+    "opencode": {
+      "show_go_models": false
     }
   }
 }
