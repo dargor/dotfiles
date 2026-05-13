@@ -36,5 +36,6 @@
       "cargo:*"
     ]
   },
-  "theme": "light"
+  "theme": "light",
+  "agentPushNotifEnabled": true
 }
