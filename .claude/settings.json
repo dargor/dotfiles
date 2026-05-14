@@ -37,5 +37,5 @@
     ]
   },
   "theme": "light",
-  "agentPushNotifEnabled": true
+  "inputNeededNotifEnabled": true
 }
