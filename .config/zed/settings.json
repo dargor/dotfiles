@@ -140,6 +140,7 @@
   },
   "completion_menu_scrollbar": "always",
   "show_signature_help_after_edits": true,
+  "code_lens": "on",
   "file_scan_exclusions": [
     "**/.git",
     "**/.jj",
@@ -353,7 +354,8 @@
         "string.comment.info": {
           "color": "#04a5e5ff"
         }
-      }
+      },
+      "text.muted": "#8a93a5ff"
     },
     "Catppuccin Frappé - No Italics": {
       "scrollbar.thumb.hover_background": "#c6a0f663",
@@ -370,7 +372,8 @@
         "string.comment.info": {
           "color": "#85c1dcff"
         }
-      }
+      },
+      "text.muted": "#8a93a5ff"
     }
   },
   "project_panel": {
