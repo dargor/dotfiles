@@ -140,7 +140,6 @@
   },
   "completion_menu_scrollbar": "always",
   "show_signature_help_after_edits": true,
-  "code_lens": "on",
   "file_scan_exclusions": [
     "**/.git",
     "**/.jj",
