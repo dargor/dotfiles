@@ -8,7 +8,8 @@
   },
   "permissions": {
     "allow": [
-      "Bash(cargo:*)"
+      "Bash(cargo:*)",
+      "WebFetch(domain:github.com)"
     ],
     "deny": [
       "Read(**/.env*)",
@@ -34,7 +35,12 @@
     "enabled": true,
     "excludedCommands": [
       "cargo:*"
-    ]
+    ],
+    "filesystem": {
+      "allowWrite": [
+        "~/.cargo"
+      ]
+    }
   },
   "theme": "light",
   "inputNeededNotifEnabled": true
