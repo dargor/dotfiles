@@ -61,4 +61,4 @@ if [ -f /opt/homebrew/bin/vivid ]; then
     export LS_COLORS
 fi
 
-zstyle ':completion:*:*:*:commands' ignored-patterns '*.lima' 'just-lsp'
+zstyle ':completion:*:*:*:commands' ignored-patterns '*.lima' 'container-apiserver' 'just-lsp'
