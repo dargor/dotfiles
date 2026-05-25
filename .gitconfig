@@ -126,13 +126,10 @@
     bordel = commit --allow-empty -m 'Trigger CI/CD.'
     pfetch = fetch origin --prune --prune-tags --force
     ptags = push --tags
-    sdiff = -c diff.external=difft stash show -p --ext-diff
     slist = stash list
+    sdiff = stash show -p
     spop = stash pop
     sclear = stash clear
     mdev = merge develop --ff-only
     tdescribe = describe --tags --always
-    dlog = -c diff.external=difft log --ext-diff
-    dshow = -c diff.external=difft show --ext-diff
-    ddiff = -c diff.external=difft diff
     fixup = !GIT_SEQUENCE_EDITOR=: git absorb --and-rebase
