@@ -253,11 +253,9 @@
     },
     "Markdown": {
       "format_on_save": "on",
-      "formatter": [
-        {
-          "code_action": "source.fixAll.rumdl"
-        }
-      ]
+      "code_actions_on_format": {
+        "source.fixAll.rumdl": true
+      }
     },
     "Nginx": {
       "language_servers": [
