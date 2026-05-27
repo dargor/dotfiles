@@ -142,6 +142,7 @@
   "file_scan_exclusions": [
     "**/.git",
     "**/.jj",
+    "**/.sem",
     "**/.swp",
     "**/.*.swp",
     "**/.DS_Store",
