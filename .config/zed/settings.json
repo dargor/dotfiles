@@ -68,7 +68,6 @@
     "basedpyright": {
       "settings": {
         "basedpyright.analysis": {
-          "diagnosticMode": "workspace",
           "typeCheckingMode": "strict"
         }
       }
@@ -91,8 +90,7 @@
           "rules": {
             "unused-ignore-comment": "warn"
           }
-        },
-        "diagnosticMode": "workspace"
+        }
       }
     },
     "rust-analyzer": {
