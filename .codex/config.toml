@@ -13,10 +13,10 @@ network_access = true
 
 [tui]
 status_line = [
-    "current-dir",
-    "git-branch",
-    "model-name",
-    "context-remaining",
-    "five-hour-limit",
-    "weekly-limit",
+  "current-dir",
+  "git-branch",
+  "model-name",
+  "context-remaining",
+  "five-hour-limit",
+  "weekly-limit",
 ]
