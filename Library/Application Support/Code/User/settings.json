@@ -137,8 +137,10 @@
   ],
   "todo-tree.general.statusBar": "current file",
   "todo-tree.highlights.useColourScheme": true,
+  "todo-tree.ripgrep.ripgrep": "/opt/homebrew/bin/rg",
   "todo-tree.tree.expanded": true,
   "todo-tree.tree.showCountsInTree": true,
+  "docker.extension.enableComposeLanguageServer": false,
   "vs-kubernetes": {
     "vs-kubernetes.crd-code-completion": "enabled"
   },
