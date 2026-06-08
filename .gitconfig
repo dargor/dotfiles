@@ -122,6 +122,7 @@
     wdiff = diff --word-diff
     fpush = push --force
     oops = commit --amend
+    forget = reset --hard HEAD~1
     merde = reset --soft HEAD~1
     bordel = commit --allow-empty -m 'Trigger CI/CD.'
     pfetch = fetch origin --prune --prune-tags --force
