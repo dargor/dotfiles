@@ -18,5 +18,6 @@ alias sbcl="rlwrap sbcl"
 alias sc="shellcheck -f gcc"
 alias show="open -a Preview"
 alias t="tree"
+alias ta="tree -a -I .git"
 alias x="hexdump -C"
 
