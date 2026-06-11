@@ -1,18 +1,18 @@
-#! /bin/sh
+#! /usr/bin/env bash
 set -eu
 
 input=$(cat)
 
-MODEL_NAME=$(echo "$input" | jq -r '.model.display_name')
+MODEL_NAME=$(jq -r '.model.display_name' <<<"$input")
 STATUS="🧠 ${MODEL_NAME}"
 
-CONTEXT_REMAINING=$(echo "$input" | jq -r '.context_window.remaining_percentage')
+CONTEXT_REMAINING=$(jq -r '.context_window.remaining_percentage' <<<"$input")
 if [ "$CONTEXT_REMAINING" != "null" ]; then
     STATUS="${STATUS} (${CONTEXT_REMAINING}% left)"
 fi
 
-PROJECT_DIR=$(echo "$input" | jq -r '.workspace.project_dir | sub("^" + env.HOME; "~")')
-STATUS="${STATUS} | 📁 ${PROJECT_DIR}"
+PROJECT_DIR=$(jq -r '.workspace.project_dir' <<<"$input")
+STATUS="${STATUS} | 📁 ${PROJECT_DIR##*/}"
 
 if git rev-parse --git-dir >/dev/null 2>&1; then
     GIT_BRANCH=$(git branch --show-current 2>/dev/null)
@@ -21,11 +21,17 @@ if git rev-parse --git-dir >/dev/null 2>&1; then
     fi
 fi
 
-LINES_ADDED=$(echo "$input" | jq -r '.cost.total_lines_added')
-LINES_REMOVED=$(echo "$input" | jq -r '.cost.total_lines_removed')
-if [ "$LINES_ADDED" != "0" ] || [ "$LINES_REMOVED" != "0" ]; then
-    STATUS="${STATUS} | 📊 [92m+${LINES_ADDED}[0m [91m-${LINES_REMOVED}[0m"
+FIVE_HOUR_USED=$(jq -r '.rate_limits.five_hour.used_percentage' <<<"$input")
+SEVEN_DAY_USED=$(jq -r '.rate_limits.seven_day.used_percentage' <<<"$input")
+if [ "$FIVE_HOUR_USED" != "null" ] && [ "$SEVEN_DAY_USED" != "null" ]; then
+    STATUS="${STATUS} | 📊 5h ${FIVE_HOUR_USED}% 1w ${SEVEN_DAY_USED}%"
 fi
 
-echo "${STATUS}"
+COST=$(jq -r '.cost.total_cost_usd' <<<"$input")
+if [ "$COST" != "0" ]; then
+    COST_FMT=$(printf '$%.2f' "$COST")
+    STATUS="${STATUS} | 💸 ${COST_FMT}"
+fi
+
+echo -e "${STATUS}"
 
