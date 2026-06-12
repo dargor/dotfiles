@@ -87,7 +87,9 @@
     "typeCheckingMode": "strict"
   },
   "pyright.disableLanguageServices": true,
+  "python-envs.terminal.autoActivationType": "off",
   "python.analysis.typeCheckingMode": "off",
+  "python.terminal.useEnvFile": false,
   "[python]": {
     "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.formatOnSave": true,
