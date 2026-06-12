@@ -73,6 +73,7 @@ Thumbs.db
 
 # rumdl
 .rumdl-cache/
+.rumdl_cache/
 
 # sem
 .sem/
