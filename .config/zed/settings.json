@@ -189,6 +189,10 @@
     "Git Ignore": [
       ".*ignore"
     ],
+    "GitHub Actions": [
+      "**/.github/workflows/*.yml",
+      "**/.github/workflows/*.yaml"
+    ],
     "Helm": [
       "**/templates/**/*.tpl",
       "**/templates/**/*.yaml",
