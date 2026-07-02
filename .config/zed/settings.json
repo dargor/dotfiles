@@ -423,7 +423,8 @@
             "name": "chat",
             "display_name": "Qwen3.6-35B-A3B",
             "max_tokens": 262144,
-            "max_output_tokens": 32768
+            "max_output_tokens": 32768,
+            "parallel_tool_calls": true
           }
         ]
       }
