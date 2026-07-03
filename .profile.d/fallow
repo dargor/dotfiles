@@ -1,0 +1,4 @@
+#! /usr/bin/env bash
+
+export FALLOW_UPDATE_CHECK=off
+
