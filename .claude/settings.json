@@ -33,14 +33,14 @@
   },
   "sandbox": {
     "enabled": true,
-    "excludedCommands": [
-      "cargo:*"
-    ],
     "filesystem": {
       "allowWrite": [
         "~/.cargo"
       ]
-    }
+    },
+    "excludedCommands": [
+      "cargo:*"
+    ]
   },
   "theme": "light",
   "inputNeededNotifEnabled": true
