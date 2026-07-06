@@ -422,7 +422,14 @@
         "available_models": [
           {
             "name": "chat",
-            "display_name": "Ornith 1.0 (35B-MoE)",
+            "display_name": "Ornith 1.0",
+            "max_tokens": 262144,
+            "max_output_tokens": 32768,
+            "parallel_tool_calls": true
+          },
+          {
+            "name": "agents",
+            "display_name": "Agents A1",
             "max_tokens": 262144,
             "max_output_tokens": 32768,
             "parallel_tool_calls": true
