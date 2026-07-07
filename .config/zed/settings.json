@@ -422,6 +422,13 @@
         "available_models": [
           {
             "name": "chat",
+            "display_name": "Gemma 4",
+            "max_tokens": 262144,
+            "max_output_tokens": 32768,
+            "parallel_tool_calls": true
+          },
+          {
+            "name": "ornith",
             "display_name": "Ornith 1.0",
             "max_tokens": 262144,
             "max_output_tokens": 32768,
