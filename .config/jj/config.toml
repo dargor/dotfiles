@@ -1,0 +1,14 @@
+[user]
+name = "Gabriel Linder"
+email = "linder.gabriel@gmail.com"
+
+[signing]
+backend = "gpg"
+behavior = "own"
+key = "5FA837672AC41AE3"
+
+[ui]
+pager = "delta"
+diff-formatter = ":git"
+diff-editor = ":builtin"
+merge-editor = ":builtin"
