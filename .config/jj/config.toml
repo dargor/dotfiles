@@ -8,7 +8,6 @@ behavior = "own"
 key = "5FA837672AC41AE3"
 
 [ui]
-pager = "delta"
-diff-formatter = ":git"
+diff-formatter = "delta"
 diff-editor = ":builtin"
 merge-editor = ":builtin"
