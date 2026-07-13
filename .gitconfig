@@ -49,31 +49,15 @@
     colorMoved = default
     colorMovedWS = allow-indentation-change
     wsErrorHighlight = all
-    tool = meld
 
 [diff "gpg"]
     textconv = gpg --decrypt --batch --no-tty --quiet
-
-[difftool]
-    prompt = false
-
-[difftool "meld"]
-    cmd = meld "$LOCAL" "$REMOTE"
 
 [filter "lfs"]
     clean = git-lfs clean -- %f
     smudge = git-lfs smudge -- %f
     process = git-lfs filter-process
     required = true
-
-[merge]
-    tool = meld
-
-[mergetool]
-    prompt = false
-
-[mergetool "meld"]
-    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 
 [pull]
     rebase = true
@@ -130,6 +114,5 @@
     sdiff = stash show -p
     spop = stash pop
     sclear = stash clear
-    mdev = merge develop --ff-only
     tdescribe = describe --tags --always
     fixup = !GIT_SEQUENCE_EDITOR=: git absorb --and-rebase
