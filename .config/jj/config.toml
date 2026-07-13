@@ -11,6 +11,8 @@ key = "5FA837672AC41AE3"
 diff-formatter = "delta"
 diff-editor = ":builtin"
 merge-editor = ":builtin"
+bookmark-list-sort-keys = ["committer-date-"]
+tag-list-sort-keys = ["author-date-"]
 
 [merge-tools.delta]
 diff-expected-exit-codes = [0, 1]
