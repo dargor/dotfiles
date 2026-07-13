@@ -269,7 +269,8 @@
     },
     "Perl": {
       "language_servers": [
-        "!perlnavigator-server"
+        "perlnavigator-server",
+        "!perl-lsp"
       ]
     },
     "Python": {
