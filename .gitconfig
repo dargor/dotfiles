@@ -11,7 +11,6 @@
 
 [delta]
     syntax-theme = Catppuccin Latte
-    paging = never
     wrap-max-lines = 0
     max-line-length = 0
     keep-plus-minus-markers = yes
