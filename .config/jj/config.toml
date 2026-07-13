@@ -8,6 +8,7 @@ behavior = "own"
 key = "5FA837672AC41AE3"
 
 [ui]
+default-command = "log"
 diff-formatter = "delta"
 diff-editor = ":builtin"
 merge-editor = ":builtin"
