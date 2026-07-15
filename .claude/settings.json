@@ -43,5 +43,6 @@
     ]
   },
   "theme": "light",
-  "inputNeededNotifEnabled": true
+  "inputNeededNotifEnabled": true,
+  "tui": "fullscreen"
 }
