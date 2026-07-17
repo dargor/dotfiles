@@ -112,9 +112,13 @@ variables:
       allow-duplicate-recipes
     | allow-duplicate-variables
     | dotenv-load
+    | dotenv-override
+    | dotenv-required
     | export
     | fallback
+    | guards
     | ignore-comments
+    | lazy
     | positional-arguments
     | quiet
     | unstable
@@ -137,12 +141,17 @@ variables:
   recipe_attributes_bare: |-
     (?x:
       confirm
+    | default
+    | dragonfly
+    | freebsd
     | linux
     | macos
+    | netbsd
     | no-cd
     | no-exit-message
     | no-quiet
     | openbsd
+    | parallel
     | positional-arguments
     | private
     | script
@@ -153,11 +162,15 @@ variables:
     (?x:
       confirm
     | doc
+    | env
     | extension
     | group
+    | metadata
     | script
     | working-directory
     )
+  arg_attribute_kwargs: |-
+    (?x: help | long | pattern | short | value )
 
 ###############################################################################
 # MAIN CONTEXT
@@ -201,16 +214,23 @@ contexts:
         2: meta.generic-name.just
 
   modules:
-    - match: ^(mod)(\??)(\s+\w+)
+    - match: ^(mod)(\??)\s+({{valid_name}})
       scope: meta.statement.mod.just
       captures:
         1: keyword.control.import.just
         2: keyword.operator.assignment.just
         3: meta.generic-name.just
+      push: module-path
+
+  module-path:
+    - match: f['"]
+      scope: invalid.illegal.just
+      pop: 1
     - match: '`'
       scope: invalid.illegal.just
-      pop: 2
+      pop: 1
     - include: quoted-strings
+    - include: eol-pop
 
 ###[ ALIASES ]#################################################################
 
@@ -291,7 +311,7 @@ contexts:
     - match: \{
       scope: punctuation.section.block.begin.just
       push: if-else-block-body
-    - match: '!=|==|=~'
+    - match: '!=|==|=~|!~'
       scope: keyword.operator.comparison.just
     - include: just-expressions
     - include: else-pop
@@ -326,8 +346,15 @@ contexts:
 ###[ CHARACTERS ]##############################################################
 
   all-strings:
+    - include: format-strings
     - include: quoted-strings
     - include: backtick-strings
+
+  format-strings:
+    - include: format-single-quote-block-strings
+    - include: format-single-quote-strings
+    - include: format-double-quote-block-strings
+    - include: format-double-quote-strings
 
   quoted-strings:
     - include: single-quote-block-strings
@@ -338,6 +365,71 @@ contexts:
   backtick-strings:
     - include: backtick-quote-block-strings
     - include: backtick-quote-strings
+
+
+  format-double-quote-block-strings:
+    - match: 'f"""'
+      scope: punctuation.definition.string.begin.just
+      push:
+        - meta_scope: meta.string.just string.quoted.double.block.just
+        - meta_include_prototype: false
+        - match: \\.
+          scope: constant.character.escape.just
+        - match: '"""'
+          scope: punctuation.definition.string.end.just
+          pop: 1
+        - include: format-string-interpolations
+
+  format-double-quote-strings:
+    - match: 'f"'
+      scope: punctuation.definition.string.begin.just
+      push:
+        - meta_scope: meta.string.just string.quoted.double.just
+        - meta_include_prototype: false
+        - match: \\.
+          scope: constant.character.escape.just
+        - match: '"'
+          scope: punctuation.definition.string.end.just
+          pop: 1
+        - include: format-string-interpolations
+
+  format-single-quote-block-strings:
+    - match: "f'''"
+      scope: punctuation.definition.string.begin.just
+      push:
+        - meta_scope: meta.string.just string.quoted.single.block.just
+        - meta_include_prototype: false
+        - match: "'''"
+          scope: punctuation.definition.string.end.just
+          pop: 1
+        - include: format-string-interpolations
+
+  format-single-quote-strings:
+    - match: "f'"
+      scope: punctuation.definition.string.begin.just
+      push:
+        - meta_scope: meta.string.just string.quoted.single.just
+        - meta_include_prototype: false
+        - match: "'"
+          scope: punctuation.definition.string.end.just
+          pop: 1
+        - include: format-string-interpolations
+
+  format-string-interpolations:
+    - match: \{\{\{\{
+      scope: constant.character.escape.just
+      comment: Escaped double brace - literal {{ in output
+    - match: \{\{(?!\{)
+      scope: punctuation.section.interpolation.begin.just
+      push: format-string-interpolation-body
+
+  format-string-interpolation-body:
+    - clear_scopes: 1
+    - meta_scope: meta.interpolation.just
+    - match: \}\}
+      scope: punctuation.section.interpolation.end.just
+      pop: 1
+    - include: just-expressions
 
 
   backtick-quote-block-strings:
@@ -460,6 +552,9 @@ contexts:
     - include: eol-pop
 
   expect-recipe-attribute-name:
+    - match: arg\b
+      scope: variable.annotation.just
+      set: arg-attribute
     - match: ({{recipe_attributes_arguments}})
       scope: variable.annotation.just
       set: recipe-attribute-argument
@@ -493,6 +588,47 @@ contexts:
     - include: quoted-strings
 
   recipe-attribute-argument-colon-body:
+    - match: '`'
+      scope: invalid.illegal.just
+      pop: 1
+    - include: quoted-strings
+    - include: else-pop
+
+  arg-attribute:
+    - match: \(
+      scope: punctuation.definition.annotation.begin.just
+      set: arg-attribute-paren-body
+    - include: else-pop
+
+  arg-attribute-paren-body:
+    - match: \)
+      scope: punctuation.definition.annotation.end.just
+      pop: 1
+    - match: ','
+      scope: punctuation.separator.parameters.just
+      push: arg-attribute-kwarg
+    - match: '`'
+      scope: invalid.illegal.just
+      pop: 1
+    - match: f['"]
+      scope: invalid.illegal.just
+      pop: 1
+    - include: quoted-strings
+
+  arg-attribute-kwarg:
+    - match: '({{arg_attribute_kwargs}})\s*(=)'
+      captures:
+        1: variable.parameter.just
+        2: keyword.operator.assignment.just
+      set: arg-attribute-kwarg-value
+    - match: '({{valid_name}})\s*(=)'
+      captures:
+        1: invalid.illegal.just
+        2: keyword.operator.assignment.just
+      set: arg-attribute-kwarg-value
+    - include: else-pop
+
+  arg-attribute-kwarg-value:
     - match: '`'
       scope: invalid.illegal.just
       pop: 1
@@ -631,14 +767,33 @@ contexts:
       pop: 1
 
   recipe-content-modifiers:
-    - match: ^\s+((@)|(-)(@)|(-)|(@)(-))(?!-)
+    - match: |
+        (?x)                   # Allow whitespace/comments in regex for clarity
+        (?:
+          (@)(\?)              # @?
+          | (\?)(@)            # ?@
+          | (@)(-)             # @-
+          | (-)(@)             # -@
+          | (@)                # @ alone
+          | (-)                # - alone
+          | (\?)               # ? alone
+          | ([-\?@]+)          # Any other combinations are invalid
+        )
+        (?![-?@])               # Ensure no more modifiers follow (prevents --- or ??)
       captures:
-        2: storage.modifier.quiet.just
-        3: storage.modifier.ignore-error.just
+        1: storage.modifier.quiet.just
+        2: storage.modifier.exit-if-one.just
+        3: storage.modifier.exit-if-one.just
         4: storage.modifier.quiet.just
-        5: storage.modifier.ignore-error.just
-        6: storage.modifier.quiet.just
+        5: storage.modifier.quiet.just
+        6: storage.modifier.ignore-error.just
         7: storage.modifier.ignore-error.just
+        8: storage.modifier.quiet.just
+        9: storage.modifier.quiet.just
+        10: storage.modifier.ignore-error.just
+        11: storage.modifier.exit-if-one.just
+        12: invalid.illegal.just
+      pop: 1 # Only consume the first run of space-separated sigil characters
     - include: else-pop
 
   recipe-content-interpolations:
