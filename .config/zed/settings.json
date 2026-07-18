@@ -13,6 +13,7 @@
   "unnecessary_code_fade": 0.5,
   "use_system_path_prompts": false,
   "use_system_prompts": false,
+  "zoomed_padding": false,
   "confirm_quit": true,
   "scrollbar": {
     "show": "always",
