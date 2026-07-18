@@ -5,11 +5,9 @@
     "calt": true,
     "liga": true
   },
-  "buffer_font_size": 11,
   "buffer_line_height": {
     "custom": 1.2
   },
-  "ui_font_size": 15,
   "hide_mouse": "never",
   "snippet_sort_order": "none",
   "unnecessary_code_fade": 0.5,
