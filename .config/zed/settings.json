@@ -240,7 +240,7 @@
     "provider": "open_ai_compatible_api",
     "open_ai_compatible_api": {
       "api_url": "http://localhost:1337/v1/completions",
-      "model": "qwen2.5-coder-1.5b",
+      "model": "qwen2.5-coder-1.5b-q8_0",
       "prompt_format": "qwen"
     },
     "mode": "subtle"
@@ -409,42 +409,17 @@
     "default_profile": "write",
     "default_model": {
       "enable_thinking": false,
-      "provider": "local/llama.cpp",
-      "model": "chat"
+      "provider": "llama.cpp",
+      "model": "ornith-1.0-35b-Q4_K_M"
     },
     "inline_assistant_model": {
-      "provider": "local/llama.cpp",
-      "model": "chat"
+      "provider": "llama.cpp",
+      "model": "ornith-1.0-35b-Q4_K_M"
     }
   },
   "language_models": {
-    "openai_compatible": {
-      "local/llama.cpp": {
-        "api_url": "http://localhost:1337/v1",
-        "available_models": [
-          {
-            "name": "chat",
-            "display_name": "Gemma 4",
-            "max_tokens": 262144,
-            "max_output_tokens": 32768,
-            "parallel_tool_calls": true
-          },
-          {
-            "name": "ornith",
-            "display_name": "Ornith 1.0",
-            "max_tokens": 262144,
-            "max_output_tokens": 32768,
-            "parallel_tool_calls": true
-          },
-          {
-            "name": "agents",
-            "display_name": "Agents A1",
-            "max_tokens": 262144,
-            "max_output_tokens": 32768,
-            "parallel_tool_calls": true
-          }
-        ]
-      }
+    "llama.cpp": {
+      "api_url": "http://localhost:1337"
     }
   }
 }
