@@ -410,11 +410,11 @@
     "default_model": {
       "enable_thinking": false,
       "provider": "llama.cpp",
-      "model": "ornith-1.0-35b-Q4_K_M"
+      "model": "Mellum2-12B-A2.5B-Instruct-Q8_0"
     },
     "inline_assistant_model": {
       "provider": "llama.cpp",
-      "model": "ornith-1.0-35b-Q4_K_M"
+      "model": "Mellum2-12B-A2.5B-Instruct-Q8_0"
     }
   },
   "language_models": {

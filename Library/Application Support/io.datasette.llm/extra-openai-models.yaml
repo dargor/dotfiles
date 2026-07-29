@@ -1,4 +1,4 @@
 - model_id: chat
-  model_name: chat
+  model_name: Mellum2-12B-A2.5B-Instruct-Q8_0
   api_base: http://localhost:1337/v1
   supports_tools: true
