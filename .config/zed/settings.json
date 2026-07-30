@@ -28,6 +28,7 @@
     "git_status": true,
     "show_diagnostics": "all"
   },
+  "format_on_save": "on",
   "toolbar": {
     "breadcrumbs": false,
     "quick_actions": false
@@ -256,7 +257,6 @@
       ]
     },
     "Markdown": {
-      "format_on_save": "on",
       "code_actions_on_format": {
         "source.fixAll.rumdl": true
       }
