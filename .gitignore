@@ -11,6 +11,9 @@ tags
 # Aider
 .aider.*
 
+# Claude
+.claude/settings.local.json
+
 # LibreOffice
 .~lock.*#
 
