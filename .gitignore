@@ -8,9 +8,6 @@ tags
 .sw*
 .*.sw*
 
-# Visual Studio Code
-.vscode/
-
 # Aider
 .aider.*
 
@@ -67,7 +64,7 @@ metals.sbt
 # Vowpal Wabbit
 *.vw
 
-# MacOS stuff
+# MacOS
 .DS_Store
 Thumbs.db
 
