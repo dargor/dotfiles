@@ -1,4 +1,7 @@
 #! /usr/bin/env bash
+# shellcheck disable=SC2032,SC2033
+
+alias kubectl=kubecolor
 
 klog() {
     pod="$1"
