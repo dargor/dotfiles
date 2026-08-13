@@ -241,7 +241,7 @@
     "provider": "open_ai_compatible_api",
     "open_ai_compatible_api": {
       "api_url": "http://localhost:1337/v1/completions",
-      "model": "qwen2.5-coder-1.5b-q8_0",
+      "model": "sweep-next-edit-1.5b.q8_0.v2",
       "prompt_format": "qwen"
     },
     "mode": "subtle"
