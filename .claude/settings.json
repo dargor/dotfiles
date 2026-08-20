@@ -42,7 +42,7 @@
       "cargo:*"
     ]
   },
+  "tui": "fullscreen",
   "theme": "light",
-  "inputNeededNotifEnabled": true,
-  "tui": "fullscreen"
+  "inputNeededNotifEnabled": true
 }
