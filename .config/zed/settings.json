@@ -229,7 +229,8 @@
   },
   "diagnostics": {
     "inline": {
-      "enabled": true
+      "enabled": true,
+      "update_debounce_ms": 0
     }
   },
   "git": {
