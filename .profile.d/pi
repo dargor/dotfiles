@@ -1,0 +1,5 @@
+#! /usr/bin/env bash
+
+alias π="/opt/homebrew/bin/pi"
+export PI_SKIP_VERSION_CHECK="1"
+
