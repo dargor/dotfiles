@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+export GLAB_GLAMOUR_STYLE=light
+
 lci() {
     glab ci view -p "$(glab ci list -F json | jq -r '.[0].id')"
 }
