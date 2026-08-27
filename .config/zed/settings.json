@@ -416,6 +416,9 @@
     "inline_assistant_model": {
       "provider": "llama.cpp",
       "model": "Mellum2-12B-A2.5B-Instruct-Q8_0"
+    },
+    "sandbox_permissions": {
+      "allow_unsandboxed": true
     }
   },
   "language_models": {
