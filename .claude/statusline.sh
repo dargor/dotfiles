@@ -6,7 +6,7 @@ input=$(cat)
 MODEL_NAME=$(jq -r '.model.display_name' <<<"$input")
 STATUS="🧠 ${MODEL_NAME}"
 
-CONTEXT_REMAINING=$(jq -r '.context_window.remaining_percentage' <<<"$input")
+CONTEXT_REMAINING=$(jq -r '.context_window.remaining_percentage | round' <<<"$input")
 if [ "$CONTEXT_REMAINING" != "null" ]; then
     STATUS="${STATUS} (${CONTEXT_REMAINING}% left)"
 fi
@@ -21,8 +21,8 @@ if git rev-parse --git-dir >/dev/null 2>&1; then
     fi
 fi
 
-FIVE_HOUR_USED=$(jq -r '.rate_limits.five_hour.used_percentage' <<<"$input")
-SEVEN_DAY_USED=$(jq -r '.rate_limits.seven_day.used_percentage' <<<"$input")
+FIVE_HOUR_USED=$(jq -r '.rate_limits.five_hour.used_percentage | round' <<<"$input")
+SEVEN_DAY_USED=$(jq -r '.rate_limits.seven_day.used_percentage | round' <<<"$input")
 if [ "$FIVE_HOUR_USED" != "null" ] && [ "$SEVEN_DAY_USED" != "null" ]; then
     STATUS="${STATUS} | 📊 5h ${FIVE_HOUR_USED}% 1w ${SEVEN_DAY_USED}%"
 fi
