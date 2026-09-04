@@ -4,7 +4,8 @@ set -eu
 input=$(cat)
 
 MODEL_NAME=$(jq -r '.model.display_name' <<<"$input")
-STATUS="🧠 ${MODEL_NAME}"
+EFFORT_LEVEL=$(jq -r '.effort.level' <<<"$input")
+STATUS="🧠 ${MODEL_NAME} 💪 ${EFFORT_LEVEL}"
 
 CONTEXT_REMAINING=$(jq -r '.context_window.remaining_percentage | round' <<<"$input")
 if [ "$CONTEXT_REMAINING" != "null" ]; then

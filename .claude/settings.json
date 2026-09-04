@@ -42,6 +42,7 @@
       "cargo:*"
     ]
   },
+  "effortLevel": "high",
   "tui": "fullscreen",
   "theme": "light",
   "inputNeededNotifEnabled": true,
