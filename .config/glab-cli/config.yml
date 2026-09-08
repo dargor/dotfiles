@@ -1,0 +1,7 @@
+glab_pager: cat
+check_update: false
+show_whats_new: false
+display_hyperlinks: false
+glamour_style: light
+no_prompt: true
+hosts:

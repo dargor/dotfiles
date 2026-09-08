@@ -1,0 +1,8 @@
+version: 1
+prompt: disabled
+prefer_editor_prompt: disabled
+color_labels: disabled
+git_protocol: ssh
+pager: cat
+aliases:
+  mr: pr
