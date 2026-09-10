@@ -2,9 +2,9 @@
 
 ## General Tool Usage
 
-- Prefer built-in tools (`list_directory`, `read_file`, etc.) over shell commands.
+- Prefer using the built-in tools (`list_directory`, `read_file`, etc.) over shell commands.
 - Reserve the `terminal` tool for operations that must run outside of the editor — builds, tests, and other CLIs.
-- Rationale: built-in tools integrate with the editor workflow, while `terminal` use require explicit human oversight.
+- Rationale: the built-in tools integrate with the editor workflow, while `terminal` use require explicit human oversight.
 
 ## Terminal Tool
 
