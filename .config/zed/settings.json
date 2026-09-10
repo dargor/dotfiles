@@ -18,6 +18,7 @@
   "zoomed_padding": false,
   "confirm_quit": true,
   "cli_default_open_behavior": "new_window",
+  "reveal_if_open": true,
   "scrollbar": {
     "show": "always",
     "axes": {
