@@ -389,10 +389,7 @@
     "dock": "left",
     "diagnostic_badges": true,
     "entry_spacing": "standard",
-    "sticky_scroll": false,
-    "scrollbar": {
-      "show": "never"
-    }
+    "sticky_scroll": false
   },
   "outline_panel": {
     "dock": "left"
