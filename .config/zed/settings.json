@@ -17,6 +17,8 @@
   "use_system_prompts": false,
   "zoomed_padding": false,
   "confirm_quit": true,
+  "on_new_window": "launchpad",
+  "restore_on_startup": "launchpad",
   "cli_default_open_behavior": "new_window",
   "reveal_if_open": true,
   "scrollbar": {
