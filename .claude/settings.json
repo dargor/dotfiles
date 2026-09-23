@@ -20,7 +20,6 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "claude-fable-5[1m]",
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh"
@@ -42,7 +41,6 @@
       "cargo:*"
     ]
   },
-  "effortLevel": "high",
   "tui": "fullscreen",
   "theme": "light",
   "inputNeededNotifEnabled": true,
