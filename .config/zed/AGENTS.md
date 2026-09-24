@@ -7,3 +7,13 @@
 - When `terminal` is unavoidable, briefly state why.
 
 Rationale: built-in tools generally run directly without approval, while `terminal` commands require explicit human approval — unnecessary usage slows the task and interrupts the user.
+
+## Terminal Tool
+
+The `terminal` tool requires **both** parameters and will not work with only one:
+
+- `command` — the command to execute.
+- `cd` — the directory the command runs in (a project root or one of its subdirectories, by name).
+
+If either parameter is missing, the call fails with `tool input was not fully received` and no output is produced.
+Every call launches a fresh shell, so never assume a working directory carries over from a previous call — set `cd` explicitly each time.
