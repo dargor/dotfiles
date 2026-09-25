@@ -3,5 +3,14 @@
     "bindings": {
       "cmd-@": "terminal_panel::ToggleFocus"
     }
+  },
+  {
+    "context": "Editor && showing_signature_help && !showing_completions",
+    "bindings": {
+      "up": "editor::MoveUp",
+      "down": "editor::MoveDown",
+      "alt-up": "editor::SignatureHelpPrevious",
+      "alt-down": "editor::SignatureHelpNext"
+    }
   }
 ]
