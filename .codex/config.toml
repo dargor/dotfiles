@@ -12,11 +12,14 @@ writable_roots = ["~/.cargo"]
 network_access = true
 
 [tui]
+screen_reader_detection_done = true
+status_line_use_colors = true
 status_line = [
-  "current-dir",
-  "git-branch",
-  "model-name",
+  "model-with-reasoning",
   "context-remaining",
+  "project-name",
+  "git-branch",
   "five-hour-limit",
   "weekly-limit",
+  "estimated-thread-cost",
 ]
