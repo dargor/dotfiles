@@ -421,6 +421,13 @@
     },
     "sandbox_permissions": {
       "allow_unsandboxed": true
+    },
+    "tool_permissions": {
+      "tools": {
+        "skill": {
+          "default": "allow"
+        }
+      }
     }
   },
   "language_models": {
