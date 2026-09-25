@@ -95,6 +95,15 @@ if executable('protobuf-language-server')
     \ })
 endif
 
+if executable('regal')
+    " https://www.openpolicyagent.org/projects/regal/editor-support
+    autocmd User lsp_setup call lsp#register_server(#{
+    \   name: 'Rego Language Server (regal)',
+    \   cmd: {server_info->['regal', 'language-server']},
+    \   allowlist: ['rego'],
+    \ })
+endif
+
 if executable('basedpyright-langserver')
     " https://github.com/mattn/vim-lsp-settings/blob/master/settings/pyright-langserver.vim
     autocmd User lsp_setup call lsp#register_server(#{
