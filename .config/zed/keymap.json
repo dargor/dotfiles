@@ -12,5 +12,58 @@
       "alt-up": "editor::SignatureHelpPrevious",
       "alt-down": "editor::SignatureHelpNext"
     }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "f1": [
+        "terminal::SendKeystroke",
+        "f1"
+      ],
+      "f2": [
+        "terminal::SendKeystroke",
+        "f2"
+      ],
+      "f3": [
+        "terminal::SendKeystroke",
+        "f3"
+      ],
+      "f4": [
+        "terminal::SendKeystroke",
+        "f4"
+      ],
+      "f5": [
+        "terminal::SendKeystroke",
+        "f5"
+      ],
+      "f6": [
+        "terminal::SendKeystroke",
+        "f6"
+      ],
+      "f7": [
+        "terminal::SendKeystroke",
+        "f7"
+      ],
+      "f8": [
+        "terminal::SendKeystroke",
+        "f8"
+      ],
+      "f9": [
+        "terminal::SendKeystroke",
+        "f9"
+      ],
+      "f10": [
+        "terminal::SendKeystroke",
+        "f10"
+      ],
+      "f11": [
+        "terminal::SendKeystroke",
+        "f11"
+      ],
+      "f12": [
+        "terminal::SendKeystroke",
+        "f12"
+      ]
+    }
   }
 ]
