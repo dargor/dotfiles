@@ -12,6 +12,9 @@ sandbox_mode = "workspace-write"
 writable_roots = ["~/.cargo"]
 network_access = true
 
+[features]
+daemon_auto_start = false
+
 [tui]
 screen_reader_detection_done = true
 status_line_use_colors = true
