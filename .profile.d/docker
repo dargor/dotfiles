@@ -63,13 +63,10 @@ docker_clean_volumes() {
 }
 
 docker_prune() {
-    _docker_log "Pruning docker"
-    docker system prune -f
-}
-
-docker_prune_all() {
-    _docker_log "Pruning docker (all)"
+    _docker_log "Pruning docker system"
     docker system prune -f -a
+    _docker_log "Pruning docker builder"
+    docker builder prune -f -a
 }
 
 docker_summary() {
