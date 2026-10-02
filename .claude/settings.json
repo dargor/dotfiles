@@ -6,18 +6,6 @@
   },
   "includeGitInstructions": false,
   "permissions": {
-    "allow": [
-      "Bash(cargo:*)",
-      "WebFetch(domain:github.com)"
-    ],
-    "deny": [
-      "Read(**/.env*)",
-      "Read(**/*.pem)",
-      "Read(**/*.key)",
-      "Read(**/*.cert)",
-      "Read(**/*.crt)",
-      "Read(**/secrets.yml)"
-    ],
     "defaultMode": "auto"
   },
   "statusLine": {
@@ -29,17 +17,6 @@
     "pyright-lsp@claude-plugins-official": true,
     "rust-analyzer-lsp@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true
-  },
-  "sandbox": {
-    "enabled": true,
-    "filesystem": {
-      "allowWrite": [
-        "~/.cargo"
-      ]
-    },
-    "excludedCommands": [
-      "cargo:*"
-    ]
   },
   "tui": "fullscreen",
   "theme": "light",
