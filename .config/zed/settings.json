@@ -1,5 +1,5 @@
 {
-  "disable_ai": false,
+  "$schema": "zed://schemas/settings",
   "buffer_font_family": "Monaspace Krypton",
   "buffer_font_features": {
     "calt": true,
