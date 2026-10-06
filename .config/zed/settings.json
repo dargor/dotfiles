@@ -436,6 +436,18 @@
     "llama.cpp": {
       "api_url": "http://localhost:1337"
     },
+    "mistral": {
+      "available_models": [
+        {
+          "name": "mistral-large-4",
+          "display_name": "Mistral Large 4",
+          "max_tokens": 1048576,
+          "supports_tools": true,
+          "supports_images": true,
+          "supports_thinking": true
+        }
+      ]
+    },
     "opencode": {
       "show_go_models": false
     }
