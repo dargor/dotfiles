@@ -244,7 +244,7 @@
     }
   },
   "edit_predictions": {
-    "provider": "open_ai_compatible_api",
+    "provider": "zed",
     "open_ai_compatible_api": {
       "api_url": "http://localhost:1337/v1/completions",
       "model": "sweep-next-edit-1.5b.q8_0.v2",
@@ -414,12 +414,12 @@
     "default_profile": "write",
     "default_model": {
       "enable_thinking": false,
-      "provider": "llama.cpp",
-      "model": "Mellum2-12B-A2.5B-Instruct-Q8_0"
+      "provider": "mistral",
+      "model": "codestral-latest"
     },
     "inline_assistant_model": {
-      "provider": "llama.cpp",
-      "model": "Mellum2-12B-A2.5B-Instruct-Q8_0"
+      "provider": "mistral",
+      "model": "codestral-latest"
     },
     "sandbox_permissions": {
       "allow_unsandboxed": true
