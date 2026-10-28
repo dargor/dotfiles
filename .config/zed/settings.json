@@ -445,6 +445,22 @@
           "supports_tools": true,
           "supports_images": true,
           "supports_thinking": true
+        },
+        {
+          "name": "zai-glm-5-3-flash",
+          "display_name": "Z.ai GLM 5.3 Flash",
+          "max_tokens": 1048576,
+          "max_output_tokens": 131072,
+          "supports_tools": true,
+          "supports_images": true
+        },
+        {
+          "name": "deepseek-v4-1-flash-1017",
+          "display_name": "DeepSeek V4.1 Flash 1017",
+          "max_tokens": 1048576,
+          "max_output_tokens": 131072,
+          "supports_tools": true,
+          "supports_thinking": true
         }
       ]
     },
