@@ -2,7 +2,6 @@ check_for_update_on_startup = false
 
 model = "gpt-6.1-terra"
 model_reasoning_effort = "medium"
-personality = "pragmatic"
 
 approval_policy = "on-request"
 approvals_reviewer = "auto_review"
