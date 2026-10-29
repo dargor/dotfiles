@@ -35,4 +35,4 @@ def configure(repl: PythonRepl) -> None:
     repl.enable_syntax_highlighting = True
     repl.vi_start_in_navigation_mode = False
     repl.vi_keep_last_used_mode = False
-    repl.use_code_colorscheme("abap")
+    repl.use_code_colorscheme("default")
