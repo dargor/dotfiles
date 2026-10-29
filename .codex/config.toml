@@ -1,6 +1,6 @@
 check_for_update_on_startup = false
 
-model = "gpt-6-sol"
+model = "gpt-6.1-terra"
 model_reasoning_effort = "medium"
 personality = "pragmatic"
 

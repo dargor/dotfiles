@@ -8,6 +8,7 @@
   "permissions": {
     "defaultMode": "auto"
   },
+  "model": "sonnet",
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh"
@@ -18,6 +19,7 @@
     "rust-analyzer-lsp@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true
   },
+  "effortLevel": "medium",
   "tui": "fullscreen",
   "theme": "light",
   "inputNeededNotifEnabled": true,
