@@ -2,6 +2,8 @@ if &diff
     finish
 endif
 
+let g:lsp_experimental_workspace_folders = 1
+
 let g:lsp_max_buffer_size = -1
 let g:lsp_use_native_client = 1
 
