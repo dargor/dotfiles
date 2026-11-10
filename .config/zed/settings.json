@@ -40,13 +40,7 @@
   "lsp": {
     "gopls": {
       "initialization_options": {
-        "staticcheck": true,
-        "analyses": {
-          "shadow": true
-        },
-        "vulncheck": "Imports",
         "gofumpt": true,
-        "usePlaceholders": true,
         "hints": {
           "ignoredError": true
         }

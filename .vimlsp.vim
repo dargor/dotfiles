@@ -58,6 +58,12 @@ if executable('gopls')
     \   name: 'Go Language Server',
     \   cmd: {server_info->['gopls', '-remote=auto']},
     \   allowlist: ['go', 'gomod', 'gohtmltmpl', 'gotexttmpl'],
+    \   initialization_options: #{
+    \     gofumpt: v:true,
+    \     hints: #{
+    \       ignoredError: v:true,
+    \     },
+    \   },
     \ })
 endif
 
