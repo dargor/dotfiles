@@ -460,6 +460,7 @@
           "max_tokens": 1048576,
           "max_output_tokens": 131072,
           "supports_tools": true,
+          "supports_images": true,
           "supports_thinking": true
         }
       ]
