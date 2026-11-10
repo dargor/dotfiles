@@ -61,7 +61,14 @@ if executable('gopls')
     \   initialization_options: #{
     \     gofumpt: v:true,
     \     hints: #{
+    \       assignVariableTypes: v:true,
+    \       compositeLiteralFields: v:true,
+    \       compositeLiteralTypes: v:true,
+    \       constantValues: v:true,
+    \       functionTypeParameters: v:true,
     \       ignoredError: v:true,
+    \       parameterNames: v:true,
+    \       rangeVariableTypes: v:true,
     \     },
     \   },
     \ })
