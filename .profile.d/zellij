@@ -1,0 +1,4 @@
+#! /usr/bin/env bash
+
+export ZELLIJ_DESKTOP_INTEGRATION=off
+
