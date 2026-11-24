@@ -70,6 +70,7 @@ if executable('gopls')
     \       parameterNames: v:true,
     \       rangeVariableTypes: v:true,
     \     },
+    \     vulncheck: 'Imports',
     \   },
     \ })
 endif
